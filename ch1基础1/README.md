@@ -87,4 +87,61 @@ alert(typeof a*2);    //NaN ，先执行typeof
 - 布尔类型，包括true 和 false
 - 6个falsy值： false,"",0,NaN,undefined,null, ==>  false
 
+# String
+1. 单引号、双引号均可
+
+
+#  Number
+1. 几个特别的值
+   	NaN （与自身也不相等）
+   	Infinity
+   	-Infinity
+   	Number.MAX_VALUE
+   	Number.MIN_VALUE
+
+2. isFinite()
+判断数字是否有穷
+
+```
+isFinite(Number.MAX_VALUE+1);   //  true，溢出
+isFinite(Number.MAX_VALUE+999) ; //true，溢出
+isFinite(Number.MAX_VALUE+Number.MAX_VALUE); // false
+isFinite(Number.MAX_VALUE*2) ; //false
+```
+
+3. Number()
+转换规则：
+	null 转换为0
+	undefined转换为 __NaN__
+	Boolean类型，true转为1，false转换为0
+	Number类型，直接传入和返回
+	String类型
+   - 字符串只含有数字（含+ - 号,前导的0被忽略，空格也会被忽略），转换为数字，如Number("-00012.3");//-12.3
+   - 字符串中为有效的十六进制格式数字，转换为相同大小的十进制
+   - 空字符串转换为0
+   - 其他格式被转换为NaN
+```
+Number("0xf");   //15
+Number("-0xf");  //NaN
+Number("+0xf");  //NaN
+Number("123a");   //NaN
+```
+
+ Object类型，调用对象的valueOf()方法，依照前述规则转换；如果结果为NaN，调用对象的toString() 方法，再依照前述规则转换返回的字符串值
+Number({}) ;   //NaN
+Number(function(){}) ;  //NaN
+Number([]) ;       //0
+Number([1]) ;      //1
+Number(["1"]);     //1
+Number(["1","2"]);  //NaN
+
+
+2.3.5.4 isNaN()
+调用Number()函数，然后判断是否是NaN
+
+
+
+
+
+
 
