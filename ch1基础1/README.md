@@ -10,3 +10,9 @@
 2. Android 4.4 之前的 Android 系统浏览器内核是 WebKit，
 3. Android4.4 系统浏览器切换到了Chromium，内核是 Webkit 的分支 Blink
 4. Windows Phone 8 系统浏览器内核是 Trident。
+
+# 浏览器兼容处理
+1. -moz-     /* 火狐等使用Mozilla浏览器引擎的浏览器 */
+2. -webkit-  /* Safari, 谷歌浏览器等使用Webkit引擎的浏览器 */
+3. -o-       /* Opera浏览器(早期) */
+4. -ms-      /* Internet Explorer
