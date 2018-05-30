@@ -16,3 +16,21 @@
 2. -webkit-  /* Safari, 谷歌浏览器等使用Webkit引擎的浏览器 */
 3. -o-       /* Opera浏览器(早期) */
 4. -ms-      /* Internet Explorer
+
+# 引入JS的3种方式
+
+```
+<body>
+   <!-- 行内方式-->
+    <div onclick="alert('Hello World!')">Click me !!</div>
+   <!--内嵌式-->
+    <script type="text/javascript">
+        console.log("window onLoad");
+    </script>
+   <!--外链式-->
+   <script src="./1.js">
+       /*带有src属性的<script>元素中的js代码会被忽略*/
+       console.log("This code will not run");
+   </script>
+</body>
+```

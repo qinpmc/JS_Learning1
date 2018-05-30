@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <!-- 行内方式-->
+    <div onclick="alert('Hello World!')">Click me !!</div>
+   <!--内嵌式-->
+    <script type="text/javascript">
+        console.log("window onLoad");
+    </script>
+   <!--外链式-->
+   <script src="./1.js">
+       /*带有src属性的<script>元素中的js代码会被忽略*/
+       console.log("This code will not run");
+   </script>
+</body>
+</html>
