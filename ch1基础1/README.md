@@ -70,17 +70,19 @@
 
 3. typeof 操作符
 返回结果
-	undefined
-	boolean
-	string
-	number
-	object （ __null__ 、{}、[]、/at/）
-	function
+- undefined
+- boolean
+- string
+- number
+- object （ __null__ 、{}、[]、/at/）
+- function
 
 ```
 alert(typeof (a*2));  //number, '21' -->21
 alert(typeof a*2);    //NaN ，先执行typeof
-
+alert(typeof Error); // function,构造函数Error
+alert(typeof NaN); // number
+alert(typeof Array);  // function,构造函数
 ```
 # Boolean
 
@@ -93,11 +95,11 @@ alert(typeof a*2);    //NaN ，先执行typeof
 
 #  Number
 1. 几个特别的值
-   	NaN （与自身也不相等）
-   	Infinity
-   	-Infinity
-   	Number.MAX_VALUE
-   	Number.MIN_VALUE
+  * NaN （与自身也不相等）
+  * Infinity
+  * -Infinity
+  * Number.MAX_VALUE
+  * Number.MIN_VALUE
 
 2. isFinite()
 判断数字是否有穷
@@ -111,11 +113,11 @@ isFinite(Number.MAX_VALUE*2) ; //false
 
 3. Number()
 转换规则：
-	null 转换为0
-	undefined转换为 __NaN__
-	Boolean类型，true转为1，false转换为0
-	Number类型，直接传入和返回
-	String类型
+* null 转换为0
+* undefined转换为 __NaN__
+* Boolean类型，true转为1，false转换为0
+* Number类型，直接传入和返回
+* String类型
    - 字符串只含有数字（含+ - 号,前导的0被忽略，空格也会被忽略），转换为数字，如Number("-00012.3");//-12.3
    - 字符串中为有效的十六进制格式数字，转换为相同大小的十进制
    - 空字符串转换为0
@@ -127,17 +129,43 @@ Number("+0xf");  //NaN
 Number("123a");   //NaN
 ```
 
- Object类型，调用对象的valueOf()方法，依照前述规则转换；如果结果为NaN，调用对象的toString() 方法，再依照前述规则转换返回的字符串值
+* Object类型，调用对象的valueOf()方法，依照前述规则转换；如果结果为NaN，调用对象的toString() 方法，再依照前述规则转换返回的字符串值
+
+```
 Number({}) ;   //NaN
 Number(function(){}) ;  //NaN
 Number([]) ;       //0
 Number([1]) ;      //1
 Number(["1"]);     //1
-Number(["1","2"]);  //NaN
+Number(["1","2"]);  //NaN ，["1","2"] => "1","2" =>NaN
+```
 
-
-2.3.5.4 isNaN()
+4. isNaN()
 调用Number()函数，然后判断是否是NaN
+
+5. parseInt()
+忽略字符串前的空格，直至找到第一个非空字符，直到解析到后续字符为非数字
+
+```
+parseInt("123as");   //123
+Number("123as");   //NaN
+parseInt("");  // NaN,空字符串转换为NaN !!!
+Number("");  // 0
+parseInt("070");  // 70
+parseInt("070",8);  // 56 ，八进制转换
+parseInt(070);  // 56
+alert(parseInt("0xf"));  // 15
+alert(parseInt(true));  // NaN
+alert(parseInt(null));  // NaN
+alert(parseInt(undefined));  // NaN
+alert(parseInt([]));  // NaN
+alert(parseInt({}));  // NaN
+```
+
+6 parseFloat()
+类同parseInt()函数，多解析一个小数点
+
+
 
 
 
