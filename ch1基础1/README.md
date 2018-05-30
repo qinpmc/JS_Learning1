@@ -166,7 +166,33 @@ alert(parseInt({}));  // NaN
 类同parseInt()函数，多解析一个小数点
 
 
+# 布尔操作符
+1. 逻辑与 (&&)
+   expr1 &&expr2	如果expr1 能转换成false则返回expr1，否则返回expr2。
+   因此，与布尔值一起使用时，如果两个操作数都为true时&&返回true，否则返回false。
+2. 逻辑或 (||)
+   expr1 ||expr2	如果expr1能转换成true则返回expr1，否则返回expr2。因此，
+   与布尔值一起使用时，如果任意一个操作数为true时||返回true。
+3. 逻辑非(!)
+   !expr	如果expr能转换为true，返回false；
+   如果expr能转换为false，则返回true。
 
+```
+alert("1"&&"2");  //2
+alert("0"&&"2");  //2, "0" 为 truthy，"" 才为falsy
+alert(0&&"2");  //0
+
+// 逻辑与&& 的短路
+	alert(""&&"2");   //""
+	alert(null&&"2");  //null
+	alert(undefined&&"2");  //undefined
+	alert(NaN&&"2");  //NaN
+	alert(0 &&"2");  //0
+	alert(false &&"2");  //false
+	//alert("1"||"2");  //1
+	//alert("0"||"2");  //0
+
+```
 
 
 
