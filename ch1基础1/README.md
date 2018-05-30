@@ -183,14 +183,14 @@ alert("0"&&"2");  //2, "0" 为 truthy，"" 才为falsy
 alert(0&&"2");  //0
 
 // 逻辑与&& 的短路
-	alert(""&&"2");   //""
-	alert(null&&"2");  //null
-	alert(undefined&&"2");  //undefined
-	alert(NaN&&"2");  //NaN
-	alert(0 &&"2");  //0
-	alert(false &&"2");  //false
-	//alert("1"||"2");  //1
-	//alert("0"||"2");  //0
+alert(""&&"2");   //""
+alert(null&&"2");  //null
+alert(undefined&&"2");  //undefined
+alert(NaN&&"2");  //NaN
+alert(0 &&"2");  //0
+alert(false &&"2");  //false
+//alert("1"||"2");  //1
+//alert("0"||"2");  //0
 
 ```
 
