@@ -51,5 +51,40 @@
 没有 defer 或 async，浏览器会立即加载并执行指定的脚本，
 “立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行
 
+# 标识符
+1. 第一个字符必须是字母、下划线、或$
+2. 其他字符可以是字母、下划线、$ 、 __或数字__
+3. 区分大小写
+
+
+# 数据类型
+1. 基本数据类型
+	Undefined
+	Null
+	Boolean
+	Number
+	String
+2. 引用数据类型
+	Object,包括 普通对象{ }，正则、数组[]
+  function
+
+3. typeof 操作符
+返回结果
+	undefined
+	boolean
+	string
+	number
+	object （ __null__ 、{}、[]、/at/）
+	function
+
+```
+alert(typeof (a*2));  //number, '21' -->21
+alert(typeof a*2);    //NaN ，先执行typeof
+
+```
+# Boolean
+
+- 布尔类型，包括true 和 false
+- 6个falsy值： false,"",0,NaN,undefined,null, ==>  false
 
 
