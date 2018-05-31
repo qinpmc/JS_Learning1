@@ -110,7 +110,7 @@ i=2, j=1
 i=2, j=2
 
 ```
-
+***
 
 
 # 数据类型
@@ -140,8 +140,8 @@ alert(typeof Error); // function,构造函数Error
 alert(typeof NaN); // number
 alert(typeof Array);  // function,构造函数
 ```
-# Boolean
 
+# Boolean
 - 布尔类型，包括true 和 false
 - 6个falsy值： false,"",0,NaN,undefined,null, ==>  false
 
