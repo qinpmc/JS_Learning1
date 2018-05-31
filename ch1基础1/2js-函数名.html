@@ -6,7 +6,14 @@
 </head>
 <body>
 <script>
+    function f1() {}
+    console.log(f1.name); // "f1"
 
+    var f2 = function () {};
+    console.log(f2.name) // "f2"
+
+    var f3 = function myName() {};
+    console.log(f3.name) // 'myName'
 </script>
 </body>
 </html>
