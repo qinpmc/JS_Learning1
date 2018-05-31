@@ -276,6 +276,100 @@ obj2[2]; //"aaa"
 > 它不仅遍历对象自身的属性，还遍历继承的属性。
 
 
+# 数组
+1. 数组的length属性，返回数组的成员数量
+2. in 运算符 查某个键名是否存在的运算符in，适用于对象，也适用于数组
+3 .for...in循环不仅可以遍历对象，也可以遍历数组
+> for...in不仅会遍历数组所有的数字键，还会遍历非数字键。
+```
+var arr = [ 'a', 'b', 'c' ];
+2 in arr  // true
+'2' in arr // true
+4 in arr // false
+
+var a = [1, 2, 3];
+a.foo = true;
+
+for (var key in a) {
+  console.log(key);
+}
+// 0
+// 1
+// 2
+// foo ; for...in不仅会遍历数组所有的数字键，还会遍历非数字键。
+```
+
+4. 类似数组的对象
+- 类似数组的对象”的根本特征，就是具有length属性
+- 类似数组的对象:
+   > 是函数的arguments对象
+   > 大多数 DOM 元素集
+   > 字符串
+
+- 数组的slice方法可以将“类似数组的对象”变成真正的数组。
+  var arr = Array.prototype.slice.call(arrayLike);
+- 通过call()，可以把forEach()嫁接到arrayLike上面调用
+
+```
+function logArgs() {
+  Array.prototype.forEach.call(arguments, function (elem, i) {
+    console.log(i + '. ' + elem);
+  });
+}
+```
+
+# 函数
+
+1. 函数声明
+
+```
+function print(s) {
+  console.log(s);
+}
+```
+2. 函数表达式
+> 采用函数表达式声明函数时，function命令后面不带有函数名。
+  如果加上函数名，该函数名 __只在函数体内部有效__，在函数体外部无效。
+```
+var print = function(s) {
+  console.log(s);
+};
+```
+3. Function 构造函数
+> 如果只有一个参数，该参数就是函数体
+```
+var add = new Function(
+  'x',
+  'y',
+  'return x + y'
+);
+
+// 等同于
+function add(x, y) {
+  return x + y;
+}
+```
+4. 函数名的提升
+> function命令声明函数时，整个函数会像var变量声明一样，被提升到代码头部
+
+5. name 属性
+
+```
+function f1() {}
+f1.name // "f1"
+
+var f2 = function () {};
+f2.name // "f2"
+
+var f3 = function myName() {};
+f3.name // 'myName'
+```
+6. length 属性
+> length属性返回形参数个数，即函数定义之中的参数个数
+
+
+
+
 # 布尔操作符
 1. 逻辑与 (&&)
    expr1 &&expr2	如果expr1 能转换成false则返回expr1，否则返回expr2。

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81861e67-eca6-482f-9468-f78433e4f37a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch1基础1/2js-函数名.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch1基础1/README.md" afterPath="$PROJECT_DIR$/ch1基础1/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -26,8 +28,18 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch1基础1/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18139535">
-              <caret line="270" column="2" selection-start-line="270" selection-start-column="2" selection-end-line="270" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.7883721">
+              <caret line="367" column="28" selection-start-line="367" selection-start-column="18" selection-end-line="367" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2js-函数名.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch1基础1/2js-函数名.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.147059">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -38,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,6 +64,8 @@
         <option value="$PROJECT_DIR$/ch1基础1/1.js" />
         <option value="$PROJECT_DIR$/ch1基础1/1js引入.html" />
         <option value="$PROJECT_DIR$/ch1基础1/README.md" />
+        <option value="$PROJECT_DIR$/ch1基础1/2js.html" />
+        <option value="$PROJECT_DIR$/ch1基础1/2js-函数名.html" />
       </list>
     </option>
   </component>
@@ -274,10 +288,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch1基础1/2js-函数名.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.147059">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch1基础1/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18139535">
-          <caret line="270" column="2" selection-start-line="270" selection-start-column="2" selection-end-line="270" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.7883721">
+          <caret line="367" column="28" selection-start-line="367" selection-start-column="18" selection-end-line="367" selection-end-column="28" />
           <folding />
         </state>
       </provider>
