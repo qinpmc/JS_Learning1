@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            width: 200px;
+            list-style: none;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul class="box">
+    <li><a href="#">这是第1行</a></li>
+    <li><a href="#">这是第2行</a></li>
+    <li><a href="#">这是第3行</a></li>
+    <li><a href="#">这是第4行</a></li>
+    <li><a href="#">这是第5行</a></li>
+    <li><a href="#">这是第6行</a></li>
+    <li><a href="#">这是第7行</a></li>
+    <li><a href="#">这是第8行</a></li>
+    <li><a href="#">这是第9行</a></li>
+    <li><a href="#">这是第10行</a></li>
+</ul>
+<script>
+    var liList = document.getElementsByTagName("li");
+    for(var i= 0,len=liList.length;i<len;i++){
+        i%2 ==0? liList[i].style.backgroundColor = "pink":liList[i].style.backgroundColor = "yellowgreen";
+    }
+</script>
+</body>
+</html>
