@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,li,a{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            font: 16px Arial ;
+            color: black;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        li{
+            float: left;
+            border:1px solid black;
+            width: 60px;
+            line-height: 30px;
+            text-align: center;
+            background: yellowgreen ;
+        }
+        .content{
+            display: none;
+            width: 184px;
+            line-height: 30px;
+            text-align: left;
+            height: 60px;
+            border:1px solid black;
+            background: greenyellow ;
+        }
+        .active{
+            display: block;
+        }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content: "";
+        }
+    </style>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="clearfix">
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">电影</a></li>
+            <li><a href="#">音乐</a></li>
+        </ul>
+        <div class="content active">新闻新闻新闻11</div>
+        <div class="content">电影电影电影22</div>
+        <div class="content">音乐音乐音乐33</div>
+    </div>
+<script type="text/javascript">
+    var liList = document.getElementsByTagName("li");
+    var contentList = document.getElementsByClassName("content");
+    for(var i= 0,len=liList.length;i<len;i++){
+        liList[i].index = i;
+        liList[i].onclick = function(){
+            hiddenContent(contentList);
+            contentList[this.index].style.display = "block";
+        }
+    }
+    function hiddenContent(contentList){
+        for(var i= 0,len=contentList.length;i<len;i++){
+            contentList[i].style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
