@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            width: 200px;
+            list-style: none;
+            margin: 30px;
+        }
+        .active{
+            background: greenyellow;
+        }
+        .first{
+            background: silver;
+        }
+        .second{
+            background: darkslategrey;
+        }
+        .third{
+            background: grey;
+        }
+    </style>
+</head>
+<body>
+<ul class="box">
+    <li><a href="#">这是第1行</a></li>
+    <li><a href="#">这是第2行</a></li>
+    <li><a href="#">这是第3行</a></li>
+    <li><a href="#">这是第4行</a></li>
+    <li><a href="#">这是第5行</a></li>
+    <li><a href="#">这是第6行</a></li>
+    <li><a href="#">这是第7行</a></li>
+    <li><a href="#">这是第8行</a></li>
+    <li><a href="#">这是第9行</a></li>
+    <li><a href="#">这是第10行</a></li>
+</ul>
+<script>
+    var liList = document.getElementsByTagName("li");
+    for(var i= 0,len=liList.length;i<len;i++){
+        var oList = liList[i];
+        switch (i%3){
+            case 0:
+                oList.className = "first";
+                oList.originStyle = "first";
+                break;
+            case 1:
+                oList.className = "second";
+                oList.originStyle = "second";
+                break;
+            case 2:
+                oList.className = "third";
+                oList.originStyle = "third";
+                break;
+        }
+        oList.onmouseover = function(){
+            this.className = "active";
+        }
+        oList.onmouseout = function(){
+            this.className = this.originStyle;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
