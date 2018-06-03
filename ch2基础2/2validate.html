@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .validate{
+            background: darkgray;
+            color: purple;
+            font: 900 24px serif;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: solid 1px black;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="validate">A3Bf</div>
+<script>
+    var seed = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"; //62个
+    var oDiv = document.getElementsByClassName("validate")[0];
+    function getValidate(seed){
+        var str="";
+        for(var i=0;i<4;i++){
+            var randomNum = Math.round(Math.random()*61);
+            str += seed.charAt(randomNum);
+        }
+        return str;
+    }
+    oDiv.onclick = function(){
+        oDiv.innerText= getValidate(seed);
+    }
+</script>
+</body>
+</html>
