@@ -22,16 +22,34 @@
 <script>
     var seed = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"; //62个
     var oDiv = document.getElementsByClassName("validate")[0];
-    function getValidate(seed){
+/*    function getValidate(seed){
         var str="";
         for(var i=0;i<4;i++){
             var randomNum = Math.round(Math.random()*61);
             str += seed.charAt(randomNum);
         }
         return str;
+    }*/
+
+    function getUinqueValidate(seed){
+        var str="";
+        for(var i=0;;i++){
+            var randomNum = Math.round(Math.random()*61);
+            var char = seed.charAt(randomNum);
+            if (str.indexOf(char)==-1){
+                str += char ;
+            }
+            if(str.length ==4){
+                return str;
+            }
+        }
     }
+
+
     oDiv.onclick = function(){
-        oDiv.innerText= getValidate(seed);
+        /*oDiv.innerText= getValidate(seed);*/
+        oDiv.innerText= getUinqueValidate(seed);
+
     }
 </script>
 </body>
