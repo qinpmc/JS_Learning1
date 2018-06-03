@@ -58,18 +58,22 @@
 <script type="text/javascript">
     var liList = document.getElementsByTagName("li");
     var contentList = document.getElementsByClassName("content");
+    var preIndex = 0;
     for(var i= 0,len=liList.length;i<len;i++){
         liList[i].index = i;
         liList[i].onclick = function(){
-            hiddenContent(contentList);
+            hiddenPreContent(preIndex,contentList,liList);
+            this.style.backgroundColor = "yellow";
             contentList[this.index].style.display = "block";
+            preIndex = this.index;
+        }
+
+        function hiddenPreContent(preIndex,contentList,liList){
+            liList[preIndex].style.background = "";
+            contentList[preIndex].style.display = "none";
         }
     }
-    function hiddenContent(contentList){
-        for(var i= 0,len=contentList.length;i<len;i++){
-            contentList[i].style.display = "none";
-        }
-    }
+
 </script>
 </body>
 </html>
