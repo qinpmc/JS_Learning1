@@ -231,9 +231,6 @@ alert(parseInt({}));  // NaN
 6 parseFloat()
 类同parseInt()函数，多解析一个小数点
 
-
-
-
 # String
 1. 单引号、双引号均可
 2. 转义
@@ -366,6 +363,33 @@ f3.name // 'myName'
 ```
 6. length 属性
 > length属性返回形参数个数，即函数定义之中的参数个数
+
+7. arguments
+> arguments对象包含了函数运行时的所有参数
+
+```
+function doAdd(num1,num2)
+  {
+	  arguments[1]=10;
+	  alert(arguments[1]);
+	  alert(num2);
+	  alert(arguments[0]+num2);
+  }
+   doAdd(10);     // 10,undefined,NaN ,arguments[1] 与num2不是同一个值,
+  //doAdd(10,20);  //10,10,20
+
+  function doAdd2(num1,num2)
+  {
+	  num2=10;
+	  alert(arguments[1]);
+	  alert(num2);
+	  alert(arguments[0]+num2);
+  }
+  doAdd2(10);     // undefined,10,20 ,arguments[1] 与num2不是同一个值,
+  //doAdd2(10,20);  //10,10,20
+
+```
+
 
 
 
