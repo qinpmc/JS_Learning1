@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var strUrl = "https://www.baidu.com/s?wd=javascript&rsv_spt=1&rsv_iqid=0xa00";
+    function getRequestUrl(strUrl){
+        var obj = {};
+        var index = strUrl.indexOf("?");
+        if(index!=-1){
+            var strParams = strUrl.substring(index+1);
+            var params = strParams.split("&");
+            for(var i= 0,len = params.length;i<len;i++){
+                var keyMaps = params[i].split("=");
+                obj[keyMaps[0]] = keyMaps[1];
+            }
+        }
+        return obj;
+    }
+
+    var paramsMap = getRequestUrl(strUrl);
+    console.dir(paramsMap);
+</script>
+</body>
+</html>
