@@ -72,7 +72,7 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 - 返回节点集合（IE6、7、8下会把注释当做元素子节点）
 
 > parentNode
-- 获取当前元素的父节点（元素对象）
+- 获取当前元素的父节点 
 
 > previousSibling、nextSibling
 - previousSibling获取当前节点上一个兄弟节点（不一定是元素节点）   
@@ -90,3 +90,4 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 > firstElementChild、lastElementChild
 - firstElementChild：当前元素第一个__元素子节点__  
 - lastElementChild：当前元素最后一个__元素子节点__   
+- IE6、7、8不兼容
