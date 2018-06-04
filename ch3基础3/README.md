@@ -38,4 +38,43 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 2. 区别是：
 - NodeList可以包含任何节点类型，HTMLCollection只包含元素节点（elementNode），elementNode就是HTML中的标签
 - HTMLCollection比NodeList多一项方法：namedItem，可以通过传递id或name属性来获取节点信息
+
+## DOM的节点
+1. node：浏览器认为在一个HTML页面中的所有内容都是节点（包括标签、注释、文本等）
+> 元素节点：HTML标签元素
+ - nodeType：1
+ - nodeName：大写的标签名（部分浏览器的怪异模式下，为小写标签名）
+ - nodeValue：null
+ - [cur]Element.tagName :获取当前元素的标签名（获取的是大写标签名）
  
+> 文本节点 ：文本内容，空格和换行在高版本浏览器中也当做文本节点
+ - nodeType：3
+ - nodeName：#text
+ - nodeValue：文本内容
+ 
+> 注释节点 ：注释内容
+ - nodeType：8
+ - nodeName：#comment
+ - nodeValue：注释内容
+ 
+> document文档节点
+ - nodeType：9
+ - nodeName：#document
+ - nodeValue：null
+
+2. 属性
+> childNodes
+- 获取当前元素的所有子节点（包括元素子节点、文本、注释等子节点）
+- 返回节点集合
+
+> children
+- 获取当前元素的所有 __元素子节点__ （只包括元素子节点）
+- 返回节点集合（IE6、7、8下会把注释当做元素子节点）
+
+> parentNode
+- 获取当前元素的父节点（元素对象）
+    
+    
+    
+    
+    
