@@ -4,7 +4,7 @@
 
 1. 原始类型值
 > 数值：转换后还是原来的值
-> 字符串：如果可以被解析为数值，则转换为相应的数值
+> 字符串：如果可以被解析为数值，则转换为相应的数值，即只含有数字（含+ - 号,前导的0被忽略，空格也会被忽略）
   Number('324') // 324
 
   // 字符串：如果不可以被解析为数值，返回 NaN
@@ -33,6 +33,32 @@ Number([5]) // 5
 Number([""]) // 0
 Number([]) // 0
 ```
+
+##  parseInt()
+忽略字符串前的空格，直至找到第一个非空字符，直到解析到后续字符为非数字
+
+```
+parseInt("123as");   //123
+Number("123as");   //NaN
+
+	parseInt("");  // NaN,空字符串转换为NaN !!!
+    Number("");  // 0
+
+	parseInt("070");  // 70
+	parseInt("070",8);  // 56 ，八进制转换
+    parseInt(070);  // 56
+
+	alert(parseInt("0xf"));  // 15
+
+	alert(parseInt(true));  // NaN
+	alert(parseInt(null));  // NaN
+	alert(parseInt(undefined));  // NaN
+	alert(parseInt([]));  // NaN
+	alert(parseInt({}));  // NaN
+```
+
+## parseFloat()
+ 类同parseInt()函数，多解析一个小数点
 
 ## String()
 1. 原始类型值
