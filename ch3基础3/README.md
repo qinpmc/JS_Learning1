@@ -73,8 +73,20 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 
 > parentNode
 - 获取当前元素的父节点（元素对象）
+
+> previousSibling、nextSibling
+- previousSibling获取当前节点上一个兄弟节点（不一定是元素节点）   
+- nextSibling获取当前节点下一个兄弟节点（不一定是元素节点）  
     
-    
-    
-    
-    
+> previousElementSibling、nextElementSibling
+- previousElementSibling获取当前节点上一个兄弟 __元素节点__  
+- nextElementSibling获取当前节点下一个兄弟 __元素节点__   
+- IE6、7、8不兼容
+
+> firstChild、lastChild
+- firstChild：当前元素第一个子节点（不一定是元素节点）
+- lastChild：当前元素最后一个子节点（不一定是元素节点）
+
+> firstElementChild、lastElementChild
+- firstElementChild：当前元素第一个__元素子节点__  
+- lastElementChild：当前元素最后一个__元素子节点__   
