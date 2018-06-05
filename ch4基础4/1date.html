@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            margin:20px auto;
+            width: 400px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border:solid 2px darkgreen;
+            font-size: 24px;
+        }
+        .box span{
+            font-weight: bold;
+            color: mediumvioletred;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    距离抢购还有：
+    <span>00：00：00</span>
+</div>
+<script>
+    var oSpan = document.getElementsByTagName("span")[0];
+    var targetTime = new Date(2018,05,06,01,00,00);
+    function buy(){
+        var now = Date.now();
+        var remainingTime = targetTime.getTime() - now;
+        if(remainingTime<=0){
+            oSpan.innerText = "开始抢购";
+            window.clearInterval(timer);
+            return;
+        }
+        //计算小时
+        var hours = Math.floor((remainingTime/1000)/3600);
+        var minutes =  Math.floor((remainingTime - hours*3600*1000)/1000/60);
+        var seconds = Math.floor((remainingTime-hours*3600*1000-minutes*60*1000)/1000);
+        function addZero(time){
+            return time<10 ? "0"+time:""+time;
+        }
+        oSpan.innerText = addZero(hours)+":"+addZero(minutes)+":"+addZero(seconds);
+    }
+    buy();
+    var timer = setInterval(buy ,1000);
+</script>
+</body>
+</html>
