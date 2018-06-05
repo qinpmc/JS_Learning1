@@ -91,3 +91,16 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 - firstElementChild：当前元素第一个__元素子节点__  
 - lastElementChild：当前元素最后一个__元素子节点__   
 - IE6、7、8不兼容
+
+
+##  DOM元素创建
+1. document.createElement(tagName)
+```
+document.createElement("div");
+```
+
+2. [parentElement].appendChild()
+
+3. [parentElement].insertBefore(newElement, referenceElement)
+
+
