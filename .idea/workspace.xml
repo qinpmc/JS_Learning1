@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81861e67-eca6-482f-9468-f78433e4f37a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3基础3/2dom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3基础3/README.md" afterPath="$PROJECT_DIR$/ch3基础3/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -25,12 +23,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch3基础3/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.5772947">
-                <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="0.45652175">
+                <caret line="110" column="51" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -41,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2dom.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2dom.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch3基础3/2dom.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16481069">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state vertical-scroll-proportion="-1.53125">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="15" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -79,8 +77,8 @@
         <option value="$PROJECT_DIR$/ch1基础1/README.md" />
         <option value="$PROJECT_DIR$/ch2基础2/README.md" />
         <option value="$PROJECT_DIR$/ch3基础3/1dom.html" />
-        <option value="$PROJECT_DIR$/ch3基础3/README.md" />
         <option value="$PROJECT_DIR$/ch3基础3/2dom.html" />
+        <option value="$PROJECT_DIR$/ch3基础3/README.md" />
       </list>
     </option>
   </component>
@@ -90,8 +88,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="152" />
-    <option name="y" value="413" />
+    <option name="x" value="229" />
+    <option name="y" value="461" />
     <option name="width" value="1564" />
     <option name="height" value="642" />
   </component>
@@ -266,7 +264,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="152" y="413" width="1564" height="642" extended-state="0" />
+    <frame x="229" y="461" width="1564" height="642" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31007752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -632,11 +630,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch3基础3/2dom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.53125">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="15" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch3基础3/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.5772947">
-            <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <first_editor vertical-scroll-proportion="0.45652175">
+            <caret line="110" column="51" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
             <folding />
           </first_editor>
           <second_editor />
@@ -644,14 +650,6 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3基础3/2dom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16481069">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
       </provider>
     </entry>
   </component>

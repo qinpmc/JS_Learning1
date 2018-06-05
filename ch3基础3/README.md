@@ -96,7 +96,14 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 ##  DOM元素创建
 1. document.createElement(tagName)
 ```
-document.createElement("div");
+// 可利用a标签的属性解析字符串
+var link = document.createElement("a");
+link.href = "http://www.baidu.com/stu/?name=zxt&age=22&sex=1#teacher";
+console.log(link.hostname); // www.baidu.com
+console.log(link.pathname); // /stu/
+console.log(link.protocol);// http:
+console.log(link.search);   // ?name=zxt&age=22&sex=1
+console.log(link.hash);     // #teacher
 ```
 
 2. [parentElement].appendChild()
