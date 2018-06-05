@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">
+        div
+    </div>
+    <script>
+        var oDiv = document.getElementById("div1");
+        oDiv.index1 = 100;
+        oDiv.setAttribute("index2","200");
+        console.dir(oDiv); // index1:100
+        // 在dom树结构中可看到index2 属性
+    </script>
+</body>
+</html>

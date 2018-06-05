@@ -106,8 +106,42 @@ console.log(link.search);   // ?name=zxt&age=22&sex=1
 console.log(link.hash);     // #teacher
 ```
 
-2. [parentElement].appendChild()
+2. [parentNode].appendChild()
 
-3. [parentElement].insertBefore(newElement, referenceElement)
+3. [parentNode].insertBefore(newElement, referenceElement)
 
+4. [parentNode].removeChild(child)
 
+5. [parentNode].replaceChild(newChild, oldChild);
+
+6. node.cloneNode(deep);
+   - deep 可选,为true,则该节点的所有后代节点也都会被克隆,如果为false,则只克隆该节点本身.
+   
+## 属性操作
+1. Element.setAttribute(name, value);
+2. Element.getAttribute()
+3. Element.removeAttribute(attrName); 
+
+```
+var oDiv = document.getElementById("div1");
+oDiv.index1 = 100;
+oDiv.setAttribute("index2","200");
+console.dir(oDiv); // index1:100
+// 在dom树结构中可看到index2 属性
+
+```
+
+```
+var oDiv = document.getElementsByClassName("content")[2];
+// 自定义查找上一个 兄弟元素节点
+oDiv.getPreviousSiblingEle = function(){
+    var previusNode = this.previousSibling;
+    while(true){
+        if(previusNode.nodeType==1) return previusNode;
+        previusNode = previusNode.previousSibling;
+    }
+}
+var previousEle = oDiv.getPreviousSiblingEle();
+console.dir(previousEle);
+console.dir(oDiv.previousElementSibling);
+```

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="clearfix">
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">电影</a></li>
+            <li><a href="#">音乐</a></li>
+        </ul>
+        <div class="content active">新闻新闻新闻11</div>
+        <div class="content">电影电影电影22</div>
+        <div class="content">音乐音乐音乐33</div>
+    </div>
+    <script>
+        var oDiv = document.getElementsByClassName("content")[2];
+        // 自定义查找上一个 兄弟元素节点
+        oDiv.getPreviousSiblingEle = function(){
+            var previusNode = this.previousSibling;
+            while(true){
+                if(previusNode.nodeType==1) return previusNode;
+                previusNode = previusNode.previousSibling;
+            }
+        }
+        var previousEle = oDiv.getPreviousSiblingEle();
+        console.dir(previousEle);
+        console.dir(oDiv.previousElementSibling);
+    </script>
+</body>
+</html>
