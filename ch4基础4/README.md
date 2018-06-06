@@ -53,9 +53,57 @@ valueOf方法返回实例对象距离时间零点（1970年1月1日00:00:00 UTC�
 
 6. toString()
 toString方法返回一个完整的日期字符串。
+
 ```
 var d = new Date(2013, 0, 1);
 
 d.toString()
 // "Tue Jan 01 2013 00:00:00 GMT+0800 (CST)"
+```   
+
+
+# 数组Array
+
+1. 构造函数
+
 ```
+var arr = new Array(2);
+arr.length // 2
+var arr2 = [1,2];
+typeof arr2 ; // object
+```
+
+
+
+2. 静态方法
+Array.isArray()
+
+3. 实例方法
+
+3.1 valueOf()、toString()
+- 数组的valueOf方法返回数组本身；
+- 数组的toString方法返回数组的字符串形式。
+
+```
+var arr = [1, 2, 3];
+arr.toString() // "1,2,3"
+var arr2 = [1,[2,[3,4]]];
+arr2.toString(); // "1,2,3,4"
+```
+
+3.2 push()，pop()
+- push: 用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会 __改变原数组__
+- pop: 用于删除数组的最后一个元素，并返回该元素。注意，该方法会 __改变原数组__
+
+3.3 shift()，unshift()
+- shift: 用于删除数组的第一个元素，并返回该元素。注意，该方法会 __改变原数组__
+- unshift: 用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会 __改变原数组__
+
+3.4 join()
+
+
+
+
+
+
+
