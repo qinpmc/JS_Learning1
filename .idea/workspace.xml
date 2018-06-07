@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81861e67-eca6-482f-9468-f78433e4f37a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch4基础4/README.md" afterPath="$PROJECT_DIR$/ch4基础4/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -27,8 +28,8 @@
         <entry file="file://$PROJECT_DIR$/ch4基础4/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.6678744">
-                <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="0.7584541">
+                <caret line="255" column="0" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -716,8 +717,8 @@
     <entry file="file://$PROJECT_DIR$/ch4基础4/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.6678744">
-            <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+          <first_editor vertical-scroll-proportion="0.7584541">
+            <caret line="255" column="0" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

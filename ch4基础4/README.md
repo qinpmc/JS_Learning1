@@ -218,6 +218,35 @@ a // [1, 2]
 - lastIndexOf方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。
 
 3.11 遍历方法
+ - 均不改变原数组
+ - map：
+  * map方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回。
+  * map方法向它传入三个参数：当前成员、当前位置和数组本身。
+  
+```
+[1, 2, 3].map(function(elem, index, arr) {
+  return elem * index;
+});
+// [0, 2, 6]
+```
+
+ - forEach：
+  * forEach方法不返回值，只用来操作数据。
+  * forEach方法向它传入三个参数：当前成员、当前位置和数组本身。
+
+```
+function log(element, index, array) {
+  console.log('[' + index + '] = ' + element);
+}
+
+[2, 5, 9].forEach(log);
+// [0] = 2
+// [1] = 5
+// [2] = 9
+```
+
+
+
 
 
 
