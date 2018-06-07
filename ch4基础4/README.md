@@ -246,12 +246,30 @@ function log(element, index, array) {
 ```
 
 
+- filter
+  * 用于过滤数组成员，满足条件的成员组成一个新数组返回。
+```
+[1, 2, 3, 4, 5].filter(function (elem, index, arr) {
+  return index % 2 === 0;
+});
+// [1, 3, 5]
+```
 
+- some ，every 
+  * some方法是只要一个成员的返回值是true，则整个some方法的返回值就是true，否则返回false
+  * every方法是所有成员的返回值都是true，整个every方法才返回true，否则返回false。
+```
+var arr = [1, 2, 3, 4, 5];
+arr.some(function (elem, index, arr) {
+  return elem >= 3;
+});
+// true
 
-
-
-
-
+var arr = [1, 2, 3, 4, 5];
+arr.every(function (elem, index, arr) {
+  return elem >= 3;
+});
+```
 
 
 
