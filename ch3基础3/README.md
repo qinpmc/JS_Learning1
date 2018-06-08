@@ -94,7 +94,7 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 
 
 ##  DOM元素创建
-1. document.createElement(tagName)
+1. document.createElement(tagName) 
 ```
 // 可利用a标签的属性解析字符串
 var link = document.createElement("a");
@@ -106,15 +106,24 @@ console.log(link.search);   // ?name=zxt&age=22&sex=1
 console.log(link.hash);     // #teacher
 ```
 
-2. [parentNode].appendChild()
+2. document.createTextNode()
 
-3. [parentNode].insertBefore(newElement, referenceElement)
+```
+var newtext = document.createTextNode(text),
+p1 = document.getElementById("p1");
+p1.appendChild(newtext);
+```
 
-4. [parentNode].removeChild(child)
 
-5. [parentNode].replaceChild(newChild, oldChild);
+3. [parentNode].appendChild()
 
-6. node.cloneNode(deep);
+4. [parentNode].insertBefore(newElement, referenceElement)
+
+5. [parentNode].removeChild(child)
+
+6. [parentNode].replaceChild(newChild, oldChild);
+
+7. node.cloneNode(deep);
    - deep 可选,为true,则该节点的所有后代节点也都会被克隆,如果为false,则只克隆该节点本身.
    
 ## 属性操作
