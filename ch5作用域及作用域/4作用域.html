@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 函数的词法作用域只由函数被声明时的位置决定
+    var num = 12;
+    function fn() {
+        var num = 120;
+        return function () {
+            console.log(num);
+        }
+    }
+
+    var f = fn();
+    f();  // 120
+
+    ~function () {
+        var num = 1200;
+        f();  //120 ;并非1200
+    }();
+
+</script>
+</body>
+</html>
