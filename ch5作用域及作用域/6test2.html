@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var num = 20;
+        var obj ={
+            num:30,
+            fn:(function(num){
+                this.num *=3;  //this-->window ,window.num = 20*3=60
+                num +=15;      //函数形参 num = 20+15= 35;
+                var num =45;  // 函数形参 num = 45;
+                return function(){
+                    this.num *=4;
+                    num+=20;
+                    console.log(num);
+                }
+            })(num)  //传入的是window 的nun：20
+        }
+        var fn = obj.fn;
+        fn();  // this -->window ; this.num *=4 --60*4 = 240; num+=20--45+20 =65 ,num为闭包中num;//65
+        obj.fn(); //this -->obj ;  this.num *=4--30*4 = 120; num+=20--65+20 = 85,num为闭包中num;//85
+        console.log(window.num,obj.num); //240 , 120
+
+    </script>
+</body>
+</html>

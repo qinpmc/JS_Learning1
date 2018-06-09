@@ -133,6 +133,45 @@ function foo(){} // 声明，因为它是程序的一部分
 
 ```
 
+## 作用域销毁问题
+
+```
+//fn运行完成后的作用域无法销毁
+    //因为f引用这fn作用域中的匿名函数
+    function fn(){
+        var num = 100;
+        return function(){
+            console.log(num);
+        }
+    }
+    var f = fn();
+    f();
+
+    // oDiv为对象，其onclick属性指向一个匿名函数（引用数据类型--对象），
+    //该自执行函数的作用域无法销毁，因为该作用域中的匿名函数被oDiv引用。
+    var oDiv = document.getElementById("#div");
+    ~function(){
+        oDiv.onclick = function () {
+            console.log("hello");
+        }
+}();
+
+    //fn的作用域不立即销毁
+    function fn(){
+        var num = 100;
+        return function(){
+            console.log(num);
+        }
+    }
+   fn()();
+
+```
+
+
+
+
+
+
 
 
 

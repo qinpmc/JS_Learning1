@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fn(){
+        var i=10;
+        return function (n){
+            console.log(n+(++i));
+        }
+    }
+    var f = fn();
+    f(10); //21
+    f(20); //32
+    fn()(10); //21
+    fn()(20); //31
+
+
+    function fn(i){
+        return function (n) {
+            console.log(n+(i++));
+        }
+    }
+    var f = fn(10);
+    f(11); //21 ,i=10;注意i执行var f = fn(10)后，i++并未执行
+    f(12); //23 ,i=11
+    fn(15)(12); //27 ,i=10
+    fn(16)(13); //29 ,i =10
+
+</script>
+</body>
+</html>
