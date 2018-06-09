@@ -24,9 +24,59 @@ function fn1(){    //变量提升
 > 函数体中return下面的代码虽然不执行，但是需要预解析；但return后面的是返回值，不进行预解析
 > 函数优先。函数名与变量名冲突，后面重名的函数会覆盖先前声明的函数，且函数优先级比变量高（当函数与变量重名，即使变量声明在最后，预解析后该变量仍为函数）
 
+
+## 预解析-注意全局变量和局部变量的问题
+
+```
+// 预解析，注意全局变量和局部变量的问题
+console.log(total); //undefined，访问的是全局变量
+var total = 0;      //全局变量 total
+function fn(num1,num2){
+    console.log(total);  //undefined，此处total 为函数fn局部变量
+    console.log(num1);   //100
+    var total = num1+num2; 
+    console.log(total);  //300 
+}
+fn(100,200);
+console.log(total);  //0,全局的total仍为0
+
+console.log("--------------------------------"); 
+
+
+console.log(total2); //undefined，访问的是全局变量
+var total2 = 0;
+function fn2(num1,num2){
+    console.log(total2);  //0
+    console.log(num1);   //100
+    total2 = num1+num2;  // 和上例的区别在于此句没有var ，此处total2 向上寻找，找到全局变量total2
+    console.log(total2);  //300
+}
+fn2(100,200);
+console.log(total2);      //300,函数执行后，将全局的total2 修改了
+
+```
+
+## 预解析-带有var 声明和不带有var的变量
+> 未通过var 定义的变量可删除
+> 通过var 定义的变量无法删除
+
+```
+//console.log(num2);  //error: num2 is not defined .num2并未预解析
+num2 =100;          // 相当于给window 增加了一个num2 属性，可通过window.num2 访问
+
+
+console.log(num); //undefined
+var num =100;  
+console.log(num) //100 ,也可通过window.num 访问
+
+
+console.log(delete num2);  //true，未通过var 定义的变量可删除
+console.log(delete num);   //false ,通过var 定义的变量无法删除
+
 ```
 
 
 
-```
+
+
 
