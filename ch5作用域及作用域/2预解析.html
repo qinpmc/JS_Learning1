@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+/*        var num2;         // 给widow添加了一个属性 num2
+        console.log(("num2" in window));  //true
+        // 条件语句中会预解析
+        //不管条件是否成立，均会进行预解析
+        if(!("num" in window)){ //注意，此处条件不成立，通过预解析，window此时含有属性 num
+            var num = 12;
+        }
+        console.log(num); //undefined,并非12*/
+
+/*        //函数声明提前，可以执行
+        fn0();  //fn0 ok, 函数声明提前，可以执行
+        function fn0(){
+            console.log("fn0 ok");
+        }
+
+        //函数表达式不预解析，因此不提前
+        //fn();  // error: fn is not a function
+        console.log(fn);  // undefined
+        var fn  = function(){   //函数表达式
+            console.log("ok");
+        }
+        fn();  //ok*/
+
+        console.log("------------------------");
+/*        //全局作用域下，自执行函数不进行预解析,以下自执行函数fn2 名称一般省略
+        //console.log(fn2);   // fn2 is not defined
+        //fn2();               //fn2 is not defined
+        (
+                function fn2(arg){
+                    console.log(self_func2); //undefined
+                    var self_func2=arg;
+                    console.log(self_func2);//200
+                }(200)
+        )
+        console.log(window.self_func2);    //undefined*/
+
+        console.log("------------------------");
+/*        // 函数体中return下面的代码虽然不执行，但是需要预解析；
+        // 但return后面的是返回值，不进行预解析
+        function fn3(){
+            console.log(num); //undefined，num进行了预解析
+            //console.log(f33); //error :f33 is not defined
+            return function f33(){  //不会预解析
+                return 1;
+            };
+            var num = 1;   // return下面的代码会预解析
+        }
+        fn3();*/
+
+
+        console.log("------------------------");
+
+        // 以下定义4个重名变量
+        // 函数名与变量名冲突，后面重名的函数会覆盖先前声明的函数，
+        // 且函数优先级比变量高（即使变量在最后，预解析后该变量仍为函数）
+        fn4(); //fn444,预解析后 fn4 为：function fn4(){console.log("fn444");}
+        function fn4(){
+            console.log("fn4");
+        }
+        fn4(); //fn444
+        var fn4 = 44;
+        //fn4();  //error,fn4 is not a function
+        function fn4(){
+            console.log("fn444");
+        }
+        var fn4 = 4444;
+        //fn4();    //error,fn4 is not a function
+
+
+
+    </script>
+</body>
+</html>
