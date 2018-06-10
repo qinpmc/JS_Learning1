@@ -411,8 +411,89 @@ p1.friends=["pp3"];
 
 ![prototype4](./prototype4.png)
 
+5. 寄生式继承
+
+```
+// 使用原型式继承思路，并增强对象，不使用new
+function object(o)
+{
+    function F(){}
+    F.prototype=o;
+    F.prototype.innersayF=function(){alert("innerF")}; //共享，增强
+    return new F();
+}
+
+function createAnother(origin)
+{
+    var clone=object(origin);
+    clone.say=function(){alert("hi")}; // 每个实例各自拥有，增强
+    return clone;
+}
+var person={
+    name:"qq1",
+    friends:["ff1","ff2"],
+    innersay:function(){alert("inner")}
+};
+var pp1=createAnother(person);
+var pp2=createAnother(person);
+
+pp1.friends.push("ff3");
+//pp1.friends=["ff3"]; //与上句的区别
+alert(pp1.friends);  //ff1,ff2,ff3
+alert(pp2.friends);  //ff1,ff2,ff3 ，pp1的修改影响了pp2 的friends
+alert(pp1.innersayF==pp2.innersayF);  //true
+alert(pp1.innersay==pp2.innersay);  //true
+alert(pp1.say==pp2.say);              //false ,注意与say 和innersayF的区别
+
+```
+
+![prototype5](./prototype5.png)
 
 
+6. 寄生组合式继承
 
+```
+function object(o)
+{
+    function F(){}
+    F.prototype=o;
+    return new F();
+}
 
+function inherit(subType,superType)
+{
+    var prototype=object(superType.prototype); //此处传入的是原型
+    prototype.constructor=subType;
+    subType.prototype=prototype;
+}
+function SuperType(name)
+{
+    this.name=name;
+    this.colors=["red","blue"];
+}
+SuperType.prototype.sayName=function()   //补充原型属性
+{
+    alert(this.name);
+}
+function SubType(name,age)
+{
+    SuperType.call(this,name);
+    this.age=age;
+}
+inherit(SubType,SuperType);
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+}
+var ins1= new SubType("qq1",21);
+var ins2= new SubType("qq2",22);
+ins1.colors.push("black");
+
+alert(ins1.sayAge==ins2.sayAge);  //true
+alert(ins1.sayName==ins2.sayName); //true
+alert(ins2.colors);  //red ,blue
+alert(ins1.colors);  //red ,blue,black
+
+```
+![prototype6](./prototype6.png)
+![prototype7](./prototype7.png)
 
