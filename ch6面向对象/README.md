@@ -204,6 +204,7 @@ c.constructor.prototype ===p.__proto__ ; //
 > 所有 __可枚举属性__的值从一个或多个源对象复制到目标对象。它将返回目标对象。
 > 如果目标对象中的属性具有相同的键，则属性将被源中的属性覆盖。后来的源的属性将类似地覆盖早先的属性。
 
+---
 
 ## 原型
 > 1. 原型上的属性是所有实例共享，对于共享的对象属性，一个实例修改，会影响另一个实例的该属性
@@ -276,4 +277,63 @@ alert(Object.getPrototypeOf(p1)==Person.prototype); //false
 alert(Object.getPrototypeOf(p1)==Object.prototype); //false --
 
 ```
-![./new_prototype.png]()
+![重写原型](./new_prototype.png)
+
+---
+
+## 继承
+
+1. 原型链
+
+```
+function Super()
+{
+    this.superProperty="super";
+}
+Super.prototype.getSuperValue=function()
+{
+    return this.superProperty;
+};
+function Sub()
+{
+    this.subProperty="sub";
+}
+Sub.prototype=new Super(); //先原型链，然后给原型添加方法！！
+Sub.prototype.getSubValue=function()  ////先原型链，然后给原型添加方法！！
+{
+    return this.subProperty;
+};
+
+Sub.prototype.getSuperValue=function()
+{
+    return this.superProperty+"子类重写";
+};
+
+var insSub=new Sub();
+alert(insSub.constructor); //注意：构造函数为function Super...
+alert(Sub.prototype.constructor);  //function Super...
+alert(insSub.getSuperValue());    //super子类重写，子类重写了该方法
+
+var insSuper =new Super();
+alert(insSuper.constructor);      //function Super...
+alert(insSuper.getSuperValue());  //super，子类重写并不改变父类
+alert(insSuper.getSubValue);    //undefined
+
+```
+![prototype](./prototype1.png)
+![prototype2](./prototype2.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
