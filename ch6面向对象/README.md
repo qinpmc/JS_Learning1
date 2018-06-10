@@ -387,6 +387,30 @@ console.log(instance2);
 
 ![prototype3](./prototype3.png)
 
+4. 原型式继承
+
+>  Object.create 
+等同：
+function  Object(o){
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+
+```
+var person ={
+    name:"qq1",
+    friends:["pp1","pp2"]
+};
+var p1=Object.create(person);
+var p2=Object.create(person);
+p1.name="qq1New";
+p1.friends=["pp3"];
+
+```
+
+![prototype4](./prototype4.png)
+
 
 
 
