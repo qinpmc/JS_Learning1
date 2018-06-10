@@ -258,7 +258,7 @@ alert(Object.getPrototypeOf(p1)==Object.prototype); //false --
 
 ```
 function Person(){};
-var p1=new Person();
+var friends=new Person();
 
 Person.prototype={
     name:"qqq",
@@ -269,12 +269,12 @@ Person.prototype={
     }
 }
 
-alert(p1.name);  //undefined
-alert(p1 instanceof Person);//false  
-alert(p1.constructor==Person); //true  p1在重写原型前定义，但构造函数仍为Person，p1.__proto__指向旧的 Person.prototype
-alert(p1.constructor==Object); //false   
-alert(Object.getPrototypeOf(p1)==Person.prototype); //false
-alert(Object.getPrototypeOf(p1)==Object.prototype); //false --
+alert(friends.name);  //undefined
+alert(friends instanceof Person);//false  
+alert(friends.constructor==Person); //true  friends在重写原型前定义，但构造函数仍为Person，friends.__proto__指向旧的 Person.prototype
+alert(friends.constructor==Object); //false   
+alert(Object.getPrototypeOf(friends)==Person.prototype); //false
+alert(Object.getPrototypeOf(friends)==Object.prototype); //false --
 
 ```
 ![重写原型](./new_prototype.png)
@@ -325,12 +325,67 @@ alert(insSuper.getSubValue);    //undefined
 
 
 
+2. 借用构造函数
+> 函数无法公用,父类的原型属性，子类无法使用
 
+```
+function Super()
+{
+    this.friends=["qq1","qq2"];
+    this.innerSay=function(){alert("inner!!")};
+}
+Super.prototype.outSay=function(){alert("out!!!");}
 
+function Sub()
+{
+    Super.call(this);  /// 借用构造函数
+//Super.apply(this,arguments);  /// 借用构造函数
 
+};
 
+var sub1= new Sub();
+var sub2= new Sub();
+sub1.friends.push("qq3");
+alert(sub1.friends);  // qq1,qq2,qq3
+alert(sub2.friends); // qq1,qq2 ，实例的引用属性并未受影响
+alert(sub1.innerSay==sub2.innerSay);   //false
+alert(sub1.outSay);      // undefined
 
+```
 
+3. 组合继承
+> 调用两次SuperType
+
+```
+function SuperType(name){
+    this.name =name;
+    this.colors = ["red","yellow"];
+}
+
+SuperType.prototype.sayName = function(){
+    console.log(ame)
+}
+
+function SubType(name,age){
+    SuperType.call(this,name); //第一次调用
+    this.age = age;
+}
+
+SubType.prototype = new SuperType();  //第二次调用
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+    console.log(this.age);
+}
+
+var instance1 = new SubType("qq1",21);
+instance1.colors.push("blue"); // color为["red","yellow","blue"];
+console.log(instance1);
+var instance2 = new SubType("qq2",22);  //color为 ["red","yellow"];
+console.log(instance2);
+
+```
+
+![prototype3](./prototype3.png)
 
 
 
