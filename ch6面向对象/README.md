@@ -205,5 +205,75 @@ c.constructor.prototype ===p.__proto__ ; //
 > 如果目标对象中的属性具有相同的键，则属性将被源中的属性覆盖。后来的源的属性将类似地覆盖早先的属性。
 
 
+## 原型
+> 1. 原型上的属性是所有实例共享，对于共享的对象属性，一个实例修改，会影响另一个实例的该属性
+> 2. 对原型对象所做的任何修改都能立即从实例上反映出来—即使是先创建实例，后修改原型
 
+```
+function Person2(name,age,job,sayName){
+    this.age=31;
+    this.job="worker";	
+}
+Person2.prototype.sayName = function(){
+    alert(this.name);
+};
+var p1 = new Person2();
+var p2 = new Person2();
+p1.name="qqqqq";
+alert(p1.hasOwnProperty("name"));  //true ,this构造的实例均自身具有该属性
+alert(p2.hasOwnProperty("name"));  //false，来自原型
 
+```
+
+### 重写原型
+
+1. 直接重写原型，然后定义实例
+> 直接将原型重写为{}；重写原型后， 构造函数为Object
+
+```
+function Person(){};
+Person.prototype={
+    // constructor: Person, 会导致constructor[[Enumerable]]为true
+name:"qqq",
+    age:21,
+    job:"hahha",
+    sayName:function(){
+        alert(this.name);
+    }
+}
+var p1=new Person(); // 
+alert(p1.name);  //qqq
+
+alert(p1 instanceof Person);//true
+alert(p1.constructor==Person); //false
+alert(p1.constructor==Object); //true   //重写原型后， 构造函数为Object
+alert(Object.getPrototypeOf(p1)==Person.prototype); //true-- 重写原型后，原型为Person.prototype
+alert(Object.getPrototypeOf(p1)==Object.prototype); //false --
+
+```
+
+2. 先定义实例，然后重写原型
+> 重写原型后，以前创建的实例指向旧的原型
+
+```
+function Person(){};
+var p1=new Person();
+
+Person.prototype={
+    name:"qqq",
+    age:21,
+    job:"hahha",
+    sayName:function(){
+        alert(this.name);
+    }
+}
+
+alert(p1.name);  //undefined
+alert(p1 instanceof Person);//false  
+alert(p1.constructor==Person); //true  p1在重写原型前定义，但构造函数仍为Person，p1.__proto__指向旧的 Person.prototype
+alert(p1.constructor==Object); //false   
+alert(Object.getPrototypeOf(p1)==Person.prototype); //false
+alert(Object.getPrototypeOf(p1)==Object.prototype); //false --
+
+```
+![./new_prototype.png]()
