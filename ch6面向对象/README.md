@@ -85,8 +85,8 @@ function _new(constructor,params){
 14. Object.defineProperties()
 15. Object.getOwnPropertyDescriptor()
 
-
-
+16. Object.assign
+ 
 ### propertyIsEnumerable
 > 此方法可以确定对象中指定的属性是否可以被for...in循环枚举，
   但是通过 __原型链继承的属性除外__。如果对象没有指定的属性，则此方法返回false。
@@ -142,6 +142,68 @@ c.constructor.prototype ===p.__proto__ ; //
   - writable: 修改
   - value:值
 
+> 访问器属性
+  - configuable:
+  - enumerable:
+  - get:
+  - set:
+
 > 调用Object.defineProperty()，默认configurable、enumerable、writable均为false
 > obj.prop 或obj[prop]定义属性，默认configurable、enumerable、writable均为true
   - Object.defineProperty(obj, prop, descriptor)
+  
+```
+/*    // 两种属性的定义方式：
+    var p = {};
+    p.age = 21;  // 采用此种方式赋值，该属性为可写，可枚举，可配置
+
+    var person = {};
+    Object.defineProperty(person, "name", {
+        value: "qp"  // 采用此种方式赋值，该属性为不可写，不可枚举，不可配置
+    });
+
+    Object.defineProperty(person, "age", {
+        value: 21,
+        //writable:true  // 如不显示添加可写为true,则该属性不可修改--此种方式定义属性时，默认writable为false
+    });
+    alert(person.age); //21
+    person.age = 31;
+    alert(person.age); //21，未修改成功*/
+
+
+    var person={};
+    Object.defineProperty(person,"name",{
+        configurable:false, //无法删除
+        value:"qp"
+    });
+    delete person.name;
+    alert(person.name); //qp ,仍然存在
+
+/*    Object.defineProperty(person,"name",{
+        configurable:true,  // 报错，已经不可配置  Enumerable Writeble Value
+        value:"qp22"
+    })*/
+    person.name="Jack";
+    alert(person.name); //qp，无法修改
+
+    /*Object.defineProperty(person,"name",{
+        value:"qp22"// 报错，已经不可配置
+    })*/
+    /*Object.defineProperty(person,"name",{
+        enumerable:true,  //  报错
+        //enumerable:false  // 不报错
+    })*/
+
+    Object.defineProperty(person,"name",{
+        writable:true,  //  报错
+        //writable:false,  //  不报错
+    })
+``` 
+
+### Object.assign(target, ...sources)
+> 所有 __可枚举属性__的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+> 如果目标对象中的属性具有相同的键，则属性将被源中的属性覆盖。后来的源的属性将类似地覆盖早先的属性。
+
+
+
+

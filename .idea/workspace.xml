@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81861e67-eca6-482f-9468-f78433e4f37a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch6面向对象/2面向对象.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch6面向对象/3面向对象.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch6面向对象/4面向对象.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch6面向对象/README.md" afterPath="$PROJECT_DIR$/ch6面向对象/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -34,8 +30,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="1.0">
-                <caret line="146" column="48" selection-start-line="146" selection-start-column="48" selection-end-line="146" selection-end-column="48" />
+              <first_editor vertical-scroll-proportion="0.7584541">
+                <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -46,8 +42,8 @@
       <file leaf-file-name="2面向对象.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch6面向对象/2面向对象.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.5625">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="52" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -115,10 +111,10 @@
         <option value="$PROJECT_DIR$/ch5作用域及作用域/6test2.html" />
         <option value="$PROJECT_DIR$/ch5作用域及作用域/7test3.html" />
         <option value="$PROJECT_DIR$/ch6面向对象/1面向对象.html" />
-        <option value="$PROJECT_DIR$/ch6面向对象/README.md" />
         <option value="$PROJECT_DIR$/ch6面向对象/2面向对象.html" />
         <option value="$PROJECT_DIR$/ch6面向对象/3面向对象.html" />
         <option value="$PROJECT_DIR$/ch6面向对象/4面向对象.html" />
+        <option value="$PROJECT_DIR$/ch6面向对象/README.md" />
       </list>
     </option>
   </component>
@@ -272,7 +268,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -628,10 +624,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch6面向对象/2面向对象.html">
+    <entry file="file://$PROJECT_DIR$/ch6面向对象/4面向对象.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -644,10 +640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch6面向对象/4面向对象.html">
+    <entry file="file://$PROJECT_DIR$/ch6面向对象/2面向对象.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.5625">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="52" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -658,8 +654,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="1.0">
-            <caret line="146" column="48" selection-start-line="146" selection-start-column="48" selection-end-line="146" selection-end-column="48" />
+          <first_editor vertical-scroll-proportion="0.7584541">
+            <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
