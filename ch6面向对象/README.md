@@ -451,6 +451,14 @@ alert(pp1.say==pp2.say);              //false ,注意与say 和innersayF的区�
 
 
 6. 寄生组合式继承
+> 
+function extend(Child,Parent){
+		var F  =function(){};
+		F.prototype = Parent.prototype;
+		Child.prototype = new F();
+		Child.prototype.constructor = Child;
+		Child.uber = Parent.prototype;
+}
 
 ```
 function object(o)
@@ -496,4 +504,75 @@ alert(ins1.colors);  //red ,blue,black
 ```
 ![prototype6](./prototype6.png)
 ![prototype7](./prototype7.png)
+
+--- 
+## 其它方法
+
+1. 原型属性拷贝法
+
+```
+function extend2(Child,Parent){
+		var p = Parent.prototype;
+		var c = Child.prototype;
+		for(var i in p){
+			c[i] = p[i];
+		}
+		c.uber = p;
+	}
+```
+
+
+
+2. 浅拷贝（全属性拷贝）
+
+```
+//浅拷贝，基于对象（会拷贝父对象原型中属性，引用类型属性仅仅是引用传递）
+function extendCopy(p){
+		var c={};
+		for(var i in p ){
+			c[i] = p[i];
+		}
+		c.uber =p;
+		return c;
+	}
+
+```
+
+3. 深拷贝
+
+```
+//深拷贝，基于对象（不拷贝父对象原型中属性，所有属性是值传递）
+
+function deepCopy(p,c){
+		c = c || {};
+		for(var i in p){
+			if(p.hasOwnProperty(i)){
+				if(typeof p[i] ==="object"){
+					c[i] = Array.isArray(p[i]) ? []:{};
+					deepCopy(p[i],c[i]);
+				}else{
+					c[i] = p[i];
+				}
+			}
+		}
+		return c;
+	}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
