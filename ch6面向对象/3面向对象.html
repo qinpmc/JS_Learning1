@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        _year:2004,
+        edition:1
+    }
+    Object.defineProperty(obj,"year",{
+        get function(){
+            return this._year;
+        },
+        set function(value){
+            if(value>2004){
+                this._year = value;
+                this.edition += value-2004;
+            }
+        }
+    })
+    obj.year = 2005;
+    console.log(obj.edition); //1
+</script>
+</body>
+</html>

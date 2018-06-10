@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+/*    // 两种属性的定义方式：
+    var p = {};
+    p.age = 21;  // 采用此种方式赋值，该属性为可写，可枚举，可配置
+
+    var person = {};
+    Object.defineProperty(person, "name", {
+        value: "qp"  // 采用此种方式赋值，该属性为不可写，不可枚举，不可配置
+    });
+
+    Object.defineProperty(person, "age", {
+        value: 21,
+        //writable:true  // 如不显示添加可写为true,则该属性不可修改--此种方式定义属性时，默认writable为false
+    });
+    alert(person.age); //21
+    person.age = 31;
+    alert(person.age); //21，未修改成功*/
+
+
+    var person={};
+    Object.defineProperty(person,"name",{
+        configurable:false, //无法删除
+        value:"qp"
+    });
+    delete person.name;
+    alert(person.name); //qp ,仍然存在
+
+/*    Object.defineProperty(person,"name",{
+        configurable:true,  // 报错，已经不可配置  Enumerable Writeble Value
+        value:"qp22"
+    })*/
+    person.name="Jack";
+    alert(person.name); //qp，无法修改
+
+    /*Object.defineProperty(person,"name",{
+        value:"qp22"// 报错，已经不可配置
+    })*/
+    /*Object.defineProperty(person,"name",{
+        enumerable:true,  //  报错
+        //enumerable:false  // 不报错
+    })*/
+
+    Object.defineProperty(person,"name",{
+        writable:true,  //  报错
+        //writable:false,  //  不报错
+    })
+
+
+    </script>
+</body>
+</html>

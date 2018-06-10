@@ -81,6 +81,11 @@ function _new(constructor,params){
 11. instanceof （会向上查找原型链）
 12. propertyIsEnumerable
 
+13. Object.defineProperty()
+14. Object.defineProperties()
+15. Object.getOwnPropertyDescriptor()
+
+
 
 ### propertyIsEnumerable
 > 此方法可以确定对象中指定的属性是否可以被for...in循环枚举，
@@ -130,4 +135,13 @@ c.constructor;  //ƒ () {this.p= "p"},并不是 C
 c.constructor.prototype ===p.__proto__ ; //
 ```
  
+### Object.defineProperty()（defineProperties/getOwnPropertyDescriptor）
+> 数据属性
+  - configurable：-->delete 删除
+  - enumerable：-->for in 遍历
+  - writable: 修改
+  - value:值
 
+> 调用Object.defineProperty()，默认configurable、enumerable、writable均为false
+> obj.prop 或obj[prop]定义属性，默认configurable、enumerable、writable均为true
+  - Object.defineProperty(obj, prop, descriptor)
