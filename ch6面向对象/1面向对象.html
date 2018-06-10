@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function _new(constructor,params){
+        var args = [].slice.call(arguments);
+        var constructor = args.shift();
+        var context = Object.create(constructor.prototype);
+        var result = constructor.apply(context,args);
+        return (typeof result =="object" && result!=null)? result:context;
+    }
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+
+    var actor = _new(Person, '张三', 28);
+    console.log(actor);
+/*  Person
+    age:28
+    name:"张三"
+    __proto__:
+            constructor:ƒ Person(name,age)*/
+
+</script>
+</body>
+</html>
