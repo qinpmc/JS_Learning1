@@ -20,8 +20,17 @@
             delete context.fn
             return result;
         }
-
-
+        function fn1(){
+            console.log(this);
+            console.log(1);
+        }
+        function fn2(){
+            console.log(this);
+            console.log(2);
+        }
+        //fn1.myCall(fn2);// fn2 , 1
+        //fn1.myCall.myCall(fn2); //window ,2
+        fn1.myCall.myCall.myCall(fn2); //window ,2
     </script>
 </body>
 </html>
