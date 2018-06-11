@@ -279,11 +279,38 @@ alert(Object.getPrototypeOf(friends)==Object.prototype); //false --
 ```
 ![重写原型](./new_prototype.png)
 
+3. 浏览器会阻止修改内置对象的原型的替换,但原型链上的默认的方法可以修改
+
+```
+//浏览器会阻止修改内置对象的原型的替换
+Array.prototype = {
+    constructor:Array,
+    sort:function(){
+        console.log("Array.prototype 修改了")
+    }
+}
+var arr = new Array();
+console.log(arr); // 不会修改
+
+//以下会修改原型链上的默认的方法
+String.prototype.indexOf = function () {  //被修改了
+    console.log("String的indexOf修改了")
+}
+var str = new String("he");
+console.log(str.indexOf);
+console.dir(str);
+
+```
+
+
+
+
 ---
 
 ## 继承
 
 1. 原型链
+![原型链](./Prototype_Chain.jpg)
 
 ```
 function Super()
