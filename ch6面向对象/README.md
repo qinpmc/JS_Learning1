@@ -560,9 +560,42 @@ function deepCopy(p,c){
 ```
 
 
+4. 原型继承与属性拷贝结合
+> 基于对象，原型式继承+浅拷贝（会拷贝传入的stuff对象原型上属性）
 
+```
+function objectPlus(o,stuff){
+    var n;
+    function F(){}
+    F.prototype = o;
+    n = new F();
+    n.uber = o;
+    
+    for(var i in stuff){
+        n[i] = stuff[i];
+    }
+    return n;
+}
 
+```
 
+5. 多重继承
+
+```
+function multi(){
+    var n={},stuff,j=0,len=arguments.length;
+    for(j=0;j<len;j++){
+        stuff = arguments[j];
+        for (var i in stuff) {
+            if (stuff.hasOwnProperty(i)) {
+                n[i] =  stuff[i];
+            }
+        }
+    }
+    return n;
+}
+
+```
 
 
 
