@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //使用call完成继承
+    var Parent = function(){
+        this.name = "yjc";
+        this.age = 22;
+    }
+    var child = {};
+    console.log(child);//Object {} ,空对象
+    Parent.call(child);//使用call完成继承
+    console.dir(child); //Object {name: "yjc", age: 22}
+
+    //call：借用其他对象的方法
+    //注意以下非典型例子，对象借用了数组的slice方法
+    //对象有length属性，属性名为数字，可得到对应的属性值构成的数组
+    var a = {0:1, 1:"yjc", length: 2};
+    var a2 = {p1:1, 1:"yjc", length: 2};
+    var a3 = {p1:1, p2:"yjc", length: 2};
+    var a4 = {0:1, 1:"yjc"};
+    var a5 = {p1:1, p2:"yjc"};
+    // a.slice(); //TypeError: a.slice is not a function
+    var res1 = Array.prototype.slice.call(a);//[1, "yjc"]
+    var res2 = Array.prototype.slice.call(a2);//[empty × 1, "yjc"]
+    var res3 = Array.prototype.slice.call(a3);//[empty × 2]
+    var res4 = Array.prototype.slice.call(a4);//[]
+    var res5 = Array.prototype.slice.call(a5);//[]
+
+</script>
+</body>
+</html>

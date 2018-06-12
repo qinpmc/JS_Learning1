@@ -1,3 +1,84 @@
 # call/apply/bind
+> 函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。
+> apply方法的作用与call方法类似，也是改变this指向， 唯一的区别就是，它接收一个 __数组__作为函数执行时的参数
+
+```
+Function.prototype.myCall = function (context) {
+    var context = context || window;
+    context.fn = this;
+
+    var args = [];
+    for(var i = 1, len = arguments.length; i < len; i++) {
+        args.push('arguments[' + i + ']');
+    }
+
+    var result = eval('context.fn(' + args +')');
+
+    delete context.fn
+    return result;
+}
+function fn1(){
+    console.log(this);
+    console.log(1);
+}
+function fn2(){
+    console.log(this);
+    console.log(2);
+}
+//fn1.myCall(fn2);// fn2 , 1
+//fn1.myCall.myCall(fn2); //window ,2
+fn1.myCall.myCall.myCall(fn2); //window ,2
+```
+
+##  call的作用
+1. 使用call完成继承
+2. call：借用其他对象的方法
+    (注意:对象借用了数组的slice方法,对象有 __length__属性，__属性名为数字__，可得到对应的属性值构成的数组)
+    
+```
+//1. 使用call完成继承
+var Parent = function(){
+    this.name = "yjc";
+    this.age = 22;
+}
+var child = {};
+console.log(child);//Object {} ,空对象
+Parent.call(child);//使用call完成继承
+console.dir(child); //Object {name: "yjc", age: 22}
+
+//2. 借用其他对象的方法
+//注意以下非典型例子，对象借用了数组的slice方法
+//对象有length属性，属性名为数字，可得到对应的属性值构成的数组
+var a = {0:1, 1:"yjc", length: 2};
+var a2 = {p1:1, 1:"yjc", length: 2};
+var a3 = {p1:1, p2:"yjc", length: 2};
+var a4 = {0:1, 1:"yjc"};
+var a5 = {p1:1, p2:"yjc"};
+// a.slice(); //TypeError: a.slice is not a function
+var res1 = Array.prototype.slice.call(a);//[1, "yjc"]
+var res2 = Array.prototype.slice.call(a2);//[empty × 1, "yjc"]
+var res3 = Array.prototype.slice.call(a3);//[empty × 2]
+var res4 = Array.prototype.slice.call(a4);//[]
+var res5 = Array.prototype.slice.call(a5);//[]
+
+```  
+ 
+## 非严格模式下call中this指向的对象
+
+1. 非严格模式下this指向的对象:
+> 默认 ---> window
+> null --->window
+> undefined ---> window
+ 
+2. 严格模式下call中this指向的对象
+> 默认 ---> undefined
+> null --->null
+> undefined ---> undefined
+
+
+
+
+
+
 
 

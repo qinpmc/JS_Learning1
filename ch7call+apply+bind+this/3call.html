@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    "use strict"
+    function fn2(){
+        console.log(this);
+    }
+
+    fn2.call();//undefined
+    fn2.call(null);  //null
+    fn2.call(undefined); //undefined*/
+
+function fn(a,b){
+    console.log(a,b);
+}
+fn.call(1,2); //2 undefined ,此处 1 包装成对象，a=2,b=undefined
+
+//非严格模式下call中使用默认、null、undefined时，this指向的对象:
+// 默认 ---> window
+// null --->window
+// undefined ---> window
+function fn2(){
+    console.log(this);
+}
+fn2.call();//window
+fn2.call(null);  //window
+fn2.call(undefined); //window
+
+
+</script>
+</body>
+</html>
