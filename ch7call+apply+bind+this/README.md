@@ -150,7 +150,42 @@ var arr3 = utils.listToArray(divs);
 ```
 
 
+## bind
+> bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。
+> 如果bind方法的第一个参数是null或undefined，等于将this绑定到全局对象，函数运行时this指向顶层对象（浏览器为window）。
 
+
+```
+var counter = {
+  count: 0,
+  inc: function () {
+    this.count++;
+  }
+};
+
+var obj = {
+  count: 100
+};
+var func = counter.inc.bind(obj);
+func();
+obj.count // 101
+```
+
+> bind还可以接受更多的参数，将这些参数绑定原函数的参数
+
+```
+var add = function (x, y) {
+  return x * this.m + y * this.n;
+}
+
+var obj = {
+  m: 2,
+  n: 2
+};
+
+var newAdd = add.bind(obj, 5);
+newAdd(5) // 20
+```
 
 
 
