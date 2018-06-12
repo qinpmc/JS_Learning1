@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [23,12,31,42,55,78,31,22,23];
+
+    //利用数组的原生方法
+    arr.sort(function(a,b){
+        return a-b;
+    });
+    var maxNum = arr[arr.length-1];
+
+    //借用Math.max方法
+    //var res2 = Math.max(23,24,21);
+    var maxNum2 = Math.max.apply(null,arr);
+
+    //eval方法+Math.max方法
+    var maxNum3 = eval("Math.max("+arr.join()+")");
+
+    //自实现查找最大值
+    function findMax(arr){
+        var max = arr[0];
+        for(var i=0;i<arr.length;i++){
+            max<arr[i]?max = arr[i]:null;
+        }
+        return max;
+    }
+    var maxNum4 =findMax(arr);
+
+    //求平均值
+    function avg(){
+        var arr = [].slice.apply(arguments);
+        arr.shift();
+        arr.pop();
+        return (eval(arr.join("+"))/arr.length).toFixed(2);
+    }
+    var res = avg(23,12,31,42,55,78,31,22,23);
+
+</script>
+</body>
+</html>

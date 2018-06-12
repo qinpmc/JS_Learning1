@@ -75,6 +75,82 @@ var res5 = Array.prototype.slice.call(a5);//[]
 > null --->null
 > undefined ---> undefined
 
+## call/apply应用案例
+
+### 巧用call/apply求最大值/平均值
+
+```
+    var arr = [23,12,31,42,55,78,31,22,23];
+
+    //利用数组的原生方法
+    arr.sort(function(a,b){
+        return a-b;
+    });
+    var maxNum = arr[arr.length-1];
+
+    //借用Math.max方法
+    //var res2 = Math.max(23,24,21);
+    var maxNum2 = Math.max.apply(null,arr);
+
+    //eval方法+Math.max方法
+    var maxNum3 = eval("Math.max("+arr.join()+")");
+
+    //自实现查找最大值
+    function findMax(arr){
+        var max = arr[0];
+        for(var i=0;i<arr.length;i++){
+            max<arr[i]?max = arr[i]:null;
+        }
+        return max;
+    }
+    var maxNum4 =findMax(arr);
+
+    //求平均值
+    function avg(){
+        var arr = [].slice.apply(arguments);
+        arr.shift();
+        arr.pop();
+        return (eval(arr.join("+"))/arr.length).toFixed(2);
+    }
+    var res = avg(23,12,31,42,55,78,31,22,23);
+```
+
+### 类数组转数组
+
+```
+ //类数组：1、arguments 2、NodeList 3、HTMLCollection
+var down_div = document.getElementsByName("down");
+console.dir(down_div); // NodeList(1)
+
+var divs = document.getElementsByTagName("div");
+console.dir(divs);   // HTMLCollection
+
+var arr1 = [].slice.apply(down_div);
+console.dir(arr1);
+
+var arr2 = [].slice.apply(divs);
+console.dir(arr2);
+
+//ie6~8 利用数组的slice方法将类数组转换为数组不可行
+var utils ={
+    listToArray:function(likeAry){
+        var arr=[];
+        try{
+            ary = [].slice.apply(likeAry);
+        }catch(e){
+            for(var i=0;i<likeAry.length;i++){
+                ary[i] = likeAry[i];
+            }
+        }
+        return ary;
+    }
+}
+var arr3 = utils.listToArray(divs);
+
+```
+
+
+
 
 
 
