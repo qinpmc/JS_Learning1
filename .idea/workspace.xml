@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3基础3/4dom回流.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="" />
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +40,7 @@
       <file leaf-file-name="4dom回流.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch3基础3/4dom回流.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44959444">
+            <state vertical-scroll-proportion="2.2885284">
               <caret line="79" column="22" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="22" />
               <folding />
             </state>
@@ -167,8 +164,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-41" />
+    <option name="y" value="107" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -311,8 +308,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-41" y="107" width="1936" height="1056" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -520,7 +517,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3基础3/4dom回流.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44959444">
+        <state vertical-scroll-proportion="2.2885284">
           <caret line="79" column="22" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="22" />
           <folding />
         </state>
