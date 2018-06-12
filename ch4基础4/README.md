@@ -166,6 +166,41 @@ newArray[0].a // 2
 // [111, 1101, 10111]
 ```
 
+```
+var arr = [23,12,31,42,55,78,31,22];
+arr.sort(function (a,b) {
+    console.log(a,b);
+    //return a-b;  //升序,a-b大于0 交换位置
+    //return b-a;  //降序，b-a大于0 交换位置
+})
+
+arr.sort(function (a,b) {
+    return 1;  // 数组被reverse
+})
+console.log(arr);
+
+
+var ary = [
+    {name:"小明",age:21},
+    {name:"大明",age:22},
+    {name:"毛毛",age:3},
+    {name:"宝宝",age:4},
+];
+/*        ary.sort(function(a,b){
+    return a.age - b.age; //按照年龄升序排列
+});
+console.log(ary);*/
+
+ary.sort(function(a,b){
+    //return a.name - b.name;
+    return a.name.localeCompare(b.name);
+});
+console.log(ary);
+
+```
+
+
+
 3.8 slice 
 - slice方法用于提取目标数组的一部分，返回一个新数组，__原数组不变__
 - 第一个参数为 __起始位置（从0开始）__，第二个参数为 __终止位置__（但该位置的元素本身不包括在内）
