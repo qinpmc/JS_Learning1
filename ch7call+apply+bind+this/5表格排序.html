@@ -2,9 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>表格排序</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font: 14px "微软雅黑" ;
+        }
+        .box{
+            width: 400px;
+            margin:20px auto;
+            padding: 20px;
+            border:1px solid #008000;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px 0 #DBEEBD;
+        }
+        .box thead{
+            background: #008000;
+            color:white;
+        }
+        .box thead tr,.box tbody tr {
+            height:35px;
+        }
+        .box thead tr th,.box tbody tr td{
+            width: 100px;
+            text-align: center;
+        }
+
+        .box tbody tr.bg{
+            background: lawngreen;
+        }
+        .box thead tr th.cursor{
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
-
+    <div class="box">
+        <table id="tab">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th class="cursor">年龄</th>
+                    <th class="cursor">武力</th>
+                    <th>性别</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td>令狐冲</td>
+                    <td>25</td>
+                    <td>99</td>
+                    <td>男</td>
+                </tr>
+                <tr class="bg">
+                    <td>令狐冲</td>
+                    <td>25</td>
+                    <td>99</td>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <td>令狐冲</td>
+                    <td>25</td>
+                    <td>99</td>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <td>令狐冲</td>
+                    <td>25</td>
+                    <td>99</td>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <td>令狐冲</td>
+                    <td>25</td>
+                    <td>99</td>
+                    <td>男</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
