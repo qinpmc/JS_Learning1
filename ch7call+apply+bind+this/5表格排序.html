@@ -50,30 +50,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td>令狐冲</td>
-                    <td>25</td>
-                    <td>99</td>
-                    <td>男</td>
-                </tr>
-                <tr >
-                    <td>令狐冲</td>
-                    <td>25</td>
-                    <td>99</td>
-                    <td>男</td>
-                </tr>
-                <tr>
-                    <td>令狐冲</td>
-                    <td>25</td>
-                    <td>99</td>
-                    <td>男</td>
-                </tr>
-                <tr>
-                    <td>令狐冲</td>
-                    <td>25</td>
-                    <td>99</td>
-                    <td>男</td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -90,21 +66,32 @@
             if (xhr.readyState ===4 && xhr.status ==200 ){
                 var result = xhr.responseText;
                 response = JSON.parse(result);
-                for(var i= 0,len = response.length;i<len;i++){
-                    var item = response[i];
-                    oRows[i].cells[0].innerHTML = item.name;
-                    oRows[i].cells[1].innerHTML = item.age;
-                    oRows[i].cells[2].innerHTML = item.score;
-                    oRows[i].cells[3].innerHTML = item.sex;
-                }
+                bindData();
             }
         }
         xhr.send(null);
 
-        oThs[1].onclick = function(){
+        function bindData(){
+            var fragment = document.createDocumentFragment();
+            for(var i= 0,len = response.length;i<len;i++){
+                var item = response[i];
+                var oTr = document.createElement("tr");
+                for(var key in item){
+                    var oTd = document.createElement("td");
+                    oTd.innerHTML = item[key];
+                    oTr.appendChild(oTd);
+                }
+                fragment.appendChild(oTr);
+            }
+            oTbody.appendChild(fragment);
+            fragment = null;
+        }
+
+        function sortByValue(){
+            var that = this;
             oRowsAry =  [].slice.call(oRows);
             oRowsAry.sort(function(a,b){
-                return parseFloat(a.cells[1].innerHTML) - parseFloat(b.cells[1].innerHTML);
+                return parseFloat(a.cells[that.index].innerHTML) - parseFloat(b.cells[that.index].innerHTML);
             });
             var frg = document.createDocumentFragment();
             for(var i=0;i<oRowsAry.length;i++){
@@ -114,17 +101,12 @@
             frg = null;
         }
 
-        oThs[2].onclick = function(){
-            oRowsAry =  [].slice.call(oRows);
-            oRowsAry.sort(function(a,b){
-                return parseFloat(a.cells[2].innerHTML) - parseFloat(b.cells[2].innerHTML);
-            });
-            var frg = document.createDocumentFragment();
-            for(var i=0;i<oRowsAry.length;i++){
-                frg.appendChild(oRowsAry[i]);
+        for(var i =0;i<oThs.length;i++){
+            oThs[i].index = i;
+            if(oThs[i].innerHTML==="年龄" ||oThs[i].innerHTML==="武力" )
+            oThs[i].onclick = function(){
+                sortByValue.call(this);
             }
-            oTbody.appendChild(frg);
-            frg = null;
         }
 
     </script>
