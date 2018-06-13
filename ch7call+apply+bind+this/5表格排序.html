@@ -29,7 +29,7 @@
             text-align: center;
         }
 
-        .box tbody tr.bg{
+        .box tbody tr:nth-child(even){
             background: lawngreen;
         }
         .box thead tr th.cursor{
@@ -56,13 +56,7 @@
                     <td>99</td>
                     <td>男</td>
                 </tr>
-                <tr class="bg">
-                    <td>令狐冲</td>
-                    <td>25</td>
-                    <td>99</td>
-                    <td>男</td>
-                </tr>
-                <tr>
+                <tr >
                     <td>令狐冲</td>
                     <td>25</td>
                     <td>99</td>
@@ -83,5 +77,56 @@
             </tbody>
         </table>
     </div>
+    <script>
+        var oTable = document.getElementById("tab");
+        var tHead = oTable.tHead;
+        var oThs = tHead.rows[0].cells;
+        var oTbody = oTable.tBodies[0];
+        var oRows = oTbody.rows;
+        var response = null;
+        var xhr = new XMLHttpRequest();
+        xhr.open("get","./data/data.txt",true);
+        xhr.onreadystatechange =  function(){
+            if (xhr.readyState ===4 && xhr.status ==200 ){
+                var result = xhr.responseText;
+                response = JSON.parse(result);
+                for(var i= 0,len = response.length;i<len;i++){
+                    var item = response[i];
+                    oRows[i].cells[0].innerHTML = item.name;
+                    oRows[i].cells[1].innerHTML = item.age;
+                    oRows[i].cells[2].innerHTML = item.score;
+                    oRows[i].cells[3].innerHTML = item.sex;
+                }
+            }
+        }
+        xhr.send(null);
+
+        oThs[1].onclick = function(){
+            oRowsAry =  [].slice.call(oRows);
+            oRowsAry.sort(function(a,b){
+                return parseFloat(a.cells[1].innerHTML) - parseFloat(b.cells[1].innerHTML);
+            });
+            var frg = document.createDocumentFragment();
+            for(var i=0;i<oRowsAry.length;i++){
+                frg.appendChild(oRowsAry[i]);
+            }
+            oTbody.appendChild(frg);
+            frg = null;
+        }
+
+        oThs[2].onclick = function(){
+            oRowsAry =  [].slice.call(oRows);
+            oRowsAry.sort(function(a,b){
+                return parseFloat(a.cells[2].innerHTML) - parseFloat(b.cells[2].innerHTML);
+            });
+            var frg = document.createDocumentFragment();
+            for(var i=0;i<oRowsAry.length;i++){
+                frg.appendChild(oRowsAry[i]);
+            }
+            oTbody.appendChild(frg);
+            frg = null;
+        }
+
+    </script>
 </body>
 </html>

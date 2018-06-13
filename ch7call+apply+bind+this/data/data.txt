@@ -1,0 +1,4 @@
+[{"name":"岳不群","age":55,"score":93,"sex":1},
+{"name":"任盈盈","age":26,"score":90,"sex":0},
+{"name":"令狐冲","age":24,"score":98,"sex":1},
+{"name":"任我行","age":62,"score":97,"sex":1}]
