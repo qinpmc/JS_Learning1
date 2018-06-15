@@ -56,8 +56,15 @@
         var str4 = "tsinghua2020peking1910shanghai2018peking2010";
         console.log(reg4.exec(str4));
         console.log(reg4.exec(str4));
-/*["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
-["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
+        /*["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+        ["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
+
+        // match 不捕获小分组的内容，只捕获大的正则
+        var reg5 = /peking(\d+)/g;
+        var str5 = "tsinghua2020peking1910shanghai2018peking2010";
+        str5.match(reg5); //["peking1910", "peking2010"]
+        str5.match(reg5); //["peking1910", "peking2010"]
+
     </script>
 </body>
 </html>

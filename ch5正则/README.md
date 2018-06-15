@@ -69,23 +69,23 @@ var reg1 = new RegExp("^\\d+"+name+"\\d+$","g"); // 注意是 \\d
 > 正则捕获时，不仅仅把大正则匹配的内容捕获到，也可以把小分组匹配的内容捕获到
   ?: 在分组中的意思是只匹配，不捕获
   
+```
 var reg = /^(\d{2})(\d{4})(\d{4})(\d{2})(\d{2})(?:\d{2})(\d)(?:\d|X)$/;
 reg.exec("1422726199009181211") ;
 //["142726199009181211", "14", "2726", "1990", "09", "18", "1", index: 0, input: "142726199009181211", groups: undefined]
-
-
-
+```  
 
  
+ 
 ```
-    //有效数字
-    //1 最开始可以有 + 或者- 号(只出现0次或1次)
-    //2 整数部分，一位数可以是0-9，多位数不能以0开始
-    //3 小数点 . 可以出现，也可以不出现，一旦出现，后面必须跟至少一位数字
+//有效数字
+//1 最开始可以有 + 或者- 号(只出现0次或1次)
+//2 整数部分，一位数可以是0-9，多位数不能以0开始
+//3 小数点 . 可以出现，也可以不出现，一旦出现，后面必须跟至少一位数字
 
-    var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
-    
-    // 
+var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
+
+// 
     
 ```   
     
@@ -116,7 +116,7 @@ r.test(s) // true
 
 2. exec
 > 正则实例对象的exec方法，用来返回匹配结果。如果发现匹配，就返回一个数组，
->  成员是匹配成功的子字符串，否则返回null。
+> 成员是匹配成功的子字符串，否则返回null。
 
 > 懒惰性：每次执行exec只捕获第一个匹配的内容，多次执行，捕获的还是第一个匹配的内容
 > 解决懒惰性： 采用g 全局捕获
@@ -125,5 +125,23 @@ r.test(s) // true
 > 解决贪婪性：在量词元字符后面添加一个？
     /\d+?/g.exec("peking2018tsinghua2019china")，匹配的是2
 
+```
+var reg4 = /peking(\d+)/g;
+var str4 = "tsinghua2020peking1910shanghai2018peking2010";
+console.log(reg4.exec(str4));
+console.log(reg4.exec(str4));
+/*["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
+```
+ 
+
 3. 字符串的match    
-   "peking2018tsinghua2019china".match(/\d+?/g); //["2", "0", "1", "8", "2", "0", "1", "9"]
+
+>  match 不捕获小分组的内容，只捕获大的正则
+```
+"peking2018tsinghua2019china".match(/\d+?/g); //["2", "0", "1", "8", "2", "0", "1", "9"] ;//在量词元字符后面添加一个？解决贪婪性
+var reg4 = /peking(\d+)/g;
+var str4 = "tsinghua2020peking1910shanghai2018peking2010";
+str4.match(reg4); //["peking1910", "peking2010"]
+str4.match(reg4); //["peking1910", "peking2010"]
+```
