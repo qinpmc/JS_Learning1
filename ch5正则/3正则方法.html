@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+/*        var reg1 = /\d+/;
+        var str = "peking2018tsinghua2019china";
+        console.dir(reg1.exec(str));
+        console.dir(reg1.exec(str));*/
+/*       2次输出结果：
+        0: "2018"
+        groups:undefined
+        index:6
+        input:"peking2018tsinghua2019china"
+        length:1*/
+
+        var reg2 = /\d+/g; //加g表示全局捕获
+        var str2 = "peking2018tsinghua2019china";
+
+        //console.dir(reg2.exec(str2));
+        /*       第1次输出结果：
+         0: "2018"
+         groups:undefined
+         index:6
+         input:"peking2018tsinghua2019china"
+         length:1*/
+        //console.dir(reg2.exec(str2));
+       //第2次输出结果：
+        /*0:"2019"
+        groups:undefined
+        index:18
+        input:"peking2018tsinghua2019china"
+        length:1*/
+
+        var execResult = reg2.exec(str2);
+        var result =[];
+        while(execResult){
+            result.push(execResult[0]);
+            execResult = reg2.exec(str2);
+        }
+        console.log(result); //["2018", "2019"]
+
+        /*3. 分组捕获
+        > 正则捕获时，不仅仅把大正则匹配的内容捕获到，也可以把小分组匹配的内容捕获到
+                ?: 在分组中的意思是只匹配，不捕获*/
+        var reg3 = /^(\d{2})(\d{4})(\d{4})(\d{2})(\d{2})(?:\d{2})(\d)(?:\d|X)$/;
+        reg3.exec("1422726199009181211") ;
+        //["142726199009181211", "14", "2726", "1990", "09", "18", "1", index: 0, input: "142726199009181211", groups: undefined]
+
+
+        //分组捕获捕获的既有大的内容，也有小分组的内容
+        var reg4 = /peking(\d+)/g;
+        var str4 = "tsinghua2020peking1910shanghai2018peking2010";
+        console.log(reg4.exec(str4));
+        console.log(reg4.exec(str4));
+/*["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
+    </script>
+</body>
+</html>
