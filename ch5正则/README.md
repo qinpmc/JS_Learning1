@@ -145,3 +145,47 @@ var str4 = "tsinghua2020peking1910shanghai2018peking2010";
 str4.match(reg4); //["peking1910", "peking2010"]
 str4.match(reg4); //["peking1910", "peking2010"]
 ```
+
+
+4. 字符串的replace
+
+
+```
+ var str = "peking2018peking2010";
+
+ //字符串的方式替换(无法解决懒惰性)
+ //str = str.replace("peking","chinapeking").replace("peking","chinapeking");
+ //console.log(str); //chinachinapeking2018peking2010
+
+ //正则的方式替换
+ //str = str.replace(/peking/g,"chinapeking"); //chinapeking2018chinapeking2010"
+ /*     console.log("-----------");
+      str =  str.replace(/(peking)/g,function(){
+         console.log(arguments);   //所有信息
+         console.log(arguments[0]);//匹配到到大正则的值 peking
+         console.log(arguments[1]); //匹配到到分组的值 peking
+         return "shanghai";  // return 为用于替换匹配的值
+     })*/
+ /*
+     ["peking", 0, "peking2018peking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]   peking   peking
+     ["peking", 10, "peking2018peking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]  peking   peking
+ 
+     str; // "shanghai2018shanghai2010"
+     */
+ ```
+    
+  
+```
+      var str = "20180808";
+      var ary = ["零","一","二","三","四","五","六","七","八","九","十"];
+      str = str.replace(/\d/g,function(){
+          //console.log(arguments[0]);
+          return ary[arguments[0]];
+      })
+  
+     // str;// "二零一八零八零八"
+``` 
+
+
+
+
