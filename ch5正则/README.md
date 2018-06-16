@@ -98,6 +98,15 @@ var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
 > source：返回正则表达式的字符串形式（不包括反斜杠），该属性只读
 
 ## 正则实例方法
+
+> 懒惰性：每次执行exec只捕获第一个匹配的内容，多次执行，捕获的还是第一个匹配的内容
+> 解决懒惰性： 采用g 全局捕获
+> 贪婪性：正则的每一次捕获都是按照匹配最长的结果捕获的，如
+     /\d+/g.exec("peking2018tsinghua2019china")，匹配的2018而不是2、20等
+> 解决贪婪性：在量词元字符后面添加一个？
+    /\d+?/g.exec("peking2018tsinghua2019china")，匹配的是2
+
+ 
 1. test
 > 正则实例对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串。
 
@@ -117,13 +126,8 @@ r.test(s) // true
 2. exec
 > 正则实例对象的exec方法，用来返回匹配结果。如果发现匹配，就返回一个数组，
 > 成员是匹配成功的子字符串，否则返回null。
+> 返回的结果第一个参数为匹配的大正则，后续分别为小分组，然后是index，匹配的字符串等。
 
-> 懒惰性：每次执行exec只捕获第一个匹配的内容，多次执行，捕获的还是第一个匹配的内容
-> 解决懒惰性： 采用g 全局捕获
-> 贪婪性：正则的每一次捕获都是按照匹配最长的结果捕获的，如
-     /\d+/g.exec("peking2018tsinghua2019china")，匹配的2018而不是2、20等
-> 解决贪婪性：在量词元字符后面添加一个？
-    /\d+?/g.exec("peking2018tsinghua2019china")，匹配的是2
 
 ```
 var reg4 = /peking(\d+)/g;
@@ -137,7 +141,7 @@ console.log(reg4.exec(str4));
 
 3. 字符串的match    
 
->  match 不捕获小分组的内容，只捕获大的正则
+>  match 不捕获小分组的内容，只捕获大的正则(一次全部捕获，如果正则解决了贪婪性)
 ```
 "peking2018tsinghua2019china".match(/\d+?/g); //["2", "0", "1", "8", "2", "0", "1", "9"] ;//在量词元字符后面添加一个？解决贪婪性
 var reg4 = /peking(\d+)/g;
@@ -187,5 +191,37 @@ str4.match(reg4); //["peking1910", "peking2010"]
 ``` 
 
 
+```
 
+    // 自己实现String match
+    String.prototype.myMatch = function(){
+        var result = [],regexp = arguments[0];
+        var res = regexp.exec(this);
+        while (res){
+            result.push(res[0]);
+            res = regexp.exec(this);
+        }
+        return result;
+    }
+```
 
+```
+// 将日期改为xxxx年xx月xx日 xx时xx分xx秒
+var str = "2015-6-10 14:55:23";
+
+String.prototype.myDataFormat =  function(){
+    var reg1= /^(\d{4})-(\d{1,2})-(\d{1,2})\s(\d{1,2}):(\d{1,2}):(\d{1,2})$/g;
+    var ary = [];
+    this.replace(reg1,function(){
+        ary = ([].slice.call(arguments)).slice(1,7);
+    });
+    var stringFormat = "{0}年{1}月{2}日{3}时{4}分{5}秒";
+    stringFormat = stringFormat.replace(/{(\d+)}/g,function(){
+        var temp = ary[arguments[1]];
+        temp.length===1? temp="0"+temp:void 0;
+        return temp;
+    })
+    return stringFormat;
+}
+var newStr = str.myDataFormat(); //"2015年06月10日14时55分23秒"
+```

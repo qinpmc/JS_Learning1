@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 将日期改为xxxx年xx月xx日 xx时xx分xx秒
+    var str = "2015-6-10 14:55:23";
+
+    String.prototype.myDataFormat =  function(){
+        var reg1= /^(\d{4})-(\d{1,2})-(\d{1,2})\s(\d{1,2}):(\d{1,2}):(\d{1,2})$/g;
+        var ary = [];
+        this.replace(reg1,function(){
+            ary = ([].slice.call(arguments)).slice(1,7);
+        });
+        var stringFormat = "{0}年{1}月{2}日{3}时{4}分{5}秒";
+        stringFormat = stringFormat.replace(/{(\d+)}/g,function(){
+            var temp = ary[arguments[1]];
+            temp.length===1? temp="0"+temp:void 0;
+            return temp;
+        })
+        return stringFormat;
+    }
+    var newStr = str.myDataFormat(); //"2015年06月10日14时55分23秒"
+
+</script>
+</body>
+</html>

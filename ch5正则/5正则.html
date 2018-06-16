@@ -50,7 +50,16 @@
     })
     str3; //  "my name is tom,my age is 21,I come from usa,I like java"
 
-
+    // 自己实现String match
+    String.prototype.myMatch = function(){
+        var result = [],regexp = arguments[0];
+        var res = regexp.exec(this);
+        while (res){
+            result.push(res[0]);
+            res = regexp.exec(this);
+        }
+        return result;
+    }
 
 
 </script>

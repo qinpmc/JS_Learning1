@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch5正则/5正则.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch5正则/6正则.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch5正则/5正则.html" afterPath="$PROJECT_DIR$/ch5正则/5正则.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch5正则/README.md" afterPath="$PROJECT_DIR$/ch5正则/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -25,12 +26,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch5正则/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="3.8931751">
-                <caret line="170" column="103" selection-start-line="170" selection-start-column="103" selection-end-line="170" selection-end-column="103" />
+              <first_editor vertical-scroll-proportion="0.5169082">
+                <caret line="217" column="27" selection-start-line="217" selection-start-column="27" selection-end-line="217" selection-end-column="27" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -41,21 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="5正则.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch5正则/5正则.html">
+      <file leaf-file-name="6正则.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch5正则/6正则.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12634408">
-              <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4正则方法.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch5正则/4正则方法.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.90625">
-              <caret line="33" column="60" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="60" />
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -95,8 +86,9 @@
         <option value="$PROJECT_DIR$/ch5正则/2正则.html" />
         <option value="$PROJECT_DIR$/ch5正则/3正则方法.html" />
         <option value="$PROJECT_DIR$/ch5正则/4正则方法.html" />
-        <option value="$PROJECT_DIR$/ch5正则/README.md" />
         <option value="$PROJECT_DIR$/ch5正则/5正则.html" />
+        <option value="$PROJECT_DIR$/ch5正则/6正则.html" />
+        <option value="$PROJECT_DIR$/ch5正则/README.md" />
       </list>
     </option>
   </component>
@@ -106,10 +98,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="150" />
-    <option name="y" value="542" />
-    <option name="width" value="1704" />
-    <option name="height" value="565" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -252,10 +244,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="542" width="1704" height="565" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2843602" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -561,8 +553,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch5正则/4正则方法.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.90625">
+        <state vertical-scroll-proportion="0.5080645">
           <caret line="33" column="60" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch5正则/5正则.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1875">
+          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch5正则/6正则.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -570,8 +578,8 @@
     <entry file="file://$PROJECT_DIR$/ch5正则/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="3.8931751">
-            <caret line="170" column="103" selection-start-line="170" selection-start-column="103" selection-end-line="170" selection-end-column="103" />
+          <first_editor vertical-scroll-proportion="0.5169082">
+            <caret line="217" column="27" selection-start-line="217" selection-start-column="27" selection-end-line="217" selection-end-column="27" />
             <folding />
           </first_editor>
           <second_editor />
@@ -579,14 +587,6 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch5正则/5正则.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12634408">
-          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-          <folding />
-        </state>
       </provider>
     </entry>
   </component>
