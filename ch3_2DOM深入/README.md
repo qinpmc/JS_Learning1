@@ -47,7 +47,7 @@ oDiv.clientHeight //360 ,设置height 为300px；360px = 300px(height) + 上下p
 > offsetParent 当前元素的父级参照物
 
 > offsetLeft / offsetTop 当前元素的外边框距离父级参照物内边框的偏移量
-
+  (chrome测试时，如果offsetParent 为body，则会包含body的边框值？)
 > scrollWidth /scrollHeight
   > 内容不溢出时，和clientWidth、cientHeight一致，
   > 溢出时，其值为真实内容的高度/宽度 + 上填充/左填充
@@ -80,3 +80,5 @@ oDiv.clientHeight //360 ,设置height 为300px；360px = 300px(height) + 上下p
       return reg.test(res)? parseFloat(res):res;
   }
 ```
+
+## parentNode OffsetParent
