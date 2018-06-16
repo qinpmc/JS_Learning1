@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .box{
+            border:solid rebeccapurple 2px;
+            width: 200px;
+            text-align: center;
+        }
+        .box:before{
+            content: "我在前面 before";
+            display: block;
+            text-align: center;
+            background: lightcoral;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="div1">
+        样式表定义如何显示 HTML 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。
+
+    </div>
+    <script type="text/javascript">
+        var oDiv = document.getElementById("div1");
+        var beforeContent = window.getComputedStyle(oDiv,"before")["content"];
+    </script>
+</body>
+</html>
