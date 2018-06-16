@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //demo1 数字替换成中文
+    var str = "唐伯虎9527";
+    var ary = ["零","一","二","三","四","五","六","七","八","九","十"];
+    str = str.replace(/\d/g,function(){
+        return ary[arguments[0]] ;
+     })
+
+    str; //"唐伯虎九五二七"
+
+    //demo2  统计字符串中字母出现的个数
+    var str2 = "w32wjsdlfsl323dfsoidf3fsaodf32nasfbs";
+    var obj = {};
+    // 统计各个字母出现的次数
+    str2.replace(/[a-z]/gi,function(){
+        var param = arguments[0];
+        if(!obj[param]){
+            obj[param] = 1;
+        }else{
+            obj[param] ++;
+        }
+     })
+
+    //查找最大次数
+    var max = 0;
+    for(var key in obj){
+        if(obj[key]>max){
+            max = obj[key]
+        }
+    }
+
+    for(var key in obj){
+        if(obj[key]==max){
+            console.log(key+" : "+obj[key]);
+        }
+    }
+
+    //demo3 简单的模板引擎
+    var str3 = "my name is {0},my age is {1},I come from {2},I like {3}";
+    var strAry = ["tom",21,"usa","java"];
+    str3 = str3.replace(/{(\d+)}/g,function(){
+        return strAry[arguments[1]];
+    })
+    str3; //  "my name is tom,my age is 21,I come from usa,I like java"
+
+
+
+
+</script>
+</body>
+</html>

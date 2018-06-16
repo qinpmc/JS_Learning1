@@ -167,8 +167,8 @@ str4.match(reg4); //["peking1910", "peking2010"]
          return "shanghai";  // return 为用于替换匹配的值
      })*/
  /*
-     ["peking", 0, "peking2018peking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]   peking   peking
-     ["peking", 10, "peking2018peking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]  peking   peking
+     ["peking", "peking", 5, "chinapeking2018chinapeking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]   peking   peking
+     ["peking", "peking", 20, "chinapeking2018chinapeking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]  peking   peking
  
      str; // "shanghai2018shanghai2010"
      */
