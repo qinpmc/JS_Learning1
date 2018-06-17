@@ -33,10 +33,16 @@
 oDiv.classList; //  ["parentBox", "wrap", value: "parentBox wrap"]
 
 > clientHeight、clientWidth
+clientHeight: 内容的高度+上下填充
+clientWidth: 内容的宽度+左右填充
 
-oDiv.clientHeight //240 ,不设置height 为300px
-oDiv.clientHeight //360 ,设置height 为300px；360px = 300px(height) + 上下padding(30px)
-                  // 文本内容溢出，设置了height300px，则clientHeight总为360
+注意：不设置height等于300px时
+oDiv.clientHeight //240 （此时内容不溢出），
+oDiv.clientHeight //570 （增加内容，文本框高度自动扩大，此时内容不溢出）
+
+设置height等于300px时            
+oDiv.clientHeight //360  ;360px = 300px(height) + 上下padding(30px),此时内容不溢出
+oDiv.clientHeight //360  ;增加内容,文本内容溢出，clientHeight仍为360
             
 
 > offsetHeight/offsetWidth
@@ -82,3 +88,32 @@ oDiv.clientHeight //360 ,设置height 为300px；360px = 300px(height) + 上下p
 ```
 
 ## parentNode OffsetParent
+
+```
+
+<div id="outer">
+    <div id="center">
+        <div id="inner"></div>
+    </div>
+</div>
+
+
+```
+
+> parentNode
+1. parentNode -- dom 树上的父节点
+
+var inner = document.getElementById("inner");
+var outer = document.getElementById("outer");
+inner.parentNode; //center
+inner.parentNode.parentNode; //outer
+inner.parentNode.parentNode.parentNode; //body
+inner.parentNode.parentNode.parentNode.parentNode; //html
+inner.parentNode.parentNode.parentNode.parentNode.parentNode; //#document
+
+> offsetParent
+1. offsetParent 父级参照元素
+2. 可通过 position修改：absolute、relative、fixed
+
+inner.offsetParent; //body ,此时center、outer的position均为默认static
+inner.offsetParent.offsetParent; //null

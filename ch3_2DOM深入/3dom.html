@@ -62,6 +62,28 @@
     inner.offsetParent; //body
     inner.offsetParent.offsetParent; //null
 
+    var leftAndTop = getOffset(inner);
+
+    function getOffset(ele){
+        var top = 0,left= 0,parent =ele.offsetParent ;
+        top += ele.offsetTop;
+        left += ele.offsetLeft;
+        while(parent){
+            if(navigator.userAgent.indexOf("MSIE 8.0")==-1){ //ie8下已累加边框
+                //累加父级参照物的边框
+                left += parent.clientLeft;
+                top += parent.clientTop;
+            }
+
+            //累加父级参照物的偏移
+            left +=parent.offsetLeft;
+            top += parent.offsetTop;
+            parent = parent.offsetParent;
+        }
+        return {left:left,top:top};
+    }
+
+
 
 </script>
 </body>
