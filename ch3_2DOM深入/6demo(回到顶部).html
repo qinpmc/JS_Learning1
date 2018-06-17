@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            font:20px sans-serif;
+        }
+        body,html{
+            width:100%;
+            height: 500%;
+        }
+        #backTop{
+            display: block;
+            position: fixed;
+            bottom: 150px;
+            right:50px;
+            background: thistle;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            opacity: 0.8;
+            color: black;
+        }
+    </style>
+</head>
+<p>javascript:;取消a标签的默认跳转行为</p>
+<a href="javascript:;" id="backTop">回到顶部</a>
+<body>
+<script type="text/javascript">
+    oA = document.getElementById("backTop");
+    oA.onclick = function(){
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+    }
+
+</script>
+</body>
+</html>

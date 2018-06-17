@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/4dom(offsetLeft).html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/5scrolltop.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/6demo(回到顶部).html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/2dom(getComputedStyle).html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/2dom(getComputedStyle).html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/README.md" afterPath="$PROJECT_DIR$/ch3_2DOM深入/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch1基础1/3简单demo.html" afterPath="$PROJECT_DIR$/ch1基础1/3简单demo(隔行变色).html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch1基础1/4demo2.html" afterPath="$PROJECT_DIR$/ch1基础1/4demo(选项卡).html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch1基础1/5demo3.html" afterPath="$PROJECT_DIR$/ch1基础1/5demo(移入变色).html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch3_2DOM深入/1dom.html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/1dom(attributes+currrentstyle).html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch3_2DOM深入/2dom.html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/2dom(getComputedStyle).html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch3_2DOM深入/3dom.html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3基础3(DOM)/README.md" afterPath="$PROJECT_DIR$/ch3基础3(DOM)/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,101 +28,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="3dom.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2基础2/3dom.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/README.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="0.3324905">
+                <caret line="67" column="30" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="30" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1dom.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/1dom.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/README.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="-7.944374">
+                <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="27" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2dom.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/2dom.html">
+      <file leaf-file-name="6demo(回到顶部).html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/6demo(回到顶部).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3dom.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/3dom.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4dom回流.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/4dom回流.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.71875">
-              <caret line="79" column="22" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="5dom回流.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/5dom回流.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.46875">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1date.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch4基础4(String+Array)/1date.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2array.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch4基础4(String+Array)/2array.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3arry.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch4基础4(String+Array)/3arry.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="5test1.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch5作用域及作用域/5test1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.15874855">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.68134415">
+              <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -171,8 +110,12 @@
         <option value="$PROJECT_DIR$/ch3_2DOM深入/2dom.html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/1dom.html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/3dom.html" />
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/README.md" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/4dom.html" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/2dom(getComputedStyle).html" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/5scrolltop.html" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/README.md" />
+        <option value="$PROJECT_DIR$/ch3基础3(DOM)/README.md" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/6demo(回到顶部).html" />
       </list>
     </option>
   </component>
@@ -241,7 +184,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ch3_2DOM深入" />
+              <option name="myItemId" value="ch3基础3(DOM)" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -255,7 +198,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ch2基础2" />
+              <option name="myItemId" value="ch3_2DOM深入" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -344,9 +287,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -380,26 +323,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch5正则/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch5正则/3正则方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="117" selection-start-line="54" selection-start-column="8" selection-end-line="59" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/5表格排序.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -647,61 +570,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="-0.09041591">
-            <caret line="28" column="23" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.36714977">
-            <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.40625">
-          <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/2dom(getComputedStyle).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.9375">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/1dom(attributes+currrentstyle).html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.78125">
           <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/4dom(offsetLeft).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.59375">
-          <caret line="57" column="119" selection-start-line="57" selection-start-column="119" selection-end-line="57" selection-end-column="119" />
           <folding />
         </state>
       </provider>
@@ -786,14 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/4dom回流.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.71875">
-          <caret line="79" column="22" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/5dom回流.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.46875">
@@ -828,8 +692,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch5作用域及作用域/5test1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.15874855">
+        <state vertical-scroll-proportion="4.28125">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/4dom(offsetLeft).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-42.03125">
+          <caret line="57" column="119" selection-start-line="57" selection-start-column="119" selection-end-line="57" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-45.15625">
+          <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/2dom(getComputedStyle).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/4dom回流.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.71875">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/5scrolltop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0961537">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.3324905">
+            <caret line="67" column="30" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="30" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="-7.944374">
+            <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="27" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/6demo(回到顶部).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68134415">
+          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
           <folding />
         </state>
       </provider>

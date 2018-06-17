@@ -117,3 +117,8 @@ inner.parentNode.parentNode.parentNode.parentNode.parentNode; //#document
 
 inner.offsetParent; //body ,此时center、outer的position均为默认static
 inner.offsetParent.offsetParent; //null
+
+> scrollTop
+ 1. 该值可读写；以上的距离相关属性不可写；
+ 2. 该值存在最大值和最小值，超过范围，则自动取最大或最小值（最小值为0）；
+ 3. scrollTop最大值 = scrollHeight- clientHeight

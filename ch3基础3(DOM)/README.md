@@ -13,9 +13,9 @@
 5. document.documentElement
  - returns the __Element__ that is the root element of the document 
    (for example, the `<html>` element for HTML documents).
-6. Document.body
+6. document.body
  - Returns the `<body>` or `<frameset>` node of the current document
-7. Document.head
+7. document.head
    -returns the `<head>` element of the current document
 8. [context].querySelector
  - Returns the first element that is a descendant of the element
