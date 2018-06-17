@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            border: solid 2px blueviolet;
+            margin: 20px;
+        }
+        #outer{
+            margin: 1500px 300px;
+            border: solid black 10px;
+            padding: 50px;
+            background: mediumvioletred;
+            width: 280px;
+            height: 280px;
+        }
+
+        #center{
+            position: relative;
+            border: solid black 10px;
+            padding: 50px;
+            background: yellow;
+            width: 180px;
+            height: 180px;
+        }
+
+        #inner{
+            border: solid black 10px;
+            padding: 40px;
+            background: blue;
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="center">
+        <div id="inner"></div>
+    </div>
+</div>
+
+<script>
+
+    var inner = document.getElementById("inner");
+    var outer = document.getElementById("outer");
+    var center = document.getElementById("center");
+
+    inner.offsetLeft;  //50
+
+    center.offsetParent; //body;
+    center.offsetLeft; //382 = 50 (ouer 的padding)+ 10 (ouer 的border)+ 300(ouer 的margin) +2(body的border)+20（body的margin ）
+
+
+
+</script>
+</body>
+</html>
