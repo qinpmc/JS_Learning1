@@ -14,7 +14,7 @@
             height: 500%;
         }
         #backTop{
-            display: block;
+            display: none;
             position: fixed;
             bottom: 150px;
             right:50px;
@@ -33,10 +33,38 @@
 <body>
 <script type="text/javascript">
     oA = document.getElementById("backTop");
-    oA.onclick = function(){
+/*    oA.onclick = function(){
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
+    }*/
+
+    //滚动条滑动一屏后再显示
+    window.onscroll = function(){
+        var curTop = document.documentElement.scrollTop ||document.body.scrollTop;
+        var curHeight = document.documentElement.clientHeight ||document.body.clientHeight;
+        curTop>curHeight? oA.style.display = "block": oA.style.display = "none";
+
     }
+    function backTop(ele,duration,interval){
+        ele.onclick = function(){
+            var distance = document.documentElement.scrollTop||document.body.scrollTop;
+            var step = distance/duration*interval;
+            var timer = setInterval(function(){
+                if(distance<=0){
+                    window.clearInterval(timer);
+                    return;
+                }
+                distance-=step;
+                document.documentElement.scrollTop = distance;
+                document.body.scrollTop = distance;
+            },interval)
+        }
+    }
+
+    backTop(oA,500,10);
+
+
+
 
 </script>
 </body>
