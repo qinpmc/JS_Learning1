@@ -44,6 +44,9 @@ oDiv.clientHeight //570 （增加内容，文本框高度自动扩大，此时�
 oDiv.clientHeight //360  ;360px = 300px(height) + 上下padding(30px),此时内容不溢出
 oDiv.clientHeight //360  ;增加内容,文本内容溢出，clientHeight仍为360
             
+> clientLeft、clientTop 
+
+
 
 > offsetHeight/offsetWidth
   (设置height时，和内容是否溢出没有关系)
@@ -122,3 +125,6 @@ inner.offsetParent.offsetParent; //null
  1. 该值可读写；以上的距离相关属性不可写；
  2. 该值存在最大值和最小值，超过范围，则自动取最大或最小值（最小值为0）；
  3. scrollTop最大值 = scrollHeight- clientHeight
+
+> scrollLeft
+ 类同scrollTop

@@ -3,24 +3,33 @@
 ## 获取DOM元素的方法
 1. document.getElementById 
  - returns an __Element__ object 
-2. [context].getElementByTagName 
+ 
+2. [context].getElementsByTagName 
  - returns __HTMLCollection__
-3. [context].getElementByClassName
+ 
+3. [context].getElementsByClassName
  - returns  __HTMLCollection__
+ - IE6-8下不兼容
+ 
 4. document.getElementsByName 
  - returns __NodeList__ Collection
  - IE浏览器只能识别表单元素的name属性，一般用于操作表单元素
+ 
 5. document.documentElement
  - returns the __Element__ that is the root element of the document 
    (for example, the `<html>` element for HTML documents).
+   
 6. document.body
  - Returns the `<body>` or `<frameset>` node of the current document
+ 
 7. document.head
    -returns the `<head>` element of the current document
+   
 8. [context].querySelector
  - Returns the first element that is a descendant of the element
+ 
 9. [context].querySelectorAll()
-- returns a __static__ (not live) NodeList
+- returns a __static__ (not live) NodeList（静态的）
 - querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
 
 
