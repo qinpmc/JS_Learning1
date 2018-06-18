@@ -128,3 +128,6 @@ inner.offsetParent.offsetParent; //null
 
 > scrollLeft
  类同scrollTop
+ 
+## 封装自己的DOM方法
+

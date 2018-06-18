@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>p1</p>
+        <p>p1</p>
+        <p>p3</p>
+        <!--哈哈哈-->
+        <span>sapn</span>
+        <div class="inner">
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        box.children;//HTMLCollection(5) [p, p, p, span, div.inner]
+        box.childNodes; //NodeList(13) [text, p, text, p, text, p, text, comment, text, span, text, div.inner, text]
+
+        function children(domEle,tagName){
+
+            var childrenRes=[];
+            if(/MSIE (6|7|8)/i.test(navigator.userAgent)){
+                var childNodes = domEle.childNodes;
+                for(var i= 0,len = childNodes.length;i<len;i++){
+                    if(childNodes[i].nodeType ==1){ //是元素节点
+                        childrenRes.push(childNodes[i]);
+                    }
+                }
+                childNodes = null;
+            }else{
+                childrenRes = childrenRes.slice.call(domEle.children);
+            }
+
+            if(typeof tagName ==="string"){
+                for(var j= 0;j<childrenRes.length;j++){
+                    if(childrenRes[j].nodeName.toLowerCase() !==tagName.toLowerCase()){
+                        childrenRes.splice(j,1);
+                        j--;
+                    }
+                }
+            }
+            return childrenRes;
+        }
+
+    </script>
+</body>
+</html>
