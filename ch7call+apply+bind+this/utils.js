@@ -82,6 +82,19 @@ var utils = (function(){
         document.body[attr] = value;
     }
 
+    //获取上一个兄弟元素节点
+    function prev(curEle){
+        var prevSibling = curEle.previousSibling;
+        while(prevSibling){
+            if(prevSibling.nodeType===1){
+                return prevSibling;
+            }else{
+                curEle = prevSibling;
+            }
+        }
+        return null;
+    }
+
     return {
         listToArray :listToArray,
         getCss :getCss,

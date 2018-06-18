@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" afterPath="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -43,8 +42,8 @@
       <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2129925">
-              <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.5179063">
+              <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -110,10 +109,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="564" />
-    <option name="y" value="20" />
+    <option name="x" value="-29" />
+    <option name="y" value="36" />
     <option name="width" value="1936" />
-    <option name="height" value="1100" />
+    <option name="height" value="887" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -271,8 +270,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="564" y="20" width="1936" height="1100" extended-state="0" />
-    <editor active="true" />
+    <frame x="-29" y="36" width="1936" height="887" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -736,8 +735,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2129925">
-          <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.5179063">
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
