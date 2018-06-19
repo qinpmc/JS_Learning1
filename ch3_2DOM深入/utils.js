@@ -113,8 +113,7 @@ var utils = (function(){
         }
         return null;
     }
-
-    //获取所有的上一个兄弟元素节点
+   //获取所有的上一个兄弟元素节点
     function prevAll(curEle){
         var result = [];
         var prevEle = this.prev(curEle);
