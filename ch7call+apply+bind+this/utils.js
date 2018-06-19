@@ -84,12 +84,31 @@ var utils = (function(){
 
     //获取上一个兄弟元素节点
     function prev(curEle){
+        if(flag){
+            return curEle.previousElementSibling;
+        }
         var prevSibling = curEle.previousSibling;
         while(prevSibling){
             if(prevSibling.nodeType===1){
                 return prevSibling;
             }else{
-                curEle = prevSibling;
+                prevSibling = prevSibling.previousSibling
+            }
+        }
+        return null;
+    }
+
+    //获取下一个兄弟元素节点
+    function next(curEle){
+        if(flag){
+            return curEle.nextElementSibling;
+        }
+        var nextSibling = curEle.nextSibling;
+        while(nextSibling){
+            if(nextSibling.nodeType===1){
+                return nextSibling;
+            }else{
+                nextSibling = nextSibling.previousSibling
             }
         }
         return null;

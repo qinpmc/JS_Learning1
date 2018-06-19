@@ -13,7 +13,7 @@
         <p>p1</p>
         <p>p3</p>
         <!--哈哈哈-->
-        <span>sapn</span>
+        <span id="span1">sapn</span>
         <div class="inner">
             <p></p>
             <p></p>
@@ -21,6 +21,7 @@
     </div>
     <script type="text/javascript">
         var box = document.getElementById("box");
+        var span1 = document.getElementById("span1");
         box.children;//HTMLCollection(5) [p, p, p, span, div.inner]
         box.childNodes; //NodeList(13) [text, p, text, p, text, p, text, comment, text, span, text, div.inner, text]
 
@@ -50,6 +51,38 @@
             return childrenRes;
         }
 
+        function prev(curEle){
+            var prevSibling = curEle.previousSibling;
+            while(prevSibling){
+                if(prevSibling.nodeType===1){
+                    return prevSibling;
+                }else{
+                    prevSibling = prevSibling.previousSibling
+                }
+            }
+            return null;
+        }
+        var res = null;
+        res  = prev(span1);
+        console.log(res);
+
+
+        function next(curEle){
+            if(curEle.nextElementSibling){
+                return curEle.nextElementSibling;
+            }
+            var nextSibling = curEle.nextSibling;
+            while(nextSibling){
+                if(nextSibling.nodeType===1){
+                    return nextSibling;
+                }else{
+                    nextSibling = nextSibling.previousSibling
+                }
+            }
+            return null;
+        }
+        var next1 = next(res);
+        console.log(next1);
     </script>
 </body>
 </html>
