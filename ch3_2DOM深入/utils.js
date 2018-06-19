@@ -118,7 +118,7 @@ var utils = (function(){
         var result = [];
         var prevEle = this.prev(curEle);
         while(prevEle){
-            result.push(prevEle);
+            result.unshift(prevEle);
             prevEle = this.prev(prevEle);
         }
         return result;
@@ -127,13 +127,34 @@ var utils = (function(){
     //获取所有的下一个兄弟元素节点
     function nextAll(curEle){
         var result = [];
-        var prevEle = this.next(curEle);
-        while(prevEle){
-            result.push(prevEle);
-            prevEle = this.next(prevEle);
+        var nextEle = this.next(curEle);
+        while(nextEle){
+            result.push(nextEle);
+            nextEle = this.next(nextEle);
         }
         return result;
     }
+
+    //获取前后相邻的2个兄弟元素节点
+    function sibling(curEle){
+        var result = [];
+        var prevEle = this.prev(curEle);
+        var nextEle = this.next(curEle);
+        result.push(prevEle);
+        result.push(nextEle);
+        return result;
+    }
+
+    //获取所有的兄弟元素节点
+    function siblings(curEle){
+        return this.prevAll(curEle).concat(this.nextAll(curEle));
+    }
+
+    //获取元素的索引
+    function index(curEle){
+        return this.prevAll(curEle).length;
+    }
+
 
     return {
         listToArray :listToArray,
@@ -144,6 +165,9 @@ var utils = (function(){
         prev:prev,
         next:next,
         prevAll:prevAll,
-        nextAll:nextAll
+        nextAll:nextAll,
+        sibling:sibling,
+        siblings:siblings,
+        index:index
     }
 })()

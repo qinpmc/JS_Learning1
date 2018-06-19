@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" afterPath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" afterPath="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -26,33 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.13911846">
+              <caret line="153" column="27" selection-start-line="153" selection-start-column="27" selection-end-line="153" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="7demo(封装自己的dom方法).html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="7demo(封装自己的dom方法).html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9178674">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="18" />
+            <state vertical-scroll-proportion="17.028986">
+              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -106,8 +93,8 @@
         <option value="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html" />
         <option value="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" />
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
       </list>
     </option>
   </component>
@@ -117,8 +104,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="150" />
-    <option name="y" value="56" />
+    <option name="x" value="156" />
+    <option name="y" value="379" />
     <option name="width" value="1936" />
     <option name="height" value="887" />
   </component>
@@ -292,7 +279,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="56" width="1936" height="887" extended-state="0" />
+    <frame x="156" y="379" width="1936" height="887" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -732,26 +719,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.38016528">
+          <caret line="125" column="5" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+        <state vertical-scroll-proportion="17.028986">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html">
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9178674">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.13911846">
+          <caret line="153" column="27" selection-start-line="153" selection-start-column="27" selection-end-line="153" selection-end-column="27" />
           <folding />
         </state>
       </provider>

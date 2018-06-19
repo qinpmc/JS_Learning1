@@ -119,7 +119,7 @@ var utils = (function(){
         var result = [];
         var prevEle = this.prev(curEle);
         while(prevEle){
-            result.push(prevEle);
+            result.unshift(prevEle);
             prevEle = this.prev(prevEle);
         }
         return result;

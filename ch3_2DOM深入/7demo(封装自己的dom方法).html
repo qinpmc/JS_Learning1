@@ -11,7 +11,7 @@
 <body>
     <div id="box">
         <p>p1</p>
-        <p>p1</p>
+        <p>p2</p>
         <p>p3</p>
         <!--哈哈哈-->
         <span id="span1">sapn</span>
@@ -87,7 +87,15 @@
 
         var prevAll = utils.prevAll(span1);
         var nextAll = utils.nextAll(res);
+        console.log(prevAll);
+        console.log(nextAll);
 
+        var sibling1 = utils.sibling(prevAll[1]);
+        var sibling2 = utils.sibling(prevAll[0]);
+        var sibling3 = utils.sibling(span1);
+
+        var index1 = utils.index(prevAll[1]);
+        var index2 = utils.index(span1);
     </script>
 </body>
 </html>
