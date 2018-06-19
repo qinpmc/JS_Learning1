@@ -155,6 +155,40 @@ var utils = (function(){
         return this.prevAll(curEle).length;
     }
 
+    function children(domEle,tagName){
+        var childrenRes=[];
+        if(/MSIE (6|7|8)/i.test(navigator.userAgent)){
+            var childNodes = domEle.childNodes;
+            for(var i= 0,len = childNodes.length;i<len;i++){
+                if(childNodes[i].nodeType ==1){ //是元素节点
+                    childrenRes.push(childNodes[i]);
+                }
+            }
+            childNodes = null;
+        }else{
+            childrenRes = childrenRes.slice.call(domEle.children);
+        }
+
+        if(typeof tagName ==="string"){
+            for(var j= 0;j<childrenRes.length;j++){
+                if(childrenRes[j].nodeName.toLowerCase() !==tagName.toLowerCase()){
+                    childrenRes.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        return childrenRes;
+    }
+
+    function firstChild(curEle,tagName){
+        var children = this.children(curEle,tagName);
+        return children.length>0 ? children[0]:null;
+    }
+
+    function lastChild(curEle,tagName){
+        var children = this.children(curEle,tagName);
+        return children.length>0 ? children[children.length-1]:null;
+    }
 
     return {
         listToArray :listToArray,
@@ -168,6 +202,9 @@ var utils = (function(){
         nextAll:nextAll,
         sibling:sibling,
         siblings:siblings,
-        index:index
+        index:index,
+        children:children,
+        firstChild:firstChild,
+        lastChild:lastChild
     }
 })()
