@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" afterPath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -25,37 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="244" column="48" selection-start-line="244" selection-start-column="48" selection-end-line="244" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch5正则/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="3.4818401">
-                <caret line="217" column="27" selection-start-line="217" selection-start-column="27" selection-end-line="217" selection-end-column="27" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="8demo(封装样式）.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77678573">
-              <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.5">
+              <caret line="237" column="79" selection-start-line="237" selection-start-column="79" selection-end-line="237" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -110,8 +82,8 @@
         <option value="$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html" />
         <option value="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html" />
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
       </list>
     </option>
   </component>
@@ -121,10 +93,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="184" />
-    <option name="y" value="341" />
+    <option name="x" value="314" />
+    <option name="y" value="161" />
     <option name="width" value="1597" />
-    <option name="height" value="641" />
+    <option name="height" value="671" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -310,7 +282,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="184" y="341" width="1597" height="641" extended-state="0" />
+    <frame x="314" y="161" width="1597" height="671" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3029728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -745,10 +717,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66964287">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch5正则/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="3.4818401">
+          <first_editor vertical-scroll-proportion="0.031476997">
             <caret line="217" column="27" selection-start-line="217" selection-start-column="27" selection-end-line="217" selection-end-column="27" />
             <folding />
           </first_editor>
@@ -761,16 +741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="244" column="48" selection-start-line="244" selection-start-column="48" selection-end-line="244" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77678573">
-          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.5">
+          <caret line="237" column="79" selection-start-line="237" selection-start-column="79" selection-end-line="237" selection-end-column="79" />
           <folding />
         </state>
       </provider>

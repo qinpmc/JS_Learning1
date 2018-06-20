@@ -218,7 +218,7 @@ var utils = (function(){
     }
 
     function addClass(curEle,className){
-        var classAry = className.split(/ +/);
+        var classAry = className.replace(/(^ +| +$)/g,"").split(/ +/); //先去除首位空格
         for(var i=0;i<classAry.length;i++){
             if(!this.hasClass(curEle,className))
                 curEle.className += " "+className;
@@ -235,7 +235,7 @@ var utils = (function(){
     }
 
     function removeClass(curEle,className){
-        var classAry = className.split(/ +/);
+        var classAry = className.replace(/(^ +| +$)/g,"").split(/ +/);//先去除首位空格
         for(var i=0;i<classAry.length;i++){
             if(this.hasClass(curEle,className)){
                 var reg = new RegExp("(^| +)"+className+"( +|$)","g");
