@@ -217,6 +217,36 @@ var utils = (function(){
         }
     }
 
+    function addClass(curEle,className){
+        var classAry = className.split(/ +/);
+        for(var i=0;i<classAry.length;i++){
+            if(!this.hasClass(curEle,className))
+                curEle.className += " "+className;
+        }
+    }
+
+    function hasClass(curEle,className){
+        // 样式名可能在最前，中间和最后，三种情况
+        // 样式在最前面 /^className +/   ; 以样式名开头，后面跟1到多个空格
+        // 样式在中间  / +className +/   ; 样式名前后各跟1到多个空格
+        // 样式在最前面 / +className$/  ; 样式名前面各跟1到多个空格，以样式名结尾
+        var reg = new RegExp("(^| +)"+className+"( +|$)");
+        return reg.test(curEle.className);
+    }
+
+    function removeClass(curEle,className){
+        var classAry = className.split(/ +/);
+        for(var i=0;i<classAry.length;i++){
+            if(this.hasClass(curEle,className)){
+                var reg = new RegExp("(^| +)"+className+"( +|$)","g");
+                var newClassName= curEle.className.replace(reg,function(){
+                    return "";
+                })
+                curEle.className = newClassName;
+            }
+        }
+    }
+
     return {
         listToArray :listToArray,
         getCss :getCss,
@@ -232,6 +262,13 @@ var utils = (function(){
         index:index,
         children:children,
         firstChild:firstChild,
-        lastChild:lastChild
+        lastChild:lastChild,
+        append:append,
+        prePend:prePend,
+        insertBefore:insertBefore,
+        insertAfter:insertAfter,
+        addClass:addClass,
+        hasClass:hasClass,
+        removeClass:removeClass
     }
 })()
