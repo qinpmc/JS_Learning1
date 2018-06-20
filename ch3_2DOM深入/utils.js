@@ -190,6 +190,33 @@ var utils = (function(){
         return children.length>0 ? children[children.length-1]:null;
     }
 
+    function append(newEle,container){
+        container.appendChild(newEle);
+    }
+
+    function prePend(newEle,container){
+        var firstEle = this.firstChild(container);
+        if(firstEle){
+            container.insertBefore(newEle,firstEle);
+        }
+        container.appendChild(newEle);
+    }
+
+    function insertBefore(newEle,refELe){
+        var container = refELe.parentNode;
+        container.insertBefore(newEle,refELe);
+    }
+
+    function insertAfter(newEle,refELe){
+        var container = refELe.parentNode;
+        var refEle_after = this.next(refELe);
+        if(refEle_after){
+            container.insertBefore(newEle,refEle_after);
+        }else{
+            container.appendChild(newEle);
+        }
+    }
+
     return {
         listToArray :listToArray,
         getCss :getCss,
