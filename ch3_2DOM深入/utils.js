@@ -54,14 +54,18 @@ var utils = (function(){
     }
 
     function setCss(curEle,attr,value){
+        if(attr=="float"){
+            curEle["style"]["cssFloat"] = value;
+            curEle["style"]["styleFloat"] = value; //IE中用obj.style.styleFloat="left";
+        }
+
         if(attr=="opacity"){
             curEle["style"][attr] = value;
             curEle["style"]["filter"] = "alpha(opacity="+value*100+")";
-
             return;
         }
 
-        var reg = /^width|height|top|left|right|bottom|((margin|padding)(top|left|bottom|right)?)$/;
+        var reg = /^width|height|top|left|right|bottom|((margin|padding)(Top|Left|Bottom|Right)?)$/;
         if(reg.test(attr)){
             if(!isNaN(value)){
                 value += "px";
@@ -70,6 +74,12 @@ var utils = (function(){
         curEle["style"][attr] = value;
     }
 
+
+    function  setGroupCss(curEle,stylesObj){
+        for (var key in stylesObj){
+            this.setCss(curEle,key,stylesObj[key]);
+        }
+    }
 
     function jsonParse(str){
         return "JSON" in window ?JSON.parse(str): eval("("+str+")");
@@ -308,6 +318,7 @@ var utils = (function(){
         addClass:addClass,
         hasClass:hasClass,
         removeClass:removeClass,
-        getElementByClass:getElementByClass
+        getElementByClass:getElementByClass,
+        setGroupCss:setGroupCss
     }
 })()

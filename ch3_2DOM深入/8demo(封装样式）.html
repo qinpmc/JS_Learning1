@@ -54,9 +54,19 @@
 
         utils.setCss(pList[1],"background","pink");
         utils.setCss(pList[1],"opacity",0.1);
-        utils.setCss(innerDiv,"background","pink");
+/*        utils.setCss(innerDiv,"background","pink");
         utils.setCss(innerDiv,"height","100");
         utils.setCss(innerDiv,"opacity",0.5);
+        utils.setCss(innerDiv,"float","right");
+        utils.setCss(innerDiv,"border","10px solid black");*/
+        utils.setGroupCss(innerDiv,{
+            background:"pink",
+            height:100,
+            opacity:0.5,
+            float:"right",
+            border:"10px solid black"
+        })
+
 
     </script>
 </body>
