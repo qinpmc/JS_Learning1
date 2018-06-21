@@ -49,9 +49,27 @@ var utils = (function(){
                 res = ele.currentStyle[attr];
             }
         }
-        reg = /^(-?\d+(\.\d+)?)(px|pt|rem|em)?$/i;
+        reg = /^(-?\d+(\.\d+)?)(px|pt|rem|em)?$/i;  //去除单位
         return reg.test(res)? parseFloat(res):res;
     }
+
+    function setCss(curEle,attr,value){
+        if(attr=="opacity"){
+            curEle["style"][attr] = value;
+            curEle["style"]["filter"] = "alpha(opacity="+value*100+")";
+
+            return;
+        }
+
+        var reg = /^width|height|top|left|right|bottom|((margin|padding)(top|left|bottom|right)?)$/;
+        if(reg.test(attr)){
+            if(!isNaN(value)){
+                value += "px";
+            }
+        }
+        curEle["style"][attr] = value;
+    }
+
 
     function jsonParse(str){
         return "JSON" in window ?JSON.parse(str): eval("("+str+")");
@@ -239,17 +257,37 @@ var utils = (function(){
         for(var i=0;i<classAry.length;i++){
             if(this.hasClass(curEle,className)){
                 var reg = new RegExp("(^| +)"+className+"( +|$)","g");
-                var newClassName= curEle.className.replace(reg,function(){
-                    return "";
-                })
+                var newClassName= curEle.className.replace(reg,"");
                 curEle.className = newClassName;
             }
         }
     }
 
+    function getElementByClass(className,context){
+        context = context||document;
+        var classAry = className.replace(/(^ +| +$)/g,"").split(/ +/);//先去除首位空格，然后拆分为数组
+        var nodeList = context.getElementsByTagName("*");
+        var fullMatch = true;
+        var result = [];
+        for (var j = 0;j<nodeList.length;j++){
+            var ele = nodeList[j];
+            for(var i = 0;i<classAry.length;i++){
+                if(!this.hasClass(ele,classAry[i])){
+                    fullMatch = false;
+                    break;
+                }
+                fullMatch = true;
+            }
+            if(fullMatch)
+            result.push(ele);
+        }
+        return result;
+    }
+
     return {
         listToArray :listToArray,
         getCss :getCss,
+        setCss:setCss,
         jsonParse:jsonParse,
         getOffset:getOffset,
         win:win,
@@ -269,6 +307,7 @@ var utils = (function(){
         insertAfter:insertAfter,
         addClass:addClass,
         hasClass:hasClass,
-        removeClass:removeClass
+        removeClass:removeClass,
+        getElementByClass:getElementByClass
     }
 })()

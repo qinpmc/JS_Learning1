@@ -29,6 +29,7 @@
         <!--哈哈哈-->
         <span id="span1">sapn</span>
         <div class="inner">
+            div - inner
             <p></p>
             <p></p>
         </div>
@@ -36,6 +37,7 @@
     <script>
         var oBox = document.getElementById("box");
         var pList = document.getElementsByTagName("p");
+        var innerDiv = utils.getElementByClass("inner")[0];
 
         utils.addClass(pList[1],"oblique");
 
@@ -43,10 +45,19 @@
         console.log(utils.hasClass(pList[0],"redBg"));
         console.log(utils.hasClass(pList[0],"bigFont"));
 
-        utils.addClass(pList[2],"bigFont");
+/*        utils.addClass(pList[2],"bigFont");
         console.log(pList[2].className);
         utils.removeClass(pList[0],"oblique");
-        console.log(pList[0].className);
+        console.log(pList[0].className);*/
+
+        // result = utils.getElementByClass("oblique bigFont ",oBox);
+
+        utils.setCss(pList[1],"background","pink");
+        utils.setCss(pList[1],"opacity",0.1);
+        utils.setCss(innerDiv,"background","pink");
+        utils.setCss(innerDiv,"height","100");
+        utils.setCss(innerDiv,"opacity",0.5);
+
     </script>
 </body>
 </html>
