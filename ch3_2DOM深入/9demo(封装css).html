@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .wrapper{
+            background: darkblue;
+            color: white;
+            text-align: center;
+        }
+        .oblique{
+            font-style: italic;
+        }
+        .redBg{
+            background: red;
+        }
+        .bigFont{
+            font-size:24px;
+        }
+    </style>
+    <script src="./utils.js"></script>
+</head>
+<body>
+<div id="box" class="wrapper">
+    <p class="oblique redBg bigFont">p1</p>
+    <p>p2</p>
+    <p class="bigFont">p3</p>
+    <!--哈哈哈-->
+    <span id="span1">sapn</span>
+    <div class="inner">
+        div - inner
+        <p></p>
+        <p></p>
+    </div>
+</div>
+<script>
+    var oBox = document.getElementById("box");
+    var pList = document.getElementsByTagName("p");
+    var innerDiv = utils.getElementByClass("inner")[0];
+
+    utils.css(pList[1],"background","pink");
+    utils.css(innerDiv,{
+        background:"pink",
+        height:100,
+        opacity:0.5,
+        float:"right",
+        border:"10px solid black"
+    })
+
+</script>
+</body>
+</html>

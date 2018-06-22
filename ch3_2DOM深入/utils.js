@@ -80,6 +80,27 @@ var utils = (function(){
             this.setCss(curEle,key,stylesObj[key]);
         }
     }
+    //获取，设置单个或多个样式
+    function css(curEle){
+        var argSecond = arguments[1];
+        if(typeof argSecond ==="string"){ //获取样式或设置样式（依赖是否包含第三个参数）
+            var argThird = arguments[2];
+            if(!argThird){  //没有第三个参数，为获取样式
+                //return this.getCss(curEle,argSecond);
+                return this.getCss.apply(this,arguments);
+            }else{
+                //this.setCss(curEle,argSecond,argThird);
+                this.setCss.apply(this,arguments);
+                return;
+            }
+        }
+        argSecond = argSecond||0;
+
+        if(argSecond.toString() ==="[object Object]"){
+            this.setGroupCss.apply(this,arguments);
+        };
+
+    }
 
     function jsonParse(str){
         return "JSON" in window ?JSON.parse(str): eval("("+str+")");
@@ -319,6 +340,7 @@ var utils = (function(){
         hasClass:hasClass,
         removeClass:removeClass,
         getElementByClass:getElementByClass,
-        setGroupCss:setGroupCss
+        setGroupCss:setGroupCss,
+        css:css
     }
 })()
