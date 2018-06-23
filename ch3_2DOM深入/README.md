@@ -130,4 +130,7 @@ inner.offsetParent.offsetParent; //null
  类同scrollTop
  
 ## 封装自己的DOM方法
+utils.js
+
+
 

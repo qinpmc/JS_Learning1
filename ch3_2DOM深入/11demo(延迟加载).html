@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+            font:16px sans-serif;
+        }
+        img{
+            border: none;
+            display: block;
+        }
+        .banner{
+            margin: 10px auto;
+            width: 200px;
+            height: 200px;
+            border: solid 1px darkmagenta;
+            background: url("./imgs/loading.png") no-repeat center center grey; /*默认加载图*/
+
+        }
+        .banner img{
+            display: none; /*ie 浏览器中显示一张碎图，影响美观，真实图片加载后显示*/
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--    网站性能优化：
+    尽量减少向服务器请求的次数，即减少HTTP请求
+    获取页面html、css、图片img、js等都会发送HTTP请求
+    优化的措施包括： 雪碧图（合并ICON图）、css、js压缩合并、图片延迟加载、数据异步加载等-->
+
+<div class="banner">
+    <img src="" alt="" truePath = "imgs/img1.jpg">
+</div>
+<script type="text/javascript">
+    var banner = document.getElementsByClassName("banner")[0],img = banner.getElementsByTagName("img")[0];
+    setTimeout(function(){
+         // 以下方式中图片地址错误会在控制台报错，而且页面会出现碎图
+/*        img.src = img.getAttribute("truePath");
+        img.style.display = "block";*/
+        var image = new Image();
+        image.src = img.getAttribute("truePath");
+        image.onload = function(){
+            img.src = this.src;
+            img.style.display = "block";
+            image = null;
+        }
+    },1500)
+</script>
+</body>
+</html>
