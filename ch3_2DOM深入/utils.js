@@ -83,7 +83,7 @@ var utils = (function(){
     //获取，设置单个或多个样式
     //该方法合并 getCss setCss  setGroupCss
     function css(curEle){
-        var newArgs = Array.prototype.slice.call(null,1);
+        var newArgs = Array.prototype.slice.call(arguments,1);
         if(typeof arguments[1] ==="string"){ //获取样式或设置样式（依赖是否包含第三个参数）
             if(!arguments[2]){  //没有第三个参数，为获取样式
                 //return this.getCss(curEle,argSecond);

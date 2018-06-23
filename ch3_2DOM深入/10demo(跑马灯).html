@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font: 24px sans-serif;
+        }
+        #wrap{
+            white-space: nowrap;
+            height: 36px;
+            overflow: hidden;
+            margin: 50px auto;
+            padding: 0 10px;
+            width: 1000px;
+            line-height: 36px;
+            background: lightseagreen;
+            border:1px solid;
+            border-left-color: black;
+        }
+        #wrap div{
+            display: inline-block;
+        }
+        #wrap div span{
+            color: darkred;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="./utils.js"></script>
+</head>
+<body>
+<div id="wrap">
+    <div id="conBegin">
+        <span>注意：</span>Trident：俗称 IE 内核，也被叫做 MSHTML 引擎，目前在使用的浏览器有 IE11 -，以及各种国产多核浏览器中的 IE 兼容模块。
+    </div><div id="conEnd">
+        <span>注意：</span>Trident：俗称 IE 内核，也被叫做 MSHTML 引擎，目前在使用的浏览器有 IE11 -，以及各种国产多核浏览器中的 IE 兼容模块。
+    </div>
+</div>
+<script type="text/javascript">
+    var wrap = document.getElementById("wrap");
+    var content = document.getElementById("conBegin");
+    var contentWidth = utils.css(content,"width");
+    var timer  = setInterval(function(){
+        wrap.scrollLeft ++;
+        if(wrap.scrollLeft>= contentWidth){
+            wrap.scrollLeft = 0;
+        }
+    },10)
+</script>
+</body>
+</html>
