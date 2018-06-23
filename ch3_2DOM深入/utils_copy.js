@@ -36,32 +36,32 @@ var utils = (function(){
         return ary;
     }
 
-    function getCss(attr){
+    function getCss(ele,attr){
         var res = null,reg = null;
         if(flag){
-            res = window.getComputedStyle(this,null)[attr];
+            res = window.getComputedStyle(ele,null)[attr];
         }else{
             if(attr =="opacity"){
-                res= this.currentStyle["filter"];
+                res= ele.currentStyle["filter"];
                 reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;i
                 res = reg.test(res)? reg.exec(res)[1]/100 :1;
             }else{
-                res = this.currentStyle[attr];
+                res = ele.currentStyle[attr];
             }
         }
         reg = /^(-?\d+(\.\d+)?)(px|pt|rem|em)?$/i;  //去除单位
         return reg.test(res)? parseFloat(res):res;
     }
 
-    function setCss(attr,value){
+    function setCss(curEle,attr,value){
         if(attr=="float"){
-            this["style"]["cssFloat"] = value;
-            this["style"]["styleFloat"] = value; //IE中用obj.style.styleFloat="left";
+            curEle["style"]["cssFloat"] = value;
+            curEle["style"]["styleFloat"] = value; //IE中用obj.style.styleFloat="left";
         }
 
         if(attr=="opacity"){
-            this["style"][attr] = value;
-            this["style"]["filter"] = "alpha(opacity="+value*100+")";
+            curEle["style"][attr] = value;
+            curEle["style"]["filter"] = "alpha(opacity="+value*100+")";
             return;
         }
 
@@ -71,33 +71,33 @@ var utils = (function(){
                 value += "px";
             }
         }
-        this["style"][attr] = value;
+        curEle["style"][attr] = value;
     }
 
 
-    function  setGroupCss(stylesObj){
+    function  setGroupCss(curEle,stylesObj){
         for (var key in stylesObj){
-            this.setCss.call(this,key,stylesObj[key]);
+            this.setCss(curEle,key,stylesObj[key]);
         }
     }
     //获取，设置单个或多个样式
-    //该方法合并 getCss setCss  setGroupCss
     function css(curEle){
-        var newArgs = Array.prototype.slice.call(null,1);
-        if(typeof arguments[1] ==="string"){ //获取样式或设置样式（依赖是否包含第三个参数）
-            if(!arguments[2]){  //没有第三个参数，为获取样式
+        var argSecond = arguments[1];
+        if(typeof argSecond ==="string"){ //获取样式或设置样式（依赖是否包含第三个参数）
+            var argThird = arguments[2];
+            if(!argThird){  //没有第三个参数，为获取样式
                 //return this.getCss(curEle,argSecond);
-                return getCss.apply(curEle,newArgs);
+                return this.getCss.apply(this,arguments);
             }else{
                 //this.setCss(curEle,argSecond,argThird);
-                setCss.apply(curEle,newArgs);
+                this.setCss.apply(this,arguments);
                 return;
             }
         }
-        arguments[1] = arguments[1]||0;
+        argSecond = argSecond||0;
 
-        if(arguments[1].toString() ==="[object Object]"){
-            setGroupCss.apply(curEle,newArgs);
+        if(argSecond.toString() ==="[object Object]"){
+            this.setGroupCss.apply(this,arguments);
         };
 
     }
@@ -317,8 +317,8 @@ var utils = (function(){
 
     return {
         listToArray :listToArray,
-/*        getCss :getCss,
-        setCss:setCss,*/
+        getCss :getCss,
+        setCss:setCss,
         jsonParse:jsonParse,
         getOffset:getOffset,
         win:win,
@@ -340,7 +340,7 @@ var utils = (function(){
         hasClass:hasClass,
         removeClass:removeClass,
         getElementByClass:getElementByClass,
-/*        setGroupCss:setGroupCss,*/
+        setGroupCss:setGroupCss,
         css:css
     }
 })()

@@ -39,14 +39,15 @@
     var pList = document.getElementsByTagName("p");
     var innerDiv = utils.getElementByClass("inner")[0];
 
-    utils.css(pList[1],"background","pink");
+    utils.css(pList[1],"background","purple");
     utils.css(innerDiv,{
-        background:"pink",
+        background:"yellow",
         height:100,
         opacity:0.5,
         float:"right",
         border:"10px solid black"
     })
+    console.log( utils.css(pList[1],"background"));
 
 </script>
 </body>
