@@ -45,18 +45,22 @@ oDiv.clientHeight //360  ;360px = 300px(height) + 上下padding(30px),此时内�
 oDiv.clientHeight //360  ;增加内容,文本内容溢出，clientHeight仍为360
             
 > clientLeft、clientTop 
+返回元素的内边距的外边缘和他的边框外边缘之间的水平距离和垂直距离，通常这些值就等于左边和上面的 __边框宽度__
 
 
-
-> offsetHeight/offsetWidth
+> offsetHeight/offsetWidth (和clientHeight 类似)
   (设置height时，和内容是否溢出没有关系)
    offsetHeight; //380 = clientHeight + 上下border 高度
    offsetWidth ;// 380 = clientWidth + 上下border 宽度
+   
+  (不设置height时，增加内容，文本框高度自动扩大，此时内容不溢出，offsetHeight = clientHeight + 上下border 高度
+
    
 > offsetParent 当前元素的父级参照物
 
 > offsetLeft / offsetTop 当前元素的外边框距离父级参照物内边框的偏移量
   (chrome测试时，如果offsetParent 为body，则会包含body的边框值及margin值？)
+  
 > scrollWidth /scrollHeight
   > 内容不溢出时，和clientWidth、cientHeight一致，
   > 溢出时，其值为真实内容的高度/宽度 + 上填充/左填充
