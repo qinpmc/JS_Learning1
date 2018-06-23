@@ -41,16 +41,22 @@
 <script type="text/javascript">
     var banner = document.getElementsByClassName("banner")[0],img = banner.getElementsByTagName("img")[0];
     window.onscroll = function(){
+        if(banner.isLoaded){
+            return ; //防止重复加载
+        }
         var distanceA = banner.offsetHeight + utils.getOffset(banner).top; // banner距离body的高度
         var distanceB = utils.win("clientHeight") + utils.win("scrollTop"); // 屏幕的高度(一个屏幕的高度) + 滚动条卷去高度（初始为0）
         if(distanceA < distanceB){
             var image = new Image();
             image.src = img.getAttribute("truePath");
             image.onload = function(){
+                console.log("ok")
                 img.src = this.src;
                 img.style.display = "block";
                 image = null;
+                //banner.isLoaded = true; //放在此处有问题，如果没有加载成功（如图片路径错误），会反复的执行onload，损耗性能
             }
+            banner.isLoaded = true; //标记已加载过
         }
     }
 

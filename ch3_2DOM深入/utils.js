@@ -116,7 +116,7 @@ var utils = (function(){
             }
 
             //累加父级参照物的偏移
-            left +=parent.offsetLeft;
+            left += parent.offsetLeft;
             top += parent.offsetTop;
             parent = parent.offsetParent;
         }
