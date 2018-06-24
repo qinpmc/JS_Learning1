@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" afterPath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +36,8 @@
       <file leaf-file-name="1动画(从左到右).html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5362563">
-              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.47856316">
+              <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -105,8 +101,8 @@
         <option value="$PROJECT_DIR$/ch3_2DOM深入/json/jsonData.txt" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
         <option value="$PROJECT_DIR$/ch8动画/README.md" />
-        <option value="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
+        <option value="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
       </list>
     </option>
   </component>
@@ -116,10 +112,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="139" />
-    <option name="width" value="1641" />
-    <option name="height" value="786" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -280,10 +276,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="139" width="1641" height="786" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29476923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -529,6 +525,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.59375">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="21" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -703,8 +700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5362563">
-          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.47856316">
+          <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
           <folding />
         </state>
       </provider>

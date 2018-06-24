@@ -12,6 +12,7 @@
             width: 100px;
             height: 100px;
             background: lightseagreen;
+            //从左到右运动 ，必须设置left和position
             left: 0;
             position: absolute;
         }
@@ -21,23 +22,47 @@
 <body>
     <div class="box"></div>
     <script type="text/javascript">
+        /*var box = document.getElementsByClassName("box")[0];
+         var duration = 2000;
+         var interval = 20;
+         var target = utils.win("clientWidth")- box.offsetWidth;
+         var step = target / duration *interval;
+         var timer = window.setInterval(function(){
+         var curLeft = utils.css(box,"left");
+         if(curLeft>=target){
+         window.clearInterval(timer);
+         return;
+         }
+         curLeft+=step;
+         utils.css(box,"left",curLeft);
+
+         },interval)*/
+
+        // 第二种匀速运动
+
+        function linear(spendTime,begin,distance,duration){
+            return begin+ spendTime*distance/duration;
+        }
         var box = document.getElementsByClassName("box")[0];
+        var spendTime = 0;
         var duration = 2000;
         var interval = 20;
-        var target = utils.win("clientWidth")- box.offsetWidth;
-        var step = target / duration *interval;
-        var timer = window.setInterval(function(){
+        var distance = utils.win("clientWidth")- box.offsetWidth;
 
-            if(curLeft>=target){
-                window.clearInterval(timer);
+        var begin = utils.css(box,"left");
+        var timer2 = window.setInterval(function(){
+            spendTime+=interval;
+            if(spendTime>=duration){
+                utils.css(box,"left",distance); //保证元素块到最右边
+                window.clearInterval(timer2);
                 return;
             }
-            var curLeft = utils.css(box,"left");
-            curLeft+=step;
-            //box.style.left = curLeft;
-            utils.css(box,"left",curLeft);
+            var curPosition=linear(spendTime,begin,distance,duration);
+            utils.css(box,"left",curPosition);
 
         },interval)
+
+
     </script>
 </body>
 </html>
