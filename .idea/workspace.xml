@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/imgs/1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/imgs/2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch3_2DOM深入/json/jsonData.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" afterPath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,18 +27,18 @@
       <file leaf-file-name="13demo(延迟加载3).html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39165702">
-              <caret line="140" column="25" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.64705884">
+              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="12demo(延迟加载2).html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/12demo(延迟加载2).html">
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.375">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="18" />
+            <state vertical-scroll-proportion="-49.324326">
+              <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -101,9 +98,9 @@
         <option value="$PROJECT_DIR$/ch3_2DOM深入/11demo(延迟加载).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/5scrolltop.html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/README.md" />
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/12demo(延迟加载2).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/json/jsonData.txt" />
+        <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
       </list>
     </option>
@@ -114,10 +111,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="503" />
+    <option name="y" value="180" />
+    <option name="width" value="1641" />
+    <option name="height" value="669" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -174,24 +171,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ch3_2DOM深入" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JS_Learning1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JS_Learning1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ch3_2DOM深入" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,10 +261,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="503" y="180" width="1641" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29476923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -678,26 +657,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/12demo(延迟加载2).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.27027">
-          <caret line="105" column="47" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="47" />
+        <state vertical-scroll-proportion="-0.013904982">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/12demo(延迟加载2).html">
+    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.375">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="18" />
+        <state vertical-scroll-proportion="-49.324326">
+          <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39165702">
-          <caret line="140" column="25" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.64705884">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
           <folding />
         </state>
       </provider>
