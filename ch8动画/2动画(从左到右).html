@@ -23,9 +23,11 @@
 <script type="text/javascript">
     var box = document.getElementsByClassName("box")[0];
     var maxLeft  = utils.win("clientWidth") - box.offsetWidth;
-    var curLeft = utils.css(box,"left");
+
     var step = 5; //每步走5px
-    var timer = window.setInterval(function(){
+    var timer = null;
+/*    var timer = window.setInterval(function(){
+        var curLeft = utils.css(box,"left");
         if(curLeft+step>=maxLeft){
             utils.css(box,"left",maxLeft);
             window.clearInterval(timer);
@@ -33,9 +35,20 @@
         }
         curLeft+=step;
         utils.css(box,"left",curLeft);
-    },20)
+    },20)*/
 
-
+    function move(){
+        window.clearTimeout(timer);
+        var curLeft = utils.css(box,"left");
+        if(curLeft+step>=maxLeft){
+            utils.css(box,"left",maxLeft);
+            return;
+        }
+        curLeft+=step;
+        utils.css(box,"left",curLeft);
+        timer = window.setTimeout(move,20);
+    }
+    move();
 </script>
 </body>
 </html>
