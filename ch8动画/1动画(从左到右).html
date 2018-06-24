@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: lightseagreen;
+            left: 0;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript" src="./utils.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+    <script type="text/javascript">
+        var box = document.getElementsByClassName("box")[0];
+        var duration = 2000;
+        var interval = 20;
+        var target = utils.win("clientWidth")- box.offsetWidth;
+        var step = target / duration *interval;
+        var timer = window.setInterval(function(){
+
+            if(curLeft>=target){
+                window.clearInterval(timer);
+                return;
+            }
+            var curLeft = utils.css(box,"left");
+            curLeft+=step;
+            //box.style.left = curLeft;
+            utils.css(box,"left",curLeft);
+
+        },interval)
+    </script>
+</body>
+</html>

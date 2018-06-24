@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" afterPath="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" afterPath="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="13demo(延迟加载3).html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="13demo(延迟加载3).html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64705884">
-              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state vertical-scroll-proportion="-0.5625">
+              <caret line="148" column="13" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
+      <file leaf-file-name="1动画(从左到右).html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-49.324326">
-              <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.5362563">
+              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -101,6 +104,8 @@
         <option value="$PROJECT_DIR$/ch3_2DOM深入/12demo(延迟加载2).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/json/jsonData.txt" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
+        <option value="$PROJECT_DIR$/ch8动画/README.md" />
+        <option value="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
       </list>
     </option>
@@ -111,10 +116,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="503" />
-    <option name="y" value="180" />
+    <option name="x" value="54" />
+    <option name="y" value="139" />
     <option name="width" value="1641" />
-    <option name="height" value="669" />
+    <option name="height" value="786" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -170,6 +175,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ch8动画" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS_Learning1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS_Learning1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ch3_2DOM深入" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -187,11 +206,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\json" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch5正则" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch函数" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
@@ -261,7 +280,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="503" y="180" width="1641" height="669" extended-state="0" />
+    <frame x="54" y="139" width="1641" height="786" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29476923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -298,27 +317,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/data/data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch7call+apply+bind+this/5表格排序.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.03125">
-          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch5正则/1正则.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch5正则/2正则.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.625">
@@ -673,10 +671,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.0">
+            <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.24">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64705884">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state vertical-scroll-proportion="-0.5625">
+          <caret line="148" column="13" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5362563">
+          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
           <folding />
         </state>
       </provider>

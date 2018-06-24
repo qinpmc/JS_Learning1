@@ -142,11 +142,11 @@
         var interval = 50;
         var step = (target/duration)*interval; //每执行一次定时器运行的步长(此处为透明度变化量)
         var timer = window.setInterval(function(){
+            var curOpacity = utils.css(curImg,"opacity");
             if(curOpacity>=target){
                 window.clearInterval(timer);
                 return;
             }
-            var curOpacity = utils.css(curImg,"opacity");
             curOpacity+=step;
             utils.css(curImg,"opacity",curOpacity);
             //curImg.style.opacity = curOpacity;
