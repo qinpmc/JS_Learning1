@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/2动画(从左到右).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" afterPath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -26,18 +28,28 @@
       <file leaf-file-name="13demo(延迟加载3).html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5625">
+            <state vertical-scroll-proportion="-115.625">
               <caret line="148" column="13" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1动画(从左到右).html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2动画(从左到右).html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch8动画/2动画(从左到右).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.594438">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1动画(从左到右).html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47856316">
-              <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+            <state vertical-scroll-proportion="-3.90625">
+              <caret line="26" column="63" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -103,6 +115,7 @@
         <option value="$PROJECT_DIR$/ch8动画/README.md" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
         <option value="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
+        <option value="$PROJECT_DIR$/ch8动画/2动画(从左到右).html" />
       </list>
     </option>
   </component>
@@ -313,13 +326,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch5正则/2正则.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.625">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch5正则/3正则方法.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9345603">
@@ -692,7 +698,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5625">
+        <state vertical-scroll-proportion="-115.625">
           <caret line="148" column="13" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
           <folding />
         </state>
@@ -700,8 +706,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47856316">
-          <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+        <state vertical-scroll-proportion="-3.90625">
+          <caret line="26" column="63" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/2动画(从左到右).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.594438">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
           <folding />
         </state>
       </provider>
