@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        *{
+            margin: 0;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background: yellowgreen;
+            position: absolute;
+            left: 600px;
+            top:100px;
+        }
+        input[type="button"]{
+            outline: none;
+            margin-left: 50px;
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            border: solid 1px palevioletred;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="utils.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+    <input id="left" type="button" name="moveLeft" value="向左">
+    <input id="right" type="button" name="moveRight" value="向右">
+    <script type="text/javascript">
+        var btnLeft = document.getElementsByTagName("input")[0];
+        var btnRight = document.getElementsByTagName("input")[1];
+        var box = document.getElementsByClassName("box")[0];
+        var maxLeft = utils.css(box,"left");
+        var maxRight= utils.win("clientWidth") - box.offsetWidth;
+        var timer = null;
+
+        var step = 10;
+        btnRight.onclick = function(){
+            moveRight();
+        }
+        btnLeft.onclick = function(){
+            moveLeft();
+        }
+
+        function moveLeft(){
+            window.clearTimeout(timer);
+            var curPosition = utils.css(box,"left");
+            if(curPosition-step<=0){
+                utils.css(box,"left",0);
+                return;
+            }
+            curPosition-= step;
+            utils.css(box,"left",curPosition);
+            timer = window.setTimeout(moveLeft,20)
+        }
+
+        function moveRight(){
+            window.clearTimeout(timer);
+            var curPosition = utils.css(box,"left");
+                if(curPosition+step>=maxRight){
+                    utils.css(box,"left",maxRight);
+                    return;
+                }
+            curPosition+= step;
+            utils.css(box,"left",curPosition);
+            timer = window.setTimeout(moveRight,20)
+        }
+
+
+
+    </script>
+</body>
+</html>
