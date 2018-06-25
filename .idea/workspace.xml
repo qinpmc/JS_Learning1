@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/3动画(左右运动).html" afterPath="$PROJECT_DIR$/ch8动画/3动画(左右运动).html" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="3动画(左右运动).html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch8动画/3动画(左右运动).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1513317">
-              <caret line="129" column="31" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.6065375">
+              <caret line="127" column="40" selection-start-line="127" selection-start-column="40" selection-end-line="127" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -695,8 +694,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/3动画(左右运动).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1513317">
-          <caret line="129" column="31" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.6065375">
+          <caret line="127" column="40" selection-start-line="127" selection-start-column="40" selection-end-line="127" selection-end-column="40" />
           <folding />
         </state>
       </provider>
