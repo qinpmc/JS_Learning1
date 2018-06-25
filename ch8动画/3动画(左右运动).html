@@ -35,12 +35,12 @@
         var btnLeft = document.getElementsByTagName("input")[0];
         var btnRight = document.getElementsByTagName("input")[1];
         var box = document.getElementsByClassName("box")[0];
-        var maxLeft = utils.css(box,"left");
+        var maxLeft = 0;
         var maxRight= utils.win("clientWidth") - box.offsetWidth;
         var timer = null;
 
         var step = 10;
-        btnRight.onclick = function(){
+       /* btnRight.onclick = function(){
             moveRight();
         }
         btnLeft.onclick = function(){
@@ -50,7 +50,7 @@
         function moveLeft(){
             window.clearTimeout(timer);
             var curPosition = utils.css(box,"left");
-            if(curPosition-step<=0){
+            if(curPosition-step<=maxLeft){
                 utils.css(box,"left",0);
                 return;
             }
@@ -69,9 +69,66 @@
             curPosition+= step;
             utils.css(box,"left",curPosition);
             timer = window.setTimeout(moveRight,20)
+        }*/
+
+
+        // 性能不好，反复形成匿名函数和move函数作用域
+/*        function move(target,step){
+            window.clearTimeout(timer);
+            var curPosition = utils.css(box,"left");
+            if(curPosition<target){ //向右运行
+                if(curPosition+step>target){
+                    utils.css(box,"left",target);
+                    return;
+                }
+                curPosition+=step;
+                utils.css(box,"left",curPosition);
+            }else if(curPosition>target){ //向左运行
+                if(curPosition-step<target){
+                    utils.css(box,"left",target);
+                    return;
+                }
+                curPosition-=step;
+                utils.css(box,"left",curPosition);
+            }
+            timer = window.setTimeout(function(){ //匿名函数
+                move(target,step);
+            },20)
+        }*/
+
+
+        function move(target, step) {
+            _move();
+            function _move(){
+                window.clearTimeout(timer);
+                var curPosition = utils.css(box, "left");
+                if (curPosition < target) { //向右运行
+                    if (curPosition + step > target) {
+                        utils.css(box, "left", target);
+                        return;
+                    }
+                    curPosition += step;
+                    utils.css(box, "left", curPosition);
+                } else if (curPosition > target) { //向左运行
+                    if (curPosition - step < target) {
+                        utils.css(box, "left", target);
+                        return;
+                    }
+                    curPosition -= step;
+                    utils.css(box, "left", curPosition);
+                }
+                timer = window.setTimeout(_move, 20);
+            }
         }
 
 
+
+        btnRight.onclick = function(){
+            move(maxRight,step);
+        }
+        btnLeft.onclick = function(){
+            move(maxLeft,step);
+        }
 
     </script>
 </body>
