@@ -77,7 +77,7 @@ var utils = (function(){
 
     function  setGroupCss(stylesObj){
         for (var key in stylesObj){
-            this.setCss.call(this,key,stylesObj[key]);
+            setCss.call(this,key,stylesObj[key]);
         }
     }
     //获取，设置单个或多个样式

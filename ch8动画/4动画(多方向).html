@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        *{
+            margin: 0;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background: yellowgreen;
+            position: absolute;
+            left: 600px;
+            top:100px;
+        }
+        input[type="button"]{
+            outline: none;
+            margin-left: 50px;
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            border: solid 1px palevioletred;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="utils.js"></script>
+</head>
+<body>
+<div class="box"></div>
+<input id="moveBtn" type="button" name="move" value="移动">
+
+<script type="text/javascript">
+    var moveBtn = document.getElementsByTagName("input")[0];
+
+    var box = document.getElementsByClassName("box")[0];
+    var maxLeft = 1000,maxTop= 500;
+    var beginLeft = utils.css(box,"left"),beginTop = utils.css(box,"top"),spendTime = 0;duration = 2000;
+
+    function linear(spendTime,begin,distance,duration){
+        return begin+ spendTime * (distance/duration);
+    }
+
+    function move() {
+        window.clearTimeout(box.timer);
+        spendTime+=20;
+        if(spendTime>=duration){
+            utils.css(box,{
+                "left":maxLeft,
+                "top":maxTop
+            });
+            window.clearTimeout(box.timer);
+            return;
+        }
+        var leftPos = linear(spendTime,beginLeft,maxLeft-beginLeft,duration);
+        var leftTop = linear(spendTime,beginTop,maxTop-beginTop,duration);
+        utils.css(box,{
+            "left":leftPos,
+            "top":leftTop
+        });
+        box.timer = window.setTimeout(move, 20);
+    }
+
+    // js动画注意事项
+    /*
+     1. 记得边界判断+步长
+     2. 清除无用的定时器
+     3. 对于需要传参的运动函数，可以在函数内部嵌套一个无参数函数，实现递归的调用（即循环调用），避免私有作用域的累积
+     4. 最好将timer作为元素的私有属性，而不是全局的timer
+     */
+
+    moveBtn.onclick = move;
+
+</script>
+</body>
+</html>

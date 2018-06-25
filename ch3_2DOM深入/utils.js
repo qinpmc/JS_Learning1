@@ -1,27 +1,27 @@
 /*
-var utils ={
-    listToArray:function(likeAry){
-        var arr=[];
-        try{
-            ary = [].slice.apply(likeAry);
-        }catch(e){
-            for(var i=0;i<likeAry.length;i++){
-                ary[i] = likeAry[i];
-            }
-        }
-        return ary;
-    },
+ var utils ={
+ listToArray:function(likeAry){
+ var arr=[];
+ try{
+ ary = [].slice.apply(likeAry);
+ }catch(e){
+ for(var i=0;i<likeAry.length;i++){
+ ary[i] = likeAry[i];
+ }
+ }
+ return ary;
+ },
 
-    jsonParse : function(str){
-        var val = null;
-        try{
-            val = JSON.parse(str);
-        }catch(e){
-            val = eval("("+str+")");
-        }
-        return val;
-    }
-}*/
+ jsonParse : function(str){
+ var val = null;
+ try{
+ val = JSON.parse(str);
+ }catch(e){
+ val = eval("("+str+")");
+ }
+ return val;
+ }
+ }*/
 var utils = (function(){
     var flag = "getComputedStyle" in window; //检测是否是ie6，7，8
 
@@ -77,7 +77,7 @@ var utils = (function(){
 
     function  setGroupCss(stylesObj){
         for (var key in stylesObj){
-            this.setCss.call(this,key,stylesObj[key]);
+            setCss.call(this,key,stylesObj[key]);
         }
     }
     //获取，设置单个或多个样式
@@ -162,7 +162,7 @@ var utils = (function(){
         }
         return null;
     }
-   //获取所有的上一个兄弟元素节点
+    //获取所有的上一个兄弟元素节点
     function prevAll(curEle){
         var result = [];
         var prevEle = this.prev(curEle);
@@ -310,15 +310,15 @@ var utils = (function(){
                 fullMatch = true;
             }
             if(fullMatch)
-            result.push(ele);
+                result.push(ele);
         }
         return result;
     }
 
     return {
         listToArray :listToArray,
-/*        getCss :getCss,
-        setCss:setCss,*/
+        /*        getCss :getCss,
+         setCss:setCss,*/
         jsonParse:jsonParse,
         getOffset:getOffset,
         win:win,
@@ -340,7 +340,7 @@ var utils = (function(){
         hasClass:hasClass,
         removeClass:removeClass,
         getElementByClass:getElementByClass,
-/*        setGroupCss:setGroupCss,*/
+        /*        setGroupCss:setGroupCss,*/
         css:css
     }
 })()
