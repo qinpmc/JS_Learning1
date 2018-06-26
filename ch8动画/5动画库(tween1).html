@@ -37,14 +37,24 @@
 <script type="text/javascript">
     var moveBtn = document.getElementsByTagName("input")[0];
     var box = document.getElementsByClassName("box")[0];
+/*    moveBtn.onclick = function(){
+        tween.move(box,{
+            "left":1000,
+            "top":500,
+            "opacity":0.6
+        },2000,function(){
+            utils.css(box,"background","red");
+        });
+    }*/
     moveBtn.onclick = function(){
         tween.move(box,{
             "left":1000,
             "top":500,
-            "opacity":0
-        },2000);
+            "opacity":0.6
+        },2000,2,function(){
+            utils.css(box,"background","red");
+        });
     }
-
 
 </script>
 </body>
