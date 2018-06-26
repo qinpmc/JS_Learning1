@@ -9,7 +9,7 @@ var tween = function(){
       target : 运动的目标,对象，可能包含多个方向
       duration :运动时间
     */
-    function move(curEle,target,duration){
+/*    function move(curEle,target,duration){
         var begin ={},change = {};
         // 获取各个方向上的初始值begin[key] 和 运动最大范围值change[key]
         for(var key in target){
@@ -37,9 +37,9 @@ var tween = function(){
             }
 
         },10)
-    }
+    }*/
 
-/*    function move(curEle,target,duration){
+    function move(curEle,target,duration){
         var begin ={},change = {};
         // 获取各个方向上的初始值begin[key] 和 运动最大范围值change[key]
         for(var key in target){
@@ -71,7 +71,7 @@ var tween = function(){
                 curEle.timer = window.setTimeout(_move,10);
             },10)
         }
-    }*/
+    }
 
     return {
         move:move

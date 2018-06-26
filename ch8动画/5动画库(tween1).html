@@ -14,6 +14,8 @@
             position: absolute;
             left: 600px;
             top:100px;
+            opacity:1;
+            filter: alpha(opacity=100);
         }
         input[type="button"]{
             outline: none;
@@ -38,7 +40,8 @@
     moveBtn.onclick = function(){
         tween.move(box,{
             "left":1000,
-            "top":500
+            "top":500,
+            "opacity":0
         },2000);
     }
 
