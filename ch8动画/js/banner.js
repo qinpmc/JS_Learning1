@@ -20,9 +20,8 @@
         var str= "";
         if(jsonData){
             for(var i= 0,len=jsonData.length;i<len;i++){
-                str+="<img src='"+jsonData[i].img+"'>";
-                
-
+               /* str+="<img src='"+jsonData[i].img+"'>";*/
+                str+="<div><img src='' truePath='"+jsonData[i].img+"'></div>";
             }
         }
         imgWrapper.innerHTML = str;
