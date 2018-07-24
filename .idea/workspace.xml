@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/imgs/img1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/imgs/img2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/imgs/img3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/imgs/pre.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/6轮播图1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/js/banner.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch8动画/json/banner.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" afterPath="$PROJECT_DIR$/ch8动画/1动画(从左到右).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/2动画(从左到右).html" afterPath="$PROJECT_DIR$/ch8动画/2动画(从左到右).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/3动画(左右运动).html" afterPath="$PROJECT_DIR$/ch8动画/3动画(左右运动).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/4动画(多方向).html" afterPath="$PROJECT_DIR$/ch8动画/4动画(多方向).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/5动画库(tween1).html" afterPath="$PROJECT_DIR$/ch8动画/5动画库(tween1).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/6轮播图1.html" afterPath="$PROJECT_DIR$/ch8动画/6轮播图1.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch8动画/tween.js" afterPath="$PROJECT_DIR$/ch8动画/js/tween.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch8动画/tween1_备份.js" afterPath="$PROJECT_DIR$/ch8动画/js/tween1_备份.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch8动画/utils.js" afterPath="$PROJECT_DIR$/ch8动画/js/utils.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,20 +34,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="6轮播图1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="6轮播图1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch8动画/6轮播图1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39165702">
-              <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="39" />
+            <state vertical-scroll-proportion="-20.71875">
+              <caret line="107" column="65" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pre.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch8动画/imgs/pre.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="1动画(从左到右).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.28125">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2动画(从左到右).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch8动画/2动画(从左到右).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-25.40625">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="banner.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch8动画/json/banner.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="82" selection-start-line="0" selection-start-column="82" selection-end-line="0" selection-end-column="123" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="banner.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch8动画/js/banner.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -52,8 +91,8 @@
       <list>
         <option value="CSS File" />
         <option value="HTML4 File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,9 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch6面向对象/README.md" />
-        <option value="$PROJECT_DIR$/ch7call+apply+bind+this/1call原理.html" />
-        <option value="$PROJECT_DIR$/ch7call+apply+bind+this/2call.html" />
         <option value="$PROJECT_DIR$/ch7call+apply+bind+this/3call.html" />
         <option value="$PROJECT_DIR$/ch7call+apply+bind+this/4call.html" />
         <option value="$PROJECT_DIR$/ch4基础4/README.md" />
@@ -108,12 +144,15 @@
         <option value="$PROJECT_DIR$/ch8动画/2动画(从左到右).html" />
         <option value="$PROJECT_DIR$/ch8动画/3动画(左右运动).html" />
         <option value="$PROJECT_DIR$/ch8动画/4动画(多方向).css" />
-        <option value="$PROJECT_DIR$/ch8动画/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/utils.js" />
         <option value="$PROJECT_DIR$/ch8动画/4动画(多方向).html" />
         <option value="$PROJECT_DIR$/ch8动画/tween.js" />
         <option value="$PROJECT_DIR$/ch8动画/5动画库(tween1).html" />
+        <option value="$PROJECT_DIR$/ch8动画/utils.js" />
         <option value="$PROJECT_DIR$/ch8动画/6轮播图1.html" />
+        <option value="$PROJECT_DIR$/ch8动画/banner.js" />
+        <option value="$PROJECT_DIR$/ch8动画/js/banner.js" />
+        <option value="$PROJECT_DIR$/ch8动画/json/banner.txt" />
       </list>
     </option>
   </component>
@@ -154,6 +193,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,13 +240,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="imgs" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -217,15 +256,16 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画\imgs" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\json" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画\js" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
     </key>
   </component>
   <component name="RunManager">
@@ -292,25 +332,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31449127" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -329,20 +369,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch2基础2/2validate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2基础2/3dom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/1dom.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -414,9 +440,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch5作用域及作用域/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.0">
@@ -425,11 +448,11 @@
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3基础3(DOM)/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="-3.1968598">
@@ -437,6 +460,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/6demo(回到顶部).html">
@@ -475,9 +501,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch5正则/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.031476997">
@@ -485,6 +508,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html">
@@ -509,9 +535,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch函数/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.79931194">
@@ -519,6 +542,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/10demo(跑马灯).html">
@@ -555,9 +581,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.89928055">
@@ -565,6 +588,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/imgs/1.jpg">
@@ -597,9 +623,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.0">
@@ -608,18 +631,14 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-115.625">
           <caret line="148" column="13" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch8动画/2动画(从左到右).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.6875">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -630,44 +649,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch8动画/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5586592">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47856316">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/3动画(左右运动).html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch8动画/tween1_备份.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch8动画/tween.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,10 +693,70 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3243243">
+          <caret line="296" column="48" selection-start-line="296" selection-start-column="41" selection-end-line="296" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/js/tween.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/js/tween1_备份.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.28125">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/2动画(从左到右).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.40625">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/6轮播图1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39165702">
-          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="39" />
+        <state vertical-scroll-proportion="-20.71875">
+          <caret line="107" column="65" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/js/banner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/json/banner.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="82" selection-start-line="0" selection-start-column="82" selection-end-line="0" selection-end-column="123" />
           <folding />
         </state>
       </provider>
