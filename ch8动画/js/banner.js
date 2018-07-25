@@ -2,6 +2,7 @@
     var jsonData = null;
     var imgWrapper = utils.getElementByClass("wrap")[0];
     var dots = utils.getElementByClass("dots")[0];
+    var imgList = imgWrapper.getElementsByTagName("img");
     // 1 绑定图片
 
     //1.1 请求图片数据
@@ -38,8 +39,25 @@
 
 
      //延迟加载
-
-
+     function lazyLoadImg(curImg){
+         if(curImg.isLoaded){
+             return;
+         }
+         var oImg = new Image();
+         oImg.src = curImg.getAttribute("truePath");
+         oImg.onload = function(){
+             curImg.src = oImg.src;
+             curImg.style.display = "block";
+             oImg = null;
+         }
+         curImg.isLoaded = true;
+     }
+for(var i= 0,len = imgList.length;i<len;i++){
+    lazyLoadImg(imgList[i]);
+    tween.move(imgList[i],{
+        opacity:1
+    },500)
+}
 
 
 })()
