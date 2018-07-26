@@ -24,9 +24,10 @@
                /* str+="<img src='"+jsonData[i].img+"'>";*/
                 str+="<div><img src='' truePath='"+jsonData[i].img+"'></div>";
             }
+            str+="<div><img src='' truePath='"+jsonData[0].img+"'></div>";
         }
         imgWrapper.innerHTML = str;
-        utils.css(imgWrapper,"width",len*1024);
+        utils.css(imgWrapper,"width",(len+1)*1024);
 
         // 绑定焦点
         str="";
@@ -59,5 +60,30 @@ for(var i= 0,len = imgList.length;i<len;i++){
     },500)
 }
 
+    // 轮播
+    var j=0;
+    var liList = dots.getElementsByTagName("li");
+    var lastLi = liList[0];
+    window.setInterval(function(){
+            if (j>=len-1){
+                j = 0;
+                utils.css(imgWrapper,"left",0);
+
+            }
+        utils.css(imgWrapper,"left",-1024*j);
+        j++;
+        tween.move(imgWrapper,{left:-j*1024},500);
+        if(lastLi){
+            lastLi.className="";
+        }
+        if(j==len-1){
+            liList[0].className="active";
+            lastLi = liList[0];
+        }else{
+            liList[j].className="active";
+            lastLi = liList[j];
+        }
+
+        },2000)
 
 })()
