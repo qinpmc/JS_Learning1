@@ -3,6 +3,7 @@
     var imgWrapper = utils.getElementByClass("wrap")[0];
     var dots = utils.getElementByClass("dots")[0];
     var imgList = imgWrapper.getElementsByTagName("img");
+    var liList = dots.getElementsByTagName("li");
     // 1 绑定图片
 
     //1.1 请求图片数据
@@ -61,29 +62,60 @@ for(var i= 0,len = imgList.length;i<len;i++){
 }
 
     // 轮播
-    var j=0;
-    var liList = dots.getElementsByTagName("li");
-    var lastLi = liList[0];
-    window.setInterval(function(){
-            if (j>=len-1){
-                j = 0;
-                utils.css(imgWrapper,"left",0);
-
-            }
-        utils.css(imgWrapper,"left",-1024*j);
-        j++;
-        tween.move(imgWrapper,{left:-j*1024},500);
-        if(lastLi){
-            lastLi.className="";
+    function clearDotsActive(){
+        for(var k=0;k<liList.length;k++){ //清空选中的焦点样式
+            liList[k].className="";
         }
-        if(j==len-1){
+    }
+
+    var step=0;
+
+    function moveBanner(){
+        if (step>=len-1){
+            step = 0;
+            utils.css(imgWrapper,"left",0);
+
+        }
+        //utils.css(imgWrapper,"left",-1024*step);
+        step++;
+        tween.move(imgWrapper,{left:-step*1024},500);
+
+        //清除选中的焦点样式
+        clearDotsActive();
+        if(step==len-1){ //特殊处理最后一个
             liList[0].className="active";
-            lastLi = liList[0];
         }else{
-            liList[j].className="active";
-            lastLi = liList[j];
+            liList[step].className="active";
         }
+    }
 
-        },2000)
+
+
+    var timer = window.setInterval(moveBanner,2000);
+
+    // 鼠标划到页面，停止轮播
+    imgWrapper.onmouseover = function(){
+        window.clearInterval(timer);
+    }
+
+    imgWrapper.onmouseout = function(){
+        timer = window.setInterval(moveBanner,2000);
+    }
+
+    // 点击焦点切换图片
+    ~function(){
+        for(var i= 0,len=liList.length;i<len;i++){
+            liList[i].onclick = function(j){
+                return function (){
+                   // utils.css(imgWrapper,"left",0);
+                    tween.move(imgWrapper,{left:-j*1024},500);
+                    clearDotsActive();
+                    liList[j].className="active";
+                    step = j;
+                }
+            }(i)
+        }
+    }()
+
 
 })()
