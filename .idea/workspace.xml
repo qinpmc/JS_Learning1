@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/6轮播图1.html" afterPath="$PROJECT_DIR$/ch8动画/6轮播图1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8动画/js/banner.js" afterPath="$PROJECT_DIR$/ch8动画/js/banner.js" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -27,8 +27,8 @@
       <file leaf-file-name="6轮播图1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch8动画/6轮播图1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.53125">
-              <caret line="80" column="31" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="31" />
+            <state vertical-scroll-proportion="-10.5625">
+              <caret line="107" column="22" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -37,8 +37,20 @@
       <file leaf-file-name="banner.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch8动画/js/banner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5629371">
-              <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
+            <state vertical-scroll-proportion="2.624521">
+              <caret line="142" column="19" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+              <folding>
+                <element signature="e#2719#2896#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch8动画/js/utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.3783784">
+              <caret line="61" column="25" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -132,10 +144,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="348" />
+    <option name="y" value="203" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="683" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -316,7 +328,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="348" y="203" width="1936" height="683" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -349,7 +361,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -646,13 +660,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch8动画/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
-          <caret line="296" column="48" selection-start-line="296" selection-start-column="41" selection-end-line="296" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/1动画(从左到右).html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.28125">
@@ -717,19 +724,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch8动画/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.3783784">
+          <caret line="61" column="25" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/6轮播图1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.53125">
-          <caret line="80" column="31" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="31" />
+        <state vertical-scroll-proportion="-10.5625">
+          <caret line="107" column="22" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/js/banner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5629371">
-          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-          <folding />
+        <state vertical-scroll-proportion="2.624521">
+          <caret line="142" column="19" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+          <folding>
+            <element signature="e#2719#2896#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

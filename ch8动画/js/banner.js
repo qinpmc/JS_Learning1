@@ -1,9 +1,12 @@
 (function(){
     var jsonData = null;
     var imgWrapper = utils.getElementByClass("wrap")[0];
+    var banner = utils.getElementByClass("banner")[0];
     var dots = utils.getElementByClass("dots")[0];
     var imgList = imgWrapper.getElementsByTagName("img");
     var liList = dots.getElementsByTagName("li");
+    var bannerLeft = utils.getElementByClass("bannerLeft")[0];
+    var bannerRight = utils.getElementByClass("bannerRight")[0];
     // 1 绑定图片
 
     //1.1 请求图片数据
@@ -94,12 +97,24 @@ for(var i= 0,len = imgList.length;i<len;i++){
     var timer = window.setInterval(moveBanner,2000);
 
     // 鼠标划到页面，停止轮播
-    imgWrapper.onmouseover = function(){
+    banner.onmouseover = function(){
         window.clearInterval(timer);
+        utils.css(bannerLeft,{
+            opacity :1
+        });
+        utils.css(bannerRight,{
+            opacity :1
+        });
     }
 
-    imgWrapper.onmouseout = function(){
+    banner.onmouseout = function(){
         timer = window.setInterval(moveBanner,2000);
+        utils.css(bannerLeft,{
+            opacity :0
+        });
+        utils.css(bannerRight,{
+            opacity :0
+        });
     }
 
     // 点击焦点切换图片
@@ -114,6 +129,25 @@ for(var i= 0,len = imgList.length;i<len;i++){
                     step = j;
                 }
             }(i)
+        }
+    }()
+
+    // 点击箭头左右切换
+    ~function(){
+        bannerLeft.onclick = function(){
+            //step>=1?step--:step=liList.length;
+            if(step<=0){
+                step = imgList.length-1;
+                utils.css(imgWrapper,"left",-1024*step);
+            }
+            step--;
+            tween.move(imgWrapper,{left:-step*1024},500);
+            clearDotsActive();
+            liList[step].className="active";
+        }
+        bannerRight.onclick = function(){
+            //step==liList.length?step=0:step+=1;
+            moveBanner();
         }
     }()
 
