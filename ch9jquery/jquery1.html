@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="div1" myattr="myattr">
+    <div>
+        <span></span>
+        <span></span>
+        <span></span
+        ></div>
+    <div></div>
+    <div></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script type="text/javascript" >
+    var $oDiv = $("#div1");
+    console.log($===jQuery); //true
+    console.dir($oDiv);
+
+    var oDiv = document.getElementById("div1");
+    console.dir(oDiv);
+
+    console.log($oDiv.innerWidth()); //1904
+    console.log(oDiv.clientWidth);  //1904
+
+    console.log($oDiv.attr("myattr")); //myattr
+    console.log(oDiv.getAttribute("myattr")); //myattr
+
+    // jquery 对象与 dom 对象转换
+    console.log($oDiv[0] ===oDiv); //true
+    console.log($oDiv.get(0) ===oDiv);//true
+
+    console.log($oDiv ===$(oDiv));//false
+</script>
+</body>
+</html>
