@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="div1" myattr="myattr">
+    <div>
+        <span></span>
+        <span></span>
+        <span></span
+        >
+    </div>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="div2">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="div3"></div>
+    <ul id="ul2">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script type="text/javascript" >
+    console.log($("#div2+ul"));//w.fn.init(0)
+    console.log($("#div3+ul"));//w.fn.init [ul#ul2, prevObject: w.fn.init(1)]
+</script>
+</body>
+</html>
