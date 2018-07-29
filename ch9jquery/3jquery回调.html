@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    function fn1(value){
+        console.log("fn1: "+value);
+    }
+    function fn2(value){
+        console.log("fn2: "+value);
+    }
+
+    var $call = $.Callbacks();
+    $call.add(fn1);
+    $call.fire(100); //fn1: 100
+
+    $call.add(fn2);
+    $call.fire(200); //fn1: 200  , fn2: 200
+
+    $call.remove(fn2);
+    $call.fire(300); // fn1: 300
+
+    // 以下两种写法等价
+    $(function(){})
+    $(document).ready(function(){})
+
+    // 原生方式
+    window.onload = function(){}
+
+    //区别 ，// 只会执行后面的 console.log(2222);
+/*    window.onload = function(){
+        console.log(1111);
+    };
+    window.onload = function(){
+        console.log(2222);
+    };*/
+
+
+    // console.log(3333)和console.log(4444)都执行;
+/*    $(function(){
+        console.log(3333);
+    })
+    $(function(){
+        console.log(4444);
+    })*/
+
+</script>
+</body>
+</html>
