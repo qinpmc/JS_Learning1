@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="div1">div111</div>
+    <div id="div2"> div222</div>
+    <div id="div3">div333</div>
+    <div id="div4">div444</div>
+
+    <script>
+        $("div").each(function(index,item){
+            console.log(arguments); //Arguments(2) [0, div#div1, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+            // item 为dom 元素
+            $(item).addClass("class1");
+        })
+        console.log($("body").html());
+        console.log("**************************************");
+        console.log($("body").text());
+    </script>
+</body>
+</html>
