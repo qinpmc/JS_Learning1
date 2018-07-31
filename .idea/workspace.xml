@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/选择器2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/value属性.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ch9jquery/4属性.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ch9jquery/5属性_2.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_3css/css.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_3css/css1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_3css/css2.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9jquery/README.md" afterPath="$PROJECT_DIR$/ch9jquery/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/1jQuery_selector.md" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/1jquery.html" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/1jquery.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/2jQuery_callback_atrt.md" afterPath="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/2jQuery_callback_atrt.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/2selector.html" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/2selector.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/3jquery回调.html" afterPath="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/3jquery回调.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/4属性.html" afterPath="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/4属性.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/5属性_2.html" afterPath="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/5属性_2.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/6each.html" afterPath="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/6each.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/selector1.png" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/selector1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/selector2.png" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/selector2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/选择器.html" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/选择器.html" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,15 +26,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="2jQuery_callback_atrt.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/2jQuery_callback_atrt.md">
+      <file leaf-file-name="css.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css.md">
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="-1.1135266">
-                <caret line="98" column="36" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="36" />
+              <first_editor vertical-scroll-proportion="2.5186567">
+                <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -55,94 +42,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/README.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.0">
-                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="5属性_2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/5属性_2.html">
+      <file leaf-file-name="css2.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.9375">
-              <caret line="14" column="13" selection-start-line="7" selection-start-column="4" selection-end-line="14" selection-end-column="13" />
+            <state vertical-scroll-proportion="-2.970297">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="6each.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/6each.html">
+      <file leaf-file-name="css1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.84375">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3jquery回调.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/3jquery回调.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.78125">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/jquery1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.59375">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1jQuery_selector.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="2.0229468">
-                <caret line="133" column="45" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="value属性.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/value属性.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="26" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4属性.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/4属性.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-              <folding />
+            <state vertical-scroll-proportion="-11.84375">
+              <caret line="30" column="11" selection-start-line="22" selection-start-column="8" selection-end-line="30" selection-end-column="11" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,8 +85,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch5正则/4正则方法.html" />
-        <option value="$PROJECT_DIR$/ch5正则/5正则.html" />
         <option value="$PROJECT_DIR$/ch5正则/6正则.html" />
         <option value="$PROJECT_DIR$/ch5正则/README.md" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/2dom.html" />
@@ -216,6 +134,8 @@
         <option value="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
         <option value="$PROJECT_DIR$/ch9jquery/9_1选择器/选择器3.html" />
         <option value="$PROJECT_DIR$/ch9jquery/README.md" />
+        <option value="$PROJECT_DIR$/ch9jquery/9_3css/css1.html" />
+        <option value="$PROJECT_DIR$/ch9jquery/9_3css/css.md" />
       </list>
     </option>
   </component>
@@ -225,10 +145,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="505" />
+    <option name="y" value="350" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="496" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -285,6 +205,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ch9jquery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS_Learning1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS_Learning1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ch9jquery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="9_3css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,11 +313,11 @@
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_3css" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch2基础2" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画\imgs" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch3_2DOM深入\imgs" />
     </key>
   </component>
   <component name="RunManager">
@@ -446,7 +384,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="505" y="350" width="1936" height="496" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -485,27 +423,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/8demo(封装样式）.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils_copy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/9demo(封装css).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.46875">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch函数/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
@@ -826,14 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/5属性_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.9375">
-          <caret line="14" column="13" selection-start-line="7" selection-start-column="4" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/6each.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.84375">
@@ -883,6 +792,49 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/5属性_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="8" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.84375">
+          <caret line="30" column="11" selection-start-line="22" selection-start-column="8" selection-end-line="30" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="2.5186567">
+            <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.970297">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
