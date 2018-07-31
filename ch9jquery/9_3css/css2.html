@@ -13,32 +13,34 @@
 </head>
 <body>
     <div id="box" style="width:200px"></div>
-    <div id="wrapper" style="position: absolute;left:500px;width: 400px;height: 400px;background: darkred">
-        <div id="inner" style="position: relative">
+    <div id="wrapper" >
+        <div id="inner"  >
             <div></div>
-            <div style="position: relative;left: 50px;"></div>
+            <div  ></div>
         </div>
     </div>
     <script type="text/javascript">
         var $box = $("#box");
-        console.log($box.css("width")); //200px
-
         $box.css({
             background:"yellowgreen",
             opacity:0.5,
-            height:"200px"
+            height:"200px",
+            border:"solid red 10px",
+            margin:"100px",
+            padding:"30px 20px"
 
         });
+        console.log($box.innerWidth()); //240
+        console.log($box.innerHeight()); //260
 
-        var div1 = $("#inner div:first-child");
-        console.log(div1.offset());//{top: 200, left: 500}
-        console.log(div1.position());//{top: 0, left: 0}
+        console.log($box.width()); //200
+        console.log($box.height()); //200
+        //$box.innerHeight(1000);
+        console.log($box.outerWidth()); //260 ，包含了边框
+        console.log($box.outerHeight()); // 280，包含了边框
 
-        console.log("******************");
-
-        var div2 = $("#inner div:nth-child(2)");
-        console.log(div2.offset());//{top: 200, left: 550}
-        console.log(div2.position());//{top: 0, left: 50}
+        console.log($box.outerWidth(true)); //460 ，包含了外边距
+        console.log($box.outerHeight(true)); // 480，包含了外边距
     </script>
 </body>
 </html>
