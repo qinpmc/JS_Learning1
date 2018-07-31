@@ -131,7 +131,7 @@ disabled,当然就为enabled。
 
 3）、:checked  
 用法: $("input:checked")   返回值  集合元素  
-说明: 匹配所有选中的被选中元素(复选框、单选框等，不包括select中的option)。这话说起来有些绕口。  
+说明: 匹配所有选中的被选中元素(复选框、单选框等，不包括select中的option) 。  
 
 4）、:selected   
 用法: $(”select option:selected”)   返回值  集合元素  

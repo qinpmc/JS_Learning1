@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<form id = "form1" action="#">
+    <input type="button" value="Button"><br>
+    <input type="checkbox" name="c">1
+    <input type="checkbox" name="c">2
+    <input type="checkbox" name="c">3<br>
+    <input type="file"><br>
+    <input type="hidden"><div style="display: none">test</div>
+    <input type="image"><br>  <!--定义图像作为提交按钮-->
+    <input type="password"><br>
+    <input type="radio" name="a">1
+    <input type="radio" name="a">2<br>
+    <input type="reset"><br>
+    <input type="submit" value="提交"><br>
+    <input type="text"><br>
+    <select name="" >
+        <option value="">Option1</option>
+        <option value="">Option2</option>
+        <option value="">Option3</option>
+    </select>
+    <textarea name=""   cols="30" rows="10"></textarea>
+    <button> Button</button>
+</form>
+<script type="text/javascript">
+    console.log($("#form1 :input").length); //16,包含了input、button、textarea、select
+    console.log($("#form1 :text").length); //1
+</script>
+</body>
+</html>
