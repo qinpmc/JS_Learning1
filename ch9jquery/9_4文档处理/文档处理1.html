@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> </title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="width:200px"></div>
+<div id="div1" style="width:200px"></div>
+<script type="text/javascript">
+    var box = $("#box");
+    var div1 = $("#div1");
+    var innerDiv = document.createElement("div");
+
+    box.append(innerDiv); //append 可以添加原生dom元素
+    box.append(div1);  //append 可以添加jquery元素对象
+</script>
+</body>
+</html>
