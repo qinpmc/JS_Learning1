@@ -28,13 +28,13 @@
 </div>
 <script>
     var oDiv = document.getElementById("box");
-    /*var attributes = oDiv.attributes; // NamedNodeMap {0: id, 1: class, id: id, class: class, length: 2}
+    var attributes = oDiv.attributes; // NamedNodeMap {0: id, 1: class, id: id, class: class, length: 2}
     var idProp = oDiv.attributes.item("id"); //id="box";
-    oDiv.classList; //  ["parentBox", "wrap", value: "parentBox wrap"]
-    console.log(window.getComputedStyle(oDiv,null)); //CSSStyleDeclaration*/
+    oDiv.classList; //  ["parentBox", "wrap"]
+    console.log(window.getComputedStyle(oDiv,null)); //CSSStyleDeclaration
 
 
-    function getCss(ele,attr){
+/*    function getCss(ele,attr){
         var res = null,reg = null;
         if(window.getComputedStyle){
             res = window.getComputedStyle(ele,null)[attr];
@@ -50,7 +50,7 @@
         reg = /^(-?\d+(\.\d+)?)(px|pt|rem|em)?$/i;
         return reg.test(res)? parseFloat(res):res;
     }
-    getCss(oDiv,"height"); //"300px"
+    getCss(oDiv,"height"); //"300px"*/
 </script>
 </body>
 </html>
