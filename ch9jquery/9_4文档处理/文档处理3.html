@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<p>I would like to say: </p><div id="foo">Hello</div>
+<script type="text/javascript">
+    //$("p").insertAfter("#foo");
+    $("p").insertAfter($("#foo"));
+</script>
+</body>
+</html>
