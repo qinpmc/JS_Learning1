@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理.md" afterPath="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理.md" />
     </list>
@@ -29,8 +29,8 @@
         <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.29941002">
-                <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="0.2753623">
+                <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="文档处理4.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理4.html">
+      <file leaf-file-name="文档处理5.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.84375">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state vertical-scroll-proportion="-13.28125">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -69,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/6demo(回到顶部).html" />
         <option value="$PROJECT_DIR$/ch函数/README.md" />
         <option value="$PROJECT_DIR$/ch3基础3(DOM)/README.md" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom).html" />
@@ -119,6 +118,7 @@
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理2.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理3.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理4.html" />
+        <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理.md" />
       </list>
     </option>
@@ -129,10 +129,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="468" />
-    <option name="y" value="230" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="906" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -322,7 +322,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="468" y="230" width="1936" height="906" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -361,13 +361,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="345" column="4" selection-start-line="345" selection-start-column="4" selection-end-line="345" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/3动画(左右运动).html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -748,8 +741,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.84375">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.14025246">
+          <caret line="4" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.28125">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -760,8 +761,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.29941002">
-            <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <first_editor vertical-scroll-proportion="0.2753623">
+            <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

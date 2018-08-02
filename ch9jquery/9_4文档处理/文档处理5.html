@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<button>Clone Me! <b> b标签</b></button>
+<script type="text/javascript">
+    $("button").click(function(){
+        $(this).clone().insertAfter(this);
+    });
+</script>
+</body>
+</html>
