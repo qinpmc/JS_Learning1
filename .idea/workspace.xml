@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤.md" afterPath="$PROJECT_DIR$/ch9jquery/9_5筛选/筛选.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤1.html" afterPath="$PROJECT_DIR$/ch9jquery/9_5筛选/筛选1.html" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,53 +25,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="文档处理.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.2753623">
-                <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="文档处理5.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.28125">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            <state vertical-scroll-proportion="-16.40625">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="过滤1.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_5过滤/过滤1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40556198">
-              <caret line="14" column="100" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="过滤.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch9jquery/9_5过滤/过滤.md">
+      <file leaf-file-name="筛选.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch9jquery/9_5筛选/筛选.md">
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor vertical-scroll-proportion="0.6678744">
-                <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+                <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -97,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/3dom(parentNode+offsetParent).html" />
         <option value="$PROJECT_DIR$/ch7call+apply+bind+this/utils.js" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/7demo(封装自己的dom方法).html" />
@@ -146,8 +117,9 @@
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理4.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理.md" />
-        <option value="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤.md" />
         <option value="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤1.html" />
+        <option value="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤.md" />
+        <option value="$PROJECT_DIR$/ch9jquery/9_5筛选/筛选.md" />
       </list>
     </option>
   </component>
@@ -233,7 +205,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="9_5过滤" />
+              <option name="myItemId" value="9_5筛选" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -290,10 +262,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_5过滤" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_4文档处理" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_3css" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch2基础2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -407,13 +379,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch8动画/5动画库(tween1).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.8125">
-          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/imgs/img3.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -786,33 +751,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.28125">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state vertical-scroll-proportion="-16.40625">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch9jquery/9_5过滤/过滤.md">
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_5筛选/筛选.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.6678744">
-            <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+            <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch9jquery/9_5过滤/过滤1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40556198">
-          <caret line="14" column="100" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
