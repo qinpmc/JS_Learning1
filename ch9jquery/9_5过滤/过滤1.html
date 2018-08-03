@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> </title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="protected" style="width: 50px;height: 50px;background: red;left: 20px;position: relative"></div><div></div>
+
+<script type="text/javascript">
+    $("div").click(function(){
+        if ( $(this).hasClass("protected") )
+            $(this)
+                    .animate({ left: -10 })
+                    .animate({ left: 10 })
+                    .animate({ left: -10 })
+                    .animate({ left: 10 })
+                    .animate({ left: 0 });
+    });
+</script>
+</body>
+</html>
