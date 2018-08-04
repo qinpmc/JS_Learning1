@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_6事件/事件.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" afterPath="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,15 +40,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1jQuery_selector.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="1jQuery_selector.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md">
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.9628529">
+              <first_editor vertical-scroll-proportion="0.40564635">
                 <caret line="228" column="14" selection-start-line="228" selection-start-column="14" selection-end-line="228" selection-end-column="14" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="事件.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch9jquery/9_6事件/事件.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="0.44576523">
+                <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -74,7 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch3_2DOM深入/12demo(延迟加载2).html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/json/jsonData.txt" />
         <option value="$PROJECT_DIR$/ch8动画/README.md" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/13demo(延迟加载3).html" />
@@ -125,6 +140,7 @@
         <option value="$PROJECT_DIR$/ch9jquery/9_3css/css.md" />
         <option value="$PROJECT_DIR$/ch9jquery/9_2常用方法属性/属性.md" />
         <option value="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
+        <option value="$PROJECT_DIR$/ch9jquery/9_6事件/事件.md" />
       </list>
     </option>
   </component>
@@ -134,8 +150,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="21" />
-    <option name="y" value="25" />
+    <option name="x" value="672" />
+    <option name="y" value="171" />
     <option name="width" value="1936" />
     <option name="height" value="901" />
   </component>
@@ -211,7 +227,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="9_1选择器" />
+              <option name="myItemId" value="9_6事件" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,19 +246,19 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_6事件" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_3css" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_5过滤" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_4文档处理" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_5筛选" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_2常用方法属性" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_1选择器" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch8动画\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_3css" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_5过滤" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_4文档处理" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch2基础2" />
     </key>
   </component>
   <component name="RunManager">
@@ -309,7 +325,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="21" y="25" width="1936" height="901" extended-state="0" />
+    <frame x="672" y="171" width="1936" height="901" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -348,13 +364,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch8动画/2动画(从左到右).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.40625">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch8动画/json/banner.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -749,8 +758,22 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.9628529">
+          <first_editor vertical-scroll-proportion="0.40564635">
             <caret line="228" column="14" selection-start-line="228" selection-start-column="14" selection-end-line="228" selection-end-column="14" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9jquery/9_6事件/事件.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.44576523">
+            <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
             <folding />
           </first_editor>
           <second_editor />
