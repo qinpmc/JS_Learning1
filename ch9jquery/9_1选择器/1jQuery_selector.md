@@ -185,6 +185,34 @@ disabled,当然就为enabled。
 用法: $("input:hidden") ; 返回值  集合元素
 说明: 匹配所有不可见元素，或者type为hidden的元素.这个选择器就不仅限于表单了,除了匹配input中的hidden外,那些style为hidden的也会被匹配
 
+## jQuery 冲突解决
+
+### jQuery库在其它库之后引入
+
+```
+ jQuery.noConflict(); //交出$ 控制权
+ jQuery(function(){
+    jQuery("p").click(function(){
+        .....
+    })
+ }）
+ 
+ ////////////////////////////
+ 
+ 
+  var $j = jQuery.noConflict(); //交出$ 控制权,自定义快捷方式$j
+ 
+  $j(function(){
+     $j("p").click(function(){
+         .....
+     })
+  }）
+ 
+ 
+ 
+ //////////
+ 
+```
 
 
 
