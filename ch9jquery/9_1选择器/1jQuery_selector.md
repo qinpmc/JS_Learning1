@@ -211,6 +211,23 @@ disabled,当然就为enabled。
  
  
  //////////
+  jQuery.noConflict(); //交出$ 控制权
+  jQuery(function($){
+      $("p").click(function(){  //此处的$ 为jQuery
+          .....
+      })
+   }）
+ 
+ ////////////
+   jQuery.noConflict(); //交出$ 控制权
+   (function($){
+        $(function(){
+               $("p").click(function(){  //此处的$ 为jQuery
+                   .....
+               })
+        })
+    })(jQuery)
+ 
  
 ```
 
