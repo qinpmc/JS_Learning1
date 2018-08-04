@@ -13,25 +13,22 @@
 </head>
 <body>
     <div id="box" style="width:200px"></div>
-    <div id="wrapper" style="position: absolute;left:500px;width: 400px;height: 400px;background: darkred">
+    <div id="wrapper" style="position: absolute;left:500px;top:200px;width: 400px;height: 400px;background: darkred">
         <div id="inner" style="position: relative">
             <div></div>
             <div style="position: relative;left: 50px;"></div>
         </div>
     </div>
     <script type="text/javascript">
-        var $box = $("#box");
-        console.log($box.css("width")); //200px
+        var div1 = $("#inner div:first-child");
+        console.log(div1.offset());//{top: 200, left: 500}
+        console.log(div1.position());//{top: 0, left: 0}
 
-        //取得第一个div的color样式属性的值。
-        console.dir($("div").css("width")); //200px
+        console.log("******************");
 
-        $box.css({
-            background:"yellowgreen",
-            opacity:0.5,
-            height:"200px"
-
-        });
+        var div2 = $("#inner div:nth-child(2)");
+        console.log(div2.offset());//{top: 200, left: 550}
+        console.log(div2.position());//{top: 0, left: 50}
     </script>
 </body>
 </html>

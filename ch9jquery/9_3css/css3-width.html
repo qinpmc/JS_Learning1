@@ -30,17 +30,17 @@
             padding:"30px 20px"
 
         });
-        console.log($box.innerWidth()); //240
-        console.log($box.innerHeight()); //260
+        console.log($box.innerWidth()); //240    width+padding
+        console.log($box.innerHeight()); //260   height+padding
 
         console.log($box.width()); //200
         console.log($box.height()); //200
         //$box.innerHeight(1000);
-        console.log($box.outerWidth()); //260 ，包含了边框
-        console.log($box.outerHeight()); // 280，包含了边框
+        console.log($box.outerWidth()); //260 ，包含了边框  width+padding+border
+        console.log($box.outerHeight()); // 280，包含了边框 height+padding+border
 
-        console.log($box.outerWidth(true)); //460 ，包含了外边距
-        console.log($box.outerHeight(true)); // 480，包含了外边距
+        console.log($box.outerWidth(true)); //460 ，包含了外边距  width+padding+border+margin
+        console.log($box.outerHeight(true)); // 480，包含了外边距  height+padding+border+margin
     </script>
 </body>
 </html>
