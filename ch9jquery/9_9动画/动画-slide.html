@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="flip1" style="background-color:green;border:solid 1px #c3c3c3;text-align:center;">点我拉起面板</div>
+<div id="panel1" style="padding:50px;text-align:center;background-color:#e5eecc;  border:solid 1px #c3c3c3;">Hello world!</div>
+
+<div id="flip2" style="background-color:green;border:solid 1px #c3c3c3;text-align:center;">点我滑下面板</div>
+<div id="panel2" style="padding:50px;text-align:center;background-color:#e5eecc;  border:solid 1px #c3c3c3;display:none;">Hello world!</div>
+
+<div id="flip3" style="background-color:green;border:solid 1px #c3c3c3;text-align:center;">点我切换面板</div>
+<div id="panel3" style="padding:50px;text-align:center;background-color:#e5eecc;  border:solid 1px #c3c3c3;">Hello world!</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#flip1").click(function(){
+            $("#panel1").slideUp("slow");
+        });
+        $("#flip2").click(function(){
+            $("#panel2").slideDown("slow");
+        });
+        $("#flip3").click(function(){
+            $("#panel3").slideToggle("slow");
+        });
+    });
+</script>
+</body>
+</html>

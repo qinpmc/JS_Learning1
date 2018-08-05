@@ -12,14 +12,25 @@
     </style>
 </head>
 <body>
-<div id="box">
-    <div id="div1">div1</div>
-    <div id="div2">div2</div>
-    <div id="div3">div3</div>
-    <div id="div4">div4</div>
+<p>
+    <button id="start">开始动画</button>
+    <button id="stop">停止全部队列动画</button>
+</p>
+<div style="background:#98bf21;height:100px;width:100px">
 </div>
 <script type="text/javascript">
-
+    $(document).ready(function(){
+        var div = $("div");
+        $("#start").click(function(){
+            div.animate({height:300},"slow");
+            div.animate({width:300},"slow");
+            div.animate({height:100},"slow");
+            div.animate({width:100},"slow");
+        });
+        $("#stop").click(function(){
+            div.stop(true);
+        });
+    });
 </script>
 </body>
 </html>
