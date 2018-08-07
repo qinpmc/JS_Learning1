@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="../../ch3_2DOM深入/utils.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .menu{
+            margin: 50px auto;
+            width: 150px;
+            border: 1px solid #008000;
+            border-bottom: none;
+        }
+        .menu h2 {
+            padding: 0 10px;
+            height: 30px;
+            line-height: 30px;
+            background: #E0F2BE;
+            cursor: pointer;
+        }
+        .menu li {
+            border-bottom: 1px solid #008000;
+        }
+
+        .menuList {
+            display: none;
+            padding: 5px 0 5px 20px;
+            overflow: hidden;
+        }
+        .menuList li {
+            height: 25px;
+            line-height: 25px;
+            border-bottom: none;
+        }
+        .menuList.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>
+                <h2>衬衫</h2>
+                <ul class="menuList" style="display: block">
+                    <li>衬衫1</li>
+                    <li>衬衫2</li>
+                    <li>衬衫3</li>
+                    <li>衬衫4</li>
+                </ul>
+            </li>
+            <li>
+                <h2>衬衫</h2>
+                <ul class="menuList">
+                    <li>衬衫1</li>
+                    <li>衬衫2</li>
+                    <li>衬衫3</li>
+                    <li>衬衫4</li>
+                </ul>
+            </li>
+            <li>
+                <h2>衬衫</h2>
+                <ul class="menuList">
+                    <li>衬衫1</li>
+                    <li>衬衫2</li>
+                    <li>衬衫3</li>
+                    <li>衬衫4</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(".menu h2").on("click",function(){
+            $(this).next().slideToggle(500).parent().siblings().children("ul").slideUp(500)
+        })
+
+
+// 无动画效果实现版
+/*        var h2List = document.getElementsByTagName("h2");
+        var ulContentList = document.getElementsByClassName("menuList");
+        function hideUlContent(ulContentList ){
+            for(var i=0;i<ulContentList.length;i++){
+                ulContentList[i].style.display = "none";
+            }
+        }
+
+        for(var i=0;i<h2List.length;i++){
+            h2List[i].index = i;
+            h2List[i].addEventListener("click",function(){
+                hideUlContent(ulContentList);
+                var ulDom = utils.next(h2List[this.index]);
+                utils.css(ulDom,{
+                    display:"block"
+                })
+            },false)
+        }*/
+
+    </script>
+</body>
+</html>
