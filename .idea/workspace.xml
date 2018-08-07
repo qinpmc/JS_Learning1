@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch9jquery/9_10核心/折叠菜单_3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch函数/回调函数(forEach)_1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JS_Learning1.iws" />
@@ -22,16 +22,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="折叠菜单_3.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="折叠菜单_3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch9jquery/9_10核心/折叠菜单_3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
+            <state relative-caret-position="151">
               <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#ul#0;n#li#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#li#1;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#li#2;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch函数/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-518">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="回调函数(forEach)_1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch函数/回调函数(forEach)_1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch9jquery/jquery1.html" />
         <option value="$PROJECT_DIR$/ch9jquery/2selector.html" />
         <option value="$PROJECT_DIR$/ch9jquery/3jquery回调.html" />
         <option value="$PROJECT_DIR$/ch9jquery/2jQuery_callback.md" />
@@ -137,6 +156,7 @@
         <option value="$PROJECT_DIR$/ch9jquery/9_10核心/核心.md" />
         <option value="$PROJECT_DIR$/ch9jquery/9_10核心/选项卡_2.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_10核心/折叠菜单_3.html" />
+        <option value="$PROJECT_DIR$/ch函数/回调函数(forEach)_1.html" />
       </list>
     </option>
   </component>
@@ -147,8 +167,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-44" />
-    <option name="y" value="266" />
+    <option name="x" value="467" />
+    <option name="y" value="337" />
     <option name="width" value="1936" />
     <option name="height" value="709" />
   </component>
@@ -181,18 +201,7 @@
             <path>
               <item name="JS_Learning1" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS_Learning1" type="462c0819:PsiDirectoryNode" />
-              <item name="ch3_2DOM深入" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS_Learning1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS_Learning1" type="462c0819:PsiDirectoryNode" />
-              <item name="ch9jquery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS_Learning1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS_Learning1" type="462c0819:PsiDirectoryNode" />
-              <item name="ch9jquery" type="462c0819:PsiDirectoryNode" />
-              <item name="9_10核心" type="462c0819:PsiDirectoryNode" />
+              <item name="ch函数" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,16 +310,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528722821867</updated>
-      <workItem from="1533645678624" duration="2878000" />
+      <workItem from="1533645678624" duration="4419000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2878000" />
+    <option name="totallyTimeSpent" value="4419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -363,20 +371,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch9jquery/9_1选择器/选择器2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/value属性.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="26" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/4属性.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -626,13 +620,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_10核心/折叠菜单_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
+        <state relative-caret-position="151">
           <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#ul#0;n#li#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#1;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#li#2;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch函数/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-518">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch函数/回调函数(forEach)_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

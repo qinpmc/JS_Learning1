@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var ary = [3,5,7,9];
+    // 数组的forEach 没有返回值
+    // 原则上不修改数组，但可以手动修改
+    var res1 = ary.forEach(function(item,index,array){
+        //return index;
+        array[index] = item*100;
+    })
+    console.log(res1); //undefined
+    console.log(ary);  // [3,5,7,9];
+    console.log("*************");
+    var ary2 = [2,5,7,9];
+    var res2 = ary2.map(function(item,index,array){
+        //console.log(arguments);
+        //array[index] = item*100;  // 原则上不修改数组，但可以手动修改
+        return item*10;  //原数组不变，返回新数组
+    });
+    console.log(res2);
+    console.log(ary2);
+</script>
+</body>
+</html>
