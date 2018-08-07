@@ -70,7 +70,7 @@
         <div>内容4</div>
     </div>
     <script>
-        var liList = $(".box li");
+/*        var liList = $(".box li");
         var divList = $(".box div");
         liList.each(function(index,item){
             $(this).on("click",function(){
@@ -85,7 +85,18 @@
                 });
                 $(divList.get(index)).addClass("select");
             })
-        })
+        })*/
+    $(".box li").each(function(index,item){
+        var _this = $(this);
+        _this._index = index;
+        _this.on("click",function(){
+            _this.siblings().removeClass("select");
+            _this.addClass("select");
+            $(".box div").each(function (index,item) {
+                index ==_this._index? $(this).addClass("select"):$(this).removeClass("select");
+            })
+        });
+    });
 
     </script>
 </body>
