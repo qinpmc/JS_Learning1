@@ -87,6 +87,27 @@ Array.prototype.myMap = function(callback,context){
 ```
 
 
+```
+    function callback(){
+        console.log(this);
+        console.log(Array.prototype.slice.call(arguments));
+    }
 
+    Function.prototype.myBind =function(context){
+        var outerArgs = Array.prototype.slice.call(arguments,1); //得到myBind函数除context外的参数
+        context = context || window;
+        var that = this;
+        return function (){
+            var innerArgs = Array.prototype.slice.call(arguments);
+            if("call" in Function.prototype){
+                that.call(context,outerArgs.concat(innerArgs));
+            }
+        }
+    }
+    
+    var box = document.getElementById("box");
+    box.onclick = callback.myBind({name:"q3333"},111,222);  //{name:"q3333" [111, 222, MouseEvent]
+
+```
 
 

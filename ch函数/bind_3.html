@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div id="box" style="height: 200px;background: lightblue"></div>
+<body>
+    <script type="text/javascript">
+        function callback1(){
+            console.log(this);
+            console.log(Array.prototype.slice.call(arguments));
+        }
+        window.setTimeout(callback1,0);//Window , []
+
+        window.setTimeout(callback1.bind({name:"qqq"}),0);// {name:"qqq"}, []
+
+        function myBind1(callback,context){
+            var outerArgs = Array.prototype.slice.call(arguments,2);
+            context = context || window;
+            return function (){
+                var innerArgs = Array.prototype.slice.call(arguments);
+                if("call" in Function.prototype){
+                    callback.call(context,outerArgs.concat(innerArgs));
+                }
+            }
+        }
+
+        window.setTimeout(myBind1(callback1,{name:"q222"},100,200),0);// {name: "q222"} ,[100, 200]
+
+
+        var box = document.getElementById("box");
+        box.onclick = myBind1(callback1,{name:"q3333"},111,222);  //{name: "q3333"} ,[111, 222, MouseEvent]
+
+
+    </script>
+</body>
+</html>
