@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    Array.prototype.myForEach = function(callback,context){
+        context = context || window;
+        if("forEach" in Array.prototype){
+            this.forEach(callback,context);
+            return ;
+        }
+        // IE 6~8 ,不支持forEach
+        for(var i= 0,len=this.length;i<len;i++){
+            callback && callback.call(context,this[i],i,this);
+        }
+    }
+
+    Array.prototype.myMap = function(callback,context){
+        context = context || window;
+        if("map" in Array.prototype){
+            return this.forEach(callback,context);
+
+        }
+        // IE 6~8 ,不支持forEach
+        var newAry = [];
+        for(var i= 0,len=this.length;i<len;i++){
+            if(typeof callback =="function")
+                newAry[newAry.length] = callback.call(context,this[i],i,this);
+        }
+        return newAry;
+    }
+
+</script>
+</body>
+</html>
