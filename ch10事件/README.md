@@ -65,3 +65,22 @@ DOM级别1于1998年10月1日成为W3C推荐标准。1级DOM标准中并没有�
    > 第三个参数如果是true则表示在捕获阶段调用，为false表示在冒泡阶段调用。
 - addEventListener():可以为元素添加多个事件处理程序，触发时会按照添加顺序依次调用。
 - removeEventListener():不能移除匿名添加的函数。
+- dom 0级 事件是元素的私有属性，如onclick， 而addEventListener 是位于 EventTarget上   
+
+4. 鼠标事件对象
+- 鼠标事件触发时，浏览器默认给方法传递一个参数 MouseEvent
+- MouseEvent ---> UIEvent ---> Event ---> Object 
+- MouseEvent 记录的是页面唯一一个鼠标触发时的相关信息，和在哪个元素上触发没有关系   
+
+
+
+
+
+
+
+
+
+
+
+
+

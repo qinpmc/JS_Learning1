@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch10事件/README.md" afterPath="$PROJECT_DIR$/ch10事件/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +30,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="1.1648352">
-                <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
+              <first_editor vertical-scroll-proportion="0.2857143">
+                <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -118,8 +117,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="421" />
-    <option name="y" value="316" />
+    <option name="x" value="-46" />
+    <option name="y" value="666" />
     <option name="width" value="1936" />
     <option name="height" value="683" />
   </component>
@@ -305,7 +304,7 @@
     <option name="totallyTimeSpent" value="4419000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="421" y="316" width="1936" height="683" extended-state="0" />
+    <frame x="-46" y="666" width="1936" height="683" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -660,8 +659,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="1.1648352">
-            <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
+          <first_editor vertical-scroll-proportion="0.2857143">
+            <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
