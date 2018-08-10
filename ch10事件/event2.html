@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="post">
+    <input  type="text" name="username" value=""><br>
+    <input id="myButton" type="button" value="Press Me"  >
+
+</form>
+
+
+<script type="text/javascript">
+    var button = document.getElementById("myButton");
+
+    button.onclick = function (e) {
+        e = e ||  window.event;
+        console.log(e);//
+        console.log(e.currentTarget); // <input id="myButton" type="button" value="Press Me">
+        console.log(e.currentTarget == this); //true
+        console.log(e.target == this);        //true
+    }
+
+
+
+</script>
+</body>
+</html>
