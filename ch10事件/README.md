@@ -42,7 +42,7 @@ onsubmit	表单提交时触发	2
 
 ## DOM 事件
 
-1. DOM 0级事件  
+1. DOM 0级事件处理程序
 
 ```
 //一是在标签内写onclick事件
@@ -54,10 +54,10 @@ document.getElementById("myButton").onclick = function () {
 }
 ```
 
-2. 没有DOM 1级事件   
+2. 没有DOM 1级事件处理程序
 DOM级别1于1998年10月1日成为W3C推荐标准。1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型。
 
-3. DOM 2级事件  
+3. DOM 2级事件处理程序
 - addEventListener / removeEventListener 
 - 它们都有三个参数：
    > 第一个参数是事件名（如click）；
@@ -67,7 +67,34 @@ DOM级别1于1998年10月1日成为W3C推荐标准。1级DOM标准中并没有�
 - removeEventListener():不能移除匿名添加的函数。
 - dom 0级 事件是元素的私有属性，如onclick， 而addEventListener 是位于 EventTarget上   
 
-4. 鼠标事件对象
+## IE 事件处理程序
+- attachEvent/ detachEvent
+- 接受2个参数，事件名称和事件处理回调函数；只支持冒泡
+
+```
+   var EventUtil = {
+       addHandler:function (ele,type,handler) {
+           if(ele.addEventListener){
+               ele.addEventListener("type",handler,false);
+           }else if(ele.attachEvent){
+               ele.attachEvent("on"+type,handler);
+           }else{
+               ele["on"+type] = handler;
+           }
+       },
+       removeHandler:function (ele,type,handler) {
+           if(ele.removeEventListener){
+               ele.removeEventListener("type",handler,false);
+           }else if(ele.detachEvent){
+               ele.detachEvent("on"+type,handler);
+           }else{
+               ele["on"+type] = null;
+           }
+       }
+   }
+```
+
+5. 鼠标事件对象
 - 鼠标事件触发时，浏览器默认给方法传递一个参数 MouseEvent
 - MouseEvent ---> UIEvent ---> Event ---> Object 
 - MouseEvent 记录的是页面唯一一个鼠标触发时的相关信息，和在哪个元素上触发没有关系   
