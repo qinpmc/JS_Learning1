@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/event4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_1_bigger.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_2_bigger.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_3_bigger.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/imgs/apple_4_bigger.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/鼠标跟随5.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch10事件/README.md" afterPath="$PROJECT_DIR$/ch10事件/README.md" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch10事件/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1199">
+            <state relative-caret-position="-1361">
               <caret line="73" column="9" lean-forward="false" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="鼠标跟随5.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch10事件/鼠标跟随5.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch9jquery/README.md" />
         <option value="$PROJECT_DIR$/ch9jquery/9_3css/css2.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理1.html" />
         <option value="$PROJECT_DIR$/ch3_2DOM深入/1dom(attributes+currrentstyle).html" />
@@ -134,6 +150,7 @@
         <option value="$PROJECT_DIR$/ch10事件/event3.html" />
         <option value="$PROJECT_DIR$/ch10事件/event4.html" />
         <option value="$PROJECT_DIR$/ch10事件/README.md" />
+        <option value="$PROJECT_DIR$/ch10事件/鼠标跟随5.html" />
       </list>
     </option>
   </component>
@@ -143,9 +160,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="y" value="49" />
     <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
@@ -178,12 +195,13 @@
             <path>
               <item name="JS_Learning1" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS_Learning1" type="462c0819:PsiDirectoryNode" />
-              <item name="ch6面向对象" type="462c0819:PsiDirectoryNode" />
+              <item name="ch10事件" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JS_Learning1" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS_Learning1" type="462c0819:PsiDirectoryNode" />
               <item name="ch10事件" type="462c0819:PsiDirectoryNode" />
+              <item name="imgs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -202,19 +220,19 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\notes\JS_Learning1\ch10事件\imgs" />
+      <recent name="F:\notes\JS_Learning1\ch10事件" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch10事件" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_10核心" />
+      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_9动画" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_7ajax" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_5筛选" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_2常用方法属性" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_1选择器" />
       <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\notes\JS_Learning1\ch10事件" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch10事件" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_10核心" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_9动画" />
-      <recent name="E:\qinpmc\note\javascript\JS_Learning1\ch9jquery\9_8工具" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -296,16 +314,15 @@
       <workItem from="1533869538504" duration="630000" />
       <workItem from="1533910094345" duration="3769000" />
       <workItem from="1533968276379" duration="2388000" />
-      <workItem from="1533997819658" duration="771000" />
+      <workItem from="1533997819658" duration="1928000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11977000" />
+    <option name="totallyTimeSpent" value="13134000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-10" y="49" width="1938" height="1048" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -358,7 +375,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch3_2DOM深入/README.md" />
     <entry file="file://$PROJECT_DIR$/ch2基础2/README.md" />
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_5筛选/筛选2-map.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -626,8 +642,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch10事件/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1199">
+        <state relative-caret-position="-1361">
           <caret line="73" column="9" lean-forward="false" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch10事件/鼠标跟随5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
