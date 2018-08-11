@@ -28,7 +28,7 @@
    var EventUtil = {
        addHandler:function (ele,type,handler) {
            if(ele.addEventListener){
-               ele.addEventListener("type",handler,false);
+               ele.addEventListener(type,handler,false);
            }else if(ele.attachEvent){
                ele.attachEvent("on"+type,handler);
            }else{
@@ -37,7 +37,7 @@
        },
        removeHandler:function (ele,type,handler) {
            if(ele.removeEventListener){
-               ele.removeEventListener("type",handler,false);
+               ele.removeEventListener(type,handler,false);
            }else if(ele.detachEvent){
                ele.detachEvent("on"+type,handler);
            }else{

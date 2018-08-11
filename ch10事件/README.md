@@ -120,6 +120,71 @@ document.body.scrollLeft和 document.body.scrollTop)
 - returnValue：一个布尔属性，设置为false的时候可以组织浏览器执行默认的事件动作；(e.returnValue = false; 相当于 e.preventDefault();)
 - screenX、screenY：鼠标指针相对于显示器左上角的位置，如果
 
+```
+<body style="margin: 1000px">
+<form action="post">
+    <input  type="text" name="username" value=""><br>
+    <input id="myButton" type="button" value="Press Me"  >
+</form>
+<script type="text/javascript">
+    var button = document.getElementById("myButton");
+    var EventUtil = {
+        addHandler:function (ele,type,handler) {
+            if(ele.addEventListener){
+                ele.addEventListener(type,handler,false);
+            }else if(ele.attachEvent){
+                ele.attachEvent("on"+type,handler);
+            }else{
+                ele["on"+type] = handler;
+            }
+        },
+        removeHandler:function (ele,type,handler) {
+            if(ele.removeEventListener){
+                ele.removeEventListener(type,handler,false);
+            }else if(ele.detachEvent){
+                ele.detachEvent("on"+type,handler);
+            }else{
+                ele["on"+type] = null;
+            }
+        },
+        getEvent:function (e) {
+            return e? e : window.event;
+        },
+        getTarget:function (e) {
+            return event.target  || event.srcElement;
+        },
+        preventDefault:function (e) {
+            if(e.preventDefault){
+                e.preventDefault();
+            }else{
+                e.returnValue = false;
+            }
+        },
+        stopPropagation: function (e) {
+            if(e.stopPropagation){
+                e.stopPropagation(); //可以取消捕获和冒泡
+            }else{
+                e.cancelable = true;  //ie中使用，只能取消冒泡
+            }
+        },
+        getPageX:function (e) {
+            return e.pageX? e.pageX:  (e.clientX +(document.documentElement.scrollLeft || document.body.scrollLeft));
+        }
+    }
+
+    button.onclick = function (e) {
+        // 注意：先获取e对象
+        e = EventUtil.getEvent();
+        console.log(EventUtil.getPageX(e)); //1036
+    }
+    EventUtil.addHandler(button,"click",function (e) {
+        e = EventUtil.getEvent();
+        console.log(EventUtil.getPageX(e)); //1036
+    });
+</script>
+```
+
+
 
 
 
