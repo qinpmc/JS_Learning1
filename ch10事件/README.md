@@ -43,8 +43,38 @@ onsubmit	表单提交时触发	2
 ## DOM事件流
 - DOM2 级事件规定的事件流包含3个阶段：事件捕获阶段/处于目标阶段和事件冒泡阶段。
 首先是事件捕获（Netscape 事件流），然后是目标接收到事件，最后是冒泡阶段（IE浏览器事件流）。
-
+- DOM0级事件，触发的事件均在冒泡阶段执行
 ![DOM事件流](./DOM事件流.png)
+
+```
+<body>
+    <div id="outer">
+        <div id="center">
+            <div id="inner">
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    var outer = document.getElementById("outer");
+    var center = document.getElementById("center");
+    var inner = document.getElementById("inner");
+
+    // 点击inner，输出 inner    center   outer
+    // DOM0级事件，触发的事件均在冒泡阶段执行
+
+    outer.onclick = function (e) {
+        console.log("outer");
+    };
+    center.onclick = function (e) {
+        console.log("center");
+    };
+    inner.onclick = function (e) {
+        console.log("inner");
+    };
+</script>
+```
+
+
 
 1. DOM 0级事件处理程序
 
