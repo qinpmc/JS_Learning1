@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            top:50px;
+            left: 50px;
+            width: 350px;
+            height: 350px;
+            border: solid 1px lightgray;
+            box-shadow: 2px 2px 1px 2px;
+        }
+        #mark{
+            position: absolute;
+            top:0px;
+            left: 0px;
+            background: black;
+            opacity: 0.5;
+            width: 175px;
+            height: 175px;
+        }
+        #bigger{
+            position: absolute;
+            left:500px;
+            top:20px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./imgs/iphone.jpg" alt="" id="smallPic">
+        <div id="mark"></div>
+    </div>
+    <div id="bigger">
+        <img src="./imgs/iphone_big.jpg" alt="" id="bigPic">
+    </div>
+    <script type="text/javascript">
+        var smallPic = document.getElementById("smallPic"),bigPic = document.getElementById("bigPic"),mark = document.getElementById("mark");
+        smallPic.onmouseover = function(e){
+            
+        }
+    </script>
+</body>
+</html>
