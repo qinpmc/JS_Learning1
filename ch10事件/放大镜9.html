@@ -25,12 +25,23 @@
             opacity: 0.5;
             width: 175px;
             height: 175px;
+            display: none;
         }
         #bigger{
             position: absolute;
-            left:500px;
-            top:20px;
+            top:50px;
+            left: 550px;
             border:1px solid red;
+            width: 350px;
+            height: 350px;
+            overflow: hidden;
+        }
+        #bigger img{
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            left: 0;
+            top:0;
         }
     </style>
 </head>
@@ -44,9 +55,42 @@
     </div>
     <script type="text/javascript">
         var smallPic = document.getElementById("smallPic"),bigPic = document.getElementById("bigPic"),mark = document.getElementById("mark");
-        smallPic.onmouseover = function(e){
-            
+        var box = document.getElementById("box");
+        box.onmouseover = function(e){
+            mark.style.display = "block";
+        };
+        box.onmouseleave = function(e){
+            mark.style.display = "none";
+        };
+
+        box.onmousemove = function(e){
+            var leftX = e.clientX - box.offsetLeft-87;
+            var topY = e.clientY - box.offsetTop-87;
+            var maxPosX = box.offsetWidth -mark.offsetWidth;
+            var maxPosY = box.offsetHeight -mark.offsetHeight;
+
+            if(leftX<=0 ){
+                mark.style.left = 0+"px";
+
+            }else if(leftX>= maxPosX ){
+                mark.style.left = maxPosX+"px";
+
+            }else{
+                mark.style.left = leftX +"px";
+            }
+            bigPic.style.left = -parseFloat(mark.style.left) *2+"px";
+
+            if(topY<=0 ){
+                mark.style.top = 0+"px";
+            }else if(topY>= maxPosY ){
+                mark.style.top = maxPosY+"px";
+            }else{
+                mark.style.top = topY +"px";
+            }
+            bigPic.style.top = -parseFloat(mark.style.top) *2+"px";
         }
+
+
     </script>
 </body>
 </html>
