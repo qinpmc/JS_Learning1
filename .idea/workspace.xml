@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac8f2da6-136a-411b-9e53-99f5a7f061b8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch10事件/搜索10.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch10事件/放大镜9.html" afterPath="$PROJECT_DIR$/ch10事件/放大镜9.html" />
     </list>
     <ignored path="JS_Learning1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,27 +24,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="放大镜9.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch10事件/放大镜9.html">
+      <file leaf-file-name="搜索10.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch10事件/搜索10.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18639053">
-              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.9260355">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iphone_big.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch10事件/imgs/iphone_big.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iphone.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch10事件/imgs/iphone.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -66,7 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理3.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理4.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_4文档处理/文档处理5.html" />
         <option value="$PROJECT_DIR$/ch9jquery/9_5过滤/过滤1.html" />
@@ -117,6 +102,7 @@
         <option value="$PROJECT_DIR$/ch10事件/事件委托8.html" />
         <option value="$PROJECT_DIR$/ch10事件/放大镜.html" />
         <option value="$PROJECT_DIR$/ch10事件/放大镜9.html" />
+        <option value="$PROJECT_DIR$/ch10事件/搜索10.html" />
       </list>
     </option>
   </component>
@@ -126,8 +112,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="523" />
-    <option name="y" value="153" />
+    <option name="x" value="427" />
+    <option name="y" value="126" />
     <option name="width" value="1607" />
     <option name="height" value="869" />
   </component>
@@ -199,24 +185,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ch10事件" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JS_Learning1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JS_Learning1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ch10事件" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imgs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,7 +304,7 @@
     <option name="totallyTimeSpent" value="15974000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="523" y="153" width="1607" height="869" extended-state="0" />
+    <frame x="427" y="126" width="1607" height="869" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16530484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -390,13 +358,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css3-width.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="43" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_3css/css.md" />
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_2常用方法属性/属性.md" />
     <entry file="file://$PROJECT_DIR$/ch9jquery/9_1选择器/1jQuery_selector.md" />
@@ -668,9 +629,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch10事件/imgs/iphone.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/ch10事件/放大镜9.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18639053">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch10事件/imgs/iphone_big.jpg">
@@ -678,10 +642,15 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch10事件/放大镜9.html">
+    <entry file="file://$PROJECT_DIR$/ch10事件/imgs/iphone.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch10事件/搜索10.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18639053">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.9260355">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding />
         </state>
       </provider>
