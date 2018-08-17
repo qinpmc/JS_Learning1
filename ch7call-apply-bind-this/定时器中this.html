@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj = {
+        fun:function(){
+            console.log(this) ;
+        }
+    };
+    //setInterval(obj.fun,1000);      // this指向window对象
+    setInterval('obj.fun()',1000);  // this指向obj对象
+
+</script>
+</body>
+</html>
