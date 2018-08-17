@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+    <script type="text/javascript">
+        var btn1 =document.getElementById("btn1"),btn2 = document.getElementById("btn2");
+        btn1.onclick = function () {
+            console.log(this); //<button id="btn1">按钮1</button>
+        }
+        btn2.addEventListener("click",function () {
+            console.log(this); //<button id="btn2">按钮2</button>
+        },false)
+    </script>
+</body>
+</html>
