@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var name = 'window';
+    var obj = {
+            name: 'name',
+            showName: () => {
+            console.log(this.name);
+        }
+    };
+    obj.showName();// 'window'
+
+    var c = {a: a}
+    function a(){
+        console.log(this, '是a的this')
+        var b = ()=>console.log(this) //{a: ƒ}---c
+        var d = {}
+        d.b = b
+        d.b()
+    }
+    c.a()
+</script>
+</body>
+</html>

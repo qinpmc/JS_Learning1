@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //1.箭头函数的this绑定看的是this所在的函数定义在哪个对象下，绑定到哪个对象则this就指向哪个对象?
+    //2.如果有对象嵌套的情况，则this绑定到最近的一层对象上 ?
+
+    var obj1={
+        num:4,
+        fn:function(){
+            var f=() => {    //object，也就是指obj1
+                console.log(this);
+                setTimeout(() => {
+                    console.log(this);// //object，也就是指obj1
+            });
+            }
+            f();
+        }
+    }
+    //obj1.fn();
+
+
+
+    var obj2={
+        num:4,
+        fn:function(){
+            var f=function(){
+                console.log(this); //window,因为函数f定义后并没有对象调用，this直接绑定到最外层的window对象
+                setTimeout(() => {
+                    console.log(this);//window，外层this绑定到了window,内层也相当于定义在window层（全局环境）
+            });
+            }
+            f();
+        }
+    }
+    //obj2.fn();
+
+    var obj3={
+        num:4,
+        fn:function(){
+            var f=() => {
+                console.log(this); //object,f()定义在obj1对象中，this就指向obj1,这就是箭头函数this指向的关键
+                setTimeout(function() {
+                    console.log(this);//window，非箭头函数的情况下还是要看宿主对象是谁，如果没有被对象调用，函数体中的this就绑定的window上
+                });
+            }
+            f();
+        }
+    }
+    obj3.fn();
+</script>
+</body>
+</html>
