@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        ul,li{
+            list-style: none;
+        }
+        * {
+            padding: 0;
+            margin:0;
+        }
+        #box{
+            margin: 10px;
+            padding:10px;
+            background: lightskyblue;
+            background: linear-gradient( #fff, #333);
+        }
+        #box li{
+            position: relative;
+            line-height: 30px;
+        }
+        #box span{
+            display: block;
+            padding-left:20px ;
+
+        }
+        #box em{
+            position: absolute;
+            top:7px;
+            left:0;
+            width: 16px;
+            height: 16px;
+            background: url(./imgs/icon.png) no-repeat -59px -28px;
+            cursor: pointer;
+        }
+        #box em.open{
+            background: url(./imgs/icon.png) no-repeat -42px -28px;
+        }
+        .sencondClass{
+            margin-left: 20px;
+        }
+        .thirstClass{
+            margin-left: 40px;
+        }
+        .fourthClass{
+            margin-left: 40px;
+        }
+
+        .sencondClass,.thirstClass,.fourthClass{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <li>
+            <em></em><span>第一级第一个</span>
+            <ul class="sencondClass">
+                <li>
+                    <span>第二级第一个</span>
+                </li>
+                <li>
+                    <em></em><span>第二级第二个</span>
+                    <ul class="thirstClass">
+                        <li><span>第三级第一个</span></li>
+                        <li>
+                            <em></em><span>第三级第二个</span>
+                            <ul  class="fourthClass">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>第二级第三个</span>
+                    <ul class="thirstClass">
+                        <li><span>第三级第三个</span></li>
+                        <li><span>第三级第四个</span></li>
+                        <li><span>第三级第五个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <em></em><span>第一级第一个</span>
+            <ul class="sencondClass">
+                <li>
+                    <span>第二级第一个</span>
+                </li>
+                <li>
+                    <em></em><span>第二级第二个</span>
+                    <ul class="thirstClass">
+                        <li><span>第三级第一个</span></li>
+                        <li>
+                            <em></em><span>第三级第二个</span>
+                            <ul  class="fourthClass">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>第二级第三个</span>
+                    <ul class="thirstClass">
+                        <li><span>第三级第三个</span></li>
+                        <li><span>第三级第四个</span></li>
+                        <li><span>第三级第五个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </div>
+    <script type="text/javascript" src="../ch3_2DOM深入/utils.js"></script>
+    <script type="text/javascript">
+        // span 前面有em元素，该span 设置鼠标为 pointer
+        var spanList = document.getElementsByTagName("span"),box = document.getElementById("box");
+        for(var i=0;i<spanList.length;i++){
+            var curPrev = spanList[i].previousElementSibling;
+            if(curPrev && curPrev.nodeName.toLowerCase() =="em"){
+                spanList[i].style.cursor = "pointer";
+            }
+        }
+        box.onclick = function(e){
+            var target = e.target;
+            if((/^(em|span)$/i).test(target.tagName)){
+                var parent = target.parentNode;
+                var firstUl = utils.children(parent,"ul")[0];
+                var oEm = utils.children(parent,"em")[0];
+                if(firstUl){
+                    var isBlock = utils.css(firstUl,"display")=== "block" ? true:false;
+                    if(isBlock){  //是展开显示的
+                        utils.css(firstUl,{
+                            display:"none"
+                        });
+                        oEm?  utils.removeClass(oEm,"open"):null;
+                        var allChildrenUl = parent.getElementsByTagName("ul"),allChildrenEm = parent.getElementsByTagName("em");
+                        for(var j=0;j<allChildrenEm.length;j++){
+                            utils.removeClass(allChildrenEm[j],"open");
+                            allChildrenUl[j].style.display= "none";
+                        }
+
+                    }else{
+                        utils.css(firstUl,{
+                            display:"block"
+                        });
+                        oEm?  utils.addClass(oEm,"open"):null;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
