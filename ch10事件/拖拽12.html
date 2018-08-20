@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            border: 10px solid red;
+        }
+        body{
+            border: 10px solid black;
+        }
+        #box{
+/*            position: absolute;
+            top:50%;
+            left: 50%;
+            margin:-100px 0 0 -100px ;*/
+
+/*            position: absolute;
+            left:0;
+            top:0;
+            bottom: 0;
+            right: 0;
+            margin: auto;*/
+
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        box.style.top = ((document.documentElement.clientHeight || document.body.clientHeight) - box.offsetHeight)/2 +"px";
+        box.style.left = ((document.documentElement.clientWidth || document.body.clientWidth) - box.offsetWidth)/2 + "px";
+
+        box.onmousedown = down;
+        function down(e){
+            //鼠标按下后绑定鼠标移动、鼠标抬起事件
+            this.onmousemove = move;
+            this.onmouseup = up;
+
+            // 记录鼠标位置
+            this.originX = e.clientX;
+            this.originY = e.clientY;
+            this.originLeft = parseFloat(this.style.left); //去掉px
+            this.originTop = parseFloat(this.style.top);
+        }
+
+        function up(){
+            // 清空事件
+            this.onmousemove = null;
+            this.onmouseup = null;
+        }
+
+        function move(e){
+            var posX = e.clientX-this.originX+ this.originLeft;
+            var posY = e.clientY-this.originY+ this.originTop ;
+            var maxWidth  = (document.documentElement.clientWidth || document.body.clientWidth) - this.offsetWidth;
+            var maxHeight  = (document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight;
+            //边界判断
+/*            if(posX <0){
+                posX = 0;
+            }else if(posX>maxWidth){
+                posX = maxWidth;
+            };*/
+
+            posX =  posX<0? 0 : (posX > maxWidth? maxWidth :posX);
+            posY =  posY<0? 0 : (posY > maxHeight? maxHeight :posY);
+
+
+            this.style.left = posX +"px";
+            this.style.top = posY +"px";
+
+        }
+
+    </script>
+</body>
+</html>
