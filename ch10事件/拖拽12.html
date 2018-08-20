@@ -45,10 +45,22 @@
 
         box.onmousedown = down;
         function down(e){
-            //鼠标按下后绑定鼠标移动、鼠标抬起事件
-            this.onmousemove = move;
-            this.onmouseup = up;
+            var that = this;
+            if(this.setCapture){
+                this.setCapture();
+                //鼠标按下后绑定鼠标移动、鼠标抬起事件
+                this.onmousemove = move;
+                this.onmouseup = up;
+            }else{
+                document.onmousemove = function(e){
+                    move.call(that,e);
+                }
 
+                document.onmouseup = function(e){
+                    up.call(that,e);
+                }
+
+            }
             // 记录鼠标位置
             this.originX = e.clientX;
             this.originY = e.clientY;
@@ -57,9 +69,15 @@
         }
 
         function up(){
-            // 清空事件
-            this.onmousemove = null;
-            this.onmouseup = null;
+            if(this.releaseCapture){
+                // 清空事件
+                this.releaseCapture();
+                this.onmousemove = null;
+                this.onmouseup = null;
+            }else{
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
         }
 
         function move(e){
