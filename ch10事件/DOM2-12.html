@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+// onload 事件：页面中的所有资源加载完成（图片、html结构、音视频....）才会执行后面的函数；只能绑定一次（采用的是dom0 级事件）
+
+// DOMContentLoaded: 页面中的DOM结构（html结构加载完成）触发的行为，
+// jQuery中： $(document).ready(function(){});---> DOM2 级事件，采用的是DOMContentLoaded
+/*    window.onload = function(){
+        console.log(111);
+    };
+    // 覆盖前面的onload事件，采用的是dom0 级事件；
+    window.onload = function(){
+        console.log(222);
+    }*/
+
+   // 均输出；
+   window.addEventListener("load",function(){
+        console.log(1111);
+    });
+    window.addEventListener("load",function(){
+        console.log(2222);
+    })
+
+
+
+</script>
+</body>
+</html>
