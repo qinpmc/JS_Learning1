@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div id="div1">div1</div>
+<body>
+<script type="text/javascript">
+    var div1 = document.getElementById("div1");
+
+    function bind(ele,eventType,cb){
+        if(ele.addEventListener){
+            ele.addEventListener(eventType,cb,false);
+            return;
+        };
+        var tempCb = function(){
+            cb.apply(ele,arguments);
+        };
+        tempCb.originFn = cb;
+        if(!ele["_"+eventType]){
+            ele["_"+eventType] = [];
+        };
+
+        var ary = ele["_"+eventType];
+        for(var i=0;i<ary.length;i++){
+            if(ary[i].originFn == cb){
+                return;
+            }
+        }
+        ele["_"+eventType].push(tempCb);
+        ele.attachEvent("on"+eventType,tempCb);
+    }
+
+    function unbind(ele,eventType,cb){
+        if(ele.removeEventListener){
+            ele.removeEventListener(eventType,cb,false);
+            return;
+        };
+        if(ele["_"+eventType]){
+            for(var i=0;i<ele["_"+eventType].length;i++){
+                if(ele["_"+eventType][i].originFn == cb){
+                    ele.detachEvent("on"+eventType,ele["_"+eventType][i]);
+                    ele["_"+eventType].splice(i,1);
+                    i--;
+                }
+            }
+        }
+
+    }
+
+
+    bind(div1,"click",function(){
+        console.log(this===div1,"div1")
+    });
+
+    bind(div1,"click",function(){
+        console.log("2222");
+    });
+
+    function show3(){
+        alert(3);
+    }
+    bind(div1,"click",show3);
+    bind(div1,"click",show3);
+    //unbind(div1,"click",show3);
+
+</script>
+</body>
+</html>
