@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+         
+    </style>
+</head>
+<body>
+<!--   1. 元素自身由fixed定位，offsetParent 的结果为null
+      元素由fixed定位，固定定位元素相对于视口定位，没有定位父级，因此返回null; firefox 返回body-->
+    <div id="box" style="position: fixed"></div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        console.log(box.offsetParent);
+    </script>
+</body>
+</html>
