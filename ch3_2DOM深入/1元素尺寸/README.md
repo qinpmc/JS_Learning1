@@ -16,7 +16,7 @@
     (2) 父级元素存在haslayout的元素或者经过定位的元素，则元素的offsetParent为经过定位或触发了haslayout的父级元素
 
 ## 2 偏移量
-
+![offsetTop/Left](./offsetTop-Left.jpg)
 ###  offsetWidth/offsetHeight
   offsetWidth = border左右宽度 + 左右padding + width;    //不包含margin
   offsetHeight = border上下高度 + 上下padding + width;   //不包含margin
@@ -58,3 +58,46 @@ IE8- 浏览器将垂直滚动条的宽度计算在width宽度和height高度中�
         alert(test.offsetLeft);
     </script>
 ```
+
+### 偏移量注意点
+1. 所有偏移量属性都是只读的(IE8-浏览器下修改偏移量会报错)
+
+```
+<div id="test" style="width:100px; height:100px; margin:10px;"></div>
+<script>
+    // 所有偏移量属性都是只读的
+    console.log(test.offsetWidth);//100
+    //IE8-浏览器会报错，其他浏览器则静默失败
+    test.offsetWidth = 10;
+    console.log(test.offsetWidth);//100
+</script>
+```
+
+2. 如果给元素设置了display:none，则它的偏移量属性都为0 
+3. 每次访问偏移量属性都需要重新计算（注意性能问题）
+
+### 页面偏移
+要知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，
+并加上offsetParent的相应方向的边框，如此循环直到根元素，就可以得到元素到页面的偏移量
+
+```
+    function getOffset(ele){
+        var top = ele.offsetTop,left= ele.offsetLeft,parent =ele.offsetParent ;
+        while(parent){
+            if(navigator.userAgent.indexOf("MSIE 8.0")==-1){ //ie8下已累加边框
+                //累加父级参照物的边框
+                left += parent.clientLeft;
+                top += parent.clientTop;
+            }
+
+            //累加父级参照物的偏移
+            left +=parent.offsetLeft;
+            top += parent.offsetTop;
+            parent = parent.offsetParent;
+        }
+        return {left:left,top:top};   // 不含px单位
+    }
+```
+
+
+
