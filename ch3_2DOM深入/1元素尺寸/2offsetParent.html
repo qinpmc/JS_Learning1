@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+         
+    </style>
+</head>
+<body>
+<!--   2. 元素自身无fixed定位，父级元素存在定位的元素， offsetParent 为 离自身最近的经过定位的父级元素-->
+    <div id="box0" style="position: relative">
+        <div id="box1" style="position: relative;">
+            <div id="box"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        console.log(box.offsetParent);  //   div#box1
+    </script>
+</body>
+</html>

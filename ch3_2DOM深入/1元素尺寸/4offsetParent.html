@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+         
+    </style>
+</head>
+<body>
+<!--   5. ie7- bug :
+       (1) 元素本身经过绝对定位或相对定位，且父级元素无定位的元素，ie7-下offsetParent 是html；
+       (2) 父级元素存在haslayout的元素或者经过定位的元素，则元素的offsetParent为经过定位或触发了haslayout的父级元素
+
+-->
+    <div id="box" style="position: relative;"></div>
+
+   <div id="wrapper" style="display: inline-block">
+       <div id="box2" style="position: relative;"></div>
+   </div>
+
+
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        console.log(box.offsetParent.nodeName);  // ie7- html ,其他浏览器 body
+
+        var box2 = document.getElementById("box2");
+        console.log(box2.offsetParent.nodeName); // ie7- html ,其他浏览器 body
+    </script>
+</body>
+</html>

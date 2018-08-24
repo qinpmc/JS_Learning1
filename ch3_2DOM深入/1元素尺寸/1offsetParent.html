@@ -12,11 +12,12 @@
     </style>
 </head>
 <body>
-<!--   1. 元素自身无fixed定位，父级元素都未定位， offsetParent 为 body-->
-    <div id="box" ></div>
+<!--   1. 元素自身有fixed定位，offsetParent 的结果为null
+      元素有fixed定位，固定定位元素相对于视口定位，没有定位父级，因此返回null; firefox 返回body-->
+    <div id="box" style="position: fixed"></div>
     <script type="text/javascript">
         var box = document.getElementById("box");
-        console.log(box.offsetParent);  // <body> ..</body>
+        console.log(box.offsetParent);
     </script>
 </body>
 </html>
