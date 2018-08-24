@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box" style="width: 200px;height: 100px;padding: 50px;margin: 20px;border: 2px solid dodgerblue"></div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        console.log(box.offsetHeight); //204 =100 + 50*2+ 2*2
+        console.log(box.offsetWidth);  //304 =200 + 50*2+ 2*2
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box" style="width: 200px;height: 100px;padding: 50px;margin: 20px;border: 2px solid dodgerblue;overflow: scroll"></div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        console.log(box.offsetHeight); //204 =100 + 50*2+ 2*2
+        console.log(box.offsetWidth);  //304 =200 + 50*2+ 2*2
+
+        //IE8-浏览器将垂直滚动条的宽度计算在width宽度和height高度中，width和height的值仍然是100px；
+        //而其他浏览器则把垂直滚动条的宽度从width宽度中移出，把水平滚动条的高度从height高度中移出，则滚动条宽度为17px，width宽度和height高度为剩下的83px
+        if( window.getComputedStyle){
+            console.log(getComputedStyle(box).width,getComputedStyle(box).height)
+        }else{
+            console.log(box.currentStyle.width,box.currentStyle.height);
+        }
+    </script>
+</body>
+</html>
