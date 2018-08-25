@@ -59,6 +59,8 @@ IE8- 浏览器将垂直滚动条的宽度计算在width宽度和height高度中�
     </script>
 ```
 
+> (chrome/ie11测试时，如果offsetParent 为body，则会包含body的边框值及margin值？,firefox 不包含border？)
+
 ### 偏移量注意点
 1. 所有偏移量属性都是只读的(IE8-浏览器下修改偏移量会报错)
 
@@ -129,9 +131,19 @@ clientWidth = padding-left + width + padding-right
  clientLeft属性返回左边框的宽度  
  clientTop属性返回上边框的宽度   
  
- 
- 
+ 注意： 
+ > 如果display为inline时，clientLeft属性和clientTop属性都返回0
 
 
+## 页面大小
+　　常用document.documentElement的client属性来表示页面大小(不包含滚动条宽度)
+// 不同浏览器均不同（控制台会影响该值-实测，ie7-也可用）
+document.documentElement.clientWidth
+document.documentElement.clientHeight;
 
+
+### 客户区尺寸注意点
+1. 所有客户区client属性都是只读的   
+2. 如果给元素设置了display:none，则客户区client属性都为0    
+3. 每次访问客户区client属性都需要重新计算，重复访问需要耗费大量的性能。  
 
