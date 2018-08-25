@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+</head>
+<body>
+<!--    <div id="test" style="width: 100px;height: 100px;padding: 10px;margin: 10px;border: 1px solid black;overflow:scroll"></div>
+    <script>
+        //101(100+10+10 = 120-19)，滚动条宽度为19px
+        console.log(test.clientHeight);  // 101&#45;&#45;chrome ，firefox &#45;&#45;103
+        console.log(test.clientWidth);   // 101&#45;&#45; chrome ，firefox &#45;&#45;103
+    </script>-->
+
+<div id="test" style="width:100px;height:100px;margin: 10px;border: 1px solid black;overflow:scroll;font-size:20px;line-height:1;">
+    内容<br>内容<br>内容<br>内容<br>内容<br>内容<br>
+    内容<br>内容<br>内容<br>内容<br>内容<br>内容<br>
+</div>
+<script>
+    //81(100-19)
+    console.log(test.clientHeight); //81
+    console.log(test.clientWidth);  //81
+</script>
+</body>
+</html>

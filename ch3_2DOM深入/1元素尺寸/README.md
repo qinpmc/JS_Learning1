@@ -73,7 +73,7 @@ IE8- 浏览器将垂直滚动条的宽度计算在width宽度和height高度中�
 </script>
 ```
 
-2. 如果给元素设置了display:none，则它的偏移量属性都为0 
+2. 如果给元素设置了display:none，则它的偏移量属性都为0 (offsetWidth/offsetHeight/offsetTop/offsetLeft)
 3. 每次访问偏移量属性都需要重新计算（注意性能问题）
 
 ### 页面偏移
@@ -98,6 +98,40 @@ IE8- 浏览器将垂直滚动条的宽度计算在width宽度和height高度中�
         return {left:left,top:top};   // 不含px单位
     }
 ```
+
+##  客户区大小 clientHeight/clientWidth  
+
+客户区大小client指的是元素内容及其内边距所占据的空间大小   
+
+clientHeight = padding-top + height + padding-bottom  
+clientWidth = padding-left + width + padding-right     
+ 
+
+注意点：    
+> 滚动条宽度不计算在内    
+
+```
+<div id="test" style="width:100px;height:100px;margin: 10px;border: 1px solid black;overflow:scroll;font-size:20px;line-height:1;">
+    内容<br>内容<br>内容<br>内容<br>内容<br>内容<br>
+    内容<br>内容<br>内容<br>内容<br>内容<br>内容<br>
+</div>
+<script>
+    //81(100-19)
+    console.log(test.clientHeight); //81
+    console.log(test.clientWidth);  //81
+</script>
+```
+
+> 当height和纵向padding的和为0(以及小于17px、chrome为19px的情况)时，如果仍然存在滚动条,clientHeight为0；
+
+
+##  clientLeft /clientTop 
+ clientLeft属性返回左边框的宽度  
+ clientTop属性返回上边框的宽度   
+ 
+ 
+ 
+
 
 
 
