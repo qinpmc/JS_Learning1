@@ -13,6 +13,7 @@
             ele.addEventListener(eventType,cb,false);
             return;
         };
+        // 固定this指向
         var tempCb = function(){
             cb.apply(ele,arguments);
         };
@@ -69,8 +70,9 @@
         if (ele["_" + eventType]) {
             for (var i = 0; i < ele["_" + eventType].length; i++) {
                 if (ele["_" + eventType][i] == cb) {
-                    ele["_" + eventType].splice(i, 1);
-                    i--;
+                    //ele["_" + eventType].splice(i, 1);
+                    //i--;
+                    ele["_" + eventType][i] = null;
                     break;
                 }
             }
@@ -94,7 +96,12 @@
         var ary = this["_" + e.type];
         for (var i = 0; i < ary.length; i++) {
             var tempFn = ary[i];
-            tempFn.call(this, e);
+            if(typeof tempFn =="function"){
+                tempFn.call(this, e);
+            }else{
+                ary.splice(i,1);
+                i--;
+            }
         }
     }
 
@@ -110,6 +117,7 @@
     function fn3() {
         n++;
         if(n==3){
+            off(div1, "click",fn2);
             off(div1, "click",fn4);
         }
         console.log(33333);

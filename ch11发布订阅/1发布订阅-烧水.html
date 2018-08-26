@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var cup = {
+            name : "myCup"
+        }
+        function boiling() {
+            console.log("水烧开了！");
+            fire(cup,"boiling");
+        };
+        function waterFlower() {
+            console.log("浇花了");
+        }
+        function washFace() {
+            console.log("洗脸了");
+        }
+        function drink() {
+            console.log("喝水了");
+        }
+
+        //绑定事件
+        function on(ele,type,cb){
+            if(!ele[type]){
+                ele[type] = [];
+            }
+            ele[type].push(cb);
+        }
+
+        function fire(ele,type) {
+            var events = ele[type];
+            if(events && events.length>0){
+                for(var i=0;i<events.length;i++){
+                    events[i].apply(ele);
+                }
+            }
+        }
+        on(cup,"boiling",waterFlower);
+        on(cup,"boiling",washFace);
+        on(cup,"boiling",drink);
+        boiling();
+    </script>
+</body>
+</html>
