@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    try{
+        var a= 100;
+        throw 2;
+    }catch(e){
+        console.log( a ); //100
+        console.log( e ); //2
+    }
+    console.log( a ); //100
+    console.log( e ); //ReferenceError: a is not defined
+</script>
+</body>
+</html>

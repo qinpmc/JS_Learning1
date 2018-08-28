@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = [];
+    for(let i = 0; i < 5; i++){
+        a[i] = function(){
+            return i;
+        }
+    }
+    console.log(a[4]());//4
+
+</script>
+</body>
+</html>

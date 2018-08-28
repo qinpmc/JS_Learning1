@@ -119,7 +119,7 @@ foo();
 console.log(a);//ReferenceError: a is not defined
 ```
 
-## 作用域
+## 词法作用域
 javascript使用的是 __词法作用域__。
 1. 词法作用域就是定义在词法阶段的作用域，是由写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变
 2. 无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。
@@ -195,10 +195,46 @@ function a(){
 }
 ```
 
+## 块作用域
 
+1. let
+ES6引入了新的let关键字，提供了除var以外的另一种变量声明方式。
+> let关键字可以将变量绑定到所在的任意作用域中(通常是{...}内部)，实现块作用域。
+> let不允许在相同作用域内，重复声明同一个变量
+> 使用let进行的声明不会在块作用域中进行提升
 
+```
+{
+  let i = 1;
+};
+console.log(i);//ReferenceError: i is not defined
 
+var a = [];
+for(let i = 0; i < 5; i++){
+    a[i] = function(){
+        return i;
+    }
+}
+console.log(a[4]());//4
+```
 
+2. const
 
+> const 值是固定的（常量）。之后任何试图修改值的操作都会引起错误
+> const声明的常量，也与let一样不可重复声明
+> const声明时必须赋值
+> const 引用类型的值可以修改属性（引用的地址不变）
 
+3. try .. catch 分句会创建一个块作用域，其中声明的变量仅在 catch 内部有效。
+```
+    try{
+        var a= 100;
+        throw 2;
+    }catch(e){
+        console.log( a ); //100
+        console.log( e ); //2
+    }
+    console.log( a ); //100
+    console.log( e ); //ReferenceError: a is not defined
+```
 
