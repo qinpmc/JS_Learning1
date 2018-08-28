@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var test = function fn(){
+        return fn === test;
+    }
+    console.log(test());//true  内部可以访问fn 函数名称
+    //console.log(test === fn);//ReferenceError: fn is not defined
+
+
+    var ff2 = function(){
+        console.log(arguments.callee.name); //ff2
+    };
+    console.log(ff2.name);//''，在chrome/firefox浏览器中会显示'ff2' ,IE11-浏览器无效， 输出undefined
+    ff2(); //ff2     IE11-浏览器无效， 输出undefined
+
+    var ff3 = function abc(){};
+    console.log(ff3.name);//'abc'   IE11-浏览器无效， 输出undefined
+
+    setTimeout(function(){
+        console.log("***"+arguments.callee.name+"---");  //***---
+    });
+</script>
+</body>
+</html>
