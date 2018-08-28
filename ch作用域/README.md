@@ -119,4 +119,86 @@ foo();
 console.log(a);//ReferenceError: a is not defined
 ```
 
+## 作用域
+javascript使用的是 __词法作用域__。
+1. 词法作用域就是定义在词法阶段的作用域，是由写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变
+2. 无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。
+
+```
+var a = 2;
+function foo() {
+    console.log( a );  //2
+}
+function bar() {
+    var a = 3;
+    foo();
+}
+bar(); //2
+```
+
+3. 遮蔽。 作用域查找从运行时所处的最内部作用域开始，逐级向外或者说向上进行，直到遇见第一个匹配的标识符为止，
+在多层的嵌套作用域中可以定义同名的标识符，这叫作“遮蔽效应”，内部的标识符“遮蔽”了外部的标识符。
+```
+var a = 0;
+function test(){
+    var a = 1;
+    console.log(a);//1, 不是0
+}
+test();
+```
+
+## 变量声明提升
+
+1. 变量和函数在内的所有声明都会在任何代码被执行前首先被处理
+
+```
+a = 2 ;
+var a;
+console.log( a );
+```
+
+2. 每个作用域都会进行提升操作
+
+```
+    console.log(a); //undefined
+    var a = 0;
+    function fn(){
+        console.log(b);  //undefined
+        var b = 1;
+        function test(){
+            console.log(c);  //undefined
+            var c = 2;
+        }
+        test();
+    }
+    fn();
+```
+3. 函数覆盖
+  > 函数声明和变量声明都会被提升。但是，函数声明会覆盖变量声明
+  > 变量的重复声明是无用的，但函数的重复声明会覆盖前面的声明(无论是变量还是函数声明)
+
+```
+//函数声明会覆盖变量声明
+var a;
+function a(){}
+console.log(a);//'function a(){}'
+```
+
+```
+//函数的重复声明会覆盖前面的声明
+a();//2
+function a(){
+    console.log(1);
+}
+function a(){
+    console.log(2);
+}
+```
+
+
+
+
+
+
+
 
