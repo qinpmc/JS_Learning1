@@ -13,9 +13,6 @@ var httpServer = http.createServer(function(res,rep){
         rep.write(content);
         rep.end();
     }
-
-
-
 }).listen(8888,function(){
     console.log("listening 8888");
 })
