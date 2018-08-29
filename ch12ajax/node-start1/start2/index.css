@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    font:  14px 微软雅黑,sans-serif ;
+    color:#000;
+}
+.box{
+    margin: 50px auto;
+    width: 300px;
+    height: 300px;
+    background: lightcyan;
+    border: 10px solid grey;
+}
