@@ -138,7 +138,22 @@ outer();
 
 ### 4.call/apply/bind方法
 
+### 5. toString方法
+函数的toString()实例方法返回函数代码的字符串，
+而静态toString()方法返回一个类似'[native code]'的字符串作为函数体。
 
+```
+function test(){
+    alert(1);//test
+}
+test.toString();/*"function test(){
+                    alert(1);//test
+                  }"*/
+Function.toString();//"function Function() { [native code] }"
+```
+
+### 6. valueOf
+函数的valueOf()方法返回函数本身
 
 
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function add(n) {
+        function f(m){
+            n += m;
+            return f;
+        };
+        f.toString = f.valueOf = function () {return n}
+        return f;
+    }
+    console.log(+add(10));//10
+    console.log(+add(10)(10));//20
+    console.log(+add(10)(10)(10));//30
+
+</script>
+</body>
+</html>

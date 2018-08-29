@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function argumemtToary(args,n){
+        return Array.prototype.slice.call(args,n||0);
+    }
+    function partialLeft(f){
+        var args = arguments;
+        return function (){
+            var oldParams = argumemtToary(args,1);
+            var newParams = oldParams.concat(argumemtToary(arguments));
+            return f.apply(this,newParams);
+        }
+    }
+
+    function partialRight(f){
+        var args = arguments;
+        return function (){
+            var oldParams = argumemtToary(args,1);
+            var newParams = argumemtToary(arguments).concat(oldParams);
+            return f.apply(this,newParams);
+        }
+    }
+
+    function partial(f){
+        var args = arguments;
+        var i= 0,j=0;
+        return function(){
+            var oldParams = argumemtToary(args,1); //取出第一次传递的参数（不包含第一个传递的函数）
+            for(;i<oldParams.length;i++){
+                if(oldParams[i]===undefined){ //将原来占位的参数替换掉
+                    oldParams[i] = arguments[j++];
+                }
+            }
+            var newParams = oldParams.concat(argumemtToary(arguments,j));
+            return f.apply(this,newParams);
+        }
+    }
+    function calc(a,b,c){
+        return a*(b-c);
+    }
+
+
+
+    var pLeft = partialLeft(calc,2);
+    console.log(pLeft(3,4)); //-2 = 2*(3-4)
+
+    var pRight = partialRight(calc,2);
+    console.log(pRight(3,4)); //6 = 3*(4-2)
+
+    var partialFn = partial(calc,5,3);
+    console.log(partialFn(1,2));
+
+</script>
+</body>
+</html>
