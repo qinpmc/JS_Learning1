@@ -30,5 +30,11 @@ node 模块：
 3. 第三方模块  npm install/uninstall xxmodule  -g  ,-g 全局安装
 
 
+## ajax
+
+### ajax 流程
+1. 创建 AJAX 对象（） ---  2.open ---- [ onreadystatechange 监听状态改变，触发对应的方法，非必需] ---- 3.send 
+
+#### 创建AJAX 对象
 
 
