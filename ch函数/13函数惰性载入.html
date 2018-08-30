@@ -5,6 +5,52 @@
     <title>Title</title>
 </head>
 <body>
-    
+<div id="box" style="width:50px;height: 50px;background: grey"></div>
+<script type="text/javascript">
+    var evntUtil = {
+        addEvent: function (ele, type, cb) {
+            if (ele.addEventListener) {
+                addEvent = function (ele, type, cb) {
+                    ele.addEventListener(type, cb, false);
+                }
+            } else if (ele.attachEvent) {
+                addEvent = function (ele, type, cb) {
+                    ele.addEventListener("on" + type, cb);
+                }
+            } else {
+                addEvent = function (ele, type, cb) {
+                    ele["on" + type] = cb;
+                }
+            }
+            return addEvent(ele, type, cb);
+        }
+    }
+
+
+       var  addEvent =  function ( ) {
+            if (document.addEventListener) {
+                return function (ele, type, cb) {
+                    ele.addEventListener(type, cb, false);
+                }
+            } else if (document.attachEvent) {
+                return function (ele, type, cb) {
+                    ele.addEventListener("on" + type, cb);
+                }
+            } else {
+                return  function (ele, type, cb) {
+                    ele["on" + type] = cb;
+                }
+            }
+        }()
+
+
+    var box = document.getElementById("box");
+    evntUtil.addEvent(box,"click",function(){
+        console.log(this);
+    });
+    addEvent(box,"dblclick",function(){
+        console.log("dblclick");
+    })
+</script>
 </body>
 </html>
