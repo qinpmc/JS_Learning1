@@ -6,14 +6,16 @@
 </head>
 <body>
 <script type="text/javascript">
+    // 可传参数柯里化函数
     var curring = function(fn){
         var args= [];
+        // 获取除第一个参数（fn）以外的参数。
+        var args = [].slice.call(arguments,1);
         return function (){
             if(arguments.length==0){
                 return fn.apply(this,args);
             }else {
                  [].push.apply(args,arguments);
-                //return arguments.callee;
             }
         }
     }
@@ -26,10 +28,9 @@
         return sum;
     }
 
-     var calc = curring(cost);
+     var calc = curring(cost,1000);
     calc(100);
     calc(200);
-    calc(300);
     console.log(calc());
 
 </script>

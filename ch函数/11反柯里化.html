@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    Function.prototype.uncurring = function(){
+        var _this = this; // 记录反柯里化的函数
+        return function (){
+            var context = [].shift.call(arguments);
+            return _this.apply(context,arguments);
+        }
+    }
+
+    Function.prototype.uncurring2 = function() {
+        var _this = this;
+        return function() {
+            return Function.prototype.call.apply(_this, arguments); // 总是在window上执行 原函数
+        }
+    }
+
+
+    var pushMethod = Array.prototype.push.uncurring();
+    var obj1 = {};
+    pushMethod(obj1,"first","two");
+    console.log(obj1);  /*{
+        0:"first",
+        1:"two",
+        length:2
+     }*/
+    var pushMethod2 = Array.prototype.push.uncurring2();
+    pushMethod2(obj1,"first","two");
+</script>
+</body>
+</html>
