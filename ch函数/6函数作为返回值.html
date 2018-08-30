@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var Type ={};
+    var types = ["String","Array","Number","Boolean"];
+    for(var i=0;i<types.length;i++){
+        !function(index){
+            Type["is"+types[index]] = function(obj){
+                return Object.prototype.toString.call(obj) ==="[object "+types[index]+"]";
+            }
+        }(i);
+
+    }
+    console.log(Type.isArray( [] ));    // 输出：true
+    console.log(Type.isString( "str" )); // 输出：true
+</script>
+</body>
+</html>

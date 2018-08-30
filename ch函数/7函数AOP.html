@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    Function.prototype.before = function(beforefn){
+        var _this = this; //保存原函数；
+        return function(){
+            beforefn.apply(this,arguments);
+            return _this.apply(this,arguments);
+        }
+    }
+    Function.prototype.after = function(afterfn){
+        var _this = this; //保存原函数；
+        return function(){
+            var res =  _this.apply(this,arguments);
+            afterfn.apply(this,arguments);
+            return res;
+        }
+    }
+
+    var func = function(){
+        console.log(this);
+        console.log(2222);
+    }
+
+    fnBefore = function(){
+        console.log(this);
+        console.log(1111);
+    }
+    fnAfter = function(){
+        console.log(this);
+        console.log(3333);
+    }
+    func = func.before(fnBefore).after(fnAfter);
+    func();
+
+    var objTest  ={
+        name:"haha"
+    }
+    func.call(objTest);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function compose(f,g){
+        return function(){
+            //需要给f()传入一个参数，所以使用f()的call()方法
+            //需要给g()传入很多参数，所以使用g()的apply()方法
+            return f.call(this,g.apply(this,arguments));
+        };
+    }
+    var square = function(x){
+        return x*x;
+    }
+    var sum = function(x,y){
+        return x + y;
+    }
+    var squareofsum = compose(square,sum);
+    squareofsum(2,3);//25
+
+</script>
+
+</body>
+</html>
