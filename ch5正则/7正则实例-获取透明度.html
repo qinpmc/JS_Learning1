@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" style="opacity: 0.5;filter:alpha(opacity=50)" ></div>
+
+<script type="text/javascript">
+     var div1 = document.getElementById("div1");
+
+     var filter = div1.style.filter;
+
+    var res =  filter?
+            filter.indexOf("opacity=")>=0?
+                    (parseFloat(filter.match(/opacity=(\d+)/)[1])/100) +"":"":div1.style.opacity;
+</script>
+</body>
+</html>
