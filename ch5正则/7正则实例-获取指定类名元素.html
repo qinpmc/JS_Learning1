@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="ninja" id="div1"></div>
+<div class="bg   ninja  sm" id="div2"></div>
+<div class="    ninja  " id="div3"></div>
+<script type="text/javascript">
+    function findElesByClass(className,type){
+        var elems = document.getElementsByTagName(type || "*");
+        //var reg = new RegExp("(^|\\s+)"+className+"(\\s+|$)"); // 3个div全匹配
+        var reg = new RegExp("(^\\s+)"+className+"(\\s+$)");  //只能匹配div3
+        var result = [];
+        for(var i=0;i<elems.length;i++){
+            if(reg.test(elems[i].className)){
+                result.push(elems[i]);
+            }
+        }
+        return result;
+    }
+    var res1 = findElesByClass("ninja","div");
+    console.log(res1);
+</script>
+</body>
+</html>
