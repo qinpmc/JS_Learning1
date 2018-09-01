@@ -113,7 +113,7 @@ xhr.onreadystatechange = function(){
 
 #### 2.4 HHTTP常用方法
 
-HTTP常用方法共以下8种：  
+HTTP常用方法共以下8种：
 GET：获取资源
 POST：传输实体主体
 PUT：传输文件

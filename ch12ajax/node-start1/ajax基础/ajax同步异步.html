@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function createXHR(){
+        if(window.XMLHttpRequest){
+            createXHR = function(){
+                return new XMLHttpRequest();
+            }
+        }else if(new ActiveXObject()){
+            createXHR = function(){
+                return  new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+       return createXHR();
+    }
+
+/*    var xhr = createXHR();
+    xhr.open("get","result.txt",false); //同步
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState); //4
+    }
+    xhr.send(null);*/
+
+/*    var xhr = createXHR();
+     xhr.open("get","result.txt",true); //异步
+     xhr.onreadystatechange = function(){
+        console.log(xhr.readyState); //2，3，4
+     }
+     xhr.send(null);*/
+
+/*    var xhr = createXHR();
+    xhr.open("get","result.txt",true); //异步
+    xhr.send(null);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState); //2，3，4
+    }*/
+
+    var xhr = createXHR();
+    xhr.open("get","result.txt",false); //同步3
+    xhr.send(null); //同步时，
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState); // 没有任何输出
+    }
+
+</script>
+</body>
+</html>
