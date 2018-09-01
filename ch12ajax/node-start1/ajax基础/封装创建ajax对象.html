@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+/*    var xhr = null;
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    }else if(new ActiveXObject()){
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    console.log(xhr);*/
+
+    function createXHR(){
+        if(window.XMLHttpRequest){
+            createXHR = function(){
+                return new XMLHttpRequest();
+            }
+        }else if(new ActiveXObject()){
+            createXHR = function(){
+                return  new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+       return createXHR();
+    }
+
+    var xhr = createXHR();
+    console.log(xhr);
+
+
+</script>
+</body>
+</html>
