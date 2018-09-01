@@ -63,7 +63,6 @@ var httpServer = http.createServer(function(req,res){
     var customID =null,custom = null;
     if(pathName ==="/getCustom"){
         customID = query["id"];
-        console.log(conFile);
         for(var i= 0,len=conFile.length;i<len;i++){
             if(conFile[i].id == customID){
                 custom = conFile[i];
@@ -88,19 +87,26 @@ var httpServer = http.createServer(function(req,res){
     //3. 删除指定id的用户
     if(pathName ==="/deleteCustom"){
         customID = query["id"];
-        console.log(conFile);
+        var flag = false; //默认不删除
         for(var i= 0,len=conFile.length;i<len;i++){
             if(conFile[i].id == customID){
-                custom = conFile[i];
+                conFile.splice(i,1);
+                flag = true;
                 break;
             }
+            result = {
+                code :0,
+                msg:"删除失败"
+            }
         }
-        if(conFile.length>0){
+        if(flag){
+            console.log(conFile);
+            console.log("----------");
             result  = {
                 code :1,
-                msg:"成功",
-                data:[custom]
+                msg:"删除成功"
             };
+            fs.writeFileSync(jsonPath,JSON.stringify(conFile),"utf-8"); // 删除json文件存储的内容
         }
         res.writeHead(200,{
             "content-type":"application/json;charset=utf-8"
