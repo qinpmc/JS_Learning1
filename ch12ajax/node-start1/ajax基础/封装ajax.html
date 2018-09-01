@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    ~function(){
+        function createXHR(){
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                createXHR = function(){
+                    return new XMLHttpRequest();
+                }
+            }else if(window.ActiveXObject){
+                createXHR = function(){
+                    return new ActiveXObject();
+                }
+            }
+            return createXHR();
+        }
+        function myAjax(options){
+            var _default = {
+                type:"get",
+                url:"",
+                dataType:"json", //设置请求回来的内容格式为json ；如设为txt，返回字符串
+                async:true,
+                data:null,
+                getHeaderCallback:null,
+                succesCallback:null
+            }
+            for(var key in options){
+                if (options.hasOwnProperty(key)){
+                    _default[key] = options[key];
+                }
+            };
+            if(_default.type=="get"){
+                _default.url.indexOf("?")>=0?_default.url+="&":_default.url+="?";
+                _default.url+="_"+Math.random();
+            }
+            var xhr = createXHR();
+            xhr.open(_default.type,_default.url,_default.async);
+            xhr.onreadystatechange = function(){
+                if(/^2\d{2}$/.test(xhr.status) ){
+                    if(xhr.readyState ==2){
+                        _default.getHeaderCallback && _default.getHeaderCallback.call(xhr);
+                    }
+                    if(xhr.readyState ==4){
+                        var result = xhr.responseText;
+                        if(_default.dataType=="json"){
+                            result = "JSON" in window? JSON.parse(result):eval("("+result+")");
+                        }
+                        _default.succesCallback && _default.succesCallback.call(xhr,result);
+                    }
+                }
+            };
+            xhr.send(_default.data);
+        }
+        window.myAjax = myAjax;
+    }()
+    myAjax({
+        url:"result.txt",
+        dataType:"json",
+        succesCallback:function(result){
+            console.log(this);
+            console.log(result);
+        }
+    });
+</script>
+</body>
+</html>
