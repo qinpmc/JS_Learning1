@@ -100,8 +100,6 @@ var httpServer = http.createServer(function(req,res){
             }
         }
         if(flag){
-            console.log(conFile);
-            console.log("----------");
             result  = {
                 code :1,
                 msg:"删除成功"
@@ -116,6 +114,71 @@ var httpServer = http.createServer(function(req,res){
 
     };
 
+    //4. 新增用户  get 请求
+    /*    if(pathName ==="/addCustom"){
+            var maxId = conFile[conFile.length-1].id;
+            var newCunstom = {};
+            newCunstom["name"] = query["name"];
+            newCunstom["age"] = query["age"];
+            newCunstom["phone"] = query["phone"];
+            newCunstom["address"] = query["address"];
+            newCunstom["id"] = ++maxId;
+            result = {
+                code :0,
+                msg:"删除失败"
+            }
+
+            try{
+                conFile.push(newCunstom);
+                fs.writeFileSync(jsonPath,JSON.stringify(conFile),"utf-8"); // 更新json文件存储的内容
+                result  = {
+                    code :1,
+                    msg:"新增成功"
+                };
+            }catch (e){
+
+            }
+            res.writeHead(200,{
+                "content-type":"application/json;charset=utf-8"
+            });
+            res.end(JSON.stringify(result));
+            return;
+        };*/
+
+    if(pathName ==="/addCustom"){
+       var inStr = "";
+        req.on("data",function(chunk){
+            inStr+=chunk;
+        });
+        req.on("end",function(){
+            if(inStr.length==0){
+                result = {
+                    code :0,
+                    msg:"增加失败"
+                }
+                res.writeHead(200,{
+                    "content-type":"application/json;charset=utf-8"
+                });
+                res.end(JSON.stringify(result));
+                return;
+            }
+
+            inStr = JSON.parse(inStr) ;
+            conFile.length==0 ? inStr["id"] = 1: inStr["id"]= parseInt(conFile[conFile.length-1]["id"])+1;
+            result = {
+                code :1,
+                msg:"增加成功"
+            }
+            conFile.push(inStr);
+            fs.writeFileSync(jsonPath,JSON.stringify(conFile),"utf-8");
+            res.writeHead(200,{
+                "content-type":"application/json;charset=utf-8"
+            });
+            res.end(JSON.stringify(result));
+            return;
+        })
+
+    }
 
 
 }).listen(8888,function(){
