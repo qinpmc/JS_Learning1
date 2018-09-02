@@ -20,6 +20,7 @@
 # 引入JS的3种方式
 
 ```
+
 <body>
    <!-- 行内方式-->
     <div onclick="alert('Hello World!')">Click me !!</div>

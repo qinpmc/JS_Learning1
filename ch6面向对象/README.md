@@ -103,6 +103,48 @@ Math.propertyIsEnumerable('random');   // 返回 false，random不可枚举
 this.propertyIsEnumerable('Math');     // 返回 false，Math不可枚举
 ```
 
+ 
+```
+function firstConstructor() {
+  this.property = 'is not enumerable';
+}
+
+firstConstructor.prototype.firstMethod = function() {};
+
+function secondConstructor() {
+  this.method = function method() { return 'is enumerable'; };
+}
+
+secondConstructor.prototype = new firstConstructor;
+secondConstructor.prototype.constructor = secondConstructor; //注意：constructor 变成可枚举的了
+
+var o = new secondConstructor();
+o.arbitraryProperty = 'is enumerable';
+
+o.propertyIsEnumerable('arbitraryProperty');   // 返回 true
+o.propertyIsEnumerable('method');              // 返回 true
+o.propertyIsEnumerable('property');            // 返回 false
+
+o.property = 'is enumerable';
+
+o.propertyIsEnumerable('property');            // 返回 true
+
+// 这些返回fasle，是因为，在原型链上propertyIsEnumerable不被考虑
+// (尽管最后两个在for-in循环中可以被循环出来)。
+
+for(var key in o){
+  console.log(key)
+}
+/*
+    method
+    arbitraryProperty
+    property
+    constructor  -----注意：constructor 变成可枚举的了
+    firstMethod
+*/
+
+```
+  
   
 
 ### in 运算符和 for…in 循环 (Object.getOwnPropertyNames()/Object.keys())
@@ -110,9 +152,25 @@ this.propertyIsEnumerable('Math');     // 返回 false，Math不可枚举
   也包括原型中的属性(不包括对象中不可枚举的属性，如内置的属性)
 > in: 通过对象可访问到给定属性时返回true,不论属性存在实例中还是原型中
  （包含可枚举和不可枚举）
-> Object.keys:取得对象上所有可枚举的 __实例__属性(未查找原型链上的属性)
-> Object.getOwnPropertyNames:取得对象上所有（包括不可枚举）的 __实例__属性(未查找原型链上的属性)
+> Object.keys:取得对象上所有可枚举的 __实例__属性(未查找原型链上的属性)；返回自身可枚举属性组成的数组。
+> Object.getOwnPropertyNames:取得对象上所有（包括不可枚举）的 __实例__属性(未查找原型链上的属性)；返回找到的自身属性对应的字符串数组。
 
+```
+Object.prototype.myProp = "aaa";  // 原型上增加一个可枚举属性
+var my_obj = Object.create({}, {
+  getFoo: {
+    value: function() { return this.foo; },
+    enumerable: false   //不可枚举属性
+  }
+});
+my_obj.foo = 1;
+
+console.log(Object.getOwnPropertyNames(my_obj).sort()); // ["foo", "getFoo"],取到自身不可枚举的属性getFoo，取不到原型属性aaa
+console.log(Object.keys(my_obj).sort());                //["foo"]
+
+```
+ 
+ 
  
 
 ### 获取实例对象obj的原型对象，有三种方法。
@@ -433,6 +491,16 @@ var p1=Object.create(person);
 var p2=Object.create(person);
 p1.name="qq1New";
 p1.friends=["pp3"];
+
+/*
+    p1;
+    friends:["pp3"]
+    name:"qq1New"
+    __proto__:
+       friends: ["pp1", "pp2"]
+       name:"qq1"
+       __proto__:Object
+*/
 
 ```
 
