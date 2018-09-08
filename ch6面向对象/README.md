@@ -123,8 +123,8 @@ o.arbitraryProperty = 'is enumerable';
 
 o.propertyIsEnumerable('arbitraryProperty');   // 返回 true
 o.propertyIsEnumerable('method');              // 返回 true
-o.propertyIsEnumerable('property');            // 返回 false
-
+o.propertyIsEnumerable('property');            // 返回 false 返回fasle，是因为，在原型链上propertyIsEnumerable不被考虑
+o.propertyIsEnumerable(o.constructor);        // 返回 false 返回fasle，是因为，在原型链上propertyIsEnumerable不被考虑
 o.property = 'is enumerable';
 
 o.propertyIsEnumerable('property');            // 返回 true

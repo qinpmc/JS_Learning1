@@ -41,7 +41,7 @@
         }else{
             if(attr =="opacity"){
                 res= ele.currentStyle["filter"];
-                reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;i
+                reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;   // ?:只匹配，不捕获
                 res = reg.test(res)? reg.exec(res)[1]/100 :1;
             }else{
                 res = ele.currentStyle[attr];
