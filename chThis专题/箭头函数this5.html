@@ -39,7 +39,7 @@
         var b = ()=>console.log(this); //{a: ƒ, prop: "a"}---c
         var d = {};
         d.b = b;
-        d.b();
+        d.b();  //{a: ƒ, prop: "a"}
     }
     c.a(); // {a: ƒ, prop: "a"}---c
 
@@ -51,7 +51,7 @@
         test: function(){
             (()=>{
                 console.log(this)
-        })()
+            })()
         }
     };
 

@@ -47,7 +47,7 @@
         num:4,
         fn:function(){
             var f=() => {
-                console.log(this); //object,f()定义在obj1对象中，this就指向obj1,这就是箭头函数this指向的关键
+                console.log(this); //object,f()定义在obj3对象中，this就指向obj3,这就是箭头函数this指向的关键
                 setTimeout(function() {
                     console.log(this);//window，非箭头函数的情况下还是要看宿主对象是谁，如果没有被对象调用，函数体中的this就绑定的window上
                 });
