@@ -307,6 +307,36 @@ arr.every(function (elem, index, arr) {
 });
 ```
 
+- reduce
+
+1. arr.reduce(callback[, initialValue])
+2. allback 参数
+ - accumulator
+   The accumulator accumulates the callback's return values; it is the accumulated value previously returned in the last invocation of the callback, or initialValue, if supplied (see below).
+ - currentValue
+   The current element being processed in the array.
+ - currentIndex（Optional）
+   The index of the current element being processed in the array. Starts at index 0, if an initialValue is provided, and at index 1 otherwise.
+ - array（Optional）
+   The array reduce() was called upon.
+
+```
+const array1 = [1, 2, 3, 4];
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce((accumulator, currentValue) => accumulator + currentValue));
+
+
+var initialValue = 0;
+var sum = [{x: 1}, {x:2}, {x:3}].reduce(function (accumulator, currentValue) {
+    return accumulator + currentValue.x;
+},initialValue)
+
+console.log(sum) // logs 6
+
+```
+
+
 
 # String
 > String对象是 JavaScript 原生提供的三个包装对象之一，用来生成字符串对象。
