@@ -105,7 +105,7 @@ var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
 ## 正则实例属性
 > ignoreCase：返回一个布尔值，表示是否设置了i修饰符。
 > global：返回一个布尔值，表示是否设置了g修饰符。
->  multiline：返回一个布尔值，表示是否设置了m修饰符。 
+> multiline：返回一个布尔值，表示是否设置了m修饰符。 
 > lastIndex：返回一个数值，表示下一次开始搜索的位置,该属性可读写，但是只在进行连续搜索时有意义.
 > source：返回正则表达式的字符串形式（不包括反斜杠），该属性只读
 
@@ -130,6 +130,9 @@ var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
 
 1. test
 > 正则实例对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串。
+> 带有g修饰符，表示是全局搜索，会有多个结果。每一次开始搜索的位置都是上一次匹配的后一个位置。  
+  带有g修饰符时，可以通过正则对象的lastIndex属性指定开始搜索的位置
+
 
 ```
 /cat/.test('cats and dogs') // true
@@ -140,14 +143,23 @@ var s = '_x_x';
 r.lastIndex // 0
 r.test(s) // true
 
-r.lastIndex // 2
+r.lastIndex // 2  //解决懒惰性：采用g 全局捕获
 r.test(s) // true
 ```
 
 2. exec
 > 正则实例对象的exec方法，用来返回匹配结果。如果发现匹配，就返回一个 __数组__，
-> 成员是匹配成功的子字符串，否则返回null。
-> 返回的结果第一个参数为匹配的大正则，后续分别为小分组，然后是index，匹配的字符串等。
+> 成员是匹配成功的子字符串，否则返回 __null__。
+> 返回的结果第一个参数为匹配的大正则，后续分别为小分组，然后是index，匹配的字符串(input)等。
+> 如果正则表达式加上g修饰符，则可以使用多次exec方法，下一次搜索的位置从上一次匹配成功结束的位置开始。
+
+
+```
+var r = /a(b+)a/;
+var arr = r.exec('_abbba_aba_');
+
+arr // ["abbba", "bbb"]
+```
 
 
 ```
@@ -158,22 +170,41 @@ console.log(reg4.exec(str4));
 /*["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
 ["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
 ```
+
  
 
-3. 字符串的match    
+3. 字符串的match 
+> 返回一个数组，成员是所有匹配的子字符串
 
->  match 不捕获小分组的内容，只捕获大的正则(一次全部捕获，如果正则解决了贪婪性)
 ```
-"peking2018tsinghua2019china".match(/\d+?/g); //["2", "0", "1", "8", "2", "0", "1", "9"] ;//在量词元字符后面添加一个？解决贪婪性
+var s = '_x_x';
+var r1 = /x/;
+var r2 = /y/;
+
+s.match(r1) // ["x"]
+s.match(r2) // null
+```
+
+> 如果正则表达式带有g修饰符，则该方法与正则对象的exec方法行为不同，会一次性返回所有匹配成功的结果。
+>  match 不捕获小分组的内容，只捕获大的正则(一次全部捕获，如果正则解决了贪婪性) 
+
+```
 var reg4 = /peking(\d+)/g;
 var str4 = "tsinghua2020peking1910shanghai2018peking2010";
-str4.match(reg4); //["peking1910", "peking2010"]
-str4.match(reg4); //["peking1910", "peking2010"]
+str4.match(reg4); //["peking1910", "peking2010"]  //不捕获小分组 (\d+), 带g后一次全部匹配
+```
+
+示例： 量词元字符后面添加一个？解决贪婪性
+```
+"peking2018tsinghua2019china".match(/\d+?/g); 
+//["2", "0", "1", "8", "2", "0", "1", "9"] ;//在量词元字符后面添加一个？解决贪婪性
+
 ```
 
 
 4. 字符串的replace
-
+> replace方法可以替换匹配的值。   
+它接受两个参数，第一个是正则表达式，表示搜索模式，第二个是替换的内容。
 
 ```
  var str = "peking2018peking2010";
