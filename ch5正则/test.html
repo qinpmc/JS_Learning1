@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    String.prototype.myMatch = function(){
+        var result = [],regexp = arguments[0];
+        var res = regexp.exec(this);
+        while (res){
+            result.push(res[0]);
+            res = regexp.exec(this);
+        }
+        return result;
+    }
+    var s = '_x_x';
+    var r1 = /x/g;
+    var r2 = /y/;
+    console.log(s.myMatch(r1));
+</script>
+</body>
+</html>

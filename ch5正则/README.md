@@ -265,7 +265,7 @@ str4.match(reg4); //["peking1910", "peking2010"]  //不捕获小分组 (\d+), �
     String.prototype.myMatch = function(){
         var result = [],regexp = arguments[0];
         var res = regexp.exec(this);
-        while (res){
+        while (res){  // 正则带有g修饰符，否则死循环
             result.push(res[0]);
             res = regexp.exec(this);
         }
