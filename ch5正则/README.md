@@ -155,10 +155,14 @@ r.test(s) // true
 
 
 ```
-var r = /a(b+)a/;
+var r = /a(b+)a/g;
 var arr = r.exec('_abbba_aba_');
 
-arr // ["abbba", "bbb"]
+arr // ["abbba", "bbb", index: 1, input: "_abbba_aba_", groups: undefined]
+r.lastIndex ;// 6 ,由于有g修饰符，lastIndex匹配成功后变化
+
+var arr2 = r.exec('_abbba_aba_'); //["aba", "b", index: 7, input: "_abbba_aba_", groups: undefined]
+
 ```
 
 
@@ -175,6 +179,7 @@ console.log(reg4.exec(str4));
 
 3. 字符串的match 
 > 返回一个数组，成员是所有匹配的子字符串
+> 匹配失败返回null
 
 ```
 var s = '_x_x';
@@ -183,6 +188,13 @@ var r2 = /y/;
 
 s.match(r1) // ["x"]
 s.match(r2) // null
+
+// 正则带有g修饰符，一次全部匹配
+var s2 = '_x_x';
+var r2 = /x/g;
+ 
+s2.match2(r1)；//["x", "x"]
+
 ```
 
 > 如果正则表达式带有g修饰符，则该方法与正则对象的exec方法行为不同，会一次性返回所有匹配成功的结果。
@@ -195,6 +207,7 @@ str4.match(reg4); //["peking1910", "peking2010"]  //不捕获小分组 (\d+), �
 ```
 
 示例： 量词元字符后面添加一个？解决贪婪性
+
 ```
 "peking2018tsinghua2019china".match(/\d+?/g); 
 //["2", "0", "1", "8", "2", "0", "1", "9"] ;//在量词元字符后面添加一个？解决贪婪性
@@ -215,6 +228,8 @@ str4.match(reg4); //["peking1910", "peking2010"]  //不捕获小分组 (\d+), �
 
  //正则的方式替换
  //str = str.replace(/peking/g,"chinapeking"); //chinapeking2018chinapeking2010"
+ 
+ 
  /*     console.log("-----------");
       str =  str.replace(/(peking)/g,function(){
          console.log(arguments);   //所有信息
@@ -223,6 +238,7 @@ str4.match(reg4); //["peking1910", "peking2010"]  //不捕获小分组 (\d+), �
          return "shanghai";  // return 为用于替换匹配的值
      })*/
  /*
+     注意：以上回调函数执行了2次，因为匹配到了2次
      ["peking", "peking", 5, "chinapeking2018chinapeking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]   peking   peking
      ["peking", "peking", 20, "chinapeking2018chinapeking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]  peking   peking
  
