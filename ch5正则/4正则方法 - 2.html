@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        function replacer(match, p1, p2, p3, offset, string) {
+        // p1 is nondigits, p2 digits, and p3 non-alphanumerics
+        return [p1, p2, p3].join(' - ');
+    }
+    var newString = '22abc12345#$*%ZZZ'.replace(/([^\d]*)(\d*)([^\w]*)/, function(){
+        console.log(arguments);
+        //Arguments(6) ["abc12345#$*%", "abc", "12345", "#$*%", 0, "abc12345#$*%ZZZ", callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        //return [p1, p2, p3].join(' - ');
+    });
+
+    console.log("new string: "+newString);
+
+</script>
+</body>
+</html>
