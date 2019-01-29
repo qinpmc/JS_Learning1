@@ -39,7 +39,7 @@ javascript里面的任务有两种，同步任务和异步任务。
 ## Event Loop：
 主线程在任务队列中读取事件，这个过程是循环不断地，所以这种运行机制叫做Event Loop（事件循环）
 事件循环其实就是入栈出栈的循环。上面例子中说到了setTimeout，那setInterval呢，Promise呢等等等等，有很多异步的函数。但是这些异步任务有分宏任务(macro-task)和微任务(micro-task)：
-macro-task包括： setTimeout, setInterval, setImmediate, I/O, UI rendering。 
+macro-task包括： setTimeout, setInterval, setImmediate, I/O, UI rendering。  requestAnimationFrame
 micro-task包括：process.nextTick, Promises, Object.observe(废弃), MutationObserver。
 每一次Event Loop触发时：
 
