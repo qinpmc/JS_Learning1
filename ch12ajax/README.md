@@ -1,5 +1,23 @@
 # AJAX
 
+## 环境搭建
+
+### 使用WAMP一站式环境
+1. 下载对应版本的WAMP（32位/64位），双击安装包安装，安装过程很简单。
+2. 配置。
+   2.1 配置Apache。C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf
+   - 配置默认的根目录：在httpd.conf中找到  DocumentRoot "c:/wamp/www/", <Directory "c:/wamp/www/"> 修改根文件目录即可。
+   - 修改外部访问：在httpd.conf中找到 <Directory "c:/wamp/www/"> 下的
+   
+   ```
+	#   onlineoffline tag - don't remove
+    Order Deny,Allow
+    Allow from all  
+    Allow from 127.0.0.1
+   ```
+	将 Deny from all  改为 Allow from all，则其他机器可以访问本服务器
+
+
 ## URL、URI、URN
 
 URI：统一资源标识符，URI就像英特网上的邮政地址一样，在世界范围内唯一标识并定位信息资源；
