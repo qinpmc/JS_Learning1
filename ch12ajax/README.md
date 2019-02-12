@@ -1,5 +1,23 @@
 # AJAX
 
+## 环境搭建
+
+### 使用WAMP一站式环境
+1. 下载对应版本的WAMP（32位/64位），双击安装包安装，安装过程很简单。
+2. 配置。
+   2.1 配置Apache。C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf
+   - 配置默认的根目录：在httpd.conf中找到  DocumentRoot "c:/wamp/www/", <Directory "c:/wamp/www/"> 修改根文件目录即可。
+   - 修改外部访问：在httpd.conf中找到 <Directory "c:/wamp/www/"> 下的
+   
+   ```
+	#   onlineoffline tag - don't remove
+    Order Deny,Allow
+    Allow from all  
+    Allow from 127.0.0.1
+   ```
+	将 Deny from all  改为 Allow from all，则其他机器可以访问本服务器
+
+
 ## URL、URI、URN
 
 URI：统一资源标识符，URI就像英特网上的邮政地址一样，在世界范围内唯一标识并定位信息资源；
@@ -78,17 +96,17 @@ node 模块：
 #### 2.3 HTTP状态码
 
 【1XX】
-  该部分状态码是信息性状态码，只有两个
+  信息类，表示收到Web浏览器请求，正在进一步的处理中，该部分状态码是信息性状态码，只有两个
 【2XX】
-  客户端发起请求时，这些请求通常是成功的。
+  成功，表示用户请求被正确接收，理解和处理。
 【3XX】
-   重定向状态码要么告知客户端使用替代位置来访问他们所感兴趣的资源，要么就提供一个替代的响应而不是资源的内容。
+   重定向，状态码要么告知客户端使用替代位置来访问他们所感兴趣的资源，要么就提供一个替代的响应而不是资源的内容。
    如果资源已被移动，可发送一个重定向状态码和一个可选的Location首部来告知客户端资源已被移走，以及现在可以在哪里找到它。
    这样，浏览器就可以在不打扰使用者的情况下，透明地转入新的位置了
 【4XX】
-   有时客户端会发送一些服务器无法处理的东西，比如格式错误的请求报文，或者请求一个不存在的URL.
+   客户端错误，有时客户端会发送一些服务器无法处理的东西，比如格式错误的请求报文，或者请求一个不存在的URL.
 【5XX】
-   有时客户端发送了一条有效请求，服务器自身却出错了。这可能是客户端碰上了服务器的缺陷，或者服务器上的子元素，
+   服务器错误，有时客户端发送了一条有效请求，服务器自身却出错了。这可能是客户端碰上了服务器的缺陷，或者服务器上的子元素，
    比如某个网关资源出了错。代理尝试着代表客户端与服务器进行交流时，经常会出现问题。代理会发布5XX服务器错误状态码来描述所遇到的问题
 ![http状态码1](./htppstatus1.png)
 ![http状态码2](./htppstatus2.png)
@@ -162,3 +180,35 @@ send()
 
 xhr.open("get", "example.txt", false);
 xhr.send(null);
+
+```
+request.open("GET","get.php",true);
+request.send();
+
+```
+
+```
+request.open("POST","creat.php",true);
+request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+request.send("name=zhangsan&sex=男");
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
