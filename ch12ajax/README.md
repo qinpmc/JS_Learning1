@@ -1,8 +1,8 @@
 # AJAX
 
-## 环境搭建
+## 1 环境搭建
 
-### 使用WAMP一站式环境
+### 1.1 使用WAMP一站式环境
 1. 下载对应版本的WAMP（32位/64位），双击安装包安装，安装过程很简单。
 2. 配置。
    2.1 配置Apache。C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf
@@ -10,15 +10,16 @@
    - 修改外部访问：在httpd.conf中找到 <Directory "c:/wamp/www/"> 下的
    
    ```
-	#   onlineoffline tag - don't remove
+	# onlineoffline tag - don't remove
     Order Deny,Allow
     Allow from all  
     Allow from 127.0.0.1
    ```
 	将 Deny from all  改为 Allow from all，则其他机器可以访问本服务器
 
-
-## URL、URI、URN
+## 2 准备知识
+	
+### 2.1 URL、URI、URN
 
 URI：统一资源标识符，URI就像英特网上的邮政地址一样，在世界范围内唯一标识并定位信息资源；
      URI 有两种形式，分别为URL 和 URN
@@ -37,63 +38,19 @@ index.html ： 请求资源文件名
 ?name=zhangsan&age=22 URL传参
 #bbs ：URL的hash （锚点定位）
 
-
-## node
-
-node 模块：
-1. 内置模块
-2. 自定义模块
-    module.exports = {fn:fn}  
-    module.exports.fn = fn;
-3. 第三方模块  npm install/uninstall xxmodule  -g  ,-g 全局安装
-
-
-## ajax
-
-### ajax 流程
-1. 创建 AJAX 对象（） ---  2.open ---- [ onreadystatechange 监听状态改变，触发对应的方法，非必需] ---- 3.send 
-
-#### 1 创建AJAX 对象
+###  2.2 php
+使用php编写服务端。
 
 
 
-#### 2 open 启动
+###  2.3 node.js
+使用node.js编写服务端。
 
-1. 在使用XHR对象时，要调用的第一个方法是open()，如下所示，该方法接受3个参数：
-    xhr.open("get","example.php", false,[username],[password]);
-> open()方法的第一个参数用于指定发送请求的方式，这个字符串，不区分大小写，但通常使用大写字母。"GET"和"POST"是得到广泛支持的
-> "GET"用于常规请求，它适用于当URL完全指定请求资源，当请求对服务器没有任何副作用以及当服务器的响应是可缓存的情况下
->  "POST"方法常用于HTML表单。它在请求主体中包含额外数据且这些数据常存储到服务器上的数据库中。相同URL的重复POST请求从服务器得到的响应可能不同，
-   同时不应该缓存使用这个方法的请求
->  除了"GET"和"POST"之外，参数还可以是"HEAD"、"OPTIONS"、"PUT"。而由于安全风险的原因，"CONNECT"、"TRACE"、"TRACK"被禁止使用
->  open()方法的第二个参数是URL，该URL相对于执行代码的当前页面，且只能向同一个域中使用相同端口和协议的URL发送请求。如果URL与启动请求的页面有任何差别，都会引发安全错误
->  open()方法的第三个参数是表示是否异步发送请求的布尔值，如果不填写，默认为true，表示异步发送
->  如果请求一个受密码保护的URL，把用于认证的用户名和密码作为第4和第5个参数传递给open()方法
+ 
+### 2.4 HTTP
+详细可见 HTTP相关知识，此处仅简要介绍必备知识。
 
-
-#### 2.1 同步/异步
- -  如果接受的是同步响应，则需要将open()方法的第三个参数设置为false，那么send()方法将阻塞直到请求完成。
- 一旦send()返回，仅需要检查XHR对象的status和responseText属性即可。
- 同步请求是吸引人的，但应该避免使用它们。客户端javascript是单线程的，当send()方法阻塞时，它通常会导致整个浏览器UI冻结。如果连接的服务器响应慢，那么用户的浏览器将冻结。
-
-- 如果需要接收的是异步响应，这就需要检测XHR对象的 __readyState__ 属性，该属性表示请求/响应过程的当前活动阶段。这个readyState属性可取的值如下：
-    0(UNSENT):未初始化。尚未调用open()方法
-    1(OPENED):启动。已经调用open()方法，但尚未调用send()方法
-    2(HEADERS_RECEIVED):发送。己经调用send()方法，且接收到头信息
-    3(LOADING):接收。已经接收到部分响应主体信息
-    4(DONE):完成。已经接收到全部响应数据，而且已经可以在客户端使用了
-
-只要readyState属性值由一个值变成另外一个值，都会触发一次__onreadystatechange__  事件
-
-
-#### 2.2 XHR 的属性
-1. responseText: 作为响应主体被返回的文本(文本形式)
-2. responseXML: 如果响应的内容类型是'text/xml'或'application/xml'，这个属性中将保存着响应数据的XML DOM文档(document形式)
-3. status: HTTP状态码(数字形式)
-4. statusText: HTTP状态说明(文本形式)
-
-
-#### 2.3 HTTP状态码
+#### 2.4.1 HTTP状态码
 
 【1XX】
   信息类，表示收到Web浏览器请求，正在进一步的处理中，该部分状态码是信息性状态码，只有两个
@@ -113,7 +70,7 @@ node 模块：
 ![http状态码3](./htppstatus3.png)
 ![http状态码4](./htppstatus4.png)
 
-常用状态码：
+**常用状态码**：
 200 或 ^2\d{2}  :成功
 301 ：永久重定向/永久转移
 302 ：临时重定向/临时转移
@@ -123,13 +80,15 @@ node 模块：
 404 ：地址错误
 500： 未知的服务器错误
 
+```
 xhr.onreadystatechange = function(){
     if(xhr.readyState ==4 && /^2\d{2}$/.test(xhr.status)){
          var res = xhr.responseText;
     }
 }
+```
 
-#### 2.4 HHTTP常用方法
+#### 2.4.2 HTTP常用方法
 
 HTTP常用方法共以下8种：
 GET：获取资源
@@ -170,6 +129,90 @@ CONNECT：要求用隧道协议连接代理
 
 -CONNECT：CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。
   主要使用SSL(Secure Sockets Layer，安全套接层)和TLS(Transport Layer Security，传输层安全)协议把通信内容加密后经网络隧道传输。
+ 
+
+## 3 ajax
+
+### 3.1 ajax 流程
+1. 创建 AJAX 对象（） ---  2.open ---- [ onreadystatechange 监听状态改变，触发对应的方法，非必需] ---- 3.send 
+
+```
+// 基本的ajax流程
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function(){
+  // 通信成功时，状态值为4
+  if (xhr.readyState === 4){
+    if (xhr.status === 200){
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+
+xhr.open('GET', '/endpoint', true);
+xhr.send(null);
+
+```
+
+
+#### 3.1.1 创建AJAX 对象
+
+```
+var xmlhttp;
+if (window.XMLHttpRequest)
+{
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    xmlhttp=new XMLHttpRequest();
+}
+else
+{
+    // IE6, IE5 浏览器执行代码
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+```
+
+#### 2 open 启动
+
+1. 在使用XHR对象时，要调用的第一个方法是open()，如下所示，该方法接受3个参数：
+    xhr.open("get","example.php", false,[username],[password]);
+> open()方法的第一个参数用于指定发送请求的方式，这个字符串，不区分大小写，但通常使用大写字母。"GET"和"POST"是得到广泛支持的
+> "GET"用于常规请求，它适用于当URL完全指定请求资源，当请求对服务器没有任何副作用以及当服务器的响应是可缓存的情况下
+>  "POST"方法常用于HTML表单。它在请求主体中包含额外数据且这些数据常存储到服务器上的数据库中。相同URL的重复POST请求从服务器得到的响应可能不同，
+   同时不应该缓存使用这个方法的请求
+>  除了"GET"和"POST"之外，参数还可以是"HEAD"、"OPTIONS"、"PUT"。而由于安全风险的原因，"CONNECT"、"TRACE"、"TRACK"被禁止使用
+>  open()方法的第二个参数是URL，该URL相对于执行代码的当前页面，且只能向同一个域中使用相同端口和协议的URL发送请求。如果URL与启动请求的页面有任何差别，都会引发安全错误
+>  open()方法的第三个参数是表示是否异步发送请求的布尔值，如果不填写，默认为true，表示异步发送
+>  如果请求一个受密码保护的URL，把用于认证的用户名和密码作为第4和第5个参数传递给open()方法
+
+
+#### 2.1 同步/异步
+ -  如果接受的是同步响应，则需要将open()方法的第三个参数设置为false，那么send()方法将阻塞直到请求完成。
+ 一旦send()返回，仅需要检查XHR对象的status和responseText属性即可。
+ 同步请求是吸引人的，但应该避免使用它们。客户端javascript是单线程的，当send()方法阻塞时，它通常会导致整个浏览器UI冻结。如果连接的服务器响应慢，那么用户的浏览器将冻结。
+
+- 如果需要接收的是异步响应，这就需要检测XHR对象的 __readyState__ 属性，该属性表示请求/响应过程的当前活动阶段。这个readyState属性可取的值如下：
+    0(UNSENT):未初始化。表示 XMLHttpRequest 实例已经生成，尚未调用open()方法
+    1(OPENED):启动。已经调用open()方法，但尚未调用send()方法。仍然可以使用实例的setRequestHeader()方法，设定 HTTP 请求的头信息。
+    2(HEADERS_RECEIVED):发送。己经调用send()方法，且接收到头信息
+    3(LOADING):接收。已经接收到部分响应主体信息
+    4(DONE):完成。已经接收到全部响应数据，而且已经可以在客户端使用了
+
+只要readyState属性值由一个值变成另外一个值，都会触发一次__onreadystatechange__  事件
+
+
+#### 2.2 XHR 的属性
+1. responseText: 作为响应主体被返回的文本(文本形式)
+2. responseXML: 如果响应的内容类型是'text/xml'或'application/xml'，这个属性中将保存着响应数据的XML DOM文档(document形式)
+3. status: HTTP状态码(数字形式)
+4. statusText: HTTP状态说明(文本形式)
+
+
 
 
 send()
@@ -200,7 +243,13 @@ request.send("name=zhangsan&sex=男");
 
 
 
-
+XMLHttpRequest.onloadstart：loadstart 事件（HTTP 请求发出）的监听函数
+XMLHttpRequest.onprogress：progress事件（正在发送和加载数据）的监听函数
+XMLHttpRequest.onabort：abort 事件（请求中止，比如用户调用了abort()方法）的监听函数
+XMLHttpRequest.onerror：error 事件（请求失败）的监听函数
+XMLHttpRequest.onload：load 事件（请求成功完成）的监听函数
+XMLHttpRequest.ontimeout：timeout 事件（用户指定的时限超过了，请求还未完成）的监听函数
+XMLHttpRequest.onloadend：loadend 事件（请求完成，不管成功或失败）的监听函数
 
 
 
