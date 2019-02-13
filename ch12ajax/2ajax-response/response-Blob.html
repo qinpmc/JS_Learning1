@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre id='outputTxt'></pre>
+<img id='outputImg'>
+<script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    //xhr.open("GET","./public/1.txt",true);
+    xhr.open("GET","./public/bank.png",true);
+    xhr.responseType = "blob";
+
+    xhr.onload = function(e){
+        //readTextfile(this.response);
+        readImgfile(this.response);
+
+
+    };
+    xhr.send();
+
+    function readTextfile(f) {
+        var reader = new FileReader();
+        reader.readAsText(f);  // 读取文本文件
+        reader.onload = function () {
+            var text = reader.result;
+            var out = document.getElementById('outputTxt');
+            out.innerHTML = '';
+            out.appendChild(document.createTextNode(text));
+        }
+        reader.onerror = function(e) {
+            console.log('Error', e);
+        }
+    }
+
+    function readImgfile(f) {
+        var reader = new FileReader();
+        reader.readAsDataURL(f);
+        reader.onload = function () {
+            var text = reader.result;
+            var out = document.getElementById('outputImg');
+            out.src = text;
+
+        }
+        reader.onerror = function(e) {
+            console.log('Error', e);
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -72,8 +72,9 @@ index.html ： 请求资源文件名
 
 **常用状态码**：
 200 或 ^2\d{2}  :成功
-301 ：永久重定向/永久转移
-302 ：临时重定向/临时转移
+301 ： 永久转移
+302 ： 临时转移
+304 :  Not Modified，未修改
 400：客户端传参错误
 401 ：无权访问（未授权）
 403 ：禁止访问
@@ -131,7 +132,7 @@ CONNECT：要求用隧道协议连接代理
   主要使用SSL(Secure Sockets Layer，安全套接层)和TLS(Transport Layer Security，传输层安全)协议把通信内容加密后经网络隧道传输。
  
 
-## 3 ajax
+## 3 ajax概念
 
 ### 3.1 ajax 流程
 1. 创建 AJAX 对象（） ---  2.open ---- [ onreadystatechange 监听状态改变，触发对应的方法，非必需] ---- 3.send 
@@ -161,7 +162,7 @@ xhr.send(null);
 ```
 
 
-#### 3.1.1 创建AJAX 对象
+### 3.2 创建AJAX 对象
 
 ```
 var xmlhttp;
@@ -177,26 +178,29 @@ else
 }
 ```
 
-#### 2 open 启动
-
-1. 在使用XHR对象时，要调用的第一个方法是open()，如下所示，该方法接受3个参数：
-    xhr.open("get","example.php", false,[username],[password]);
-> open()方法的第一个参数用于指定发送请求的方式，这个字符串，不区分大小写，但通常使用大写字母。"GET"和"POST"是得到广泛支持的
-> "GET"用于常规请求，它适用于当URL完全指定请求资源，当请求对服务器没有任何副作用以及当服务器的响应是可缓存的情况下
->  "POST"方法常用于HTML表单。它在请求主体中包含额外数据且这些数据常存储到服务器上的数据库中。相同URL的重复POST请求从服务器得到的响应可能不同，
-   同时不应该缓存使用这个方法的请求
->  除了"GET"和"POST"之外，参数还可以是"HEAD"、"OPTIONS"、"PUT"。而由于安全风险的原因，"CONNECT"、"TRACE"、"TRACK"被禁止使用
->  open()方法的第二个参数是URL，该URL相对于执行代码的当前页面，且只能向同一个域中使用相同端口和协议的URL发送请求。如果URL与启动请求的页面有任何差别，都会引发安全错误
->  open()方法的第三个参数是表示是否异步发送请求的布尔值，如果不填写，默认为true，表示异步发送
->  如果请求一个受密码保护的URL，把用于认证的用户名和密码作为第4和第5个参数传递给open()方法
-
-
-#### 2.1 同步/异步
+### 3.3 同步/异步
  -  如果接受的是同步响应，则需要将open()方法的第三个参数设置为false，那么send()方法将阻塞直到请求完成。
  一旦send()返回，仅需要检查XHR对象的status和responseText属性即可。
  同步请求是吸引人的，但应该避免使用它们。客户端javascript是单线程的，当send()方法阻塞时，它通常会导致整个浏览器UI冻结。如果连接的服务器响应慢，那么用户的浏览器将冻结。
 
-- 如果需要接收的是异步响应，这就需要检测XHR对象的 __readyState__ 属性，该属性表示请求/响应过程的当前活动阶段。这个readyState属性可取的值如下：
+详见 1 ajax同步异步.html
+
+### 3.4 XHR 的属性
+1. readyState: 表示实例对象的当前状态。该属性只读.
+2. onreadystatechange: 指向一个监听函数。readystatechange事件发生时（实例的readyState属性变化），就会执行这个属性.
+3. response: 服务器返回的数据体（即 HTTP 回应的 body 部分）。它可能是任何数据类型，比如字符串、对象、二进制对象等等，具体的类型由XMLHttpRequest.responseType属性决定。该属性只读。
+4. responseType: 表示服务器返回数据的类型。
+5. responseText: 作为响应主体被返回的文本(文本形式)
+6. responseXML: 如果响应的内容类型是'text/xml'或'application/xml'，这个属性中将保存着响应数据的XML DOM文档(document形式)
+7. responseURL: 字符串，表示发送数据的服务器的网址
+8. status: HTTP状态码(数字形式)
+9. statusText: HTTP状态说明(文本形式)，比如“OK”和“Not Found”
+10. timeout: 返回一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性**等于0，就表示没有时间限制.**
+11. withCredentials: 是一个布尔值，表示跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为false.
+12. upload：upload属性可以得到一个对象，通过观察这个对象，可以得知ajax上传的进展。主要方法就是监听这个对象的各种事件：loadstart、loadend、load、abort、error、progress、timeout。
+
+#### 3.4.1 readyState
+ readyState属性可取的值如下：
     0(UNSENT):未初始化。表示 XMLHttpRequest 实例已经生成，尚未调用open()方法
     1(OPENED):启动。已经调用open()方法，但尚未调用send()方法。仍然可以使用实例的setRequestHeader()方法，设定 HTTP 请求的头信息。
     2(HEADERS_RECEIVED):发送。己经调用send()方法，且接收到头信息
@@ -206,43 +210,70 @@ else
 只要readyState属性值由一个值变成另外一个值，都会触发一次__onreadystatechange__  事件
 
 
-#### 2.2 XHR 的属性
-1. responseText: 作为响应主体被返回的文本(文本形式)
-2. responseXML: 如果响应的内容类型是'text/xml'或'application/xml'，这个属性中将保存着响应数据的XML DOM文档(document形式)
-3. status: HTTP状态码(数字形式)
-4. statusText: HTTP状态说明(文本形式)
+#### 3.4.2 response
+response属性表示服务器返回的数据体（即 HTTP 回应的 body 部分）。
+它可能是任何数据类型，比如**字符串、对象、二进制对象**等等，具体的类型由XMLHttpRequest.responseType属性决定。该属性只读。
+如果本次请求没有成功或者数据不完整，该属性等于null。但是，如果responseType属性等于text或空字符串，在请求没有结束之前（readyState等于3的阶段），response属性包含服务器已经返回的部分数据。
+
+#### 3.4.3 responseType
+
+1. responseType属性是一个字符串，表示服务器返回数据的类型。这个属性是可写的，可以在调用**open()方法之后、调用send()方法之前，设置这个属性的值**，告诉服务器返回指定类型的数据。
+2. 如果responseType设为空字符串，就等同于**默认值text**。
+3. XMLHttpRequest.responseType属性可以等于以下值:
+- ""（空字符串）：等同于text，表示服务器返回文本数据。
+- "arraybuffer"：ArrayBuffer 对象，表示服务器返回二进制数组。
+- "blob"：Blob 对象，表示服务器返回二进制对象。
+- "document"：Document 对象，表示服务器返回一个文档对象。
+- "json"：JSON 对象。
+- "text"：字符串。
+
+**text类型适合大多数情况，而且直接处理文本也比较方便。**
+**document类型适合返回 HTML / XML 文档的情况。**
+**blob类型适合读取二进制数据，比如图片文件。**
+**设为ArrayBuffer，就可以按照数组的方式处理二进制数据。**
+**设为json，浏览器就会自动对返回数据调用JSON.parse()方法。也就是说，从xhr.response属性（注意，不是xhr.responseText属性）得到的不是文本，而是一个 JSON 对象。**
 
 
+#### 3.4.4 responseText、responseXML
+
+- responseText属性返回从服务器接收到的字符串，该属性为只读。只有 HTTP 请求完成接收以后，该属性才会包含完整的数据。
+- responseXML属性返回从服务器接收到的 HTML 或 XML 文档对象，该属性为只读。
+ 该属性生效的前提是 HTTP 回应的Content-Type头信息等于text/xml或application/xml。这要求在**发送请求前，XMLHttpRequest.responseType属性要设为document**。
+ 如果 HTTP 回应的Content-Type头信息不等于text/xml和application/xml，但是想从responseXML拿到数据（即把数据按照 DOM 格式解析），
+ 那么需要手动调用XMLHttpRequest.overrideMimeType()方法，强制进行 XML 解析
 
 
-send()
+#### 3.4.5 withCredentials
 
-　　send()方法接收一个参数，即要作为请求主体发送的数据。调用send()方法后，请求被分派到服务器
-
-　　如果是GET方法，send()方法无参数，或参数为null；如果是POST方法，send()方法的参数为要发送的数据
-
-xhr.open("get", "example.txt", false);
-xhr.send(null);
+XMLHttpRequest.withCredentials属性是一个布尔值，表示**跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为false**，
+即向example.com发出跨域请求时，不会发送example.com设置在本机上的 Cookie（如果有的话）。
+如果需要跨域 AJAX 请求发送 Cookie，需要withCredentials属性设为true。注意，同源的请求不需要设置这个属性。
 
 ```
-request.open("GET","get.php",true);
-request.send();
+<progress min="0" max="100" value="0">0% complete</progress>
+
+function upload(blobOrFile) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/server', true);
+  xhr.onload = function (e) {};
+
+  var progressBar = document.querySelector('progress');
+  xhr.upload.onprogress = function (e) {
+    if (e.lengthComputable) {
+      progressBar.value = (e.loaded / e.total) * 100;
+      // 兼容不支持 <progress> 元素的老式浏览器
+      progressBar.textContent = progressBar.value;
+    }
+  };
+
+  xhr.send(blobOrFile);
+}
+
+upload(new Blob(['hello world'], {type: 'text/plain'}));
 
 ```
 
-```
-request.open("POST","creat.php",true);
-request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-request.send("name=zhangsan&sex=男");
-
-```
-
-
-
-
-
-
-
+### 3.5 事件监听属性
 XMLHttpRequest.onloadstart：loadstart 事件（HTTP 请求发出）的监听函数
 XMLHttpRequest.onprogress：progress事件（正在发送和加载数据）的监听函数
 XMLHttpRequest.onabort：abort 事件（请求中止，比如用户调用了abort()方法）的监听函数
@@ -251,8 +282,76 @@ XMLHttpRequest.onload：load 事件（请求成功完成）的监听函数
 XMLHttpRequest.ontimeout：timeout 事件（用户指定的时限超过了，请求还未完成）的监听函数
 XMLHttpRequest.onloadend：loadend 事件（请求完成，不管成功或失败）的监听函数
 
+progress事件的监听函数有一个事件对象参数，该对象有三个属性：loaded属性返回已经传输的数据量，total属性返回总的数据量，
+lengthComputable属性返回一个布尔值，表示加载的进度是否可以计算。所有这些监听函数里面，只有progress事件的监听函数有参数，其他函数都没有参数.
+
+```
+xhr.onprogress = function (event) {
+  console.log(event.loaded);
+  console.log(event.total);
+};
+```
+### 3.6 实例方法
+
+#### 3.6.1 open()
+xhr.open("get","example.php", false,[username],[password]);
+一共可以接受5个参数:
+- method：表示 HTTP 动词方法，比如GET、POST、PUT、DELETE、HEAD等。不区分大小写，但通常使用大写字母。
+   除了"GET"和"POST"之外，参数还可以是"HEAD"、"OPTIONS"、"PUT"。而由于安全风险的原因，"CONNECT"、"TRACE"、"TRACK"被禁止使用
+- url: 表示请求发送目标 URL。
+- async: 布尔值，表示请求是否为异步，默认为true。如果设为false，则send()方法只有等到收到服务器返回了结果，才会进行下一步操作。该参数可选。由于同步 AJAX 请求会造成浏览器失去响应，许多浏览器已经禁止在主线程使用，只允许 Worker 里面使用。所以，这个参数轻易不应该设为false。
+- user：表示用于认证的用户名，默认为空字符串。该参数可选。
+- password：表示用于认证的密码，默认为空字符串。该参数可选。
 
 
+#### 3.6.2 send()
+
+send()方法接收一个参数，即要作为请求主体发送的数据。调用send()方法后，请求被分派到服务器.
+如果是GET方法，send()方法无参数，或参数为null；如果是POST方法，send()方法的参数为要发送的数据.
+
+
+```
+// get 方法传递的参数跟在网址后面
+var xhr = new XMLHttpRequest();
+xhr.open('GET',
+  'http://www.example.com/?id=' + encodeURIComponent(id),
+  true
+);
+xhr.send(null);
+
+```
+
+```
+// post 方法传递的数据在send 方法中
+var xhr = new XMLHttpRequest();
+xhr.open("POST","creat.php",true);
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xhr.send("name=zhangsan&sex=男");
+
+```
+
+send方法的参数就是发送的数据。多种格式的数据，都可以作为它的参数。
+
+void send();
+void send(ArrayBufferView data);
+void send(Blob data);
+void send(Document data);
+void send(String data);
+void send(FormData data);
+
+#### 3.6.3 setRequestHeader()
+
+
+
+
+
+
+
+
+
+上传
+事件比较
+跨域
 
 
 

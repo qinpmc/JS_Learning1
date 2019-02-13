@@ -43,6 +43,8 @@
     xhr.send(null);
     xhr.onreadystatechange = function(){
         console.log(xhr.readyState); //2，3，4
+        console.log(xhr.responseText);
+        console.log(xhr.timeout)
     }
     console.log("over");
     // 以上输出：over 2，3，4
