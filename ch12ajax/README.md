@@ -5,17 +5,55 @@
 ### 1.1 使用WAMP一站式环境
 1. 下载对应版本的WAMP（32位/64位），双击安装包安装，安装过程很简单。
 2. 配置。
-   2.1 配置Apache。C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf
-   - 配置默认的根目录：在httpd.conf中找到  DocumentRoot "c:/wamp/www/", <Directory "c:/wamp/www/"> 修改根文件目录即可。
-   - 修改外部访问：在httpd.conf中找到 <Directory "c:/wamp/www/"> 下的
+   配置Apache。C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf
+   **配置默认的根目录**：
+   在httpd.conf中找到  DocumentRoot "c:/wamp/www/", <Directory "c:/wamp/www/"> 修改根文件目录即可。
+   **修改外部访问**：
+   在httpd.conf中找到 <Directory "c:/wamp/www/"> 下的        
    
    ```
 	# onlineoffline tag - don't remove
     Order Deny,Allow
     Allow from all  
     Allow from 127.0.0.1
+   ```   
+   
    ```
-	将 Deny from all  改为 Allow from all，则其他机器可以访问本服务器
+      <Directory "cgi-bin">
+          AllowOverride None
+          Options None
+          Order allow,deny
+          Allow from all
+      </Directory>
+   ```
+
+将 Deny from all  改为 Allow from all，则其他机器可以访问本服务器。 
+此时，可通过局域网内另外一台机器进行测试：先ipconfig 获取本机的ip，**关闭本机防火墙**，在另外的一台机器访问即可
+
+**配置虚拟主机**：   
+
+1.在httpd.conf中找到：
+# Virtual hosts
+# Include conf/extra/httpd-vhosts.conf
+去掉 # Include conf... 前面的#。注意：**此时访问localhost/index.php等 会存在问题，提示404.**
+
+2.打开 C:\wamp\bin\apache\Apache2.2.17\conf\extra\httpd-vhosts.conf，添加：
+
+```
+<VirtualHost *:80>
+    DocumentRoot "c:/wamp/www/example"
+    ServerName www.example.com
+</VirtualHost>
+
+```
+
+3.打开 C:\Windows\System32\drivers\etc\hosts,添加：
+
+```
+127.0.0.1       www.example.com
+```
+
+
 
 ## 2 准备知识
 	
