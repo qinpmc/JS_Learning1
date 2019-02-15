@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="register">
+    网站名： <input name="name"><br>
+    网站 URL： <input name="url"><br>
+    <input type="submit">
+</form>
+<script>
+    var formData = new FormData();
+
+    formData.append('username', '张三');
+    formData.append('email', 'zhangsan@example.com');
+    formData.append('birthDate', 1940);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/register',true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(formData);
+</script>
+</body>
+
+</html>

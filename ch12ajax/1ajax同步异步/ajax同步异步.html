@@ -19,14 +19,14 @@
        return createXHR();
     }
 
-/*    var xhr = createXHR();
-    xhr.open("get","result.txt",true); //同步
+    var xhr = createXHR();
+    xhr.open("get","result.txt",false); //同步
     xhr.onreadystatechange = function(){
         console.log(xhr.readyState); //4
     }
     xhr.send(null);
     console.log("over"); //over
-    // 以上输出：4   over*/
+    // 以上输出：4   over
 
 
 /*    var xhr = createXHR();
@@ -38,6 +38,7 @@
     console.log("over"); //over
     // 以上输出：over 2，3，4*/
 
+/*
     var xhr = createXHR();
     xhr.open("get","result.txt",true); //异步
     xhr.send(null);
@@ -48,6 +49,7 @@
     }
     console.log("over");
     // 以上输出：over 2，3，4
+*/
 
 /*    var xhr = createXHR();
     xhr.open("get","result.txt",false); //同步

@@ -201,11 +201,11 @@ else
 
 #### 3.4.1 readyState
  readyState属性可取的值如下：
-    0(UNSENT):未初始化。表示 XMLHttpRequest 实例已经生成，尚未调用open()方法
-    1(OPENED):启动。已经调用open()方法，但尚未调用send()方法。仍然可以使用实例的setRequestHeader()方法，设定 HTTP 请求的头信息。
-    2(HEADERS_RECEIVED):发送。己经调用send()方法，且接收到头信息
-    3(LOADING):接收。已经接收到部分响应主体信息
-    4(DONE):完成。已经接收到全部响应数据，而且已经可以在客户端使用了
+- 0(UNSENT):未初始化。表示 XMLHttpRequest 实例已经生成，尚未调用open()方法
+- 1(OPENED):启动。已经调用open()方法，但尚未调用send()方法。仍然可以使用实例的setRequestHeader()方法，设定 HTTP 请求的头信息。
+- 2(HEADERS_RECEIVED):发送。己经调用send()方法，且接收到头信息
+- 3(LOADING):接收。已经接收到部分响应主体信息
+- 4(DONE):完成。已经接收到全部响应数据，而且已经可以在客户端使用了
 
 只要readyState属性值由一个值变成另外一个值，都会触发一次__onreadystatechange__  事件
 
@@ -217,7 +217,7 @@ response属性表示服务器返回的数据体（即 HTTP 回应的 body 部分
 
 #### 3.4.3 responseType
 
-1. responseType属性是一个字符串，表示服务器返回数据的类型。这个属性是可写的，可以在调用**open()方法之后、调用send()方法之前，设置这个属性的值**，告诉服务器返回指定类型的数据。
+1. responseType属性是一个字符串，表示服务器返回数据的类型。这个属性是可写的，可以在调用**open()方法之后、调用send()方法之前，设置这个属性的值**，告诉服务器返回指定类型的数据 。
 2. 如果responseType设为空字符串，就等同于**默认值text**。
 3. XMLHttpRequest.responseType属性可以等于以下值:
 - ""（空字符串）：等同于text，表示服务器返回文本数据。
@@ -240,7 +240,7 @@ response属性表示服务器返回的数据体（即 HTTP 回应的 body 部分
 - responseXML属性返回从服务器接收到的 HTML 或 XML 文档对象，该属性为只读。
  该属性生效的前提是 HTTP 回应的Content-Type头信息等于text/xml或application/xml。这要求在**发送请求前，XMLHttpRequest.responseType属性要设为document**。
  如果 HTTP 回应的Content-Type头信息不等于text/xml和application/xml，但是想从responseXML拿到数据（即把数据按照 DOM 格式解析），
- 那么需要手动调用XMLHttpRequest.overrideMimeType()方法，强制进行 XML 解析
+ 那么需要手动调用XMLHttpRequest.overrideMimeType()方法，强制进行 XML 解析.
 
 
 #### 3.4.5 withCredentials
@@ -274,13 +274,13 @@ upload(new Blob(['hello world'], {type: 'text/plain'}));
 ```
 
 ### 3.5 事件监听属性
-XMLHttpRequest.onloadstart：loadstart 事件（HTTP 请求发出）的监听函数
-XMLHttpRequest.onprogress：progress事件（正在发送和加载数据）的监听函数
-XMLHttpRequest.onabort：abort 事件（请求中止，比如用户调用了abort()方法）的监听函数
-XMLHttpRequest.onerror：error 事件（请求失败）的监听函数
-XMLHttpRequest.onload：load 事件（请求成功完成）的监听函数
-XMLHttpRequest.ontimeout：timeout 事件（用户指定的时限超过了，请求还未完成）的监听函数
-XMLHttpRequest.onloadend：loadend 事件（请求完成，不管成功或失败）的监听函数
+- XMLHttpRequest.onloadstart：loadstart 事件（HTTP 请求发出）的监听函数
+- XMLHttpRequest.onprogress：progress事件（正在发送和加载数据）的监听函数
+- XMLHttpRequest.onabort：abort 事件（请求中止，比如用户调用了abort()方法）的监听函数
+- XMLHttpRequest.onerror：error 事件（请求失败）的监听函数
+- XMLHttpRequest.onload：load 事件（请求成功完成）的监听函数
+- XMLHttpRequest.ontimeout：timeout 事件（用户指定的时限超过了，请求还未完成）的监听函数
+- XMLHttpRequest.onloadend：loadend 事件（请求完成，不管成功或失败）的监听函数
 
 progress事件的监听函数有一个事件对象参数，该对象有三个属性：loaded属性返回已经传输的数据量，total属性返回总的数据量，
 lengthComputable属性返回一个布尔值，表示加载的进度是否可以计算。所有这些监听函数里面，只有progress事件的监听函数有参数，其他函数都没有参数.
@@ -297,7 +297,7 @@ xhr.onprogress = function (event) {
 xhr.open("get","example.php", false,[username],[password]);
 一共可以接受5个参数:
 - method：表示 HTTP 动词方法，比如GET、POST、PUT、DELETE、HEAD等。不区分大小写，但通常使用大写字母。
-   除了"GET"和"POST"之外，参数还可以是"HEAD"、"OPTIONS"、"PUT"。而由于安全风险的原因，"CONNECT"、"TRACE"、"TRACK"被禁止使用
+   除了"GET"和"POST"之外，参数还可以是"HEAD"、"OPTIONS"、"PUT"。而由于安全风险的原因，"CONNECT"、"TRACE"、"TRACK"被禁止使用.
 - url: 表示请求发送目标 URL。
 - async: 布尔值，表示请求是否为异步，默认为true。如果设为false，则send()方法只有等到收到服务器返回了结果，才会进行下一步操作。该参数可选。由于同步 AJAX 请求会造成浏览器失去响应，许多浏览器已经禁止在主线程使用，只允许 Worker 里面使用。所以，这个参数轻易不应该设为false。
 - user：表示用于认证的用户名，默认为空字符串。该参数可选。
@@ -340,6 +340,133 @@ void send(String data);
 void send(FormData data);
 
 #### 3.6.3 setRequestHeader()
+
+用于设置浏览器发送的 HTTP 请求的头信息。该方法**必须在open()之后、send()之前调用**。如果该方法多次调用，设定同一个字段，则**每一次调用的值会被合并成一个**单一的值发送。
+该方法接受两个参数。第一个参数是字符串，表示头信息的字段名，第二个参数是字段值。
+
+```
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Content-Length', JSON.stringify(data).length);
+xhr.send(JSON.stringify(data));
+
+```
+
+#### 3.6.4 overrideMimeType()
+1. 必须在send()方法之前调用.
+2. 用来指定 MIME 类型，覆盖服务器返回的真正的 MIME 类型，从而让浏览器进行不一样的处理。
+  举例来说，服务器返回的数据类型是text/xml，由于种种原因浏览器解析不成功报错，这时就拿不到数据了。
+  为了拿到原始数据，我们可以把 MIME 类型改成text/plain，这样浏览器就不会去自动解析，从而我们就可以拿到原始文本了.
+3. 正常情况下应使用responseType属性告诉服务器，指定服务器返回指定的数据类型。只有在服务器无法返回某种数据类型时，才使用overrideMimeType()方法。
+
+
+#### 3.6.5 getResponseHeader()
+
+```
+xhr.getResponseHeader("Last-Modified")); // 不存在，返回null。该方法的参数不区分大小写
+```
+
+
+#### 3.6.6 getAllResponseHeaders()
+
+```
+// 返回结果类似：
+content-type: text/html; charset=utf-8\r\n
+connection: keep-alive\r\n
+...
+```
+
+#### 3.6.7 abort()
+
+用来终止已经发出的 HTTP 请求。调用这个方法以后，readyState属性变为4，status属性变为0。
+
+
+
+### 3.7 事件
+
+
+XMLHttpRequestEventTarget接口定义了7个事件：
+
+- onloadstart
+- onprogress
+- onabort
+- ontimeout
+- onerror
+- onload
+- onloadend
+
+1. XMLHttpRequest和XMLHttpRequestUpload都继承了同一个XMLHttpRequestEventTarget接口，所以xhr和xhr.upload都有第一条列举的7个事件。
+2. onreadystatechange是XMLHttpRequest独有的事件，故**XMLHttpRequest 有8 个事件，而xhr.upload 有7 个事件**。
+3. XMLHttpRequest里面的upload属性是一个XMLHttpRequestUpload对象
+4. 可以通过onprogress事件来实时显示进度，默认情况下这个事件每50ms触发一次。需要注意的是，上传过程和下载过程触发的是不同对象的onprogress事件：
+   - 上传触发的是xhr.upload对象的 onprogress事件
+   - 下载触发的是xhr对象的onprogress事件
+
+```
+事件	                触发条件
+onreadystatechange	    每当xhr.readyState改变时触发；但xhr.readyState由非0值变为0时不触发。
+onloadstart	            调用 **xhr.send()方法后立即触发** ，若xhr.send()未被调用则不会触发此事件。
+onprogress	            xhr.upload.onprogress在上传阶段(即xhr.send()之后，xhr.readystate=2之前)触发，每50ms触发一次；
+                        xhr.onprogress在下载阶段（即xhr.readystate=3时）触发，每50ms触发一次。
+onload	                当请求 **成功** 完成时触发，此时xhr.readystate=4
+onloadend	            当请求结束（包括 **请求成功和请求失败** ）时触发
+onabort	                当调用xhr.abort()后触发
+ontimeout	            xhr.timeout不等于0，由请求开始 **即onloadstart开始(send 触发)** 算起，当到达xhr.timeout所设置时间请求还未结束即onloadend，则触发此事件。
+onerror	                在请求过程中，若发生Network error则会触发此事件（若发生Network error时，上传还没有结束，则会先触发xhr.upload.onerror，再触发xhr.onerror；
+                        若发生Network error时，上传已经结束，则只会触发xhr.onerror）。
+                        注意，**只有发生了网络层级别的异常才会触发此事件** ，对于应用层级别的异常，如响应返回的xhr.statusCode是4xx时，
+                        并不属于Network error，所以不会触发onerror事件，而是会触发onload事件。
+
+```
+
+## 4 注意事项
+
+
+## 4.1 设置request header
+
+- setRequestHeader方法的第一个参数 header 大小写不敏感;
+- Content-Type的默认值与具体发送的数据类型有关，请参考send；
+- setRequestHeader**必须在open()方法之后，send()方法之前调用**，否则会抛错；
+- setRequestHeader可以**调用多次，最终的值不会采用覆盖override的方式，而是采用追加append的方式**。
+
+
+## 4.2 获取response header
+
+
+1. W3C的 xhr 标准中做了限制，规定客户端无法获取 response 中的 Set-Cookie、Set-Cookie2这2个字段，无论是同域还是跨域请求；
+2. W3C 的 cors 标准对于跨域请求也做了限制，规定对于跨域请求，客户端允许获取的response header字段只限于“simple response header”和“Access-Control-Expose-Headers”：
+- "simple response header"包括的 header 字段有：Cache-Control,Content-Language,Content-Type,Expires,Last-Modified,Pragma;
+- "Access-Control-Expose-Headers"：首先得注意是"Access-Control-Expose-Headers"进行**跨域请求**时响应头部中的一个字段，对于同域请求，响应头部是没有这个字段的。
+   这个字段中列举的 header 字段就是服务器允许暴露给客户端访问的字段。
+
+getAllResponseHeaders()只能拿到**限制以外（即被视为safe）的header字段**，而不是全部字段；
+而调用getResponseHeader(header)方法时，header参数必须是**限制以外的header字段**，否则调用就会报Refused to get unsafe header的错误。
+
+
+## 4.3 send
+
+xhr.send(data)的参数data可以是以下几种类型：
+- ArrayBuffer
+- Blob
+- Document
+- DOMString
+- FormData
+- null
+
+xhr.send(data)中data参数的数据类型**会影响请求头部content-type的默认值**：
+- 如果data是 Document 类型，同时也是HTML Document类型，则content-type默认值为text/html;charset=UTF-8;否则为application/xml;charset=UTF-8；
+- 如果data是 DOMString 类型，content-type默认值为text/plain;charset=UTF-8；
+- 如果data是 FormData 类型，content-type默认值为multipart/form-data; boundary=[xxx]
+- 如果data是其他类型，则不会设置content-type的默认值
+- 当然这些只是content-type的默认值，但**如果用xhr.setRequestHeader()手动设置了中content-type的值，以上默认值就会被覆盖**。
+
+## 4.4 同步请求
+
+当xhr为同步请求时，有如下限制：
+- xhr.timeout必须为0
+- xhr.withCredentials必须为 false
+- xhr.responseType必须为""（注意置为"text"也不允许）
+
+
 
 
 

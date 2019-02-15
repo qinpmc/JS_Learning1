@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj = { hello: 'world' };
+    var blob = new Blob([ JSON.stringify(obj) ], {type : 'application/json'});
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/register',true);
+    xhr.send(blob);
+</script>
+</body>
+
+</html>

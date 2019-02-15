@@ -39,7 +39,6 @@ var server = http.createServer(function(res,rep){
         rep.end("request file is not find~~");
     }
 
-
 }).listen(80,function(){
     console.log("listening...");
 });
