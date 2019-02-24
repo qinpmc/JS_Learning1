@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="container">
+  Index1
+</div>
+
+<script>
+/*    var xhr = new XMLHttpRequest();
+    xhr.open("GET","http://127.0.0.1:8887");
+    xhr.onload = function(){
+        console.log(xhr.response);
+    }
+    xhr.send();*/
+
+    fetch("http://127.0.0.1:8887",{
+        method:"DELETE",
+        headers:{
+            "X-Test-Cors":"testHeader"
+        }
+    })
+
+
+</script>
+</body>
+</html>
