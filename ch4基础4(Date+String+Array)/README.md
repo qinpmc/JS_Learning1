@@ -80,6 +80,8 @@ Array.isArray()
 
 3. 实例方法
 
+不会改变原数组的方法（返回一个新数组）： filter(), concat() 和 slice() 。 
+
 3.1 valueOf()、toString()
 - 数组的valueOf方法返回数组本身；
 - 数组的toString方法返回数组的字符串形式。
@@ -216,7 +218,8 @@ arr.slice(-1,-2) ;// []
 3.9 splice 
 
 - arr.splice(start, count, addElement1, addElement2, ...);该方法会 __改变原数组__
-- 1. 删除：第一个参数是删除的起始位置（从0开始），第二个参数是被删除的元素个数
+- 1. 删除：第一个参数是删除的起始位置（从0开始），第二个参数是被删除的元素个数，
+第三个参数（item1, item2, ... 可选）要添加进数组的元素,从start 位置开始 
 
 ```
 var a = ['a', 'b', 'c', 'd', 'e', 'f'];
