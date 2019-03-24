@@ -1,23 +1,30 @@
-# PC浏览器内核
+# 0 前置知识
+
+##  浏览器内核
+
+### PC浏览器内核
 1. chrome: 曾经Webkit 内核（V8)引擎，现在为Blink
 2. Safari：WebKit内核
 2. Firefox：Gecko内核 ，[‘gekəʊ]
 3. Opera：Presto内核，曾经 [‘prestəʊ]，现在为Blink
 4. IE：Trident内核，[‘traɪd(ə)nt]
 
-# 移动端浏览器内核
+### 移动端浏览器内核
 1. iPhone、iPad 等苹果iOS 平台主要是 WebKit
 2. Android 4.4 之前的 Android 系统浏览器内核是 WebKit，
 3. Android4.4 系统浏览器切换到了Chromium，内核是 Webkit 的分支 Blink
 4. Windows Phone 8 系统浏览器内核是 Trident。
 
-# 浏览器兼容处理
+### 浏览器兼容处理
 1. -moz-     /* 火狐等使用Mozilla浏览器引擎的浏览器 */
 2. -webkit-  /* Safari, 谷歌浏览器等使用Webkit引擎的浏览器 */
 3. -o-       /* Opera浏览器(早期) */
 4. -ms-      /* Internet Explorer
 
-# 引入JS的3种方式
+
+## script 标签
+
+### 引入JS的3种方式
 
 ```
 
@@ -35,121 +42,96 @@
    </script>
 </body>
 ```
-# script 标签
 
-## 默认
+###  默认
 默认引用 script:<script type="text/javascript" src="x.min.js"></script>
 当浏览器遇到 script 标签时，文档的解析将停止，并立即**下载并执行脚本**，    
 脚本执行完毕后将继续解析文档。
 
-
-## defer 属性
+### defer 属性
 1. defer属性只适用于外部脚本
 2. 脚本会被延迟到整个页面都解析完毕后再运行（即使将script元素放在head元素中），该属性相当于告诉浏览器立即下载脚本，但延迟执行
-3. HTML5规范要求脚本按照它们出现的先后顺序执行，且脚本会先于DOMContentLoaded事件执行。
+3. HTML5规范要求脚本按照它们**出现的先后顺序执行**，且脚本会**先于DOMContentLoaded事件**执行。
    但现实中，延迟脚本不一定按照顺序执行，也不一定在DOMContentLoaded事件之前执行，因此最好只包含一个延迟脚本。
 4. 有 defer，加载后续文档元素的过程将和 script.js 的 __加载并行进行__ （异步）；
     即当浏览器遇到 script 标签时，文档的**解析不会停止**，**其他线程将下载脚本**，   
     待到**文档解析完成，脚本才会执行**。
 
 
-## async 属性
+### async 属性
 1. 只适用于外部脚本
-2. 相当于告诉浏览器立即下载脚本，并不保证按照脚本的先后顺序执行，因此异步脚本之间最好互不依赖
+2. 相当于告诉浏览器立即下载脚本，并**不保证按照脚本的先后顺序**执行，因此异步脚本之间最好互不依赖
 3. async 属性的目的是不让页面等待脚本下载和执行，异步加载页面其他内容，因此异步脚本不要在加载期间修改DOM
 4. 有 async，加载和渲染后续文档元素的过程将和 script.js 的 __加载与执行并行进行__ （异步）
     即当浏览器遇到 script 标签时，文档的**解析不会停止**，其他线程将下载脚本，脚本**下载完成后开始执行脚本**，  
     **脚本执行的过程中文档将停止解析**，直到脚本执行完毕。
+5. 异步脚本一定会在页面的load事件前执行。可能会在DOMContentLoaded 事件之前或之后执行。
 
 
 ![defer_async](./defer_async.png)
 
 
-# 标识符
+
+
+
+# 1 标识符
 1. 第一个字符必须是字母、下划线、或$
 2. 其他字符可以是字母、下划线、$ 、 __或数字__
 3. 区分大小写
 
 
-# 表达式与语句
-
-1. 语句和表达式的区别在于，语句主要为了进行某种操作，一般情况下不需要返回值；
-表达式则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。
-比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。
+# 2 可选分号
+如果当前语句与下一行语句无法合并解析，Javascript则在第一行后填补分号，但有2个例外：
+1. 在涉及return 、break、continue语句，如果这3个关键词后紧跟换行，Javascript会在换行处填补分号。
 
 ```
-1 + 3; //叫做表达式（expression），指一个为了得到返回值的计算式。
-var a = 1 + 3; //赋值语句
+return 
+true
+
+本意可能是 return true, JavaScript解析为 return; true
 ```
 
-
-# 常见语句
-1. if 结构 、if…else 结构
-2. switch结构
-3. 三元运算符 ?:
-4. while 循环、for 循环、do…while 循环
-5. break 语句和 continue 语句
-6. 标签（label）
-
--  switch
-   switch语句比较的是 __全等=== 操作符__，不会发生类型转换，例如”10”不等于10
-   缺失break关键词后，执行当前case后，继续执行下一个case
-   default语句不一定放在最后，此时需加上break
-
--  break 终止一层循环，并不会终止嵌套的外层循环；采用标签后，终止整个循环
-- continue 跳出内部循环一次
+2. 涉及 ++ ‘-- 运算符，这些运算符既可以作为表达式前缀，也可以作为表达式后缀。如果作为后缀，必须将其与表达式在同一行，否则行尾会被Javascript自动添加分号
 
 ```
-//break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环
-top: // top为标签
- for (var i = 0; i < 3; i++){
-   for (var j = 0; j < 3; j++){
-     if (i === 1 && j === 1) break top;
-     console.log('i=' + i + ', j=' + j);
-   }
- }
-// i=0, j=0
-// i=0, j=1
-// i=0, j=2
-// i=1, j=0
+x
+++
+y
+
+会被解析为x; ++y
 ```
+ 
 
-```
-// break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。
-for (var i = 0; i < 3; i++){
-    for (var j = 0; j < 3; j++){
-      if (i === 1 && j === 1) break;
-      console.log('i=' + i + ', j=' + j);
-    }
-  }
+# 3 数据类型
 
-i=0, j=0
-i=0, j=1
-i=0, j=2
-i=1, j=0
-i=2, j=0
-i=2, j=1
-i=2, j=2
+## 3.1 数据类型分类
 
-```
-***
-
-
-
-
-
-# 数据类型
-1. 基本数据类型
+1. 基本数据类型（原始类型）
 - Undefined
 - Null
 - Boolean
 - Number
 - String
-2. 引用数据类型
+
+2. 引用数据类型（对象类型）
 - Object,包括 普通对象{ }，正则、数组[]
 - function
 
-3. typeof 操作符
+
+
+ ## 3.2 Javascript 内建对象：
+Object、Array、Function、Boolean、String、Number、Error、Date、RegExp、Math   
+
+**包装对象** 
+Javascript中 字符串、数字、布尔值也可以拥有自己的方法，这些方法的调用来自临时对象，存取字符串、数字和布尔值的属性时  
+创建的临时对象称作包装对象。可以 通过new String()/Number()/Boolean()的方式显示创建包装对象。         
+
+只有**null、undefined 无法拥有方法的值**。  
+
+
+
+
+ ## 3.3 typeof 操作符
 返回结果
 - undefined
 - boolean
@@ -167,7 +149,7 @@ alert(typeof Array);  // function,构造函数
 ```
 
 
-# null 和 undefined
+ ## 3.4 null 和 undefined
 1. null与undefined都可以表示“没有”，相等运算符（==）直接报告两者相等
 2. null可以自动转为0,undefined 不行
 3. null表示空值；undefined表示“未定义”
@@ -179,13 +161,16 @@ Number(null) // 0
 ```
 
 
-# Boolean
+ ## 3.5 Boolean
 - 布尔类型，包括true 和 false
 - 6个falsy值： false,"",0,NaN,undefined,null, ==>  false
 
 
-#  Number
-1. 几个特别的值
+ ## 3.6 Number
+javascript 不区分整数值和浮点数值，所有数字均用浮点数表示。  
+
+
+1. 几个特别的值   
   * NaN （与自身也不相等）
   * Infinity
   * -Infinity
@@ -193,7 +178,7 @@ Number(null) // 0
   * Number.MIN_VALUE
 
 2. isFinite()
-判断数字是否有穷
+判断数字是否有穷 
 
 ```
 isFinite(Number.MAX_VALUE+1);   //  true，溢出
@@ -202,13 +187,13 @@ isFinite(Number.MAX_VALUE+Number.MAX_VALUE); // false
 isFinite(Number.MAX_VALUE*2) ; //false
 ```
 
-3. Number()
+3. Number()  
 转换规则：
-* null 转换为0
-* undefined转换为 __NaN__
-* Boolean类型，true转为1，false转换为0
-* Number类型，直接传入和返回
-* String类型
+* **null 转换为0**  
+* undefined转换为 __NaN__   
+* Boolean类型，true转为1，false转换为0   
+* Number类型，直接传入和返回  
+* String类型  
    - 字符串只含有数字（含+ - 号,前导的0被忽略，空格也会被忽略），转换为数字，如Number("-00012.3");//-12.3
    - 字符串中为有效的十六进制格式数字，转换为相同大小的十进制
    - 空字符串转换为0
@@ -236,7 +221,9 @@ Number(["1","2"]);  //NaN ，["1","2"] => "1，2" =>NaN
 
 5. parseInt()
 忽略字符串前的空格，直至找到第一个非空字符，直到解析到后续字符为非数字
-
+注意和Number区别： 
+**空字符串/null/空数组 均转为NaN，而不是0；布尔值转为NaN，而不是0/1；**   
+ 
 ```
 parseInt("123as");   //123
 Number("123as");   //NaN
@@ -253,12 +240,18 @@ alert(parseInt([]));  // NaN
 alert(parseInt({}));  // NaN
 ```
 
-6 parseFloat()
+6. parseFloat()
 类同parseInt()函数，多解析一个小数点
 
-# String
+7. 二进制浮点数和四舍五入错误
+
+Javascript采用 IEEE-754浮点数表示（几乎现代所有的编程语言使用），这是一种二进制表示法，可精确表示1/2, 1/8等分数，   
+但不能精确表示十进制分数，如1/10等，所以 0.3-0.2 ！= 0.2-0.1 为true。
+
+
+ ## 3.7 String        
 1. 单引号、双引号均可
-2. 转义
+2. 转义             
 > \0 ：null（\u0000）
 > \b ：后退键（\u0008）
 > \f ：换页符（\u000C）
@@ -275,7 +268,7 @@ alert(parseInt({}));  // NaN
    此种方式 __只能访问__，不能用于修改等，如str[1] = 'A';
 
 
-# 对象
+ ## 3.8 对象
 1. 对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合
 2. 属性访问可以用 点操作符或 [] 访问，对于特殊情况用[],如属性包含空格，或者属性名为数字。
 
@@ -295,7 +288,7 @@ obj2[2]; //"aaa"
 > 它不仅遍历对象自身的属性，还遍历继承的属性。
 
 
-# 数组
+ ## 3.9 数组
 1. 数组的length属性，返回数组的成员数量
 2. in 运算符 查某个键名是否存在的运算符in，适用于对象，也适用于数组
 3. for...in循环不仅可以遍历对象，也可以遍历数组
@@ -338,7 +331,7 @@ function logArgs() {
 }
 ```
 
-# 函数
+ ## 3.10 函数
 
 1. 函数声明
 
@@ -546,6 +539,69 @@ alert(false &&"2");  //false
 //alert("0"||"2");  //0
 
 ```
+
+# 3 表达式与语句
+
+1. 语句和表达式的区别在于，语句主要为了进行某种操作，一般情况下不需要返回值；
+表达式则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。
+比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。
+
+```
+1 + 3; //叫做表达式（expression），指一个为了得到返回值的计算式。
+var a = 1 + 3; //赋值语句
+```
+
+
+# 4 常见语句
+1. if 结构 、if…else 结构
+2. switch结构
+3. 三元运算符 ?:
+4. while 循环、for 循环、do…while 循环
+5. break 语句和 continue 语句
+6. 标签（label）
+
+-  switch
+   switch语句比较的是 __全等=== 操作符__，不会发生类型转换，例如”10”不等于10
+   缺失break关键词后，执行当前case后，继续执行下一个case
+   default语句不一定放在最后，此时需加上break
+
+-  break 终止一层循环，并不会终止嵌套的外层循环；采用标签后，终止整个循环
+- continue 跳出内部循环一次
+
+```
+//break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环
+top: // top为标签
+ for (var i = 0; i < 3; i++){
+   for (var j = 0; j < 3; j++){
+     if (i === 1 && j === 1) break top;
+     console.log('i=' + i + ', j=' + j);
+   }
+ }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+```
+
+```
+// break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。
+for (var i = 0; i < 3; i++){
+    for (var j = 0; j < 3; j++){
+      if (i === 1 && j === 1) break;
+      console.log('i=' + i + ', j=' + j);
+    }
+  }
+
+i=0, j=0
+i=0, j=1
+i=0, j=2
+i=1, j=0
+i=2, j=0
+i=2, j=1
+i=2, j=2
+
+```
+***
 
 
 
