@@ -129,6 +129,25 @@ false - 1 // -1
 -false // 0
 ```
 
+# 对象转换为原始值
+对象继承了2个转换方法，一个是toString()、一个是valueOf()
+
+## toString()
+- 数组：转换为将各元素以逗号合并成的字符串
+- 函数：转换为Javascript 源代码字符串
+- 日期：返回一个可读的日期和字符串
+- RegExp: 转换为正则表达式直接量的字符串
+
+```
+[1,2,3].toString() ; // "1,2,3"
+(function(x){f(x)}).toString() ; // "function(x){f(x)}"
+/\d+/g.toString() ; // "/\d+/g"
+new Date(2010,0,1).toString()   ;// "Fri Jan 01 2010 00:00:00 GMT+0800 (中国标准时间)"
+
+```
+
+## valueOf()
+- 对象的valueOf多返回对象自身，数组/函数/正则均如此，Date返回 1970年1月1日以来的毫秒数
 
 
 
