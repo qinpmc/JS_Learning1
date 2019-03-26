@@ -48,6 +48,24 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 - NodeList可以包含任何节点类型，HTMLCollection只包含元素节点（elementNode），elementNode就是HTML中的标签
 - HTMLCollection比NodeList多一项方法：namedItem，可以通过传递id或name属性来获取节点信息
 
+
+```
+    var oList = document.body.childNodes;
+    console.dir(oList);    //NodeList(7)
+    console.dir(document.body.children); //HTMLCollection(2)
+
+    var div1 = document.getElementById("div1");
+    var liAry = div1.getElementsByTagName("li");
+    console.log(liAry) ;// HTMLCollection(3) [li, li, li]
+
+    var divAry = div1.getElementsByClassName("cotent");
+    console.log(divAry) ;// HTMLCollection(3)
+
+    var imgs = document.images;
+    console.log(imgs) ;//HTMLCollection(2) [img, img]
+```
+
+
 ## DOM的节点
 1. node：浏览器认为在一个HTML页面中的所有内容都是节点（包括标签、注释、文本等）
 > 元素节点：HTML标签元素
