@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var count = 0;
+        function countUp() {
+        try {
+            return count;
+        } finally {
+            count++;
+        }
+        }
+
+        countUp()
+        // 0
+        console.log(count); // 这里表明 finally执行后，才又返回count
+        // 1
+
+    </script>
+</body>
+
+</html>

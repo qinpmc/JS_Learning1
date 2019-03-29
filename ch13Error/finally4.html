@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f() {
+            try {
+                throw '出错了！';
+            } catch (e) {
+                console.log('捕捉到内部错误');
+                throw e; // 这句原本会等到finally结束再执行
+            } finally {
+                console.log("in finally")
+                return false; // 直接返回
+            }
+        }
+
+        try {
+            f();
+        } catch (e) {
+            // 此处不会执行
+            console.log('caught outer "bogus"');
+        }
+
+        /*
+            捕捉到内部错误
+            in finally
+
+        */
+
+/* 
+        注释  finally语句中 return false; 会返回throw语句 执行 throw e
+
+        捕捉到内部错误
+        in finally
+        caught outer "bogus"
+*/
+    </script>
+</body>
+
+</html>
