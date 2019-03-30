@@ -358,7 +358,7 @@ typeof s2 // "object"
 > 这种方式只可以度，不能修改， str[str.length-1] = "N",无效
 
 3. charAt 返回指定索引位置度字符
-> 与str[index] 区别，str[index]访问的索引不存在，获取的是undefined；而charAt返回空字符串
+> 与str[index] 区别，str[index]访问的索引不存在，获取的是**undefined**；而**charAt返回空字符串**
 
 ```
 var s = new String('abc');
@@ -367,6 +367,9 @@ s.charAt(1) // "b"
 
 4. charCodeAt
 > 返回 字符串指定位置的 Unicode 码点
+
+'a'.charCodeAt(0) ；// 97    
+
 
 5. fromCharCode()
 > 返回值是这些码点组成的字符串s

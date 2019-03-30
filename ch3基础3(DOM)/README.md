@@ -1,44 +1,217 @@
 # DOM
 
-## 获取DOM元素的方法
-1. document.getElementById 
- - returns an __Element__ object 
- 
-2. [context].getElementsByTagName 
- - returns __HTMLCollection__
- 
-3. [context].getElementsByClassName
- - returns  __HTMLCollection__
- - IE6-8下不兼容
- 
-4. document.getElementsByName 
- - returns __NodeList__ Collection
- - IE浏览器只能识别表单元素的name属性，一般用于操作表单元素
- 
-5. document.documentElement
- - returns the __Element__ that is the root element of the document 
-   (for example, the `<html>` element for HTML documents).
-   
-6. document.body
- - Returns the `<body>` or `<frameset>` node of the current document
- 
-7. document.head
-   -returns the `<head>` element of the current document
-   
-8. [context].querySelector
- - Returns the first element that is a descendant of the element
- 
-9. [context].querySelectorAll()
-- returns a __static__ (not live) NodeList（静态的）
-- querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
+DOM 是 JavaScript 操作网页的接口，全称为“文档对象模型”（Document Object Model）。    
+它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）。             
+
+DOM 的最小组成单位叫做节点（node）。文档的树形结构（DOM 树），就是由各种不同类型的节点组成.           
 
 
 
-## DOM 元素的原型链 
+**DOM元素的原型链**
 oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- Object
 
+## 1 Node
+DOM1级定义了一个Node接口，该接口由DOM所有节点类型实现。
+常见的节点类型如下：  
 
-## HTMLCollection和NodeList
+- 元素节点（element）：1，对应常量Node.ELEMENT_NODE
+- 属性节点（attr）：2，对应常量Node.ATTRIBUTE_NODE
+- 文本节点（text）：3，对应常量Node.TEXT_NODE
+- 注释节点（Comment）：8，对应常量Node.COMMENT_NODE
+- 文档节点（document）：9，对应常量Node.DOCUMENT_NODE
+- 文档片断节点（DocumentFragment）：11，对应常量Node.DOCUMENT_FRAGMENT_NODE
+- 文档类型节点（DocumentType）：10，对应常量Node.DOCUMENT_TYPE_NODE
+
+   
+### 1.1 nodeType /nodeName/ nodeValue
+
+
+**只有文本节点（text）、注释节点（comment）和属性节点（attr）有nodeValue文本值**，  
+ 因此这三类节点的nodeValue可以返回结果，其他类型的节点一律返回null。
+ 
+
+> 元素节点：HTML标签元素
+ - nodeType：1
+ - nodeName：大写的标签名（部分浏览器的怪异模式下，为小写标签名）
+ - nodeValue：null
+ - [cur]Element.tagName :获取当前元素的标签名（获取的是大写标签名）
+ 
+> 属性节点
+- nodeType:2
+- nodeName： 属性名称
+- nodeValue： 属性值
+
+> 文本节点 ：文本内容，空格和换行在高版本浏览器中也当做文本节点
+ - nodeType：3
+ - nodeName：#text
+ - nodeValue：文本内容
+ 
+> 注释节点 ：注释内容
+ - nodeType：8
+ - nodeName：#comment
+ - nodeValue：注释内容
+ 
+> document文档节点
+ - nodeType：9
+ - nodeName：#document
+ - nodeValue：null
+ - parentNode:null
+
+> DocumentFragment
+ - nodeType：11
+ - nodeName：#document-fragment
+ - nodeValue： null
+ 
+### 1.2 childNodes
+- 获取当前元素的所有子节点（包括元素子节点、文本、注释等子节点）
+- 返回节点集合
+
+### 1.3 children
+- 获取当前元素的所有 __元素子节点__ （只包括元素子节点）
+- 返回节点集合（IE6、7、8下会把注释当做元素子节点）
+
+### 1.4 parentNode、.parentElement
+- 获取当前元素的父节点 
+
+### 1.5 previousSibling、nextSibling
+- previousSibling获取当前节点上一个兄弟节点（不一定是元素节点）   
+- nextSibling获取当前节点下一个兄弟节点（不一定是元素节点）  
+    
+### 1.6 previousElementSibling、nextElementSibling
+- previousElementSibling获取当前节点上一个兄弟 __元素节点__  
+- nextElementSibling获取当前节点下一个兄弟 __元素节点__   
+- IE6、7、8不兼容
+
+### 1.7 firstChild、lastChild
+- firstChild：当前元素第一个子节点（不一定是元素节点）
+- lastChild：当前元素最后一个子节点（不一定是元素节点）
+
+### 1.8 firstElementChild、lastElementChild
+- firstElementChild：当前元素第一个__元素子节点__  
+- lastElementChild：当前元素最后一个__元素子节点__   
+- IE6、7、8不兼容
+
+### 1.9 Node.prototype.baseURI
+- baseURI属性返回一个字符串，表示当前网页的绝对路径。
+- 以使用 HTML 的<base>标签，改变该属性的值。
+
+```
+// 当前网页的网址为
+// http://www.example.com/index.html
+document.baseURI
+// "http://www.example.com/index.html"
+```
+
+
+### 1.10 Node.prototype.ownerDocument
+Node.ownerDocument属性返回当前节点所在的顶层文档对象，即document对象。
+
+### 1.11 [parentNode].appendChild()
+
+### 1.12 [parentNode].insertBefore(newElement, referenceElement)
+
+### 1.13 [parentNode].removeChild(child)
+
+### 1.14 [parentNode].replaceChild(newChild, oldChild);
+
+### 1.15 node.cloneNode(deep);
+- deep 可选,为true,则该节点的所有后代节点也都会被克隆,如果为false,则只克隆该节点本身.
+
+### 1.16 Node.prototype.normalize()
+normalize方法用于清理当前节点内部的所有文本节点（text）。   
+它会去除空的文本节点，并且将毗邻的文本节点合并成一个.    
+
+```
+var wrapper = document.createElement('div');
+
+wrapper.appendChild(document.createTextNode('Part 1 '));
+wrapper.appendChild(document.createTextNode('Part 2 '));
+
+wrapper.childNodes.length // 2
+wrapper.normalize();
+wrapper.childNodes.length // 1
+
+```
+
+
+
+## 2 Document
+
+### 2.1 快捷方式属性
+1. document.doctype
+
+```
+var doctype = document.doctype;
+doctype // "<!DOCTYPE html>"
+doctype.name // "html"
+```
+2. document.documentElement
+ - returns the __Element__ that is the root element of the document 
+   (for example, the `<html>` element for HTML documents).
+HTML网页的该属性，一般是<html>节点.
+ 
+3. document.body，document.head 
+- Returns the `<body>` or `<frameset>` node of the current document
+-returns the `<head>` element of the current document
+ 
+### 2.2 节点集合属性
+
+1. document.links
+
+返回当前文档所有设定了href属性的<a>及<area>节点。
+
+2. document.forms
+除了使用位置序号，id属性和name属性也可以用来引用表单。
+
+```
+/* HTML 代码如下
+  <form name="foo" id="bar"></form>
+*/
+document.forms[0] === document.forms.foo // true
+document.forms.bar === document.forms.foo // true
+```
+
+3. document.images
+
+4. document.scripts
+
+ 
+### 2.3 文档静态信息属性
+1. document.domain
+
+document.domain基本上是一个只读属性，只有一种情况除外。次级域名的网页，可以把document.domain设为对应的上级域名。           
+比如，当前域名是a.sub.example.com，则document.domain属性可以设置为sub.example.com，也可以设为example.com。         
+修改后，document.domain相同的两个网页，可以读取对方的资源，比如设置的 Cookie。     
+
+
+2. document.location
+Location对象是浏览器提供的原生对象，提供 URL 相关的信息和操作方法。通过window.location也可获得。    
+
+3. document.title、document.characterSet
+
+4. document.documentURI，document.URL
+都返回一个字符串，表示当前文档的网址。       
+不同之处是它们继承自不同的接口，documentURI继承自Document接口，可用于所有文档；URL继承自HTMLDocument接口，只能用于 HTML 文档。  
+
+```
+document.URL
+// http://www.example.com/about
+
+document.documentURI === document.URL
+// true
+```
+
+### 2.4 document.cookie
+
+
+
+
+
+
+
+
+
+## 3 HTMLCollection和NodeList
 1. 相同点：
 - 都是类数组对象，都有length属性
 - 都有共同的方法：item，可以通过item(index)或者item(id)来访问返回结果中的元素
@@ -63,64 +236,58 @@ oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- O
 
     var imgs = document.images;
     console.log(imgs) ;//HTMLCollection(2) [img, img]
+
+
+    // HTML 代码如下
+    // <img id="pic" src="http://example.com/foo.jpg">
+
+    // namedItem方法的参数是一个字符串，表示id属性或name属性的值，返回对应的元素节点。如果没有对应的节点，则返回null。
+    var pic = document.getElementById('pic');
+    document.images.namedItem('pic') === pic // true
 ```
 
 
-## DOM的节点
-1. node：浏览器认为在一个HTML页面中的所有内容都是节点（包括标签、注释、文本等）
-> 元素节点：HTML标签元素
- - nodeType：1
- - nodeName：大写的标签名（部分浏览器的怪异模式下，为小写标签名）
- - nodeValue：null
- - [cur]Element.tagName :获取当前元素的标签名（获取的是大写标签名）
+## 1 获取DOM元素的方法
+1. document.getElementById 
+ - 上下文只能是document
+ - returns an __Element__ object 
  
-> 文本节点 ：文本内容，空格和换行在高版本浏览器中也当做文本节点
- - nodeType：3
- - nodeName：#text
- - nodeValue：文本内容
+2. [context].getElementsByTagName 
+ - returns __HTMLCollection__
  
-> 注释节点 ：注释内容
- - nodeType：8
- - nodeName：#comment
- - nodeValue：注释内容
+3. [context].getElementsByClassName
+ - returns  __HTMLCollection__
+ - IE6-8下不兼容
+ - 如果查找多个类，类名顺序不重要，[context].getElementsByClassName("item2 item1")，    
+ 可以匹配 <div class='item1 item2'>
  
-> document文档节点
- - nodeType：9
- - nodeName：#document
- - nodeValue：null
+4. document.getElementsByName 
+ - 上下文只能是document
+ - returns __NodeList__ Collection
+ - IE浏览器(9及以下)只能识别表单元素的name属性，一般用于操作表单元素
 
-2. 属性
-> childNodes
-- 获取当前元素的所有子节点（包括元素子节点、文本、注释等子节点）
-- 返回节点集合
-
-> children
-- 获取当前元素的所有 __元素子节点__ （只包括元素子节点）
-- 返回节点集合（IE6、7、8下会把注释当做元素子节点）
-
-> parentNode
-- 获取当前元素的父节点 
-
-> previousSibling、nextSibling
-- previousSibling获取当前节点上一个兄弟节点（不一定是元素节点）   
-- nextSibling获取当前节点下一个兄弟节点（不一定是元素节点）  
-    
-> previousElementSibling、nextElementSibling
-- previousElementSibling获取当前节点上一个兄弟 __元素节点__  
-- nextElementSibling获取当前节点下一个兄弟 __元素节点__   
-- IE6、7、8不兼容
-
-> firstChild、lastChild
-- firstChild：当前元素第一个子节点（不一定是元素节点）
-- lastChild：当前元素最后一个子节点（不一定是元素节点）
-
-> firstElementChild、lastElementChild
-- firstElementChild：当前元素第一个__元素子节点__  
-- lastElementChild：当前元素最后一个__元素子节点__   
-- IE6、7、8不兼容
+   
+8. [context].querySelector
+ - Returns the first element that is a descendant of the element
+ 
+9. [context].querySelectorAll()
+- returns a __static__ (not live) NodeList（静态的）
+- querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
 
 
-##  DOM元素创建
+
+
+
+
+
+
+## 4 DOM的节点
+ 
+ 
+
+##  5 DOM元素创建
+
+
 1. document.createElement(tagName) 
 ```
 // 可利用a标签的属性解析字符串
@@ -142,16 +309,7 @@ p1.appendChild(newtext);
 ```
 
 
-3. [parentNode].appendChild()
-
-4. [parentNode].insertBefore(newElement, referenceElement)
-
-5. [parentNode].removeChild(child)
-
-6. [parentNode].replaceChild(newChild, oldChild);
-
-7. node.cloneNode(deep);
-   - deep 可选,为true,则该节点的所有后代节点也都会被克隆,如果为false,则只克隆该节点本身.
+3.
    
 ## 属性操作
 1. Element.setAttribute(name, value);
