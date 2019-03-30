@@ -24,7 +24,9 @@
     </div>
     <script type="text/javascript">
         var oDiv = document.getElementById("div1");
-        var beforeContent = window.getComputedStyle(oDiv,"before")["content"];
+        var beforeContent = window.getComputedStyle(oDiv,"before")["display"];
+
+        console.log(beforeContent); // "block"
     </script>
 </body>
 </html>

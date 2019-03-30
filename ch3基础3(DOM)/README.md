@@ -491,9 +491,7 @@ bottom：元素底部相对于视口的纵坐标（等于y + height）
 
 
 ```
-
-
-
+ 
 ## 3 HTMLCollection和NodeList
 1. 相同点：
 - 都是类数组对象，都有length属性
@@ -530,12 +528,42 @@ bottom：元素底部相对于视口的纵坐标（等于y + height）
 ```
 
  
+## 4 Text
+文本节点（Text）代表元素节点（Element）和属性节点（Attribute）的文本内容。  
+
+通常我们使用父节点的firstChild、nextSibling等属性获取文本节点，或者使用Document节点的createTextNode方法创造一个文本节点。
+
+```
+// 获取文本节点
+var textNode = document.querySelector('p').firstChild;
+```
 
 
- 
+### 4.1 Text 节点的属性
+- data data属性等同于nodeValue属性
+- length 
+- nextElementSibling，previousElementSibling
+
+```
+// HTML 为
+// <div>Hello <em>World</em></div>
+var tn = document.querySelector('div').firstChild;
+tn.nextElementSibling
+// <em>World</em>
+```
+
+### 4.2 Text 节点的方法
+以下5个方法都是编辑Text节点文本内容的方法。
+
+- appendData()：在Text节点尾部追加字符串。
+- deleteData()：删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。
+- insertData()：在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。
+- replaceData()：用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。
+- subStringData()：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。
 
 
-## 文档碎片及dom回流
+
+## 5 文档碎片及dom回流
 1. document.createDocumentFragment();
 
 2. DOM 回流(reflows)与重绘(repaints)
@@ -667,4 +695,118 @@ bottom：元素底部相对于视口的纵坐标（等于y + height）
 
 
 ```	
-	
+
+## 6 CSS 操作
+
+操作 CSS 样式最简单的方法，就是使用网页元素节点的getAttribute方法、setAttribute方法和removeAttribute方法，         
+直接读写或删除网页元素的style属性。     
+
+```
+div.setAttribute(
+  'style',
+  'background-color:red;' + 'border:1px solid black;'
+);
+
+```
+
+### 6.1 CSSStyleDeclaration 接口
+
+CSSStyleDeclaration 接口用来操作元素的样式。三个地方部署了这个接口。       
+
+- 元素节点的style属性（Element.style）
+- CSSStyle实例的style属性
+- window.getComputedStyle()的返回值
+
+注意：Element.style返回的只是**行内样式**，并不是该元素的全部样式。  
+  通过样式表设置的样式，或者从父元素继承的样式，无法通过这个属性得到。元素的**全部样式要通过window.getComputedStyle()**得到。
+
+```
+var divStyle = document.querySelector('div').style;
+
+divStyle.backgroundColor = 'red'; //  backgroundColor 为 background-color
+divStyle.border = '1px solid black';
+divStyle.width = '100px';
+
+```
+
+-
+注意： 
+- **float写成cssFloat**
+- **background-color写成 backgroundColor**
+- 属性值都是字符串，设置时必须**包括单位**，但是不含规则结尾的分号。比如，divStyle.width不能写为100，而要写为100px。
+
+
+
+#### 6.1.1 实例属性
+
+- cssText  用来读写当前规则的所有样式声明文本。
+- length  表示当前规则包含多少条样式声明。
+
+
+
+```
+var divStyle = document.querySelector('div').style;
+
+divStyle.cssText = 'background-color: red;'
+  + 'border: 1px solid black;'
+  + 'height: 100px;'
+  + 'width: 100px;';
+
+```
+
+
+#### 6.1.2 实例方法
+
+- getPropertyPriority()       
+接受 CSS 样式的属性名作为参数，返回一个字符串，表示有没有设置important优先级。如果有就返回important，否则返回空字符串
+
+- getPropertyValue()          
+接受 CSS 样式属性名作为参数，返回一个字符串，表示该属性的属性值。        
+
+- item() 接受 整数值作为参数，返回该位置的 CSS 属性名
+- removeProperty() 接受一个属性名作为参数，在 CSS 规则里面移除这个属性
+- setProperty()  接受三个参数。
+
+    第一个参数：属性名，该参数是必需的。        
+    第二个参数：属性值，该参数可选。如果省略，则参数值默认为空字符串。                      
+    第三个参数：优先级，该参数可选。如果设置，唯一的合法值是important，表示 CSS 规则里面的!important。                          
+
+
+
+```
+// <div id="myDiv" style="margin: 10px!important; color: red;"/>
+var style = document.getElementById('myDiv').style;
+style.margin // "10px"
+style.getPropertyPriority('margin') // "important"
+
+var style = document.getElementById('myDiv').style;
+style.margin // "10px"
+style.getPropertyValue("margin") // "10px"
+
+```
+
+
+
+
+### 6.2  window.getComputedStyle()
+
+参数：
+- 第一个参数：一个节点对象，返回一个 CSSStyleDeclaration 实例，包含了指定节点的最终样式信息           
+- 第二个参数： 表示当前元素的伪元素（比如:before、:after、:first-line、:first-letter等）。  
+
+```
+    .box:before{
+        content: "我在前面 before";
+        display: block;
+        text-align: center;
+        background: lightcoral;
+        margin: 10px;
+    }
+
+
+    var oDiv = document.getElementById("div1");
+    var beforeContent = window.getComputedStyle(oDiv,"before")["display"];
+
+    console.log(beforeContent); // "block"
+
+```
