@@ -70,7 +70,7 @@ DOM1级定义了一个Node接口，该接口由DOM所有节点类型实现。
 - 获取当前元素的所有 __元素子节点__ （只包括元素子节点）
 - 返回节点集合（IE6、7、8下会把注释当做元素子节点）
 
-### 1.4 parentNode、.parentElement
+### 1.4 parentNode、parentElement
 - 获取当前元素的父节点 
 
 ### 1.5 previousSibling、nextSibling
@@ -203,11 +203,294 @@ document.documentURI === document.URL
 
 ### 2.4 document.cookie
 
+### 2.5 方法
+
+- document.open()，document.close()
+- document.write()，document.writeln()
+- document.querySelector()，document.querySelectorAll()
+- document.getElementsByTagName()
+- document.getElementsByClassName()
+- document.getElementsByName()
+- document.getElementById()
+- document.createElement()
+- document.createTextNode()
+- document.createAttribute()
+- document.createComment()
+- document.createDocumentFragment()
+- document.createEvent()
+- document.addEventListener()，document.removeEventListener()，document.dispatchEvent()
+
+1. document.getElementById 
+ - 上下文只能是document
+ - returns an __Element__ object 
+ 
+2. [context].getElementsByTagName 
+ - returns __HTMLCollection__
+ 
+3. [context].getElementsByClassName
+ - returns  __HTMLCollection__
+ - IE6-8下不兼容
+ - 如果查找多个类，类名顺序不重要，[context].getElementsByClassName("item2 item1")，    
+ 可以匹配 <div class='item1 item2'>
+ 
+4. document.getElementsByName 
+ - 上下文只能是document
+ - returns __NodeList__ Collection
+ - IE浏览器(9及以下)只能识别表单元素的name属性，一般用于操作表单元素
+   
+5. [context].querySelector
+ - Returns the first element that is a descendant of the element
+ 
+6. [context].querySelectorAll()
+- returns a __static__ (not live) NodeList（静态的）
+- querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
+
+7. document.createElement(tagName) 
+```
+// 可利用a标签的属性解析字符串
+var link = document.createElement("a");
+link.href = "http://www.baidu.com/stu/?name=zxt&age=22&sex=1#teacher";
+console.log(link.hostname); // www.baidu.com
+console.log(link.pathname); // /stu/
+console.log(link.protocol);// http:
+console.log(link.search);   // ?name=zxt&age=22&sex=1
+console.log(link.hash);     // #teacher
+```
+
+8. document.createTextNode()
+
+```
+var newtext = document.createTextNode(text),
+p1 = document.getElementById("p1");
+p1.appendChild(newtext);
+```
+
+9. document.createEvent()/dispatchEvent()
+
+document.createEvent方法生成一个事件对象（Event实例），该对象可以被element.dispatchEvent方法使用，触发指定事件。
+
+```
+var event = document.createEvent('Event');
+event.initEvent('build', true, true);
+document.addEventListener('build', function (e) {
+  console.log(e.type); // "build"
+}, false);
+document.dispatchEvent(event);
+```
+
+
+## 3 Element
+
+## 3.1 元素特性的相关属性
+
+- Element.id
+- Element.tagName 返回指定元素的大写标签名,与nodeName属性的值相等
+- Element.accessKey 分配给当前元素的快捷键, btn.accessKey // "h"
+- Element.draggable 返回一个布尔值，表示当前元素是否可拖动
+- Element.lang 当前元素的语言设置 <html lang="en">
+- Element.tabIndex 返回一个整数，表示当前元素在 Tab 键遍历时的顺序
+- Element.title 读写当前元素的 HTML 属性title
+
+## 3.2 元素状态的相关属性
+
+- Element.contentEditable，
+- Element.attributes     
+属性返回一个类似数组的对象，NamedNodeMap   
+- Element.className，Element.classList     
+className属性用来读写当前元素节点的class属性。它的值是一个字符串，每个class之间用空格分割。            
+**classList属性返回一个类似数组的对象**，当前元素节点的每个class就是这个对象的一个成员.                 
+
+```
+console.log(div.className);
+// "one two three"
+
+console.log(div.classList);
+// object DOMTokenList]: {0: "one", 1: "two", 2: "three", length: 3, value: "one two three"}
+
+```
+
+
+**classList对象有下列方法**:
+
+- add()：增加一个 class。
+- remove()：移除一个 class。
+- contains()：检查当前元素是否包含某个 class。
+- toggle()：将某个 class 移入或移出当前元素。
+- item()：返回指定索引位置的 class。
+- toString()：将 class 的列表转为字符串。
+
+
+
+## 3.3 Element.innerHTML / outerHTML
+返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写.    
+如果文本节点包含&、小于号（<）和大于号（>），innerHTML属性会将它们转为实体形式&amp;、&lt;、&gt;   
+
+```
+// HTML代码如下 <p id="para"> 5 > 3 </p>
+document.getElementById('para').innerHTML
+// 5 &gt; 3
+
+```
+outerHTML属性返回一个字符串，表示当前元素节点的所有 HTML 代码，包括该元素本身和所有子元素。   
+
+```
+// HTML 代码如下
+// <div id="d"><p>Hello</p></div>
+var d = document.getElementById('d');
+d.outerHTML
+// '<div id="d"><p>Hello</p></div>'
+
+```
+
+
+## 3.4 Element.clientHeight，Element.clientWidth
+
+1. Element.clientHeight属性返回一个整数值，表示元素节点的 CSS 高度（单位像素），**只对块级元素生效**，对于行内元素返回0。            
+如果块级元素没有设置 CSS 高度，则返回实际高度。        
+
+2. 除了元素本身的高度，它还**包括padding**部分，但是**不包括border、margin**。                    
+如果有水平滚动条，还要减去水平滚动条的高度。注意，这个值始终是整数，如果是小数会被四舍五入。           
+
+3. Element.clientWidth属性返回元素节点的 CSS 宽度，同样只对块级元素有效，也是只包括元素本身的宽度和padding，            
+如果有垂直滚动条，还要减去垂直滚动条的宽度。               
+
+注意：不设置height等于300px时
+oDiv.clientHeight //240 （此时内容不溢出），
+oDiv.clientHeight //570 （增加内容，文本框高度自动扩大，此时内容不溢出）
+
+设置height等于300px时            
+oDiv.clientHeight //360  ;360px = 300px(height) + 上下padding(30px),此时内容不溢出
+oDiv.clientHeight //360  ;增加内容,文本内容溢出，clientHeight仍为360
+ 
+ 
+document.documentElement的clientHeight属性，返回当前视口的高度（即浏览器窗口的高度），                                    
+等同于window.innerHeight属性减去水平滚动条的高度（如果有的话）。  
+document.body的高度则是网页的实际高度。                       
+一般来说，document.body.clientHeight大于document.documentElement.clientHeight。                   
+
+```
+document.body.clientHeight;//25597
+
+document.documentElement.clientHeight;//722
+
+```
+
+
+## 3.5 clientLeft、clientTop 
+
+Element.clientLeft属性等于元素节点**左边框（left border）的宽度**（单位像素），不包括左侧的padding和margin。 
+如果**没有设置左边框，或者是行内元素（display: inline），该属性返回0**。该属性总是返回整数值，如果是小数，会四舍五入。                                  
+Element.clientTop属性等于网页元素顶部边框的宽度（单位像素），其他特点都与clientLeft相同。         
+
+
+## 3.6 scrollWidth /scrollHeight
+  > 内容不溢出时，和clientWidth、cientHeight一致，
+  > 溢出时，其值为真实内容的高度/宽度 + 上填充/左填充
+
+Element.scrollHeight属性返回一个整数值（小数会四舍五入），表示当前元素的总高度（单位像素），包括溢出容器、当前不可见的部分。    
+它包括padding，但是不包括border、margin以及水平滚动条的高度（如果有水平滚动条的话），还包括伪元素（::before或::after）的高度。    
+
+## 3.7 scrollLeft/ scrollTop
+- 滚动条卷去的宽度/高度
+- 对于那些没有滚动条的网页元素，这两个属性总是等于0。
+
+
+
+## 3.8 offsetHeight/offsetWidth (和clientHeight 类似)
+Element.offsetHeight属性返回一个整数，表示元素的 CSS 垂直高度（单位像素），              
+包括元素本身的**高度、padding 和 border，以及水平滚动条的高度**（如果存在滚动条）.  
+offsetWidth 类似。  
+
+  (设置height时，和内容是否溢出没有关系)
+   offsetHeight; //380 = clientHeight + 上下border 高度
+   offsetWidth ;// 380 = clientWidth + 上下border 宽度
+   
+  (不设置height时，增加内容，文本框高度自动扩大，此时内容不溢出，offsetHeight = clientHeight + 上下border 高度
 
 
 
 
+## 3.9 offsetLeft / offsetTop 当前元素的外边框距离父级参照物内边框的偏移量
+  (chrome测试时，如果offsetParent 为body，则会包含body的边框值及margin值？)
+   
+## 3.10 offsetParent 当前元素的父级参照物
+Element.offsetParent属性返回最靠近当前元素的、并且 CSS 的position属性不等于static的上层元素。
+- 1. 元素自身有fixed定位，offsetParent 的结果为null（ 元素有fixed定位，固定定位元素相对于视口定位，
+没有定位父级，因此返回null; firefox 返回body）
+- 2. 元素 display: none，则其offsetParent 的结果为null
+- 3. 元素自身无fixed定位，父级元素存在定位的元素， offsetParent 为 离自身最近的经过定位的(position属性不等于static)父级元素
+- 4. 元素自身无fixed定位，父级元素都未定位， offsetParent 为 body
+- 5. body 元素的offsetParent 是 null
+- 6. ie7- bug :
+       (1) 元素本身经过绝对定位或相对定位，且父级元素无定位的元素，ie7-下offsetParent 是html；           
+       (2) 父级元素存在haslayout的元素或者经过定位的元素，则元素的offsetParent为经过定位或触发了haslayout的父级元素     
 
+
+
+## 3.11 Element.style 
+## 3.12 Element.children  
+返回一个类似数组的对象（HTMLCollection实例），包括当前元素节点的所有子元素。 
+## 3.13 Element.firstElementChild，Element.lastElementChild
+## 3.14 Element.nextElementSibling，Element.previousElementSibling
+
+## 3.15 方法
+ 
+- getAttribute(attrName)：读取某个属性的值，返回属性值（string)
+- getAttributeNames()：返回当前元素的所有属性名
+- setAttribute(name, value)：写入属性值
+- hasAttribute(attrName)：表示当前元素节点是否包含指定属性
+- hasAttributes()： 性返回一个布尔值，表示当前元素是否有属性
+- removeAttribute(attrName)：删除属性
+
+- Element.querySelector()
+- Element.querySelectorAll()
+- Element.getElementsByClassName()
+- Element.getElementsByTagName()
+
+- Element.getBoundingClientRect()
+- Element.remove()
+- Element.focus()，Element.blur()
+- Element.click()
+
+
+```
+var oDiv = document.getElementById("div1");
+oDiv.index1 = 100;
+oDiv.setAttribute("index2","200");
+console.dir(oDiv); // index1:100
+// 在dom树结构中可看到index2 属性
+
+```
+
+```
+var oDiv = document.getElementsByClassName("content")[2];
+// 自定义查找上一个 兄弟元素节点
+oDiv.getPreviousSiblingEle = function(){
+    var previusNode = this.previousSibling;
+    while(true){
+        if(previusNode.nodeType==1) return previusNode;
+        previusNode = previusNode.previousSibling;
+    }
+}
+var previousEle = oDiv.getPreviousSiblingEle();
+console.dir(previousEle);
+console.dir(oDiv.previousElementSibling);
+```
+
+```
+getBoundingClientRect方法返回的rect对象，具有以下属性（全部为只读）。
+
+x：元素左上角相对于视口的横坐标
+y：元素左上角相对于视口的纵坐标
+height：元素高度
+width：元素宽度
+left：元素左上角相对于视口的横坐标，与x属性相等
+right：元素右边界相对于视口的横坐标（等于x + width）
+top：元素顶部相对于视口的纵坐标，与y属性相等
+bottom：元素底部相对于视口的纵坐标（等于y + height）
+
+
+```
 
 
 
@@ -246,99 +529,11 @@ document.documentURI === document.URL
     document.images.namedItem('pic') === pic // true
 ```
 
-
-## 1 获取DOM元素的方法
-1. document.getElementById 
- - 上下文只能是document
- - returns an __Element__ object 
- 
-2. [context].getElementsByTagName 
- - returns __HTMLCollection__
- 
-3. [context].getElementsByClassName
- - returns  __HTMLCollection__
- - IE6-8下不兼容
- - 如果查找多个类，类名顺序不重要，[context].getElementsByClassName("item2 item1")，    
- 可以匹配 <div class='item1 item2'>
- 
-4. document.getElementsByName 
- - 上下文只能是document
- - returns __NodeList__ Collection
- - IE浏览器(9及以下)只能识别表单元素的name属性，一般用于操作表单元素
-
-   
-8. [context].querySelector
- - Returns the first element that is a descendant of the element
- 
-9. [context].querySelectorAll()
-- returns a __static__ (not live) NodeList（静态的）
-- querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
-
-
-
-
-
-
-
-
-## 4 DOM的节点
- 
  
 
-##  5 DOM元素创建
 
+ 
 
-1. document.createElement(tagName) 
-```
-// 可利用a标签的属性解析字符串
-var link = document.createElement("a");
-link.href = "http://www.baidu.com/stu/?name=zxt&age=22&sex=1#teacher";
-console.log(link.hostname); // www.baidu.com
-console.log(link.pathname); // /stu/
-console.log(link.protocol);// http:
-console.log(link.search);   // ?name=zxt&age=22&sex=1
-console.log(link.hash);     // #teacher
-```
-
-2. document.createTextNode()
-
-```
-var newtext = document.createTextNode(text),
-p1 = document.getElementById("p1");
-p1.appendChild(newtext);
-```
-
-
-3.
-   
-## 属性操作
-1. Element.setAttribute(name, value);
-2. Element.getAttribute()，返回属性值（string)
-3. Element.removeAttribute(attrName); 
-
-```
-var oDiv = document.getElementById("div1");
-oDiv.index1 = 100;
-oDiv.setAttribute("index2","200");
-console.dir(oDiv); // index1:100
-// 在dom树结构中可看到index2 属性
-
-```
-
-```
-var oDiv = document.getElementsByClassName("content")[2];
-// 自定义查找上一个 兄弟元素节点
-oDiv.getPreviousSiblingEle = function(){
-    var previusNode = this.previousSibling;
-    while(true){
-        if(previusNode.nodeType==1) return previusNode;
-        previusNode = previusNode.previousSibling;
-    }
-}
-var previousEle = oDiv.getPreviousSiblingEle();
-console.dir(previousEle);
-console.dir(oDiv.previousElementSibling);
-```
 
 ## 文档碎片及dom回流
 1. document.createDocumentFragment();

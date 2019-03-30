@@ -1,21 +1,7 @@
 # 元素尺寸
 
-## 1 元素的offsetParent
 
-1.  元素自身有fixed定位，offsetParent 的结果为null；
-    元素有fixed定位，固定定位元素相对于视口定位，没有定位父级，因此返回null; firefox不兼容， 返回body
-
-2. 元素自身无fixed定位，父级元素存在定位的元素， offsetParent 为 离自身最近的经过定位的父级元素
-
-3.  元素自身无fixed定位，父级元素都未定位， offsetParent 为 body
-
-4.  body 元素的offsetParent 是 null
-
-5.  ie7- 下的bug :
-    (1) 元素本身经过绝对定位或相对定位，且父级元素无定位的元素，ie7-下offsetParent 是html；
-    (2) 父级元素存在haslayout的元素或者经过定位的元素，则元素的offsetParent为经过定位或触发了haslayout的父级元素
-
-## 2 偏移量
+## 1 偏移量
 ![offsetTop/Left](./offsetTop-Left.jpg)
 ###  offsetWidth/offsetHeight
   offsetWidth = border左右宽度 + 左右padding + width;    //不包含margin
@@ -76,7 +62,9 @@ IE8- 浏览器将垂直滚动条的宽度计算在width宽度和height高度中�
 ```
 
 2. 如果给元素设置了display:none，则它的偏移量属性都为0 (offsetWidth/offsetHeight/offsetTop/offsetLeft)
-3. 每次访问偏移量属性都需要重新计算（注意性能问题）
+3. 每次访问偏移量属性都需要重新计算,重复访问需要耗费大量的性能。  （注意性能问题）
+
+
 
 ### 页面偏移
 要知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，
@@ -141,9 +129,4 @@ clientWidth = padding-left + width + padding-right
 document.documentElement.clientWidth
 document.documentElement.clientHeight;
 
-
-### 客户区尺寸注意点
-1. 所有客户区client属性都是只读的   
-2. 如果给元素设置了display:none，则客户区client属性都为0    
-3. 每次访问客户区client属性都需要重新计算，重复访问需要耗费大量的性能。  
 

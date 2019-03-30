@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div contenteditable id="div1">123</div>
+    <div class="one two three" id="myDiv"></div>
+    <script>
+        var oDiv = document.getElementById("div1");
+        var attrs = oDiv.attributes;
+        console.log(attrs);  // object NamedNodeMap
+        for (var i = attrs.length - 1; i >= 0; i--) {
+            console.log(attrs[i].name + '->' + attrs[i].value); // contenteditable->   id->div1
+        }
+
+
+        var div = document.getElementById('myDiv');
+
+        console.log(div.className);
+        // "one two three"
+
+        console.log(div.classList);
+        // object DOMTokenList]: {0: "one", 1: "two", 2: "three", length: 3, value: "one two three"}
+
+
+    </script>
+</body>
+
+</html>
