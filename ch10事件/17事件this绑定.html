@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .div1{
+        color: #0000cc;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+  <div>
+    <div id="div1" onclick="func()"  name="book1">DOM0 行内</div>
+	<div id="div11" onclick="console.log(this)"  name="book1">DOM0 行内2</div>
+	<hr>
+	<div id="div2" name="book2">DOM0 function</div>
+	<hr>
+	<div id="div3" name="book3">DOM3 addEventListener</div>
+	<hr>
+	<div>
+      <div id="div21" onclick="func2(this,event)"  name="book1">hello 21</div>
+	</div>
+</div>
+<script>    
+// "use strict"
+function func() {      
+    console.log(this);      //  点击后直接获取本点击对象 window
+    }
+</script> 
+
+<script>  
+  function func2(obj,e) {      
+      console.log(obj);       //  点击后直接获取本点击对象 div#div21
+      console.log(obj.getAttribute("name")); 
+      console.log(obj.innerHTML); 
+	  console.log(e); 
+    }
+</script> 
+ 
+<script>
+    window.onload = function(){
+     document.getElementById("div2").onclick  = function(e){
+      
+       console.log(this) ;// div2
+	   console.log(e);
+     };
+
+     document.getElementById("div3").addEventListener("click",function(e){
+       console.log("clidk--- addEventListener");
+       console.log(this) ;// div
+	   console.log(e);
+     })
+   } 
+</script>
+
+</body>
+</html>
