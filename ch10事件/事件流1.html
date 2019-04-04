@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #father{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+        #son{
+            width: 50px;
+            height: 50px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="son">son</div>
+    </div>
+
+
+<script type="text/javascript">
+    var oDivFather = document.getElementById("father");
+    var oDiv = document.getElementById("son");
+    
+   var EventUtil = {
+       addHandler:function (ele,type,handler) {
+           if(ele.addEventListener){
+               ele.addEventListener(type,handler,false);
+           }else if(ele.attachEvent){
+               ele.attachEvent("on"+type,handler);
+           }else{
+               ele["on"+type] = handler;
+           }
+       },
+       removeHandler:function (ele,type,handler) {
+           if(ele.removeEventListener){
+               ele.removeEventListener(type,handler,false);
+           }else if(ele.detachEvent){
+               ele.detachEvent("on"+type,handler);
+           }else{
+               ele["on"+type] = null;
+           }
+       }
+   }
+   
+   // 冒泡传播
+   
+   document.addEventListener('click',function(){
+       console.log(this);
+   },false)
+
+   document.body.addEventListener('click',function(){
+       console.log(this);
+   },false)
+   oDivFather.addEventListener('click',function(){
+       console.log(this);
+   },false)
+   oDiv.addEventListener('click',function(){
+       console.log(this);
+   },false)
+
+   // div#son --- div#parent --- body --- document
+ 
+
+
+    // 冒泡捕获
+ 
+    oDivFather.addEventListener('click',function(){
+        console.log(this);
+    },true)
+    oDiv.addEventListener('click',function(){
+        console.log(this);
+    },true)
+    document.addEventListener('click',function(){
+        console.log(this);
+    },true)
+
+    document.body.addEventListener('click',function(){
+        console.log(this);
+    },true)
+ 
+    
+    // document--- body ---div#parent  ---div#son 
+
+    
+</script>
+</body>
+</html>
