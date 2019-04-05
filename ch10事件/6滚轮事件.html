@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+  
+<script type="text/javascript">
+/*
+//  chrome edge
+   
+    document.addEventListener("mousewheel",function(e){
+        console.log(e.wheelDelta); // 120(向上) -120（向下）
+    },false);
+
+// firefox
+    document.addEventListener("DOMMouseScroll",function(e){
+        console.log(e.detail); // -3(向上) 3（向下）
+    },false);
+*/
+    var EventUtil = {
+        getWheelDelta:function(event){
+            if(event.wheelDelta){
+                return event.wheelDelta
+            }else{
+                return -event.detail*40;
+            }
+        }
+    }
+    
+    document.addEventListener("mousewheel",function(e){
+            console.log(EventUtil.getWheelDelta(e)); //  
+        },false);
+
+    document.addEventListener("DOMMouseScroll",function(e){
+            console.log(EventUtil.getWheelDelta(e)); //  
+        },false);
+
+
+</script>
+</body>
+</html>

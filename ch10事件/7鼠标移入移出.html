@@ -19,7 +19,7 @@
         #detail{
             height: 100px;
             width: 200px;
-            background: deepskyblue;
+            background: yellow;
             display: none;
             position: absolute;
             left: 0;
@@ -33,25 +33,31 @@
     </div>
     <script type="text/javascript">
         var box = document.getElementById("box"),cart = document.getElementById("cart"),detail = document.getElementById("detail");
+/*
+        // mouseover / mouseout 会在后代元素上触发
         cart.addEventListener("mouseover",function(e){
             e = e || window.event;
             detail.style.display = "block";
-        })
+        },true)
 
         cart.addEventListener("mouseout",function(e){
             e = e || window.event;
             detail.style.display = "none";
-        })
+        },true)
+    */    
 
-/*        cart.addEventListener("mouseenter",function(e){
+// 
+        cart.addEventListener("mouseenter",function(e){
          e = e || window.event;
          detail.style.display = "block";
-         })
+         console.log("mouseenter");
+         },true)
 
          cart.addEventListener("mouseleave",function(e){
          e = e || window.event;
          detail.style.display = "none";
-         })*/
+         console.log("mouseleave");
+         },true)
 
     </script>
 </body>

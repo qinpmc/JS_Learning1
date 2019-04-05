@@ -49,7 +49,7 @@ onsubmit	表单提交时触发	2
 - **实际浏览器实现过程中在捕获和冒泡阶段皆触发目标上的事件（DOM2级绑定）**。        
 ![DOM事件流](./DOM事件流.png)
 
-示例：事件流1.html
+示例：1事件流.html
 
 0. HTML事件处理程序
 HTML事件处理程序即在标签内写事件，如：
@@ -60,6 +60,8 @@ HTML事件处理程序即在标签内写事件，如：
 
 - 为同一个元素/标签绑定多个同类型事件的时候（如给上面的这个btn元素绑定3个点击事件），是不被允许的，后面绑定的处理函数会覆盖前面绑定的；  
 - DOM0事件绑定，给元素的事件行为绑定方法，这些方法都是在当前元素事件行为的**冒泡阶段**(或者目标阶段)执行的。
+
+示例：2事件(DOM0级).html
 
 ```
  
@@ -163,24 +165,10 @@ document.body.scrollLeft和 document.body.scrollTop)
 - altKey,ctrlKey,shiftKey等：返回一个布尔值；
 - keyCode：返回keydown何keyup事件发生的时候按键的代码，以及keypress 事件的Unicode字符；(firefox2不支持 event.keycode，可以用 event.which替代 )
 
-```
-// stopImmediatePropagation 示例
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', event => {
-  console.log('btn click 1');
 
-  event.stopImmediatePropagation();
-});
-btn.addEventListener('click', event => {
-  console.log('btn click 2');  // 不执行
-});
-document.body.addEventListener('click', () => {
-  console.log('body click');
-});
-// btn click 1
- 
+**事件兼任处理**
 
-```
+示例： 3事件(兼容性).html
 
 
 ```
@@ -248,6 +236,66 @@ document.body.addEventListener('click', () => {
 ```
 
 
+
+**target 与 currentTarget**
+- currentTarget 为事件处理程序当前正在处理事件的那个元素   
+- target/srcElement(ie)为事件源，就是发生事件的元素（事件的真正目标）
+
+示例：4事件(target).html
+
+
+**stopImmediatePropagation**
+
+```
+// stopImmediatePropagation 示例
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', event => {
+  console.log('btn click 1');
+
+  event.stopImmediatePropagation();
+});
+btn.addEventListener('click', event => {
+  console.log('btn click 2');  // 不执行
+});
+document.body.addEventListener('click', () => {
+  console.log('body click');
+});
+// btn click 1
+ 
+
+```
+
+**事件上与鼠标事件相关的位置**
+ 
+- clientX/clientY :光标客户区坐标
+- pageX / pageY :光标页面坐标
+- screenX /screenY : 光标屏幕坐标
+- offsetX /offsetY :光标相对元素边界的x/y 坐标
+具体参见下图：
+
+![鼠标事件上的位置](./event-size.jpg)
+
+
+**修改键**
+- event.shiftKey: 布尔值，按下为true
+- event.ctrlKey: 布尔值，按下为true
+- event.altKey: 布尔值，按下为true
+- event.metaKey: 布尔值，按下为true，windows上 Windows键
+
+
+**相关元素relatedTarget**
+发生 mouseover或mouseout事件（只对这2个事件有用，其余事件是为null）时，涉及相关元素relatedTarget 。   
+比如移出某个元素1到另一个元素2上，元素1上触发mouseout，相关元素为元素1，与此同时，元素2上触发mouseover，相关元素为元素2.   
+
+
+**鼠标按钮**
+对于mousedown 和 mouseup事件，其event对象上有button属性，    
+- 0： 表示主鼠标键
+- 1：表示中间鼠标键
+- 2：表示次鼠标键 
+
+
+
 ## 4 UI 事件
 - load ：加载后触发，用于window、img、object等上
 - unload：完全卸载后触发
@@ -257,26 +305,53 @@ document.body.addEventListener('click', () => {
 - resize
 - scroll
 
-## 4.1 load 事件
+### 4.1 load 事件
 
 0. window、body上都可绑定load事件 
-1. img 上绑定load事件，应该在指定src属性之前先指定事件，然后给img的src赋值。
+1. img 上绑定load事件，应该在指定src属性之前先指定事件，然后给img的src赋值。img设置了src就会下载。
 2. script和link 动态插入时，绑定事件和指定元素的地址（script为src/link为href）的顺序不重要，   
 因为只有在指定了src/href后，将其添加到dom中后才开始下载脚本或样式文件。
 
-## 4.2 焦点 事件
+示例： 5load事件.html
+
+## 5 焦点 事件
 - blur：失去焦点触发，不冒泡
 - focus：获得焦点触发，不冒泡
 - focusin：获得焦点触发，与focus区别为其冒泡
 - focusout：获得焦点触发，与blur区别为其冒泡
 
-## 4.3 滚轮 事件
+## 6 滚轮 事件
+chrome/edge: mousewheel 事件，滚动鼠标获取的值为 e.wheelDelta，120(向上) -120（向下）
+firefox： DOMMouseScroll事件，滚动鼠标获取的值为  e.detail ，-3(向上) 3（向下）
 
+示例： 6滚轮事件.html
 
+```
+    var EventUtil = {
+        getWheelDelta:function(event){
+            if(event.wheelDelta){
+                return event.wheelDelta
+            }else{
+                return -event.detail*40;
+            }
+        }
+    }
 
+```
+## 7 鼠标 事件
+- click：单击事件
+- dbclick：双击事件
+- mousedown：鼠标按下
+- mouseup：鼠标抬起
+- mouseenter：鼠标进入，不冒泡，移动到后代元素不触发
+- mouseleave：鼠标移出，不冒泡，移动到后代元素不触发
+- mouseout：鼠标移出
+- mouseover：鼠标进入
+- mousemove：鼠标在元素上移动
 
+示例： 7鼠标移入移出.html
 
-
+## 8 键盘 事件
 
 
 

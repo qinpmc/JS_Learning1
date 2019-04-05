@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #father{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+        #son{
+            width: 50px;
+            height: 50px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+    </div>
+
+
+<script type="text/javascript">
+// img设置了src就会下载。
+// script和link 动态插入时，绑定事件和指定元素的地址（script为src/link为href）的顺序不重要，   
+// 因为只有在指定了src/href后，将其添加到dom中后才开始下载脚本或样式文件。
+    var oDiv = document.getElementById("div");
+
+    var img1 = document.createElement("img");
+    img1.addEventListener("load",function(){
+        console.log(this)
+    },false)
+   
+   img1.src = "./imgs/1.jpg";
+   oDiv.appendChild(img1);
+
+   var img2 = new Image();
+    img2.addEventListener("load",function(){
+        console.log(this)
+    },false)
+   
+   img2.src = "./imgs/1.jpg";
+   oDiv.appendChild(img2);
+
+
+    
+</script>
+</body>
+</html>
