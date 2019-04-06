@@ -294,6 +294,15 @@ document.body.addEventListener('click', () => {
 - 1：表示中间鼠标键
 - 2：表示次鼠标键 
 
+**键码**
+针对键盘事件keydown、keyup，event上有keycode属性，其值与ASCII码对应的小写字母或数字的编码相同    
+
+**字符编码**
+发生keypress事件时，event对象有一个charCode属性，其值为字符对应的ASCII编码，(IE8以下采用keycode)        
+DOM3 取消了charCode，推出了 key 和char，key取代keycode。 兼容性一般，使用依据事件需求而定。       
+
+
+
 
 
 ## 4 UI 事件
@@ -352,8 +361,16 @@ firefox： DOMMouseScroll事件，滚动鼠标获取的值为  e.detail ，-3(�
 示例： 7鼠标移入移出.html
 
 ## 8 键盘 事件
+- keydown: 键盘按下任意键触发
+- keyup: 键盘任意键释放触发
+- keypress: 按下字符键触发
 
+## 9 HTML5事件
 
+- contextmenu:鼠标右键触发上下文菜单
+示例： 8右键菜单.html
+
+### 9.1 拖拉事件
 
 
 
