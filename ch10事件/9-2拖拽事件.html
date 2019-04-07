@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset=" utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<style type="text/css">
+#ant {
+  width:198px;
+  height:66px;
+  padding:10px;
+  border:1px solid #aaaaaa;
+}
+</style>
+<script type="text/javascript">
+function dragStart(ev){
+  ev.dataTransfer.setData("Text",ev.target.id);
+}
+  
+function dragOver(ev){
+  ev.preventDefault();
+}
+  
+function drop(ev){
+  ev.preventDefault();
+  var data=ev.dataTransfer.getData("Text");
+  ev.target.appendChild(document.getElementById(data));
+}
+  
+window.onload=function(){
+  let odiv=document.getElementById("ant");
+  let img=document.getElementById("img");
+  
+  img.ondragstart=dragStart;
+  odiv.ondragover=dragOver;
+  odiv.ondrop=drop;
+}
+</script>
+</head>
+<body>
+<div id="ant"></div>
+<br/>
+<img id="img" src="./imgs/1.jpg" draggable="true"/>
+</body>
+</html>
