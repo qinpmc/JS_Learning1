@@ -18,7 +18,7 @@ function fn1(){    //变量提升
 ```
 
 ## 预解析-细节问题
-> 条件语句中会预解析
+> 条件语句中会预解析；新浏览器下 条件语句中的函数 提升声明，但未提升定义 （老版浏览器中，函数的声明和定义均提升）
 > 函数声明提前，可以执行; 函数表达式不预解析
 > 自执行函数不进行预解析
 > 函数体中return下面的代码虽然不执行，但是需要预解析；但return后面的是返回值，不进行预解析
@@ -72,6 +72,26 @@ console.log(num) //100 ,也可通过window.num 访问
 
 console.log(delete num2);  //true，未通过var 定义的变量可删除
 console.log(delete num);   //false ,通过var 定义的变量无法删除
+
+```
+
+# 条件语句中的预解析与变量提升
+
+```
+    f = function(){return true};
+    g = function(){return false};
+    
+    ~function(){
+
+        // 条件语句中的函数进行了 提升声明，但未提升定义，因此  console.log(g) 输出undefined，而g() 报错
+        console.log(g); // undefined
+        if(g()&& []==![]){  //Uncaught TypeError: g is not a function 
+            f = function(){return false};
+            function g(){return true}
+        }
+    }();
+    console.log(f());
+    console.log(g());
 
 ```
 

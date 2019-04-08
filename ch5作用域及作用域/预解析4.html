@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+
+        f = function(){return true};
+        g = function(){return false};
+        
+        ~function(){
+
+            // 条件语句中的函数进行了 提升声明，但未提升定义，因此  console.log(g) 输出undefined，而g() 报错
+            console.log(g); // undefined
+            if(g()&& []==![]){  //Uncaught TypeError: g is not a function 
+                f = function(){return false};
+                function g(){return true}
+            }
+        }();
+        console.log(f());
+        console.log(g());
+    </script>
+</body>
+</html>
