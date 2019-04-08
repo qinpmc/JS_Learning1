@@ -1,0 +1,78 @@
+<head>
+  <script type="text/javascript">
+      function SetDragEffect (event) {
+          if (event.dataTransfer) {
+              var dragEffect = document.getElementById ("dragEffect");
+              event.dataTransfer.effectAllowed = dragEffect.value;
+          }
+      }
+
+      function SetDropEffect (event) {
+          if (event.dataTransfer) {
+              var dropEffect = document.getElementById ("dropEffect");
+              event.dataTransfer.dropEffect = dropEffect.value;
+          }
+      }
+
+      function GetDroppedItem (event) {
+          if (!event.dataTransfer) {
+              alert ("Your browser does not support the dataTransfer object.");
+              return;
+          }
+          
+          var transferObj = event.dataTransfer;
+          
+          var textData = transferObj.getData ("Text");
+
+          var info = document.getElementById ("info");
+          if ('textContent' in info) {
+              info.textContent = textData;
+          }
+          else {
+              info.innerText = textData;
+          }
+      }
+  </script>
+</head>
+<body>
+  <table cellpadding="5px" cellspacing="5px">
+      <tr>
+          <td>
+              Please select the allowed drag effect:
+              <select id="dragEffect">
+                  <option value="none">none</option>
+                  <option value="copy">copy</option>
+                  <option value="move">move</option>
+                  <option value="link">link</option>
+                  <option value="copymove">copymove</option>
+                  <option value="copylink">copylink</option>
+                  <option value="linkmove">linkmove</option>
+                  <option value="all">all</option>
+              </select>
+          </td>
+          <td>
+              Please select the allowed drop effect:
+              <select id="dropEffect">
+                  <option value="none">none</option>
+                  <option value="copy">copy</option>
+                  <option value="move">move</option>
+                  <option value="link">link</option>
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <td ondragstart="SetDragEffect (event)" style="background-color:#e0b0f0;">
+              Select some text and drag that!
+          </td>
+          <td ondragstart="return false;" ondragover="SetDropEffect (event); return false;" ondragenter=" return false;"
+               ondrop="GetDroppedItem (event);"
+               style="background-color:#b0e0f0;">
+              Try to drop the selected text here!
+          </td>
+      </tr>
+  </table>
+  <div style="margin-top:30px; width:200px; height:50px; background-color:#b0f0e0;">
+      The dropped text:
+      <div id="info"></div>
+  </div>
+</body>

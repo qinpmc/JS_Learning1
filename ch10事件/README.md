@@ -294,6 +294,15 @@ document.body.addEventListener('click', () => {
 - 1：表示中间鼠标键
 - 2：表示次鼠标键 
 
+**键码**
+针对键盘事件keydown、keyup，event上有keycode属性，其值与ASCII码对应的小写字母或数字的编码相同    
+
+**字符编码**
+发生keypress事件时，event对象有一个charCode属性，其值为字符对应的ASCII编码，(IE8以下采用keycode)        
+DOM3 取消了charCode，推出了 key 和char，key取代keycode。 兼容性一般，使用依据事件需求而定。       
+
+
+
 
 
 ## 4 UI 事件
@@ -352,6 +361,84 @@ firefox： DOMMouseScroll事件，滚动鼠标获取的值为  e.detail ，-3(�
 示例： 7鼠标移入移出.html
 
 ## 8 键盘 事件
+- keydown: 键盘按下任意键触发
+- keyup: 键盘任意键释放触发
+- keypress: 按下字符键触发
+
+## 9 HTML5事件
+
+- contextmenu:鼠标右键触发上下文菜单
+示例： 8右键菜单.html
+
+### 9.1 拖拉事件
+
+被拖动元素上依次触发的事件：
+- dragstart
+- drag
+- dragend
+
+被放置的的目标元素上触发的事件：
+- dragenter
+- dragover
+- dragleave 或 drop
+
+
+几个注意点： 
+- 拖拉过程只触发以上这些拖拉事件，尽管鼠标在移动，但是**鼠标事件不会触发**。
+- 将文件从操作系统拖拉进浏览器，不会触发dragstart和dragend事件。
+- dragenter和dragover事件的监听函数，用来取出拖拉的数据（即允许放下被拖拉的元素）。     
+由于网页的大部分区域不适合作为放下拖拉元素的目标节点，所以这两个事件的默认设置为当前节点不允许接受被拖拉的元素。       
+如果**想要在目标节点上放下的数据，首先必须阻止这两个事件的默认行为**。
+
+示例：9/9-1/9-2/9-3/9-4 拖拽事件
+
+#### 9.1.1 DataTransfer
+拖拉事件的实例都有一个dataTransfer属性，用来读写需要传递的数据。
+
+
+1. dropEffect属性
+用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。它可能取下面的值。
+
+- copy：复制被拖拉的节点
+- move：移动被拖拉的节点
+- link：创建指向被拖拉的节点的链接
+- none：无法放下被拖拉的节点
+
+dropEffect属性一般在dragenter和dragover事件的监听函数中设置，对于dragstart、drag、dragleave这三个事件，该属性不起作用.   
+
+
+
+2. effectAllowed属性
+设置本次拖拉中允许的效果。它可能取下面的值。
+
+- copy：复制被拖拉的节点
+- move：移动被拖拉的节点
+- link：创建指向被拖拉节点的链接
+- copyLink：允许copy或link
+- copyMove：允许copy或move
+- linkMove：允许link或move
+- all：允许所有效果
+- none：无法放下被拖拉的节点
+- uninitialized：默认值，等同于all
+
+dragstart事件的监听函数，可以用来设置这个属性。其他事件的监听函数里面设置这个属性是无效的。
+
+effectAllowed属性: 设置被拖拉的节点允许的效果
+
+dropEffect属性: 设置接受拖拉的区域的效果
+
+
+3. DataTransfer.setData()方法
+用来设置拖拉事件所带有的数据.    
+该方法接受两个参数，都是字符串。第一个参数表示数据类型（比如text/plain），第二个参数是具体数据。    
+如果指定类型的数据在dataTransfer属性不存在，那么这些数据将被加入，否则原有的数据将被新数据替换。    
+
+
+
+4. DataTransfer.getData()方法
+接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。      
+如果指定类型的数据不存在，则返回空字符串。    
+
 
 
 
