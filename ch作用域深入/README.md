@@ -1,6 +1,6 @@
 # 作用域
 
-## javascript的内部编译过程
+## 1 javascript的内部编译过程
 
 
 以var a = 2;为例，说明javascript的内部编译过程，主要包括以下三步：
@@ -48,7 +48,7 @@ javascript编译器首先会对var a=2;这段程序进行编译，然后做好�
 
 
 
-## 查询
+## 2 查询
 引擎查询共分为两种：LHS查询和RHS查询，从字面意思去理解，当变量出现在赋值操作的左侧时进行LHS查询，出现在右侧时进行RHS查询。
 更准确地讲，RHS查询与简单地查找某个变量的值没什么区别，而LHS查询则是试图找到变量的容器本身，从而可以对其赋值。
 
@@ -66,13 +66,13 @@ foo( 2 );
 */
 ```
 
-## 嵌套
+## 3 嵌套
 
 在当前作用域中无法找到某个变量时，引擎就会在外层嵌套的作用域中继续查找，直到找到该变量，或抵达最外层的作用域（也就是全局作用域）为止。
 
-## 异常
+## 4 异常
 
-### RHS
+### 4.1 RHS
 
 1. 如果RHS查询失败，引擎会抛出ReferenceError(引用错误)异常
 
@@ -96,7 +96,7 @@ function foo(){
 foo();//TypeError: b is not a function
 ```
 
-### LHS
+### 4.2 LHS
 
 1. 当引擎执行LHS查询时，如果无法找到变量，全局作用域会创建一个具有该名称的变量，并将其返还给引擎。
 
@@ -119,7 +119,7 @@ foo();
 console.log(a);//ReferenceError: a is not defined
 ```
 
-## 词法作用域
+## 5 词法作用域(静态作用域)
 javascript使用的是 __词法作用域__。
 1. 词法作用域就是定义在词法阶段的作用域，是由写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变
 2. 无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。
@@ -147,7 +147,107 @@ function test(){
 test();
 ```
 
-## 变量声明提升
+```
+
+var value = 1;
+
+function foo() {
+    console.log(value);
+}
+
+function bar() {
+    var value = 2;
+    foo();
+}
+
+bar(); // 1 
+
+//JavaScript采用静态作用域 ：
+// 执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，
+// 查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。
+
+```
+
+
+## 6 动态作用域
+ 
+bash 就是动态作用域，例如如下的 scope.bash，用命令行执行 bash ./scope.bash，
+ 
+```
+value=1
+function foo () {
+    echo $value;
+}
+function bar () {
+    local value=2;
+    foo;
+}
+bar
+
+
+```
+
+**----------欺骗词法----------**
+欺骗词法会导致性能下降，主要有eval 和 with，不推荐使用，这里仅加深对词法作用域理解而说明。
+
+1. eval
+eval 在运行期修改词法作用域
+
+```
+function foo(str,a){
+    eval(str);
+    console.log(a,b)
+}
+var b = 2;
+foo('var b = 3;',1) ;// 1 , 3 
+```
+严格模式下，eval在运行时有自己的词法作用域。
+
+
+```
+function foo(str){
+    'use strict';
+    eval(str);
+    console.log(a)
+}
+foo('var a = 3;') ;// ReferenceError:a is not defined
+```
+
+2. with
+with 可以将一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，        
+因此这个对象的属性也会被处理为定义在这个作用域中的词法标识符.
+
+with 块可以将一个对象处理为词法作用域，但是这个块内部正常的 var 声明并不会被限制在这个块的作用域中，          
+而是被添加到 with 所处的函数作用域中。       
+
+
+```
+ 
+function foo(obj) {
+     with (obj) {
+        a = 2; 
+        b = 3;    
+        var aa = 9;
+    }
+    console.log(aa);  // 9  正常的 var 声明并不会被限制在这个块的作用域中
+    console.log(obj); //{a: 2 }
+ }
+var obj = {a:1}
+foo(obj);
+console.log(b); //3    b 泄露到全局了！！
+```
+
+当我们传递 obj 给 with 时，with 所声明的作用域是 obj，    
+而这个作用域中含 有一个同 obj.a 属性相符的标识符,因此 a=2 修改了obj.a的值。      
+当执行 b=3 时，并未查找到obj.b ,因此进行了正常的 LHS 标识符查找,    
+由于未查找到b，自动创建了一个全局变量b（因为是非严格模式）。
+
+
+
+
+
+
+## 7 变量声明提升
 
 1. 变量和函数在内的所有声明都会在任何代码被执行前首先被处理
 
@@ -195,7 +295,7 @@ function a(){
 }
 ```
 
-## 块作用域
+## 8 块作用域
 
 1. let
 ES6引入了新的let关键字，提供了除var以外的另一种变量声明方式。
@@ -237,4 +337,179 @@ console.log(a[4]());//4
     console.log( a ); //100
     console.log( e ); //ReferenceError: a is not defined
 ```
+
+## 9 可执行代码
+JavaScript 的可执行代码(executable code)就三种：
+- 全局代码
+- 函数代码
+- eval代码。          
+
+## 10 执行上下文栈 Execution Context Stack
+1. 每一种代码的执行都需要依赖自身的上下文。当然global的上下文可能涵盖了很多的function和eval的实例。                    
+2. 函数的每一次调用，都会进入函数执行中的上下文,并且来计算函数中变量等的值。    
+3. eval函数的每一次执行，也会进入eval执行中的上下文，判断应该从何处获取变量的值。        
+
+```
+// 调用同一函数产生不同的上下文
+function foo(bar) {}
+
+// 调用相同的function，每次都会产生3个不同的上下文
+//（包含不同的状态，例如参数bar的值）
+
+foo(10);
+foo(20);
+foo(30);
+```
+
+4. 一个执行上下文可以激活另一个上下文，就好比一个函数调用了另一个函数，从而形成上下文堆栈。  
+
+5. 激活其它上下文的某个上下文被称为**调用者(caller)** 。被激活的上下文被称为**被调用者(callee)** 。        
+被调用者同时也可能是调用者(比如一个在全局上下文中被调用的函数调用某些自身的内部方法)。              
+
+如下图，所有的ECMAScript的程序执行都可以看做是一个执行上下文堆栈[execution context (EC) stack]。                
+堆栈的顶部就是处于激活状态的上下文。         
+![execution stack](./execution stack.png)
+
+```
+// 代码1
+var scope = "global scope";
+function checkscope(){
+    var scope = "local scope";
+    function f(){
+        return scope;
+    }
+    return f();
+}
+checkscope();
+
+/*
+// 代码1 上下文堆栈模拟
+ECStack.push(<checkscope> functionContext);
+ECStack.push(<f> functionContext);
+ECStack.pop();
+ECStack.pop();
+*/
+
+
+// 代码2
+var scope = "global scope";
+function checkscope(){
+    var scope = "local scope";
+    function f(){
+        return scope;
+    }
+    return f;
+}
+checkscope()();
+/*
+// 代码2 上下文堆栈模拟
+ECStack.push(<checkscope> functionContext);
+ECStack.pop();
+ECStack.push(<f> functionContext);
+ECStack.pop();
+*/
+
+
+```
+
+### 10.1 全局代码
+
+在初始化（程序启动）阶段，ECStack是这样的：
+
+```
+ECStack = [
+  globalContext
+];
+```
+
+### 10.2 函数代码
+
+```
+(function  foo(bar) {
+  if (bar) {
+    return;
+  }
+  foo(true);
+})();
+
+```
+那么，ECStack以如下方式被改变：
+
+```
+// 第一次foo的激活调用
+ECStack = [
+  <foo> functionContext
+  globalContext
+];
+ 
+// foo的递归激活调用
+ECStack = [
+  <foo> functionContext – recursively
+  <foo> functionContext
+  globalContext
+];
+```
+
+### 10.3 Eval 代码
+eval 代码有一个概念：调用上下文(calling context),例如，eval函数调用的时候产生的上下文。
+eval(变量或函数声明)活动会影响调用上下文(calling context)。           
+
+```
+eval('var x = 10');
+ 
+(function foo() {
+  eval('var y = 20');
+})();
+ 
+alert(x); // 10
+alert(y); //  Uncaught ReferenceError: y is not defined
+
+```
+
+ECStack的变化过程：    
+
+```
+ECStack = [
+  globalContext
+];
+ 
+// eval('var x = 10');
+ECStack.push(
+  evalContext,
+  callingContext: globalContext
+);
+ 
+// eval exited context
+ECStack.pop();
+ 
+// foo funciton call
+ECStack.push(<foo> functionContext);
+ 
+// eval('var y = 20');
+ECStack.push(
+  evalContext,
+  callingContext: <foo> functionContext
+);
+ 
+// return from eval
+ECStack.pop();
+ 
+// return from foo
+ECStack.pop();
+```
+
+
+
+## 11 执行上下文 Execution Context 
+当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。           
+一个执行的上下文可以抽象的理解为object。于每个执行上下文，都有三个重要属性：  
+- 变量对象(Variable object，VO)   
+- 作用域链(Scope chain)   
+- this  
+
+
+
+
+
+
 
