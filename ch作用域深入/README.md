@@ -367,8 +367,10 @@ foo(30);
 被调用者同时也可能是调用者(比如一个在全局上下文中被调用的函数调用某些自身的内部方法)。              
 
 如下图，所有的ECMAScript的程序执行都可以看做是一个执行上下文堆栈[execution context (EC) stack]。                
-堆栈的顶部就是处于激活状态的上下文。         
-![execution stack](./execution stack.png)
+堆栈的顶部就是处于激活状态的上下文。      
+
+![execution_stack](./execution_stack.png)  
+ 
 
 ```
 // 代码1
@@ -506,10 +508,317 @@ ECStack.pop();
 - 变量对象(Variable object，VO)   
 - 作用域链(Scope chain)   
 - this  
+ 
+```
+activeExecutionContext = {
+    VO: {...}, // or AO
+    this: thisValue,
+    Scope: [ // Scope chain
+      // 所有变量对象的列表
+      // for identifiers lookup
+    ]
+};
+```
+
+
+## 12 变量对象 Variable Object 与 活动对象 Activation Object
+变量对象(variable object) 是与执行上下文相关的 数据作用域(scope of data) 。   
+
+变量对象(缩写为VO)是一个与执行上下文相关的特殊对象，它存储着在上下文中声明的以下内容：
+- 变量 (var, 变量声明);
+- 函数声明 (FunctionDeclaration, 缩写为FD);
+- 函数的形参
+
+注意：**函数表达式[function expression]（而不是函数声明）是不包含在VO[variable object]里面的**。
+
+
+### 12.1 不同执行上下文中的变量对象
+
+
+```
+抽象变量对象VO (变量初始化过程的一般行为)
+  ║
+  ╠══> 全局上下文变量对象GlobalContextVO
+  ║        (VO === this === global)
+  ║
+  ╚══> 函数上下文变量对象FunctionContextVO
+           (VO === AO, 并且添加了<arguments>和<formal parameters>)
+``` 
+
+1. 全局上下文中的变量对象
+- 全局对象(Global object) 是在**进入任何执行上下文之前就已经创建**了的对象；
+- 这个对象**只存在一份**，它的属性在程序中任何地方都可以访问，全局对象的生命周期终止于程序退出那一刻。
+
+全局对象初始创建阶段将Math、String、Date、parseInt作为自身属性，等属性初始化.  
+```
+global = {
+  Math: <...>,
+  String: <...>
+  ...
+  ...
+  window: global //引用自身
+};
+```
+
+
+2. 函数上下文中的变量对象
+在函数执行上下文中，VO是不能直接访问的，此时由**活动对象(activation object,缩写为AO)扮演VO**的角色。即VO(functionContext) === AO;
+
+活动对象是在进入函数上下文时刻被创建的，它通过函数的arguments属性初始化。    
+Arguments对象是活动对象的一个属性，它包括如下属性：      
+- a. callee — 指向当前函数的引用
+- b. length — 真正传递的参数个数
+- c. properties-indexes (字符串类型的整数) 属性的值就是函数的参数值(按参数列表从左到右排列)。 
 
 
 
+### 12.2 处理上下文代码的2个阶段
+
+执行上下文的代码被分成两个基本的阶段来处理：  
+
+1. 进入执行上下文
+2. 执行代码
+
+### 12.2.1 进入执行上下文
+当进入执行上下文(代码执行之前)时，VO里已经包含了下列属性 ：
+
+- 函数的所有形参(如果我们是在函数执行上下文中)    
+由名称和对应值组成的一个变量对象的属性被创建；没有传递对应参数的话，那么由名称和undefined值组成的一种变量对象的属性也将被创建。
+
+- 所有函数声明(FunctionDeclaration, FD)
+由名称和对应值（函数对象(function-object)）组成一个变量对象的属性被创建；如果变量对象已经存在相同名称的属性，则完全替换这个属性（同名情况下，函数覆盖变量）。
+
+- 所有变量声明(var, VariableDeclaration)
+由名称和对应值（undefined）组成一个变量对象的属性被创建；如果变量名称跟已经声明的形式参数或函数相同，则变量声明不会干扰已经存在的这类属性  
+
+```
+function test(a, b) {
+  var c = 10;
+  function d() {}
+  var e = function _e() {};
+  (function x() {});  // 函数表达式并不在AO中
+}
+ 
+test(10); // call
+
+// 当进入带有参数10的test函数上下文时，AO表现为如下：
+
+AO(test) = {
+  a: 10,
+  b: undefined,
+  c: undefined,
+  d: <reference to FunctionDeclaration "d">
+  e: undefined
+};
+
+```
+
+### 12.2.2 代码执行
+
+```
+
+function test(a, b) {
+  var c = 10;
+  function d() {}
+  var e = function _e() {};
+  (function x() {});  // 函数表达式并不在AO中
+}
+ 
+test(10); // call
+
+// 代码执行时：
+AO['c'] = 10;
+AO['e'] = <reference to FunctionExpression "_e">;
+```
+
+### 12.2.3 关于变量
+
+任何时候，变量只能通过使用var关键字才能声明。比如:
+没有通过var 声明， a =99,此时会在全局window上创建属性a。 与var a =99 相比， a=99 可以删除，而 var a =99 不可以删除。
+原因： 变量相对于简单属性来说，变量有一个特性(attribute)：{DontDelete},这个特性的含义就是不能用delete操作符直接删除变量属性。
+
+
+特例是eval上下文，变量没有{DontDelete}特性。
+
+eval('var a = 10;');
+alert(window.a); // 10
+ 
+alert(delete a); // true  ，eval创建的变量 没有{DontDelete}特性，可以被删除
+ 
+alert(window.a); // undefined
+
+
+## 13 作用域链
+
+作用域链是一个 对象列表(list of objects) ，用以检索上下文代码中出现的 标识符(identifiers) 。    
+
+在一般情况下，一个作用域链包括**父级变量对象（variable object）**（作用域链的顶部）、**函数自身变量VO和活动对象（activation object）**。          
+不过，有些情况下**也会包含其它的对象**，例如在执行期间，动态加入作用域链中的—例如**with或者catch语句**。  
+[with-objects指的是with语句，产生的临时作用域对象；catch-clauses指的是catch从句，如catch(e)，这会产生异常对象，导致作用域变更]。    
+
+以函数的创建和激活两个时期来讲解作用域链是如何创建和变化.
+
+
+### 13.1 函数创建
+
+```
+var x = 10;
+ 
+(function foo() {
+  var y = 20;
+  (function bar() {
+    var z = 30;
+    // "x"和"y"是自由变量
+    // 会在作用域链的下一个对象中找到（函数”bar”的互动对象之后）
+    console.log(x + y + z);
+  })();
+})();
+ 
+``` 
+函数创建时，生成的活动对象AO如下： 
+
+```
+fooContext.AO = {
+  y: undefined // undefined – 进入上下文的时候是20 – at activation
+};
+
+
+```
+
+函数“foo”能访问一个更高一层上下文的变量对象, 这种机制是通过函数内部的[[scope]]属性来实现的。
+
+```
+foo.[[Scope]] = [
+  globalContext.VO // === Global
+];
+
+```
+
+### 13.2 函数激活
+
+进入上下文创建AO/VO之后，上下文的Scope属性（变量查找的一个作用域链）作如下定义：          
+Scope = AO|VO + [[Scope]]
+
+下图中是一个作用域链示意图，途中的 __parent__ 为模拟的名称，可认为是[[Scope]]
+![scopechain](./scopechain.png)
 
 
 
+### 13.3 with或者catch 扩大作用域链  
 
+使用with或者catch语句就会改变作用域链。而这些对象都是一些简单对象，他们也会有原型链。这样的话，作用域链会从两个维度来搜寻。
+1. 首先在原本的作用域链
+2. 每一个链接点的作用域的链（如果这个链接点是有prototype的话）
+
+```
+Object.prototype.x = 10;
+ 
+var w = 20;
+var y = 30;
+ 
+// 全局上下文的变量对象是从"Object.prototype"继承到的
+// 所以我们可以得到“没有声明的全局变量”
+// 因为可以从原型链中获取
+ 
+console.log(x); // 10
+ 
+(function foo() {
+ 
+  // "foo" 是局部变量
+  var w = 40;
+  var x = 100;
+ 
+  // 注意："x" 从"Object.prototype"得到，注意值是10哦
+  // 因为{z: 50}是从它那里继承的
+ 
+  with ({z: 50}) {
+    console.log(w, x, y , z); // 40, 10, 30, 50    这里的x 是10 而不是100
+  }
+ 
+  // 在"with"对象从作用域链删除之后
+  // x又可以从foo的上下文中得到了，注意这次值又回到了100哦
+  // "w" 也是局部变量
+  console.log(x, w); // 100, 40    这里的x 又成了100
+ 
+  // 在浏览器里
+  // 我们可以通过如下语句来得到全局的w值
+  console.log(window.w); // 20
+ 
+})();
+
+
+```
+![scopechain2](./scopechain2.png)
+
+### 13.4 几种需注意的作用域链
+
+#### 13.4.1 构造函数创建的函数的[[scope]]
+
+示例：通过函数构造函数（Function constructor）创建的函数“barFn”，是不能访问局部变量“y”的。           
+**通过函构造函数创建的函数的[[scope]]属性总是唯一的全局对象**。    
+```
+var x = 10;
+ 
+function foo() {
+ 
+  var y = 20;
+ 
+  function barFD() { // 函数声明
+    alert(x);
+    alert(y);
+  }
+ 
+  var barFE = function () { // 函数表达式
+    alert(x);
+    alert(y);
+  };
+ 
+  var barFn = Function('alert(x); alert(y);');  // [[scope]]属性总是唯一的全局对象，全局的y为undefined
+ 
+  barFD(); // 10, 20
+  barFE(); // 10, 20
+  barFn(); // 10, "y" is not defined  
+ 
+}
+ 
+foo();
+
+```
+
+
+#### 13.4.2 全局和eval上下文中的作用域链
+全局上下文的作用域链仅包含全局对象。代码eval的上下文与当前的调用上下文（calling context）拥有同样的作用域链。   
+  
+```
+globalContext.Scope = [
+  Global
+];
+ 
+evalContext.Scope === callingContext.Scope;
+
+```
+
+
+#### 13.4.3 with声明和catch语句
+with声明和catch语句的作用域链简要的作如下修改：
+
+Scope = withObject|catchObject + AO|VO + [[Scope]]         
+Scope = catchObject + AO|VO + [[Scope]]              
+
+```
+var x = 10, y = 10;
+ 
+with ({x: 20}) {
+ 
+  var x = 30, y = 30;
+ 
+  alert(x); // 30
+  alert(y); // 30
+}  // 这里退出了with产生的作用域
+ 
+alert(x); // 10
+alert(y); // 30  // 注意全局的y 被修改成30 
+
+```
+
+ 
