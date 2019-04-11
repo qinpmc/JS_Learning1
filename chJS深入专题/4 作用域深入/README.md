@@ -367,7 +367,7 @@ foo(30);
 被调用者同时也可能是调用者(比如一个在全局上下文中被调用的函数调用某些自身的内部方法)。              
 
 如下图，所有的ECMAScript的程序执行都可以看做是一个执行上下文堆栈[execution context (EC) stack]。                
-堆栈的顶部就是处于激活状态的上下文。      
+堆栈的顶部就是处于激活状态的上下文。               
 
 ![execution_stack](./execution_stack.png)  
  
@@ -652,7 +652,7 @@ alert(window.a); // undefined
 
 作用域链是一个 对象列表(list of objects) ，用以检索上下文代码中出现的 标识符(identifiers) 。    
 
-在一般情况下，一个作用域链包括**父级变量对象（variable object）**（作用域链的顶部）、**函数自身变量VO和活动对象（activation object）**。          
+在一般情况下，一个作用域链包括**父级变量对象（variable object）**（作用域链的顶部）、**函数自身变量VO和活动对象AO（activation object）**。          
 不过，有些情况下**也会包含其它的对象**，例如在执行期间，动态加入作用域链中的—例如**with或者catch语句**。  
 [with-objects指的是with语句，产生的临时作用域对象；catch-clauses指的是catch从句，如catch(e)，这会产生异常对象，导致作用域变更]。    
 
@@ -699,7 +699,7 @@ foo.[[Scope]] = [
 进入上下文创建AO/VO之后，上下文的Scope属性（变量查找的一个作用域链）作如下定义：          
 Scope = AO|VO + [[Scope]]
 
-下图中是一个作用域链示意图，途中的 __parent__ 为模拟的名称，可认为是[[Scope]]
+下图中是一个作用域链示意图，途中的 __parent__ 为模拟的名称，可认为是[[Scope]]           
 ![scopechain](./scopechain.png)
 
 
@@ -747,7 +747,8 @@ console.log(x); // 10
 })();
 
 
-```
+```      
+
 ![scopechain2](./scopechain2.png)
 
 ### 13.4 几种需注意的作用域链

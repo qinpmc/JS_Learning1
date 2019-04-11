@@ -61,7 +61,7 @@
 	// myCall 中采用 args.push(arguments[i])方式存储参数，调用 eval时
 	// 变成 eval(" obj.fn(kevin,18)"), 其中 obj.fn 指向函数 bar
 	// eval执行时，会查找kevin 变量，出现错误。
-    console.log(bar.call2(obj, 'kevin', 18)); 
+    console.log(bar.myCall(obj, 'kevin', 18)); 
     </script>
 </body>
 </html>

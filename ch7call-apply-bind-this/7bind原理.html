@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        Function.prototype.bind1 = function(context){
+            var self = this;
+            var args = Array.prototype.slice.call(arguments,1);
+            return function(){
+                var bindArgs = Array.prototype.slice.call(arguments);
+                return self.apply(context,args.concat(bindArgs))
+            }
+        }
+
+        Function.prototype.mybind = function (context) {
+            // bind 的不是函数报错
+            if (typeof this !== "function") {
+                throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
+            }
+
+            var self = this; // 将借调的函数备份
+            var args = Array.prototype.slice.call(arguments, 1); // 暂存第一次传递的函数参数
+
+            var fNOP = function () { };
+
+            var fBound = function () {
+                // 获取bind后返回的函数执行时 传入的函数参数
+                var bindArgs = Array.prototype.slice.call(arguments);
+                // 解决通过new 调用，this是借调的函数的实例，否则this仍为 context
+                return self.apply(this instanceof fNOP ? this : context, args.concat(bindArgs));
+            }
+
+            fNOP.prototype = this.prototype;
+            fBound.prototype = new fNOP();
+            return fBound;
+        }
+
+        var value = 2;
+
+        var foo = {
+            value: 1
+        };
+
+        function bar(name, age) {
+            this.habit = 'shopping';
+            console.log(this.value);
+            console.log(name);
+            console.log(age);
+        }
+
+        bar.prototype.friend = 'kevin';
+
+        var bindFoo = bar.mybind(foo, 'daisy');
+
+        var obj = new bindFoo('18');
+        console.log(obj);
+
+        bar.mybind(foo, 'qq', 33)();
+
+
+    </script>
+</body>
+
+</html>

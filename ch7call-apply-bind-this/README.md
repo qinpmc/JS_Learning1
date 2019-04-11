@@ -118,6 +118,30 @@ var res5 = Array.prototype.slice.call(a5);//[]
 ### 类数组转数组
 
 ```
+var arrayLike = {0: 'name', 1: 'age', 2: 'sex', length: 3 }
+// 1. slice
+Array.prototype.slice.call(arrayLike); // ["name", "age", "sex"] 
+// 2. splice
+Array.prototype.splice.call(arrayLike, 0); // ["name", "age", "sex"] 
+// 3. ES6 Array.from
+Array.from(arrayLike); // ["name", "age", "sex"] 
+// 4. apply
+Array.prototype.concat.apply([], arrayLike)
+
+
+// 5. 使用ES6的 ... 运算符，可以轻松转成数组。
+
+function func(...arguments) {
+    console.log(arguments); // [1, 2, 3]
+}
+
+func(1, 2, 3);
+
+```
+
+
+
+```
  //类数组：1、arguments 2、NodeList 3、HTMLCollection
 var down_div = document.getElementsByName("down");
 console.dir(down_div); // NodeList(1)
