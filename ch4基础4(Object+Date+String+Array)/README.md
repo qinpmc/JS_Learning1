@@ -713,10 +713,7 @@ var person={};
 	alert(p.name);  //undefined
 
 ```
-
-
-
-
+ 
 **preventExtensions() | Object.seal() | Object.freeze()** 
 
 - Object.preventExtensions(obj),可以使得对象obj不可扩展，即不能添加新属性和方法                         
@@ -725,6 +722,53 @@ var person={};
 - Object.freeze(obj),冻结对象，对象不可扩展，是密封的，且数据属性[[ Writable]]特性设为false,数据属性为只读的     
 （但对象的存取器具有setter的话，存取器属性不受影响，仍然可以通过属性赋值调用它们）                       
 即使冻结对象，如果给对象的原型添加/修改属性和方法，仍然可以（尽管这会影响对象的属性和方法）。                  
+
+
+
+
+
+### 5.3 常用属性
+- prototype（构造函数的属性）
+- constructor（实例和构造函数均有）
+- Instanceof（会向上查找原型链）
+- __proto__（实例属性，非标准api）
+
+
+```
+function Person(name,age,job,sayName){
+		this.name=name;
+		this.age=age;
+		this.job=job;	
+	}
+	Person.prototype.sayName = function(){
+		alert(this.name);
+	};
+	var p1 = new Person("pp",31,"worker");
+	var p2 = new Person("qq",31,"worker");
+	//p1.sayName();
+	//p2.sayName();
+	//alert(p1.sayName===p2.sayName); //true ,两者的sayName为同一个函数
+
+	alert(p1.constructor==Person);  //true
+	alert(Person.prototype.constructor==Person);  //true
+	alert(p1.__proto__==Person.prototype); //true
+	alert(Person.prototype.isPrototypeOf(p1));//true
+	alert(Object.prototype.isPrototypeOf(p1));//true ，object也是实例对象的原型
+	alert(Object.getPrototypeOf(p1)==Person.prototype);//true
+	alert(p1 instanceof Person);    //true
+
+	//alert(p1.__proto__); //object
+	//alert(p1.__proto__.sayName);  //function(){...}
+  //alert(this.name)
+  //alert(Person.prototype); //
+
+```
+
+
+
+
+
+
 
 
 
