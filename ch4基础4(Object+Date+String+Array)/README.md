@@ -64,6 +64,20 @@ d.toString()
 
 # 数组Array
 
+
+数组的索引
+一般使用正整数和0 作为数组索引，而其实负数或非整数也可以，这种情况下，数值转换为字符串，字符串作为属性名使用。
+var a = ["hello"];
+a[-1.23] = true; // 创建一个名为 "-1.23"的属性 不可遍历
+a["10"] = 0; // 相当于 a[10] = 0, 此时数组长度为11
+console.log(a.length); // 11
+
+for(var i = 0;i<a.length;i++ ){
+  console.log(a[i]); // hello  undefined (9次) 0
+}
+
+console.log(a[1.000] === a[1]) ; // true
+
 1. 构造函数
 
 ```
@@ -448,5 +462,284 @@ s1 // "abc"
 //该方法可以接受多个参数。
 'a'.concat('b', 'c') // "abc"
 ```
+
+
+# Object
+
+JavaScript 的所有其他对象都继承自Object对象，即那些对象都是Object的实例。
+
+
+## 1 Object()
+
+Object本身是一个函数，可以当作工具方法使用，将任意值转为对象。这个方法常用于**保证某个值一定是对象**。
+
+- 如果参数为空（或者为undefined和null），Object()返回一个**空对象**
+- 如果参数是原始类型的值，Object方法将其转为对应的包装对象的实例
+- 如果Object方法的参数是一个对象，它总是返回该对象，即不用转换
+
+```
+var obj = Object();
+// 等同于
+var obj = Object(undefined);
+var obj = Object(null);
+
+var obj = Object('foo');
+obj instanceof Object // true
+obj instanceof String // true
+
+
+var fn = function () {};
+var obj = Object(fn); // 返回原函数
+obj === fn // true
+
+```
+
+## 2 Object 构造函数
+
+Object不仅可以当作工具函数使用，还可以当作构造函数使用，即前面可以使用new命令. Object构造函数的用法与工具方法很相似，几乎一模一样。
+- 使用时，可以接受一个参数，如果该参数是一个对象，则直接返回这个对象；
+- 如果是一个原始类型的值，则返回该值对应的包装对象.  
+
+## 3 Object 的静态方法
+
+1. Object.keys()
+2. Object.getOwnPropertyNames()
+
+
+**对象属性模型的相关方法**
+
+3. Object.getOwnPropertyDescriptor()：获取某个属性的描述对象。
+4. Object.defineProperty()：通过描述对象，定义某个属性。
+5. Object.defineProperties()：通过描述对象，定义多个属性。
+
+
+**控制对象状态的方法**
+
+6. Object.preventExtensions()：防止对象扩展。
+7. Object.isExtensible()：判断对象是否可扩展。
+8. Object.seal()：禁止对象配置。
+9. Object.isSealed()：判断一个对象是否可配置。
+10. Object.freeze()：冻结一个对象。
+11. Object.isFrozen()：判断一个对象是否被冻结。
+
+**原型链相关方法**
+
+- Object.create()：该方法可以指定原型对象和属性，返回一个新的对象。
+- Object.getPrototypeOf()：获取对象的Prototype对象。
+
+## 4 Object 的实例方法
+ 
+1. Object.prototype.valueOf()：返回当前对象对应的值。
+2. Object.prototype.toString()：返回当前对象对应的字符串形式。
+3. Object.prototype.toLocaleString()：返回当前对象对应的本地字符串形式。 
+4. Object.prototype.hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。      
+5. Object.prototype.isPrototypeOf()：判断当前对象是否为另一个对象的原型。  
+6. Object.prototype.propertyIsEnumerable()：判断某个属性是否可枚举, (原型属性返回false,实例属性返回true)
+
+
+**Object.keys | Object.getOwnPropertyNames| in | for in**
+ 
+
+Object.keys方法的参数是一个对象，返回一个数组。该数组的成员都是该对象**自身**的（而不是继承的）所有属性名。              
+Object.getOwnPropertyNames方法与Object.keys类似，也是接受一个对象作为参数，返回一个数组，包含了该对象**自身**的所有属性名.              
+
+对于一般的对象来说，Object.keys()和Object.getOwnPropertyNames()返回的结果是一样的。      
+只有涉及不可枚举属性时，才会有不一样的结果。Object.keys方法只返回可枚举的属性,     
+Object.getOwnPropertyNames方法还返回**不可枚举**的属性名。     
+
+```
+
+var a = ['Hello', 'World'];
+
+Object.keys(a) // ["0", "1"]  数组的length属性是不可枚举的属性
+Object.getOwnPropertyNames(a) // ["0", "1", "length"]  
+```
+ 
+- for in: 返回通过对象可访问的、可枚举的属性，既包括**实例**中的属性，也包括**原型**中的属性(**不包括对象中不可枚举的属性**，如内置的属性)
+
+- in :通过对象可访问到给定属性时返回true,不论属性存在**实例中还是原型**中（包含**可枚举和不可枚举**）
+ 
+
+**valueOf()**
+
+valueOf方法的作用是返回一个对象的“值”，默认情况下返回对象本身。              
+valueOf方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法 . 
+
+**toString()**
+1. **数组、字符串、函数、Date 对象**都分别部署了自定义的toString方法，**覆盖了Object.prototype.toString方法**。
+
+```
+[1, 2, 3].toString() // "1,2,3"
+
+'123'.toString() // "123"
+
+(function () {
+  return 123;
+}).toString()
+// "function () {
+//   return 123;
+// }"
+
+(new Date()).toString()
+// "Tue May 10 2016 09:11:31 GMT+0800 (CST)"
+
+```
+2. Object.prototype.toString方法返回对象的类型字符串，因此可以用来判断一个值的类型
+
+不同数据类型的Object.prototype.toString方法返回值如下。    
+
+- 数值：返回[object Number]。
+- 字符串：返回[object String]。
+- 布尔值：返回[object Boolean]。
+- undefined：返回[object Undefined]。
+- null：返回[object Null]。
+- 数组：返回[object Array]。
+- arguments 对象：返回[object Arguments]。
+- 函数：返回[object Function]。
+- Error 对象：返回[object Error]。
+- Date 对象：返回[object Date]。
+- RegExp 对象：返回[object RegExp]。
+- 其他对象：返回[object Object]。
+
+```
+Object.prototype.toString.call(2) // "[object Number]"
+Object.prototype.toString.call('') // "[object String]"
+Object.prototype.toString.call(true) // "[object Boolean]"
+Object.prototype.toString.call(undefined) // "[object Undefined]"
+Object.prototype.toString.call(null) // "[object Null]"
+Object.prototype.toString.call(Math) // "[object Math]"
+Object.prototype.toString.call({}) // "[object Object]"
+Object.prototype.toString.call([]) // "[object Array]"
+
+
+var type = function (o){
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+
+```
+
+## 5 属性
+
+### 5.1 数据属性
+- configurable：-- 删除和配置 delete 
+- enumerable：-- 遍历 for in
+- writable: 修改
+- value:值
+
+### 5.2 访问器属性
+- configuable:
+- enumerable:
+- get:
+- set:
+ 
+**数据属性 | 访问器属性 的设置和获取**
+- Object.defineProperty()
+- Object.defineProperties()
+- Object.getOwnPropertyDescriptor()
+
+1. 调用Object.defineProperty()，**默认configurable、enumerable、writable均为** false    
+2. 采用对象字面量创建的对象，**默认configurable、enumerable、writable均为** true   
+
+ 
+```
+// 两种属性的定义方式：
+	var p={};
+    p.age=21;  // 采用此种方式赋值，该属性为可写，可枚举，可配置
+
+	var person={};
+	Object.defineProperty(person,"name",{
+		value:"qp"  // 采用此种方式赋值，该属性为不可写，不可枚举，不可配置
+	});
+
+Object.defineProperty(p,"age",{
+	value:21,
+	//writable:true  // 如不显示添加可写为true,则该属性不可修改--此种方式定义属性时，默认writable为false
+}); 
+	alert(p.age); //21
+	p.age=31;
+	alert(p.age); //21，未修改成功
+*/
+
+```
+
+```
+/一旦将属性定义为不可配置，就不能再将其变回可配置的；
+//调用Object.defineProperty() 修改其他特性为true 时也会报错（高程3中说修改除//writable以外的特性为导致错误）
+
+var person={};
+	Object.defineProperty(person,"name",{
+		configurable:false, //无法删除
+		value:"qp"
+	});
+	delete person.name;	
+	alert(person.name); //qp ,仍然存在
+
+
+/*
+	Object.defineProperty(person,"name",{
+		configurable:true,  // 报错，已经不可配置  Enumerable Writeble Value
+		value:"qp22"
+	}); */
+/*
+	Object.defineProperty(person,"name",{
+		value:"qp22"// 报错，已经不可配置
+	});*/
+/**/
+	Object.defineProperty(person,"name",{
+		enumerable:true,  //  报错  
+		 //enumerable:false  // 未报错？？？ chrome 73
+	});
+
+
+	Object.defineProperty(person,"name",{
+		writable:true,  //  报错  
+		//writable:false,  //  未报错？？？ chrome 73
+		//value:"123"   //添加此句报错！！！
+	});
+
+
+```
+
+```
+	var p={};
+	Object.defineProperties(p,
+	{
+		"name":{value:"qqq",configurable:true},
+		"age":{value:31}
+	});
+	alert(p.name);  //qqq
+	delete p.name; 
+	alert(p.name);  //undefined
+
+```
+
+
+
+
+**preventExtensions() | Object.seal() | Object.freeze()** 
+
+- Object.preventExtensions(obj),可以使得对象obj不可扩展，即不能添加新属性和方法                         
+- Object.isExtensible() 用于检测对象是否可扩展     
+- Object.seal(obj)，可以密封对象，此时对象不可扩展，且[[ Configurable]]特性被设为false,此时不能删除属性和方法（但属性方法可修改）                                   
+- Object.freeze(obj),冻结对象，对象不可扩展，是密封的，且数据属性[[ Writable]]特性设为false,数据属性为只读的     
+（但对象的存取器具有setter的话，存取器属性不受影响，仍然可以通过属性赋值调用它们）                       
+即使冻结对象，如果给对象的原型添加/修改属性和方法，仍然可以（尽管这会影响对象的属性和方法）。                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
