@@ -193,6 +193,11 @@ var obj = {
 var func = counter.inc.bind(obj);
 func();
 obj.count // 101
+
+var count = -99; 
+var func2 = counter.inc.bind(null);
+func2();
+count; // -98
 ```
 
 > bind还可以接受更多的参数，将这些参数绑定原函数的参数
