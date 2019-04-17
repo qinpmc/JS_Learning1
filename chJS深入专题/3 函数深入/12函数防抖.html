@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//debounce 防抖
+'use strict';
+
+// 
+    function debounceTest(method,wait){
+        var timeoutId;
+        return function(){
+            var context = this;
+            var args = arguments;
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function(){
+                method.apply(context,args);
+            },wait)
+        }
+    }
+
+    window.onmousemove = debounceTest(function method1(){
+        console.log(this);
+        console.log(arguments[0]); // MouseEvent
+    },1000);
+
+
+
+</script>
+</body>
+</html>

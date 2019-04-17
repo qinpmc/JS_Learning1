@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//debounce 防抖
+'use strict';
+
+// 本函数主要测试this ，强行传参数，因此增加param ，注意 增加args.length = 2;修改，否则即使强行给args增加参数，在method.apply(context,args) 后 args[1] 会丢失
+    function debounceTest(method,wait,param){
+        var timeoutId;
+        return function(){
+            var context = this;
+            var args = arguments;
+            args[1] = param;
+            args.length = 2;
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function(){
+                method.apply(context,args);
+            },wait)
+        }
+    }
+
+    window.onmousemove = debounceTest(function method1(){
+        console.log(this);
+        console.log(arguments[0]); // MouseEvent
+        console.log(arguments[1]); //  
+    },1000,"testParam");
+
+
+
+</script>
+</body>
+</html>

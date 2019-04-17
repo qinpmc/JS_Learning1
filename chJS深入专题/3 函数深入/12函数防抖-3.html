@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        //debounce 防抖
+        'use strict';
+
+        //  立刻执行函数，然后等到停止触发 n 秒后，才可以重新触发执行。
+        function debounceTest(method, wait, immediate) {
+            var timeoutId;
+            return function () {
+                var context = this;
+                var args = arguments;
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+
+                if (immediate) {
+                    // 如果已经执行过，不再执行
+                    var callNow = !timeoutId;
+                    timeoutId = setTimeout(function () {
+                        timeoutId = null;
+                    }, wait);
+                    if (callNow) method.apply(context, args);
+                } else {
+                    timeoutId = setTimeout(function () {
+                        method.apply(context, args);
+                    }, wait)
+                }
+
+            }
+        }
+
+        window.onmousemove = debounceTest(function method1() {
+            console.log(this);
+            console.log(arguments[0]); // MouseEvent 
+        }, 1000, true);
+
+
+
+    </script>
+</body>
+
+</html>
