@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="POST">
+        <p><label for="des"></label>
+            <textarea cols="30" rows="10" id="des"></textarea>
+        </p>
+    </form>
+
+    <script>
+        var form = document.forms[0];
+        var textbox = form.elements[0];
+
+        // 文本框 选择方法 select(): 选择全部文本
+        // textbox.addEventListener("focus",function(e){
+        //     this.select();
+        // })
+
+        textbox.addEventListener("focus",function(e){
+            this.setSelectionRange(0,3);
+        })
+
+
+        textbox.addEventListener("select", function (e) {
+            var selText = getSelText(this);
+            console.log(selText);
+        })
+
+        function getSelText(textbox) {
+            return textbox.value.substring(textbox.selectionStart, textbox.selectionEnd)
+        }
+    </script>
+</body>
+
+</html>

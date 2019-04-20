@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="POST">
+        <p><label for="des"></label>
+            <textarea cols="30" rows="10" id="des"></textarea>
+        </p>
+    </form>
+
+    <script>
+        var form = document.forms[0];
+        var textbox = form.elements[0];
+        // textbox.addEventListener("focus",function(e){
+        //     var target = e.target;
+        //     if(target.style.backgroundColor !="red"){
+        //         target.style.backgroundColor = "red"
+        //     }
+        // })
+
+        textbox.addEventListener("blur",function(e){
+            var target = e.target;
+            if(/[^\d]/.test(target.value)){
+                target.style.backgroundColor = "red"
+            }else{
+                target.style.backgroundColor = ""
+            }
+        })
+
+        textbox.addEventListener("change",function(e){
+            var target = e.target;
+            if(/[^\d]/.test(target.value)){
+                target.style.backgroundColor = "red"
+            }else{
+                target.style.backgroundColor = ""
+            }
+        })
+    </script>
+</body>
+
+</html>

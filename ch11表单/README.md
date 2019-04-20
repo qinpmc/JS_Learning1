@@ -63,6 +63,69 @@ form.reset(); // 编程方式重置表单，会触发reset 事件
 
 ## 4 表单字段
 
+### 4.1 共有的表单字段属性
+
+- disabled：布尔值，是否禁用
+- form：指向表单的指针，只读
+- name：字段的名称
+- readonly：布尔值：只读
+- tabInex：字段的切换序号
+- type：类型，reset/submit/button/select-one/select-multiple等
+- value：值，提交给服务器的值
+
+### 4.2 共有的表单字段方法
+- focus:
+- blur：
+
+### 4.3 共有的表单字段事件
+- blur
+- change: input和textarea 元素，失去焦点且value改变触发；select在选项改变时触发
+- focus
+
+
+## 5 文本框脚本
+
+### 5.1 选择文本
+
+1. select(): 选择全部文本
+2. setSelectionRange(start,end)：选择部分文本
+
+示例：6选择文本.html
+
+3. 获取选择的文本属性
+- selectionStart
+- selectionEnd
+
+### 5.2 过滤输入
+
+
+```
+textbox.addEventListener("keypress",function(e){
+    var target = e.target;
+    var charCode = e.charCode;
+    // 只允许输入数字
+    if(!/\d/.test(String.fromCharCode(charCode))){
+        e.preventDefault();
+    }
+})
+
+```
+示例：7过滤输入.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
