@@ -112,8 +112,54 @@ textbox.addEventListener("keypress",function(e){
 ```
 示例：7过滤输入.html
 
+### 5.3 约束验证
 
+- html5 支持表单字段属性约束验证，如 required, 其他如 email、url输入框也存在验证（有缺陷);   
+- 其他的如number 类型输入框，可设置 min、max等约束条件。  
+- html5有pattern属性，用于正则匹配。
 
+1. checkValidity() 方法（检测整个表单有效性）
+检测表单是否有效
+
+2. validity属性
+表单字段的validity属性返回 ValidityState对象
+
+```
+- customError	     Boolean	该元素的自定义有效性消息已经通过调用元素的setCustomValidity() 方法设置成为一个非空字符串.
+- patternMismatch	 Boolean	该元素的值与指定的pattern属性不匹配.
+- rangeOverflow	     Boolean	该元素的值大于指定的 max属性.
+- rangeUnderflow	 Boolean	该元素的值小于指定的 min属性.
+- stepMismatch	     Boolean	该元素的值不符合由step属性指定的规则.
+- tooLong	         Boolean	该元素的值的长度超过了HTMLInputElement 或者 HTMLTextAreaElement 对象指定的maxlength属性中的值.
+- typeMismatch	     Boolean	该元素的值不符合元素类型所要求的格式(当type 是 email 或者 url时).
+- valid	             Boolean	其他的约束验证条件都不为true.
+-valueMissing	     Boolean	该元素有 required 属性,但却没有值.
+
+```
+
+3. 禁用验证
+禁用验证方式：
+
+- from 表单添加 novalidate 属性
+- 提交按钮添加 formnovalidate属性
+
+```
+<form action="" novalidate></form>
+<input type="submit" formnovalidate>
+
+```
+
+## 6 选择框脚本
+选择框主要时通过 select 和 option 元素创建的。   
+
+- add(newOption,relOption):插在relOption 前面新的option
+- multiple
+- options：获取所有的options，返回HTMLCollection
+- remove(index):移除指定位置的选项
+- selectedIndex：基于0的选中项的索引，没有选择项为-1，支持多选的控件返回第一个选中项的索引
+- size:选择框可见的行数
+- type： select-one 或者 select-multiple
+ 
 
 
 
