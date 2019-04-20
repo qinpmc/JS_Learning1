@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="GET">
+        <input type="text" name="uname">
+        <input type="password" name="pwd">
+        <input type="reset" value="Reset Form">
+        <button type="reset" >重置</button>
+    </form>
+    <button id="resetDiv">
+        点我使用js脚本重置表单
+    </button>
+    <script>
+        var form = document.forms[0];
+        
+        form.addEventListener("reset",function(e){
+            console.log(e);
+        });
+        
+        var resetDiv = document.getElementById("resetDiv");
+        resetDiv.addEventListener("click",function(){
+            form.reset(); // 编程方式重置表单，会触发reset 事件
+        })
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="POST">
+        <fieldset>
+            <legend>Fruit juice size</legend>
+            <p>
+                <input type="radio" name="size" id="size_1" value="small">
+                <label for="size_1">Small</label>
+            </p>
+            <p>
+                <input type="radio" name="size" id="size_2" value="medium" checked>
+                <label for="size_2">Medium</label>
+            </p>
+            <p>
+                <input type="radio" name="size" id="size_3" value="large">
+                <label for="size_3">Large</label>
+            </p>
+        </fieldset>
+
+
+        <p>
+            <label for="name">
+                <span>Name: </span>
+                <strong><abbr title="required">*</abbr></strong>
+            </label>
+            <input type="text" id="name" name="username">
+        </p>
+        <p>
+            <label for="mail">
+                <span>E-mail: </span>
+                <strong><abbr title="required">*</abbr></strong>
+            </label>
+            <input type="email" id="mail" name="usermail">
+        </p>
+        <p>
+            <label for="pwd">
+                <span>Password: </span>
+                <strong><abbr title="required">*</abbr></strong>
+            </label>
+            <input type="password" id="pwd" name="password">
+        </p>
+        <p>
+            <label for="card">
+                <span>Card type:</span>
+            </label>
+            <select id="card" name="usercard">
+                <option value="visa">Visa</option>
+                <option value="mc">Mastercard</option>
+                <option value="amex" selected>American Express</option>
+            </select>
+        </p>
+        <p><label for="des"></label>
+            <textarea cols="30" rows="10" id="des"></textarea>
+        </p>
+    </form>
+
+    <script>
+        var form = document.forms[0];
+        var radios = form.elements["size"];
+
+        console.log(radios); // chrome: RadioNodeList(3)
+
+        var selects = form.elements["usercard"];
+        console.log(selects);
+    </script>
+</body>
+
+</html>
