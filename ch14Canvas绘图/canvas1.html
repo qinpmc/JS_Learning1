@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <canvas id="canvas" width="200" height="200">draw something</canvas>
+        <hr>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        context.strokeStyle = "red";
+        context.fillStyle = "#0000ff";
+        context.fillRect(10,10,50,50);
+        context.strokeRect(30,30,50,50);
+
+        var dataURL = canvas.toDataURL();
+        var image = document.createElement("img");
+        image.src = dataURL;
+        document.body.appendChild(image);
+
+    </script>
+</body>
+</html>
