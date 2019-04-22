@@ -7,15 +7,16 @@
 </head>
 
 <body>
+	<button id="cancelBtn">点击取消debounce</button>
     <script type="text/javascript">
 
         //debounce 防抖
         'use strict';
 
-        //  立刻执行函数，然后等到停止触发 n 秒后，才可以重新触发执行。
+        //  立刻执行函数，然后等到停止触发 wait 秒后，才可以重新触发执行。
         function debounceTest(method, wait, immediate) {
             var timeoutId;
-            return function () {
+            var debounced = function () {
                 var context = this;
                 var args = arguments;
                 if (timeoutId) {
@@ -36,13 +37,24 @@
                 }
 
             }
+			// 取消后，可以不用等待而立即执行
+			debounced.cancel = function(){
+				clearTimeout(timeoutId);
+				timeoutId = null;
+			}
+			return debounced;
+			
         }
 
         window.onmousemove = debounceTest(function method1() {
             console.log(this);
             console.log(arguments[0]); // MouseEvent 
-        }, 1000, true);
-
+        }, 3000, true);
+		
+		var cancelBtn = document.getElementById("cancelBtn");
+		cancelBtn.addEventListener("click",function(){
+			window.onmousemove.cancel();
+		})
 
 
     </script>
