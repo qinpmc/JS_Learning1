@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var array = [1, 1, '1', '1'];
+
+/*
+    function unique(array) {
+        var res = [];
+        for(var i=0,len=array.length;i<len;i++){
+            for(var j=0,resLen=res.length;j<resLen;j++){
+                if(res[j]===array[i]){ //说明res中已有该元素
+                    break;
+                }
+            }
+            if(j===resLen){ //res中没有 array[i]
+                res.push(array[i])
+            }
+        }
+        return res;
+    }
+    var resAry = unique(array);
+    console.log(resAry); //[1,"1"]
+    */
+    
+/*
+    function unique(array) {
+        var res = [];
+        for(var i=0,len=array.length;i<len;i++){
+            if(res.indexOf(array[i])===-1){
+                res.push(array[i]);
+            }
+
+        }
+        return res;
+    }
+
+    var resAry = unique(array);
+    console.log(resAry); //[1,"1"]
+*/ 
+
+    /*
+    function unique(array){
+        return Array.from(new Set(array))
+    }*/
+
+    function unique(array){
+        return [... new Set(array)]
+    }
+    var unique2 = (ary) => [... new Set(ary)];
+
+    console.log(unique(array));//[1,"1"]
+    console.log(unique2(array));//[1,"1"]
+
+    
+    </script>
+</body>
+</html>
