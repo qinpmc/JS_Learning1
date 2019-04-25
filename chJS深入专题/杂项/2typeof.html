@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var class2type = {};
+
+        // 生成class2type映射
+        "Boolean Number String Function Array  RegExp Date Object Error Null Undefined".split(" ").map(function (item, index) {
+            class2type["[object " + item + "]"] = item.toLowerCase();
+        })
+
+        function type(obj) {
+            return (typeof obj === "object" || typeof obj === "function") ?
+                class2type[Object.prototype.toString.call(obj)] || "object" :
+                typeof obj;
+        }
+        function isFunction(obj) {
+            return type(obj) === "function";
+        }
+
+        var res = type({});
+        console.log(res)
+
+        var res2 = type(function () { });
+        console.log(res2);
+
+        var res3 = type(1);
+        console.log(res3)
+
+        var res4 = type(new Date());
+        console.log(res4)
+    </script>
+</body>
+
+</html>
