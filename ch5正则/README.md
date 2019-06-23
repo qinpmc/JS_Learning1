@@ -67,8 +67,8 @@ reg = /^(z|o).+/;
 ### 分组
 1. 改变 x|y的默认优先级
      var reg = /^18|19$/;
-     符合的：18，19，181，189，119，819，1819
-     var reg = /^(18|19)$/;
+     符合的：18，19，181，189，119，819，1819, 表示start of line-"18" 或者 "19"-end of line
+     var reg = /^(18|19)$/;  表示 start of line - （18或19）-end of line
      符合的：18，19
 
 2. 分组引用 反向引用
@@ -86,11 +86,17 @@ var reg = /^(\d{2})(\d{4})(\d{4})(\d{2})(\d{2})(?:\d{2})(\d)(?:\d|X)$/;
 reg.exec("1422726199009181211") ;
 //["142726199009181211", "14", "2726", "1990", "09", "18", "1", index: 0, input: "142726199009181211", groups: undefined]
 ```  
+4. ^,$的作用
+
+/(18|19)/.test("018") ;//true
+
+/^(18|19)/.test("018") ;// false
+
 
  
  
 ```
-//有效数字
+//有效数字要求：
 //1 最开始可以有 + 或者- 号(只出现0次或1次)
 //2 整数部分，一位数可以是0-9，多位数不能以0开始
 //3 小数点 . 可以出现，也可以不出现，一旦出现，后面必须跟至少一位数字
@@ -206,20 +212,25 @@ s2.match2(r1)；//["x", "x"]
 
 ```
 
-> 如果正则表达式带有g修饰符，则该方法与正则对象的exec方法行为不同，会一次性返回所有匹配成功的结果。
-> 带有g修饰符，match 不捕获小分组的内容，只捕获大的正则(一次全部捕获，如果正则解决了贪婪性) 
-> 不带有g修饰符，返回匹配的大正则（整个正则）结果，匹配的分组小正则结果，index索引，input输入等。
+> 如果正则表达式**带有g**修饰符，则该方法与正则对象的exec方法**行为不同**，字符串的match会一次性返回所有匹配成功的结果。
+> 带有g修饰符，match **不捕获小分组**的内容，只捕获大的正则 
+> 不带有g修饰符，返回匹配的大正则（整个正则）结果，以及匹配的分组小正则结果，index索引，input输入等。字符串的match和正则的exec返回结果一致
 
 ```
 var reg4 = /peking(\d+)/g;
 var str4 = "tsinghua2020peking1910shanghai2018peking2010";
-str4.match(reg4); //["peking1910", "peking2010"]  //不捕获小分组 (\d+), 带g后一次全部匹配
+str4.match(reg4); //["peking1910", "peking2010"]  //带g后一次全部匹配，字符串的 match 不捕获小分组 (\d+), 
+reg4.exec(str4);//   ["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+
 
 
 var reg5 = /peking(\d+)/;  // 不带有g修饰符
 var str5 = "tsinghua2020peking1910shanghai2018peking2010";
 str5.match(reg5); 
 //["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+
+reg5.exec(str5);//
+//  ["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
 
 ```
 
@@ -232,10 +243,10 @@ str5.match(reg5);
 ```
 
 
-4.字符串的search
+4. 字符串的search
 > str.search(regexp)
 > 参数为正则，如果不是，将隐式转换为正则（new RegExp(obj)）
-> 返回值：最开始匹配到正则的索引位置，未匹配到返回-1；
+> 返回值：最开始匹配到正则的**索引**位置，未匹配到返回-1；
 
 ```
 var str = "hey JudE";

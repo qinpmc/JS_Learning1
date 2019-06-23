@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+ 
+    <script type="text/javascript">
+        Function.prototype.method = function(name,func){
+            this.prototype[name] = func;
+            return this;
+        }
+        String.method("deentityify",function(){
+            var entity = {
+                quot:'"',
+                lt:'<',
+                gt:'>'
+            };
+            let that = this;
+            return function(){
+                return that.replace(/&([^&;]+);/g,function(a,b){
+                    var r = entity[b];
+                    return typeof r ==="string" ? r:a;
+                })
+            }
+        })
+        document.writeln('&lt;&quot;&gt;'.deentityify()())
+
+    </script>
+</body>
+
+</html>
