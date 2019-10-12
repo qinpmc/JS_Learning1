@@ -21,6 +21,138 @@
 3. -o-       /* Opera浏览器(早期) */
 4. -ms-      /* Internet Explorer
 
+## 常用命令和快捷键
+
+### 	键盘常用快捷键
+    Windows + D ：显示桌面
+    Windows + R ：执行运行命令
+    Windows + L ：切换用户
+    Windows + E ：启动我的电脑
+    
+### DOS常用命令
+    d：回车 切换到d盘
+    dir ：列出当前目录下的文件和文件夹
+    md ：创建文件夹
+    rd  ：删除文件夹
+    copy con test1.js （然后输入内容）：创建文件  
+    cd  ：进入指定目录
+    cd .. ：退回上一级目录
+    cd \ ：返回根目录
+    del  ：删除文件  del *.txt
+    exit ：退出
+    cls  ：清屏
+
+## npm 包管理工具
+
+### 安装node.js ，会附带安装npm （其他的包管理工具，还有Yarn，Bower 等）
+
+### 解决npm 安装慢的问题
+
+    1. 使用nrm
+    2. 使用cnpm
+    3. 使用淘宝镜像
+    4. 使用yarn 
+
+#### 1 nrm 使用
+
+nrm(npm registry manager )是npm的镜像源管理工具， 使用这个就可以快速地在 npm 源间切换
+
+- 1.安装nrm
+
+在命令行执行命令，npm install -g nrm，全局安装nrm。
+
+- 2.使用
+
+执行命令nrm ls查看可选的源。
+
+``` 
+nrm ls                                                                                                                                   
+
+*npm ---- https://registry.npmjs.org/
+
+cnpm --- http://r.cnpmjs.org/
+
+taobao - http://registry.npm.taobao.org/
+
+eu ----- http://registry.npmjs.eu/
+
+au ----- http://registry.npmjs.org.au/
+
+sl ----- http://npm.strongloop.com/
+
+nj ----- https://registry.nodejitsu.com/
+
+其中，带*的是当前使用的源，上面的输出表明当前源是官方源。
+
+```
+ 
+- 3 .切换
+
+如果要切换到taobao源，执行命令nrm use taobao。
+
+- 4.增加
+
+你可以增加定制的源，特别适用于添加企业内部的私有源，执行命令 nrm add <registry> <url>，其中reigstry为源名，url为源的路径。
+
+```
+nrm add registry http://registry.npm.frp.trmap.cn/
+
+```
+
+
+- 5.删除
+执行命令nrm del <registry>删除对应的源。
+
+- 6.测试速度
+可以通过 nrm test 测试相应源的响应时间。
+
+```
+nrm test npm   
+```
+
+
+#### 2 cnpm 和淘宝镜像
+
+
+- 1.临时使用
+
+```
+npm --registry https://registry.npm.taobao.org install express
+```   
+
+- 2.持久使用
+
+```
+npm config set registry https://registry.npm.taobao.org
+```
+
+配置后可通过下面方式来验证是否成功
+
+```
+npm config get registry
+
+或
+
+npm info express
+```
+
+- 3.通过cnpm使用
+
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install express
+```
+
+#### 3 使用yarn  
+
+```
+npm install yarn -g
+yarn add xxx
+yarn remove xxx
+```
+
+
+
 
 ## script 标签
 
