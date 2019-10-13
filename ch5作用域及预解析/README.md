@@ -61,11 +61,18 @@ console.log(total2);      //300,函数执行后，将全局的total2 修改了
 > 通过var 定义的变量无法删除
 
 ```
+// 不带var 
+
 //console.log(num2);  //error: num2 is not defined .num2并未预解析
+console.log(window.num2); // undefined
+console.log( "num2" in window); // false
 num2 =100;          // 相当于给window 增加了一个num2 属性，可通过window.num2 访问
 
-
+// 带var
 console.log(num); //undefined
+console.log(window.num); // undefined
+console.log( "num" in window); // true  ,这里为true
+
 var num =100;  
 console.log(num) //100 ,也可通过window.num 访问
 
@@ -83,7 +90,7 @@ console.log(delete num);   //false ,通过var 定义的变量无法删除
     
     ~function(){
 
-        // 条件语句中的函数进行了 提升声明，但未提升定义，因此  console.log(g) 输出undefined，而g() 报错
+        // 条件语句中的函数进行了 提升声明，但未提升定义（函数无法执行），因此  console.log(g) 输出undefined，而g() 报错
         console.log(g); // undefined
         if(g()&& []==![]){  //Uncaught TypeError: g is not a function 
             f = function(){return false};
