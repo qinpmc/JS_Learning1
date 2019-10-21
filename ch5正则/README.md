@@ -211,10 +211,10 @@ var r2 = /x/g;
 s2.match2(r1)；//["x", "x"]
 
 ```
-
+> 不带有g修饰符，返回匹配的大正则（整个正则）结果，以及匹配的分组小正则结果，index索引，input输入等。字符串的match和正则的exec返回结果一致
 > 如果正则表达式**带有g**修饰符，则该方法与正则对象的exec方法**行为不同**，字符串的match会一次性返回所有匹配成功的结果。
 > 带有g修饰符，match **不捕获小分组**的内容，只捕获大的正则 
-> 不带有g修饰符，返回匹配的大正则（整个正则）结果，以及匹配的分组小正则结果，index索引，input输入等。字符串的match和正则的exec返回结果一致
+
 
 ```
 var reg4 = /peking(\d+)/g;
@@ -231,6 +231,16 @@ str5.match(reg5);
 
 reg5.exec(str5);//
 //  ["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+
+
+// 与 正则 exec 比较
+var reg4 = /peking(\d+)/g;
+var str4 = "tsinghua2020peking1910shanghai2018peking2010";
+console.log(reg4.exec(str4));
+console.log(reg4.exec(str4));
+/*["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
+["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
+
 
 ```
 

@@ -154,6 +154,10 @@ for(var key in o){
  （包含可枚举和不可枚举）
 > Object.keys:取得对象上所有可枚举的 __实例__属性(未查找原型链上的属性)；返回自身可枚举属性组成的数组。
 > Object.getOwnPropertyNames:取得对象上所有（包括不可枚举）的 __实例__属性(未查找原型链上的属性)；返回找到的自身属性对应的字符串数组。
+> JSON.stringify()：只串行化对象自身的可枚举的属性。   
+> Object.assign()： 忽略enumerable为false的属性，只拷贝对象自身的可枚举的属性。    
+> Reflect.ownKeys(obj)  Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。         
+> Object.getOwnPropertySymbols(obj)  Object.getOwnPropertySymbols返回一个数组，包含对象自身的所有 **Symbol** 属性的键名。  
 
 ```
 Object.prototype.myProp = "aaa";  // 原型上增加一个可枚举属性
