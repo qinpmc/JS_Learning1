@@ -17,12 +17,25 @@
     })
 
     function appendHtml(news){
-        var html = '';
-        for( var i=0; i<news.length; i++){
-            html += '<li>' + news[i] + '</li>';
+
+        if(Array.isArray(news)){
+            var html = '';
+            for( var i=0; i<news.length; i++){
+                html += '<li>' + news[i] + '</li>';
+            }
+            console.log(html);
+            $('.news').innerHTML = html;
+        }else{
+            var html = '';
+            for( var key in news){
+                html += '<li>' + key+"----"+news[key] + '</li>';
+            }
+            console.log(html);
+            $('.news').innerHTML = html;
         }
-        console.log(html);
-        $('.news').innerHTML = html;
+
+
+
     }
 
     function $(id){

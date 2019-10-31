@@ -14,8 +14,12 @@ http.createServer(function(req, res){
                 "女排将死磕巴西！郎平安排男陪练模仿对方核心"
             ]
 
-            //res.setHeader('Access-Control-Allow-Origin','http://localhost:8080')
+            //允许http://localhost:8080 访问
+            res.setHeader('Access-Control-Allow-Origin','http://localhost:8080')
+
+            //运行所有访问
             //res.setHeader('Access-Control-Allow-Origin','*')
+            res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'}); //解决中文乱码
             res.end(JSON.stringify(news))
             break;
         default:

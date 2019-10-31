@@ -8,16 +8,28 @@ http.createServer(function(req, res){
 
     switch (pathObj.pathname) {
         case '/getNews':
+
+            //数组形式
             var news = [
                 "第11日前瞻：中国冲击4金 博尔特再战200米羽球",
                 "正直播柴飚/洪炜出战 男双力争会师决赛",
                 "女排将死磕巴西！郎平安排男陪练模仿对方核心"
             ]
+
+            // 对象形式
+            var result = {
+                name:"qq",
+                age:21
+            }
+
+
             res.setHeader('Content-Type','text/json; charset=utf-8')
             if(pathObj.query.callback){
-                res.end(pathObj.query.callback + '(' + JSON.stringify(news) + ')')
+                //res.end(pathObj.query.callback + '(' + JSON.stringify(news) + ')')
+                res.end(pathObj.query.callback + '(' +  JSON.stringify(result) + ')')
+
             }else{
-                res.end(JSON.stringify(news))
+                res.end(JSON.stringify(news));
             }
 
             break;
