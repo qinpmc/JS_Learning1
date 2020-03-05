@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+ 
+	
+	function testToNumber(){
+		console.log(Number(null)); //  0
+		console.log(Number(undefined));//  NaN
+		console.log(Number(true)); //  1
+		console.log(Number(false)); // 0
+		
+		console.log(Number({age:1})); //  NaN
+		console.log(Number(function f(){console.log(9)})); //  NaN
+		console.log(Number(["a",1])); //  NaN
+		console.log(Number([1])); //  1
+		// console.log(Number(Symbol("mysymbol")));//  报错 Cannot convert a Symbol value to a number
+
+		console.log(Number(/abc/));// NaN
+		console.log(Number(new Date())); // 1583309314370
+		console.log(Number(new Error("错了"))); //  NaN
+		
+		// 字符串 转 数字
+		console.log(Number("12")); // 12
+		console.log(Number("012"));// 12
+		console.log(Number("1.2"));// 1.2
+		console.log(Number("01.2"));// 1.2
+		console.log(Number("0x10"));// 16
+		console.log(Number(""));// 0
+		console.log(Number("12a"));// NaN
+	}
+	testToNumber();
+	
+	function testToBoolean(){
+		//console.log(null.valueof()); // null 没有方法
+		//console.log(undefined.valueof());// undefined 没有方法
+		console.log("hello".valueOf()); // hello 
+		console.log((123).valueOf()); // 123
+		console.log(true.valueOf()); // true
+		console.log({name:"qq"}.valueOf()); // {name: "qq"}
+		console.log((function f(){console.log(9)}).valueOf()); // function f(){console.log(9)}
+		console.log(["a",1].valueOf()); // ["a",1]
+		console.log([1].valueOf()); // [1]
+		console.log(Symbol("mysymbol").valueOf());// Symbol(mysymbol)
+		console.log(/abc/.valueOf());// /abc/
+		console.log(new Date().valueOf()); // 1583307166346
+		console.log(new Error("错了").valueOf()); // Error: 错了 at testValueOf (类型转换2.html:57)
+	}
+	// testToBoolean();
+	
+</script>
+</body>
+</html>
