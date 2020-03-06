@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+ 
+ // 算术表达式
+	
+	function test1(){
+		console.log(+"12"); // 12
+		console.log(+"12a");// NaN
+		console.log(+true); //1
+		console.log(-false);// -0
+		console.log("12"/3);// 4
+		console.log(true*3);//3
+		console.log(new Date()*3); // 4750382831820
+		console.log(new Error()-1);//NaN
+	    console.log([1]*3); // 3 
+	    console.log([1,2]*3);//NaN
+		console.log((function f(){})*3);//NaN
+		console.log((Symbol)*3);//NaN
+		console.log(({age:1})*3);//NaN
+		console.log((function f(){})*3);//NaN
+		console.log((Symbol)*3);//NaN
+		console.log(({age:1})%3);//NaN
+		var s1 = "22";
+		console.log((++s1));//23  ++"23" 报错，必须是变量
+	}
+	// test1();
+	
+	function test2(){
+		let user = {
+		  name: "John",
+		  money: 1000,
+
+		  // 对于 hint="string"
+		  toString() {
+			return `{name: "${this.name}"}`;
+		  },
+
+		  // 对于 hint="number" 或 "default"
+		  valueOf() {
+			return this.money;
+		  }
+
+		};
+		
+		console.log(+user); // 1000
+		console.log(-user);// -1000
+		console.log(user/100);//10
+		console.log(user%100);//0
+		console.log(++user);//1001
+	}
+	test2();
+ 
+	
+</script>
+</body>
+</html>

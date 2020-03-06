@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+ 
+	// 关系表达式
+	function test1(){
+		console.log("12">11); // true
+		console.log(true>""); // true
+		console.log(new Date()); // Fri Mar 06 2020 11:02:08 GMT+0800 (中国标准时间)
+		console.log(new Date()>"Z"); // false
+		console.log(new Date()>2583463791457); // false
+		
+	}
+	//test1();
+	
+	function test2(){
+		let user = {
+		  name: "John",
+		  money: 1000,
+
+		  // 对于 hint="string"
+		  toString() {
+			return `{name: "${this.name}"}`;
+		  },
+
+		  // 对于 hint="number" 或 "default"
+		  valueOf() {
+			return this.money;
+		  }
+		};
+		console.log(user>"Z"); // false   1000>"Z" --> 1000>NaN   先调用valueOf
+		console.log(user>"F"); // false   1000>"F" --> 1000>NaN   先调用valueOf
+		
+		console.log(user>"1001"); // false  1000>"1001"  --> 1000>1001  先调用valueOf
+		console.log(user>"999"); // true    1000>"999"  --> 1000>999    先调用valueOf
+		
+		console.log(user>1001); // false
+		console.log(user>999); // true
+	}
+	test2();
+ 
+	
+</script>
+</body>
+</html>
