@@ -6,16 +6,13 @@
 </head>
 <body>
 <script type="text/javascript">
-
-/*    readyState属性可取的值如下：
+    /*    readyState属性可取的值如下：
     - 0(UNSENT):未初始化。表示 XMLHttpRequest 实例已经生成，尚未调用open()方法
     - 1(OPENED):启动。已经调用open()方法，但尚未调用send()方法。仍然可以使用实例的setRequestHeader()方法，设定 HTTP 请求的头信息。
     - 2(HEADERS_RECEIVED):发送。己经调用send()方法，且接收到头信息
     - 3(LOADING):接收。已经接收到部分响应主体信息
     - 4(DONE):完成。已经接收到全部响应数据，而且已经可以在客户端使用了
     */
-
-
 
     function createXHR(){
         if(window.XMLHttpRequest){
@@ -30,60 +27,68 @@
        return createXHR();
     }
 
-    // 测试同步
+
+// 测试异步
     function test1() {
         var xhr = createXHR();
-        xhr.open("get","result.txt",false); //同步
-        xhr.onreadystatechange = function(){
-            console.log(xhr.readyState); //4
+        xhr.open("get", "result.txt", true); //异步
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState); //2，3，4
         }
         xhr.send(null);
         console.log("over"); //over
-        // 以上输出： 4   over
+        // 以上输出：over 2，3，4
     }
-
     //test1();
 
-
-    // 测试同步2
+    // 测试异步2
     function test2() {
-        var xhr = createXHR();
-        xhr.open("get","result.txt",false); //同步
-        xhr.send(null);
-        xhr.onreadystatechange = function(){
-            console.log(xhr.readyState); // 永远不会触发
-        }
-
-        console.log("over"); //
-        // 以上输出：   over
+         var xhr = createXHR();
+         xhr.open("get","result.txt",true); //异步
+         xhr.send(null);
+         xhr.onreadystatechange = function(){
+             console.log(xhr.readyState); //2，3，4
+             console.log(xhr.responseText);
+             console.log(xhr.timeout)
+         }
+         console.log("over");
+         // 以上输出：
+/*
+        over
+        2          readyState 为2
+                   responseText 为空
+        0          timeout 为0
+        3          readyState 为3
+        11111111   responseText 为11111111
+        0
+        4          readyState 为4
+        11111111   responseText 为11111111
+        0
+   */
     }
+    // test2();
 
-    //test2();
-
-
-    // 测试同步3
+    // 测试异步3
     function test3() {
         var xhr = createXHR();
-        //xhr.readyState --- 0
+        // open 之前绑定事件
         xhr.onreadystatechange = function(){
             console.log(xhr.readyState); //
         }
-        xhr.open("get","result.txt",false); //同步
-        //xhr.readyState --- 1  open后变为1
-
-        xhr.send();
-        //因为是同步ajax，此时js进程同步执行ajax，放入队列的异步事件onreadystatechange不会执行，直到ajax完成
+        xhr.open("get","result.txt"); //异步
+        xhr.send(null);
 
         console.log("over"); //
         // 以上输出：
-/*       1
-         4
+/*
+        1
         over
-        */
+        2
+        3
+        4  */
     }
 
     test3();
-
 
 </script>
 </body>
