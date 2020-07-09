@@ -96,11 +96,13 @@ function _new(constructor,params){
 ```
 var a = ['is enumerable'];
 
+// 自定义对象
 a.propertyIsEnumerable(0);          // 返回 true
 a.propertyIsEnumerable('length');   // 返回 false,length 不会枚举
 
-Math.propertyIsEnumerable('random');   // 返回 false，random不可枚举
-this.propertyIsEnumerable('Math');     // 返回 false，Math不可枚举
+// 内置对象
+Math.propertyIsEnumerable('random');   // 返回 false，Math的 random属性不可枚举
+this.propertyIsEnumerable('Math');     // 返回 false，window上的 Math属性不可枚举
 ```
 
  
