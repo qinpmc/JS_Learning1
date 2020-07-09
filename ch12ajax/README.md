@@ -224,6 +224,26 @@ index.html ： 请求资源文件名
 ### 2.4 HTTP
 详细可见 HTTP相关知识，此处仅简要介绍必备知识。
 
+nslookup baidu.com  查询dns
+curl -s -v -H "dell:xxx" -- "https://www.baidu.com"
+
+curl -X POST -s -v -H "dell:xxx" -- "https://www.baidu.com
+
+curl -X POST -d "123456" -s -v -H "dell:xxx" -- "https://www.baidu.com"
+
+
+-s :--silent
+-v :--verbose
+-H :--header
+-X : --request
+-d :--data 
+
+
+查询命令网站:
+https://www.explainshell.com/
+
+
+
 #### 2.4.1 HTTP状态码
 
 【1XX】
