@@ -237,7 +237,7 @@ curl -X POST -d "123456" -s -v -H "dell:xxx" -- "https://www.baidu.com"
 -H :--header
 -X : --request
 -d :--data 
-
+-L：--location 参数会让 HTTP 请求跟随服务器的重定向
 
 查询命令网站:
 https://www.explainshell.com/
