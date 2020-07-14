@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+ 
+
+	function test1(){
+        console.log(null + 1); //1,  null -- 0
+        console.log([] + []); // "" , [] --- ""
+        console.log([] + {}); // "[object Object]" , [] --- "", {} --- "[object Object]"
+        console.log({} + []); // 0 ,{} 被认为代码块， +[] 转换为 +"" ,再转为 0
+        console.log([] == ![]); //true ![] 转换为false, 变为 [] == false； 然后 false 变为数字0，[] == 0;
+
+	}
+	test1();
+
+ 
+	
+</script>
+</body>
+</html>

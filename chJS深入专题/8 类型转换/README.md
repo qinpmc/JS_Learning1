@@ -49,6 +49,7 @@ js中，数组和函数,正则，错误，日期等都是对象。
 - 数组则会以 ， 拼接起来
 - 对象{} 返回 [object Object]
 - 日期对象，转换为 这种形式 ：Wed Mar 04 2020 15:19:58 GMT+0800 (中国标准时间)
+- RegExp 的 toString 方法返回一个表示正则表达式直接量的字符串。
 - 错误对象，转换为 这种形式 ：Error: 错了
 ```
 	//console.log(null.toString()); // null 没有方法
@@ -86,6 +87,11 @@ js中，数组和函数,正则，错误，日期等都是对象。
 	console.log(Object.prototype.toString.call(new Error()));// [object Error]
 ```
 ## 4 valueOf()
+ 
+- （1） 如果对象具有 valueOf 方法，且返回一个原始值，则 JavaScript 将这个原始值转换为数字并返回这个数字
+- （2） 否则，如果对象具有 toString 方法，且返回一个原始值，则 JavaScript 将其转换并返回。
+- （3） 否则，JavaScript 抛出一个类型错误异常。
+
 
 ```
 	//console.log(null.valueof()); // null 没有方法
@@ -177,7 +183,33 @@ let user = {
 
 ```
 
-## 7 类型转换
+
+## 7 ToPrimitive
+
+ToPrimitive(input[, PreferredType])
+
+- 第一个参数是 input，表示要处理的输入值。
+- 第二个参数是 PreferredType，非必填，表示希望转换成的类型，有两个值可以选，Number 或者 String。
+- 当不传入 PreferredType 时，如果 input 是日期类型，相当于传入 String，否则，**都相当于传入 Number**。
+- 如果传入的 input 是 Undefined、Null、Boolean、Number、String 类型，直接返回该值。
+
+- 如果传入的 input 是对象，
+如果是 ToPrimitive(obj, Number)，处理步骤如下：
+
+1. 如果 obj 为 基本类型，直接返回
+2. 否则，调用 valueOf 方法，如果返回一个原始值，则 JavaScript 将其返回。
+3. 否则，调用 toString 方法，如果返回一个原始值，则 JavaScript 将其返回。
+4. 否则，JavaScript 抛出一个类型错误异常。
+
+如果是 ToPrimitive(obj, String)，处理步骤如下：
+
+1. 如果 obj为 基本类型，直接返回
+2. 否则，调用 toString 方法，如果返回一个原始值，则 JavaScript 将其返回。
+3. 否则，调用 valueOf 方法，如果返回一个原始值，则 JavaScript 将其返回。
+4. 否则，JavaScript 抛出一个类型错误异常。
+
+
+## 8 类型转换
 
 ![类型转换](./类型转换.png)
 
@@ -185,12 +217,17 @@ let user = {
 - undefined 转数字为NaN;
 - null转数字为0；
 
-### 7.1 显式类型转换 
+
+
+
+
+
+### 8.1 显式类型转换 
 显示类型转换按照前文所述的进行转换，相对比较简单和明显；
 
-### 7.2 隐式类型转换
+### 8.2 隐式类型转换
 
-#### 7.2.1 算术表达式
+#### 8.2.1 算术表达式
  
 算术运算符包括二元算术运算符+、-、*、/、%和一元算术运算符+、-、++、-- 
 除 **二元+ 运算符**比较复杂外（既可以算术加法，也可以是字符串拼接） 
@@ -198,7 +235,7 @@ let user = {
 
 
 
-#### 7.2.2 二元+运算符
+#### 8.2.2 二元+运算符
 
 
 二元加法运算符的复杂之处在于既能对两个数字做加法，也能做字符串连接，行为表现为：
@@ -214,7 +251,7 @@ let user = {
  -3 否则两个操作数都转化为数字（或NaN），然后做加法.
 
 
-#### 7.2.3 关系表达式
+#### 8.2.3 关系表达式
 
 关系运算符包括:==、===、!=、!==、>、<、>=、<=等，=== 和 !==是不做类型转换.  
 关系表达式的行为表现如下:
