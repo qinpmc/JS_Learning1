@@ -74,7 +74,7 @@
                     title: document.title,
                     state: content
                 };
-                //调用replaceState方法跳转
+                //调用replaceState方法跳转 history.pushState(state, title[, url])
                 window.history.pushState(_newState, '', '/' + content);
                 console.log('you have change the router to :',content);
             }
