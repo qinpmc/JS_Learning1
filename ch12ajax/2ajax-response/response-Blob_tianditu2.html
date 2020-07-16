@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre id='outputTxt'></pre>
+<img id='outputImg'>
+<script type="text/javascript">
+
+    var  url = "https://t4.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL=26&TILEROW=11&TILEMATRIX=5&tk=4f62e1d82bd46e2ff470b291c2260156"
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET",url,true);
+    xhr.responseType = "arraybuffer"; //
+
+    xhr.onload = function(e){
+
+        readImgfile(this.response);
+    };
+    xhr.send();
+
+    function readImgfile(f) {
+        var arraybuffer =  new Uint8Array(f); // Int8Array  Uint8Array
+        var str = "";
+        for(var i=0;i<arraybuffer.length;i++){
+            str+=String.fromCharCode(arraybuffer[i]);
+        }
+        var img = btoa(str);
+        var base64 = "data:image/png;base64,"+img;
+
+        var out = document.getElementById('outputImg');
+        out.src = base64;
+
+    }
+
+</script>
+</body>
+</html>

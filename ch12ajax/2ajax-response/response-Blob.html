@@ -9,13 +9,13 @@
 <img id='outputImg'>
 <script type="text/javascript">
     var xhr = new XMLHttpRequest();
-    //xhr.open("GET","./public/1.txt",true);
-    xhr.open("GET","./public/bank.png",true);
+    xhr.open("GET","./public/1.txt",true);
+    //xhr.open("GET","./public/bank.png",true);
     xhr.responseType = "blob";
 
     xhr.onload = function(e){
-        //readTextfile(this.response);
-        readImgfile(this.response);
+        readTextfile(this.response);
+        //readImgfile(this.response);
     };
     xhr.send();
 
