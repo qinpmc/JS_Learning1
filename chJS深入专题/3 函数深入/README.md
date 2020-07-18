@@ -141,6 +141,8 @@ function foo(){} // 声明，因为它是程序的一部分
 ## 函数参数
 > arguments对象的length属性显示 __实参的个数__，函数的length属性显示 __形参的个数__
 > 形参只是提供便利，但不是必需的
+> 函数的arguments 和形参映射机制是在函数执行时，形参赋值的一瞬间建立映射的；此后无论如何操作都无法再建立联系。
+> 严格模式下arguments 和形参没有映射机制
 
 ### 函数参数同步
 
@@ -157,7 +159,21 @@ function foo(){} // 声明，因为它是程序的一部分
     test();
 ```
 
+``` 
+// 函数的arguments 和形参映射机制是在函数执行时，形参赋值的一瞬间建立映射的；此后无论如何操作都无法再建立联系。
+    function test(num1,num2){
+        // 只传入一个参数，则arguments[0] 和 形参 num1 建立映射，此时arguments的length为1，没有arguments[1] 与 形参 num2 建立映射
+        arguments[0] = 100;
+        console.log(num1); //100
+        num2 = 200;
+        console.log(arguments[1]); // undefined
+    }
+    test(10);
 
+```
+
+    
+    
 ##  参数传递
 
 javascript中所有函数的参数都是按值传递的。注意：在向参数传递引用类型的值时，传递的是这个值在内存中的地址

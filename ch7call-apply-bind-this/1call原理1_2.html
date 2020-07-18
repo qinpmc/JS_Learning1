@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Function.prototype.myCall = function (context) {
+        var context = context || window;
+        context.fn = this;
+
+        var args = [];
+        for (var i = 1, len = arguments.length; i < len; i++) {
+            args.push('arguments[' + i + ']');
+
+        }
+
+        var result = eval('context.fn(' + args + ')');
+
+        delete context.fn
+        return result;
+    }
+
+
+    function fn1() {
+        console.log(this);
+        console.log(1);
+    }
+
+    function fn2() {
+        console.log(this);
+        console.log(2);
+    }
+
+    function fn3(n1, n2) {
+        console.log(this);
+        console.log(n1 + n2);
+    }
+
+    fn1.myCall(fn2);// fn2 , 1
+    fn1.myCall.myCall(fn2); //window ,2
+    fn1.myCall.myCall.myCall(fn2); //window ,2
+    fn3.myCall(fn2, 3, 4);// fn2 , 7
+
+    console.log("*******************");
+
+    var obj = {
+        value: 1
+    }
+
+    function bar(name, age) {
+        console.log(this.value);
+        return {
+            value: this.value,
+            name: name,
+            age: age
+        }
+    }
+
+    bar.myCall(obj);// 1
+    bar.myCall.myCall(obj);//  Uncaught TypeError: context.fn is not a function
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        Function.prototype.myCall = function (context) {
+            var context = context || window;
+            context.fn = this;
+
+            var args = [];
+            for(var i = 1, len = arguments.length; i < len; i++) {
+                args.push('arguments[' + i + ']'); //正确方式
+
+                //args.push(arguments[i]); //存在bug
+
+            }
+
+            //注意，这里隐式调用了args数组的toString方法，将数组各成员以 逗号, 拼接
+            var result = eval('context.fn(' + args +')');
+
+            // "context.fn(arguments[1],arguments[2])"
+
+
+            // 使用 args.push(arguments[i])的问题：
+            // 传入参数 99 98,  上面变为 "context.fn(99,98)"  --- fn1(99,98)
+
+            // 传入参数 "mm" "nn",  上面变为 "context.fn(mm,nn)" --- --- fn1(mm,nn), mm ,nn 变量不存在！
+
+            delete context.fn
+            return result;
+        }
+
+
+
+
+        function fn1(){
+            console.log(this);
+            console.log(arguments);
+            console.log(arguments[0]+arguments[1]);
+        }
+        function fn2(){
+            console.log(this);
+            console.log(2);
+        }
+        function fn3(n1,n2){
+            console.log(this);
+            console.log(n1+n2);
+        }
+
+        fn1.myCall({
+            name:"a"
+        },99,98);//
+
+        fn1.myCall({
+            name:"b"
+        },"mm","nn");//
+
+
+
+    </script>
+</body>
+</html>

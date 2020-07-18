@@ -6,13 +6,15 @@
 </head>
 <body>
 <script>
+    // 函数的arguments 和形参映射机制是在函数执行时，形参赋值的一瞬间建立映射的；此后无论如何操作都无法再建立联系。
     function test(num1,num2){
-        console.log(num1,arguments[0]);//undefined,undefined
-        num1 = 10;
-        arguments[0] = 5;
-        console.log(num1,arguments[0]);//10,5
+        // 只传入一个参数，则arguments[0] 和 形参 num1 建立映射，此时arguments的length为1，没有arguments[1] 与 形参 num2 建立映射
+        arguments[0] = 100;
+        console.log(num1); //100
+        num2 = 200;
+        console.log(arguments[1]); // undefined
     }
-    test();
+    test(10);
 </script>
 </body>
 </html>
