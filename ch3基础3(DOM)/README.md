@@ -245,6 +245,52 @@ document.documentURI === document.URL
 - returns a __static__ (not live) NodeList（静态的）
 - querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
 
+**一般说的都是getElement(s)Byxxxx获取的是动态集合，querySelector获取的是静态集合**
+
+
+```
+// 死循环
+<body>
+<ul id="box">
+    <li class="a">测试1</li>
+    <li class="a">测试2</li>
+    <li class="a">测试3</li>
+</ul>
+</body>
+<script type="text/javascript">
+//获取到ul，为了之后动态的添加li
+    var ul = document.getElementById('box');
+//获取到现有ul里面的li
+    var list = ul.getElementsByTagName('li');
+     for(var i =0;i<list.length;i++){  //死循环
+        ul.appendChild(document.createElement('li')); //动态追加li
+    }
+</script>
+```
+
+
+```
+<body>
+<ul id="box">
+    <li class="a">测试1</li>
+    <li class="a">测试2</li>
+    <li class="a">测试3</li>
+</ul>
+</body>
+<script type="text/javascript">
+//获取到ul，为了之后动态的添加li
+     var ul = document.querySelector('ul');
+//获取到现有ul里面的所有li
+     var list = ul.querySelectorAll('li');
+     for(var i = 0;i<list.length;i++){
+         ul.appendChild(document.createElement('li'));//动态追加li
+     }
+console.log(list.length); //输出的结果仍然是3，不是此时li的数量6
+</script>
+
+```
+
+
 7. document.createElement(tagName) 
 ```
 // 可利用a标签的属性解析字符串

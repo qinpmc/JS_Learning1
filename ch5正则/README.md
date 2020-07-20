@@ -1,20 +1,19 @@
 # 正则
 
 ## 正则定义
+
 1. 字面量方法
    var regex = /xyz/;
-2. 使用RegExp构造函数
+2. 使用 RegExp 构造函数
    var regex = new RegExp('xyz');
 3. 两者的区别
-    如果正则中希望引入变量，此时只能用构造函数方式创建
+   如果正则中希望引入变量，此时只能用构造函数方式创建
 
 var name = "jack";
 var reg1 = new RegExp("^\\d+"+name+"\\d+$","g"); // 注意是 \\d   /^\d+jack\d+$/g.test("222jack333");//true
-//  var reg2 = /^\d+"+name+"\d+$/g; //匹配的是 '2234"""nameeee"33333'
-   
- 
-   
-##  正则元字符
+// var reg2 = /^\d+"+name+"\d+\$/g; //匹配的是 '2234"""nameeee"33333'
+
+## 正则元字符
 
      . 匹配除换行符（\n、\r）之外的任何单个字符
     ^ 以某一元字符开始
@@ -39,62 +38,74 @@ var reg1 = new RegExp("^\\d+"+name+"\\d+$","g"); // 注意是 \\d   /^\d+jack\d+
     \B	匹配非单词边界。'er\B' 能匹配 "verb" 中的 'er'，但不能匹配 "never" 中的 'er'。
     \s	匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
     \S	匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。
-   
-### 注意： 
+
+### 注意：
 
 1. [] 内部的所有字符都是其本身的意思，没有特殊含义，
->   如[.] 代表小数点，而不是匹配除换行符（\n、\r）之外的任何单个字符；
->   [+-] 代表 + 号或 - 号
 
-2. 易犯的错 [] 不识别2位数   
->  /^[12]$/ ;指的是1 或者2， 并不是12
-> /^ [12-68]$/;指的是1，2-6中的一个，8 这三个中的一个，并不是12到68
-> [] 中的 - ，最好放在最前面，否则成为 2个匹配元字符之间的意思，如[w-z],匹配w到z，而[-wz]匹配- 或w或z
+   > 如[.] 代表小数点，而不是匹配除换行符（\n、\r）之外的任何单个字符；
+   > [+-] 代表 + 号或 - 号
+   > 例外： /^[\d]\$/ ，仍然是匹配数字
 
+2. 易犯的错 [] 不识别 2 位数
 
+   > /^[12]$/ ;指的是1 或者2， 并不是12
+   > /^ [12-68]$/;指的是 1，2-6 中的一个，8 这三个中的一个，并不是 12 到 68
+   > [] 中的 - ，最好放在最前面，否则成为 2 个匹配元字符之间的意思，如[w-z],匹配 w 到 z，而[-wz]匹配- 或 w 或 z
 
+var reg = /^((1[2345789])|([2-5][0-9])|(6[0-8]))\$/ ;// 12~68
 
+3. 添加 ^ \$ 的用处：
+
+```
+var reg = /^\d$/; // **仅包含一个**数字；
+var reg2 = /\d/; // 数字
+
+reg.test(1) ; // true
+reg.test(12); // false
+
+reg2.test(1) ; // true
+reg2.test(12); // true
+
+```
 
 3.“|”，正则表达式中的或（注意它和[]的区别）
 把“|”左右两边的一到多个字符当成一个整体对待
-b|c表示，匹配b或者c（这里相当于[bc]）。ab|ac表示匹配ab或ac（但这里不相当于[abc]，[]表示在一组字符中任选一个）。
+b|c 表示，匹配 b 或者 c（这里相当于[bc]）。ab|ac 表示匹配 ab 或 ac（但这里不相当于[abc]，[]表示在一组字符中任选一个）。
 reg = /^z|o.+/; str='zhufengpeixun.cn'; alert(reg.exec(str));
-结果只有一个z，而不是整个字符串。因为上面正则表达式的意思是，匹配开头的z或者匹配一个o后边连续出现一到多个任意字符。而并非表示以z或o开头。如果是表示以z或o开头应该写成：
+结果只有一个 z，而不是整个字符串。因为上面正则表达式的意思是，匹配开头的 z 或者匹配一个 o 后边连续出现一到多个任意字符。而并非表示以 z 或 o 开头。如果是表示以 z 或 o 开头应该写成：
 reg = /^(z|o).+/;
 
-
-
 ### 分组
-1. 改变 x|y的默认优先级
-     var reg = /^18|19$/;
+
+1. 改变 x|y 的默认优先级
+   var reg = /^18|19$/;
      符合的：18，19，181，189，119，819，1819, 表示start of line-"18" 或者 "19"-end of line
-     var reg = /^(18|19)$/;  表示 start of line - （18或19）-end of line
-     符合的：18，19
+     var reg = /^(18|19)$/; 表示 start of line - （18 或 19）-end of line
+   符合的：18，19
 
 2. 分组引用 反向引用
-   \1 代表和第一个分组一样，\2代表和第二个分组一样，匹配的内容也需要一样
-   
+   \1 代表和第一个分组一样，\2 代表和第二个分组一样，匹配的内容也需要一样
+
    /^(\w)\1(\w)\2$/.test("xxyy"); //true
    /^(\w)\1(\w)\2$/.test("xxyz"); //false
-   
+
 3. 分组捕获
-> 正则捕获时，不仅仅把大正则匹配的内容捕获到，也可以把小分组匹配的内容捕获到
-  ?: 在分组中的意思是只匹配，不捕获
-  
+   > 正则捕获时，不仅仅把大正则匹配的内容捕获到，也可以把小分组匹配的内容捕获到
+   > ?: 在分组中的意思是只匹配，不捕获
+
 ```
 var reg = /^(\d{2})(\d{4})(\d{4})(\d{2})(\d{2})(?:\d{2})(\d)(?:\d|X)$/;
-reg.exec("1422726199009181211") ;
+reg.exec("142726199009181211") ;
 //["142726199009181211", "14", "2726", "1990", "09", "18", "1", index: 0, input: "142726199009181211", groups: undefined]
-```  
-4. ^,$的作用
+```
+
+4. ^,\$的作用
 
 /(18|19)/.test("018") ;//true
 
 /^(18|19)/.test("018") ;// false
 
-
- 
- 
 ```
 //有效数字要求：
 //1 最开始可以有 + 或者- 号(只出现0次或1次)
@@ -103,26 +114,29 @@ reg.exec("1422726199009181211") ;
 
 var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
 
-// 
-    
-```   
-    
- 
+//
+
+```
+
 ## 正则实例属性
-> ignoreCase：返回一个布尔值，表示是否设置了i修饰符。
-> global：返回一个布尔值，表示是否设置了g修饰符。
-> multiline：返回一个布尔值，表示是否设置了m修饰符。 
+
+> ignoreCase：返回一个布尔值，表示是否设置了 i 修饰符。
+> global：返回一个布尔值，表示是否设置了 g 修饰符。
+> multiline：返回一个布尔值，表示是否设置了 m 修饰符。
 > lastIndex：返回一个数值，表示下一次开始搜索的位置,该属性可读写，但是只在进行连续搜索时有意义.
 > source：返回正则表达式的字符串形式（不包括反斜杠），该属性只读
 
 ## 正则实例方法
 
-> 懒惰性：每次执行exec只捕获第一个匹配的内容，多次执行，捕获的还是第一个匹配的内容
-> 解决懒惰性： 采用g 全局捕获
+> 懒惰性：每次执行 exec 只捕获第一个匹配的内容，多次执行，捕获的还是第一个匹配的内容
+> 解决懒惰性： 采用 g 全局捕获
 > 贪婪性：正则的每一次捕获都是按照匹配最长的结果捕获的，如
+
      /\d+/g.exec("peking2018tsinghua2019china")，匹配的2018而不是2、20等
+
 > 解决贪婪性：在量词元字符后面添加一个？
-  如{n,}?, *?, +?, ??, {m,n}?
+> 如{n,}?, \*?, +?, ??, {m,n}?
+
 
 ```
   /\d+?/g.exec("peking2018tsinghua2019china")，匹配的是2
@@ -133,12 +147,10 @@ var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
  返回的结果只有1个c，尽管有5个c可以匹配，但是由于正则表达式是非贪心模式，所以只会匹配一个。
 ```
 
-
 1. test
-> 正则实例对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串。
-> 带有g修饰符，表示是全局搜索，会有多个结果。每一次开始搜索的位置都是上一次匹配的后一个位置。  
-  带有g修饰符时，可以通过正则对象的lastIndex属性指定开始搜索的位置
-
+   > 正则实例对象的 test 方法返回一个布尔值，表示当前模式是否能匹配参数字符串。
+   > 带有 g 修饰符，表示是全局搜索，会有多个结果。每一次开始搜索的位置都是上一次匹配的后一个位置。  
+   >  带有 g 修饰符时，可以通过正则对象的 lastIndex 属性指定开始搜索的位置
 
 ```
 /cat/.test('cats and dogs') // true
@@ -154,11 +166,10 @@ r.test(s) // true
 ```
 
 2. exec
-> 正则实例对象的exec方法，用来返回匹配结果。如果发现匹配，就返回一个 __数组__，
-> 成员是匹配成功的子字符串，否则返回 __null__。
-> 返回的结果第一个参数为匹配的大正则，后续分别为小分组，然后是index，匹配的字符串(input)等。
-> 如果正则表达式加上g修饰符，则可以使用多次exec方法，下一次搜索的位置从上一次匹配成功结束的位置开始。
-
+   > 正则实例对象的 exec 方法，用来返回匹配结果。如果发现匹配，就返回一个 **数组**，
+   > 成员是匹配成功的子字符串，否则返回 **null**。
+   > 返回的结果第一个参数为匹配的大正则，后续分别为小分组，然后是 index，匹配的字符串(input)等。
+   > 如果正则表达式加上 g 修饰符，则可以使用多次 exec 方法，下一次搜索的位置从上一次匹配成功结束的位置开始。
 
 ```
 var r = /a(b+)a/g;
@@ -171,7 +182,6 @@ var arr2 = r.exec('_abbba_aba_'); //["aba", "b", index: 7, input: "_abbba_aba_",
 
 ```
 
-
 ```
 var reg4 = /peking(\d+)/g;
 var str4 = "tsinghua2020peking1910shanghai2018peking2010";
@@ -181,17 +191,15 @@ console.log(reg4.exec(str4));
 ["peking2010", "2010", index: 34, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]*/
 ```
 
- 
-
-3. 字符串的match 
-> 返回一个数组，成员是所有匹配的子字符串
-> 匹配失败返回null
-> match传入空参数，返回["",...]
+3. 字符串的 match
+   > 返回一个数组，成员是所有匹配的子字符串
+   > 匹配失败返回 null
+   > match 传入空参数，返回["",...]
 
 ```
 var str = "Nothing will come of nothing.";
-str.match(); 
-// ["", index: 0, input: "Nothing will come of nothing.", groups: undefined] 
+str.match();
+// ["", index: 0, input: "Nothing will come of nothing.", groups: undefined]
 
 ```
 
@@ -200,33 +208,33 @@ var s = '_x_x';
 var r1 = /x/;
 var r2 = /y/;
 
-s.match(r1) // ["x", index: 1, input: "_x_x", groups: undefined]; 
+s.match(r1) // ["x", index: 1, input: "_x_x", groups: undefined];
 s.match(r1) // ["x", index: 1, input: "_x_x", groups: undefined]; //正则不含g
 s.match(r2) // null
 
 // 正则带有g修饰符，一次全部匹配
 var s2 = '_x_x';
 var r2 = /x/g;
- 
+
 s2.match2(r1)；//["x", "x"]
 
 ```
-> 不带有g修饰符，返回匹配的大正则（整个正则）结果，以及匹配的分组小正则结果，index索引，input输入等。字符串的match和正则的exec返回结果一致
-> 如果正则表达式**带有g**修饰符，则该方法与正则对象的exec方法**行为不同**，字符串的match会一次性返回所有匹配成功的结果。
-> 带有g修饰符，match **不捕获小分组**的内容，只捕获大的正则 
 
+> 不带有 g 修饰符，返回匹配的大正则（整个正则）结果，以及匹配的分组小正则结果，index 索引，input 输入等。字符串的 match 和正则的 exec 返回结果一致
+> 如果正则表达式**带有 g**修饰符，则该方法与正则对象的 exec 方法**行为不同**，字符串的 match 会一次性返回所有匹配成功的结果。
+> 带有 g 修饰符，match **不捕获小分组**的内容，只捕获大的正则
 
 ```
 var reg4 = /peking(\d+)/g;
 var str4 = "tsinghua2020peking1910shanghai2018peking2010";
-str4.match(reg4); //["peking1910", "peking2010"]  //带g后一次全部匹配，字符串的 match 不捕获小分组 (\d+), 
+str4.match(reg4); //["peking1910", "peking2010"]  //带g后一次全部匹配，字符串的 match 不捕获小分组 (\d+),
 reg4.exec(str4);//   ["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
 
 
 
 var reg5 = /peking(\d+)/;  // 不带有g修饰符
 var str5 = "tsinghua2020peking1910shanghai2018peking2010";
-str5.match(reg5); 
+str5.match(reg5);
 //["peking1910", "1910", index: 12, input: "tsinghua2020peking1910shanghai2018peking2010", groups: undefined]
 
 reg5.exec(str5);//
@@ -247,16 +255,15 @@ console.log(reg4.exec(str4));
 示例： 量词元字符后面添加一个？解决贪婪性
 
 ```
-"peking2018tsinghua2019china".match(/\d+?/g); 
+"peking2018tsinghua2019china".match(/\d+?/g);
 //["2", "0", "1", "8", "2", "0", "1", "9"] ;//在量词元字符后面添加一个？解决贪婪性
 
 ```
 
-
-4. 字符串的search
-> str.search(regexp)
-> 参数为正则，如果不是，将隐式转换为正则（new RegExp(obj)）
-> 返回值：最开始匹配到正则的**索引**位置，未匹配到返回-1；
+4. 字符串的 search
+   > str.search(regexp)
+   > 参数为正则，如果不是，将隐式转换为正则（new RegExp(obj)）
+   > 返回值：最开始匹配到正则的**索引**位置，未匹配到返回-1；
 
 ```
 var str = "hey JudE";
@@ -270,15 +277,16 @@ str.search("J") ;// 4
 str.search("j") ;// -1
 ```
 
-5. 字符串的replace
-> str.replace(regexp|substr, newSubStr|function)
-> replace方法可以替换匹配的值。   
+5. 字符串的 replace
+   > str.replace(regexp|substr, newSubStr|function)
+   > replace 方法可以替换匹配的值。
 
 > 第二个参数为函数时，函数的参数有：
-- match：匹配的子串。（对应于上述的$&。）
-- p1,p2, ...：假如replace()方法的第一个参数是一个RegExp 对象，则代表第n个括号匹配的字符串。
-  例如, 如果是用 /(\a+)(\b+)/这个来匹配， p1就是匹配的 \a+,  p2 就是匹配的 \b+。
-- offset：匹配到的子字符串在原字符串中的偏移量。（比如，如果原字符串是“abcd”，匹配到的子字符串是“bc”，那么这个参数将是1）
+
+- match：匹配的子串。（对应于上述的\$&。）
+- p1,p2, ...：假如 replace()方法的第一个参数是一个 RegExp 对象，则代表第 n 个括号匹配的字符串。
+  例如, 如果是用 /(\a+)(\b+)/这个来匹配， p1 就是匹配的 \a+, p2 就是匹配的 \b+。
+- offset：匹配到的子字符串在原字符串中的偏移量。（比如，如果原字符串是“abcd”，匹配到的子字符串是“bc”，那么这个参数将是 1）
 - string：被匹配的原字符串
 
 ```
@@ -294,8 +302,6 @@ var newString = 'abc12345#$*%'.replace(/([^\d]*)(\d*)([^\w]*)/, replacer);
 console.log(newString);  // abc - 12345 - #$*%
 ```
 
-
-
 ```
  var str = "peking2018peking2010";
 
@@ -305,8 +311,8 @@ console.log(newString);  // abc - 12345 - #$*%
 
  //正则的方式替换
  //str = str.replace(/peking/g,"chinapeking"); //chinapeking2018chinapeking2010"
- 
- 
+
+
  /*     console.log("-----------");
       str =  str.replace(/(peking)/g,function(){
          console.log(arguments);   //所有信息
@@ -318,13 +324,11 @@ console.log(newString);  // abc - 12345 - #$*%
      注意：以上回调函数执行了2次，因为匹配到了2次
      ["peking", "peking", 5, "chinapeking2018chinapeking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]   peking   peking
      ["peking", "peking", 20, "chinapeking2018chinapeking2010", callee: ƒ, Symbol(Symbol.iterator): ƒ]  peking   peking
- 
+
      str; // "shanghai2018shanghai2010"
      */
- ```
- 
+```
 
- 
 ```
       var str = "20180808";
       var ary = ["零","一","二","三","四","五","六","七","八","九","十"];
@@ -332,10 +336,9 @@ console.log(newString);  // abc - 12345 - #$*%
           //console.log(arguments[0]);
           return ary[arguments[0]];
       })
-  
-     // str;// "二零一八零八零八"
-``` 
 
+     // str;// "二零一八零八零八"
+```
 
 ```
 
