@@ -1,98 +1,108 @@
 # DOM
 
-DOM 是 JavaScript 操作网页的接口，全称为“文档对象模型”（Document Object Model）。    
-它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）。             
+DOM 是 JavaScript 操作网页的接口，全称为“文档对象模型”（Document Object Model）。  
+它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）。
 
-DOM 的最小组成单位叫做节点（node）。文档的树形结构（DOM 树），就是由各种不同类型的节点组成.           
+DOM 的最小组成单位叫做节点（node）。文档的树形结构（DOM 树），就是由各种不同类型的节点组成.
 
-
-
-**DOM元素的原型链**
+**DOM 元素的原型链**
 oDiv --- HTMLDivElement --- HTMLElement --- Element ---Node ---EventTarget --- Object
 
 ## 1 Node
-DOM1级定义了一个Node接口，该接口由DOM所有节点类型实现。
-常见的节点类型如下：  
 
-- 元素节点（element）：1，对应常量Node.ELEMENT_NODE
-- 属性节点（attr）：2，对应常量Node.ATTRIBUTE_NODE
-- 文本节点（text）：3，对应常量Node.TEXT_NODE
-- 注释节点（Comment）：8，对应常量Node.COMMENT_NODE
-- 文档节点（document）：9，对应常量Node.DOCUMENT_NODE
-- 文档片断节点（DocumentFragment）：11，对应常量Node.DOCUMENT_FRAGMENT_NODE
-- 文档类型节点（DocumentType）：10，对应常量Node.DOCUMENT_TYPE_NODE
+DOM1 级定义了一个 Node 接口，该接口由 DOM 所有节点类型实现。
+常见的节点类型如下：
 
-   
+- 元素节点（element）：1，对应常量 Node.ELEMENT_NODE
+- 属性节点（attr）：2，对应常量 Node.ATTRIBUTE_NODE
+- 文本节点（text）：3，对应常量 Node.TEXT_NODE
+- 注释节点（Comment）：8，对应常量 Node.COMMENT_NODE
+- 文档节点（document）：9，对应常量 Node.DOCUMENT_NODE
+- 文档片断节点（DocumentFragment）：11，对应常量 Node.DOCUMENT_FRAGMENT_NODE
+- 文档类型节点（DocumentType）：10，对应常量 Node.DOCUMENT_TYPE_NODE
+
 ### 1.1 nodeType /nodeName/ nodeValue
 
+**只有文本节点（text）、注释节点（comment）和属性节点（attr）有 nodeValue 文本值**，  
+ 因此这三类节点的 nodeValue 可以返回结果，其他类型的节点一律返回 null。
 
-**只有文本节点（text）、注释节点（comment）和属性节点（attr）有nodeValue文本值**，  
- 因此这三类节点的nodeValue可以返回结果，其他类型的节点一律返回null。
- 
+> 元素节点：HTML 标签元素
 
-> 元素节点：HTML标签元素
- - nodeType：1
- - nodeName：大写的标签名（部分浏览器的怪异模式下，为小写标签名）
- - nodeValue：null
- - [cur]Element.tagName :获取当前元素的标签名（获取的是大写标签名）
- 
+- nodeType：1
+- nodeName：大写的标签名（部分浏览器的怪异模式下，为小写标签名）
+- nodeValue：null
+- [cur]Element.tagName :获取当前元素的标签名（获取的是大写标签名）
+
 > 属性节点
+
 - nodeType:2
 - nodeName： 属性名称
 - nodeValue： 属性值
 
 > 文本节点 ：文本内容，空格和换行在高版本浏览器中也当做文本节点
- - nodeType：3
- - nodeName：#text
- - nodeValue：文本内容
- 
+
+- nodeType：3
+- nodeName：#text
+- nodeValue：文本内容
+
 > 注释节点 ：注释内容
- - nodeType：8
- - nodeName：#comment
- - nodeValue：注释内容
- 
-> document文档节点
- - nodeType：9
- - nodeName：#document
- - nodeValue：null
- - parentNode:null
+
+- nodeType：8
+- nodeName：#comment
+- nodeValue：注释内容
+
+> document 文档节点
+
+- nodeType：9
+- nodeName：#document
+- nodeValue：null
+- parentNode:null
 
 > DocumentFragment
- - nodeType：11
- - nodeName：#document-fragment
- - nodeValue： null
- 
+
+- nodeType：11
+- nodeName：#document-fragment
+- nodeValue： null
+
 ### 1.2 childNodes
+
 - 获取当前元素的所有子节点（包括元素子节点、文本、注释等子节点）
 - 返回节点集合
 
 ### 1.3 children
-- 获取当前元素的所有 __元素子节点__ （只包括元素子节点）
-- 返回节点集合（IE6、7、8下会把注释当做元素子节点）
+
+- 获取当前元素的所有 **元素子节点** （只包括元素子节点）
+- 返回节点集合（IE6、7、8 下会把注释当做元素子节点）
 
 ### 1.4 parentNode、parentElement
-- 获取当前元素的父节点 
+
+- 获取当前元素的父节点
 
 ### 1.5 previousSibling、nextSibling
-- previousSibling获取当前节点上一个兄弟节点（不一定是元素节点）   
-- nextSibling获取当前节点下一个兄弟节点（不一定是元素节点）  
-    
+
+- previousSibling 获取当前节点上一个兄弟节点（不一定是元素节点）
+- nextSibling 获取当前节点下一个兄弟节点（不一定是元素节点）
+
 ### 1.6 previousElementSibling、nextElementSibling
-- previousElementSibling获取当前节点上一个兄弟 __元素节点__  
-- nextElementSibling获取当前节点下一个兄弟 __元素节点__   
-- IE6、7、8不兼容
+
+- previousElementSibling 获取当前节点上一个兄弟 **元素节点**
+- nextElementSibling 获取当前节点下一个兄弟 **元素节点**
+- IE6、7、8 不兼容
 
 ### 1.7 firstChild、lastChild
+
 - firstChild：当前元素第一个子节点（不一定是元素节点）
 - lastChild：当前元素最后一个子节点（不一定是元素节点）
 
 ### 1.8 firstElementChild、lastElementChild
-- firstElementChild：当前元素第一个__元素子节点__  
-- lastElementChild：当前元素最后一个__元素子节点__   
-- IE6、7、8不兼容
+
+- firstElementChild：当前元素第一个**元素子节点**
+- lastElementChild：当前元素最后一个**元素子节点**
+- IE6、7、8 不兼容
 
 ### 1.9 Node.prototype.baseURI
-- baseURI属性返回一个字符串，表示当前网页的绝对路径。
+
+- baseURI 属性返回一个字符串，表示当前网页的绝对路径。
 - 以使用 HTML 的<base>标签，改变该属性的值。
 
 ```
@@ -102,9 +112,9 @@ document.baseURI
 // "http://www.example.com/index.html"
 ```
 
-
 ### 1.10 Node.prototype.ownerDocument
-Node.ownerDocument属性返回当前节点所在的顶层文档对象，即document对象。
+
+Node.ownerDocument 属性返回当前节点所在的顶层文档对象，即 document 对象。
 
 ### 1.11 [parentNode].appendChild()
 
@@ -115,11 +125,13 @@ Node.ownerDocument属性返回当前节点所在的顶层文档对象，即docum
 ### 1.14 [parentNode].replaceChild(newChild, oldChild);
 
 ### 1.15 node.cloneNode(deep);
-- deep 可选,为true,则该节点的所有后代节点也都会被克隆,如果为false,则只克隆该节点本身.
+
+- deep 可选,为 true,则该节点的所有后代节点也都会被克隆,如果为 false,则只克隆该节点本身.
 
 ### 1.16 Node.prototype.normalize()
-normalize方法用于清理当前节点内部的所有文本节点（text）。   
-它会去除空的文本节点，并且将毗邻的文本节点合并成一个.    
+
+normalize 方法用于清理当前节点内部的所有文本节点（text）。  
+它会去除空的文本节点，并且将毗邻的文本节点合并成一个.
 
 ```
 var wrapper = document.createElement('div');
@@ -133,11 +145,10 @@ wrapper.childNodes.length // 1
 
 ```
 
-
-
 ## 2 Document
 
 ### 2.1 快捷方式属性
+
 1. document.doctype
 
 ```
@@ -145,23 +156,26 @@ var doctype = document.doctype;
 doctype // "<!DOCTYPE html>"
 doctype.name // "html"
 ```
+
 2. document.documentElement
- - returns the __Element__ that is the root element of the document 
-   (for example, the `<html>` element for HTML documents).
-HTML网页的该属性，一般是<html>节点.
- 
-3. document.body，document.head 
+
+- returns the **Element** that is the root element of the document
+  (for example, the `<html>` element for HTML documents).
+  HTML 网页的该属性，一般是<html>节点.
+
+3. document.body，document.head
+
 - Returns the `<body>` or `<frameset>` node of the current document
--returns the `<head>` element of the current document
- 
+  -returns the `<head>` element of the current document
+
 ### 2.2 节点集合属性
 
 1. document.links
 
-返回当前文档所有设定了href属性的<a>及<area>节点。
+返回当前文档所有设定了 href 属性的<a>及<area>节点。
 
 2. document.forms
-除了使用位置序号，id属性和name属性也可以用来引用表单。
+   除了使用位置序号，id 属性和 name 属性也可以用来引用表单。
 
 ```
 /* HTML 代码如下
@@ -175,23 +189,22 @@ document.forms.bar === document.forms.foo // true
 
 4. document.scripts
 
- 
 ### 2.3 文档静态信息属性
+
 1. document.domain
 
-document.domain基本上是一个只读属性，只有一种情况除外。次级域名的网页，可以把document.domain设为对应的上级域名。           
-比如，当前域名是a.sub.example.com，则document.domain属性可以设置为sub.example.com，也可以设为example.com。         
-修改后，document.domain相同的两个网页，可以读取对方的资源，比如设置的 Cookie。     
-
+document.domain 基本上是一个只读属性，只有一种情况除外。次级域名的网页，可以把 document.domain 设为对应的上级域名。  
+比如，当前域名是 a.sub.example.com，则 document.domain 属性可以设置为 sub.example.com，也可以设为 example.com。  
+修改后，document.domain 相同的两个网页，可以读取对方的资源，比如设置的 Cookie。
 
 2. document.location
-Location对象是浏览器提供的原生对象，提供 URL 相关的信息和操作方法。通过window.location也可获得。    
+   Location 对象是浏览器提供的原生对象，提供 URL 相关的信息和操作方法。通过 window.location 也可获得。
 
 3. document.title、document.characterSet
 
 4. document.documentURI，document.URL
-都返回一个字符串，表示当前文档的网址。       
-不同之处是它们继承自不同的接口，documentURI继承自Document接口，可用于所有文档；URL继承自HTMLDocument接口，只能用于 HTML 文档。  
+   都返回一个字符串，表示当前文档的网址。  
+   不同之处是它们继承自不同的接口，documentURI 继承自 Document 接口，可用于所有文档；URL 继承自 HTMLDocument 接口，只能用于 HTML 文档。
 
 ```
 document.URL
@@ -220,33 +233,39 @@ document.documentURI === document.URL
 - document.createEvent()
 - document.addEventListener()，document.removeEventListener()，document.dispatchEvent()
 
-1. document.getElementById 
- - 上下文只能是document
- - returns an __Element__ object 
- 
-2. [context].getElementsByTagName 
- - returns __HTMLCollection__
- 
+1. document.getElementById
+
+- 上下文只能是 document
+- returns an **Element** object
+
+2. [context].getElementsByTagName
+
+- returns **HTMLCollection**
+
 3. [context].getElementsByClassName
- - returns  __HTMLCollection__
- - IE6-8下不兼容
- - 如果查找多个类，类名顺序不重要，[context].getElementsByClassName("item2 item1")，    
- 可以匹配 <div class='item1 item2'>
- 
-4. document.getElementsByName 
- - 上下文只能是document
- - returns __NodeList__ Collection
- - IE浏览器(9及以下)只能识别表单元素的name属性，一般用于操作表单元素
-   
+
+- returns **HTMLCollection**
+- IE6-8 下不兼容
+- 如果查找多个类，类名顺序不重要，[context].getElementsByClassName("item2 item1")，  
+  可以匹配 <div class='item1 item2'>
+
+4. document.getElementsByName
+
+- 上下文只能是 document
+- returns **NodeList** Collection
+- IE 浏览器(9 及以下)只能识别表单元素的 name 属性，一般用于操作表单元素
+
 5. [context].querySelector
- - Returns the first element that is a descendant of the element
- 
+
+- Returns the first element that is a descendant of the element
+- 静态的
+
 6. [context].querySelectorAll()
-- returns a __static__ (not live) NodeList（静态的）
-- querySelector和querySelectorAll在IE6、7、8下不兼容，一般多用于移动端开发
 
-**一般说的都是getElement(s)Byxxxx获取的是动态集合，querySelector获取的是静态集合**
+- returns a **static** (not live) NodeList（静态的）
+- querySelector 和 querySelectorAll 在 IE6、7、8 下不兼容，一般多用于移动端开发
 
+**一般说的都是 getElement(s)Byxxxx 获取的是动态集合，querySelector 获取的是静态集合**
 
 ```
 // 死循环
@@ -267,7 +286,6 @@ document.documentURI === document.URL
     }
 </script>
 ```
-
 
 ```
 <body>
@@ -290,8 +308,8 @@ console.log(list.length); //输出的结果仍然是3，不是此时li的数量6
 
 ```
 
+7. document.createElement(tagName)
 
-7. document.createElement(tagName) 
 ```
 // 可利用a标签的属性解析字符串
 var link = document.createElement("a");
@@ -313,7 +331,7 @@ p1.appendChild(newtext);
 
 9. document.createEvent()/dispatchEvent()
 
-document.createEvent方法生成一个事件对象（Event实例），该对象可以被element.dispatchEvent方法使用，触发指定事件。
+document.createEvent 方法生成一个事件对象（Event 实例），该对象可以被 element.dispatchEvent 方法使用，触发指定事件。
 
 ```
 var event = document.createEvent('Event');
@@ -324,27 +342,26 @@ document.addEventListener('build', function (e) {
 document.dispatchEvent(event);
 ```
 
-
 ## 3 Element
 
 ## 3.1 元素特性的相关属性
 
 - Element.id
-- Element.tagName 返回指定元素的大写标签名,与nodeName属性的值相等
+- Element.tagName 返回指定元素的大写标签名,与 nodeName 属性的值相等
 - Element.accessKey 分配给当前元素的快捷键, btn.accessKey // "h"
 - Element.draggable 返回一个布尔值，表示当前元素是否可拖动
 - Element.lang 当前元素的语言设置 <html lang="en">
 - Element.tabIndex 返回一个整数，表示当前元素在 Tab 键遍历时的顺序
-- Element.title 读写当前元素的 HTML 属性title
+- Element.title 读写当前元素的 HTML 属性 title
 
 ## 3.2 元素状态的相关属性
 
 - Element.contentEditable，
-- Element.attributes     
-属性返回一个类似数组的对象，NamedNodeMap   
-- Element.className，Element.classList     
-className属性用来读写当前元素节点的class属性。它的值是一个字符串，每个class之间用空格分割。            
-**classList属性返回一个类似数组的对象**，当前元素节点的每个class就是这个对象的一个成员.                 
+- Element.attributes  
+  属性返回一个类似数组的对象，NamedNodeMap
+- Element.className，Element.classList  
+  className 属性用来读写当前元素节点的 class 属性。它的值是一个字符串，每个 class 之间用空格分割。  
+  **classList 属性返回一个类似数组的对象**，当前元素节点的每个 class 就是这个对象的一个成员.
 
 ```
 console.log(div.className);
@@ -355,8 +372,7 @@ console.log(div.classList);
 
 ```
 
-
-**classList对象有下列方法**:
+**classList 对象有下列方法**:
 
 - add()：增加一个 class。
 - remove()：移除一个 class。
@@ -365,11 +381,10 @@ console.log(div.classList);
 - item()：返回指定索引位置的 class。
 - toString()：将 class 的列表转为字符串。
 
-
-
 ## 3.3 Element.innerHTML / outerHTML
-返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写.    
-如果文本节点包含&、小于号（<）和大于号（>），innerHTML属性会将它们转为实体形式&amp;、&lt;、&gt;   
+
+返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写.  
+如果文本节点包含&、小于号（<）和大于号（>），innerHTML 属性会将它们转为实体形式&amp;、&lt;、&gt;
 
 ```
 // HTML代码如下 <p id="para"> 5 > 3 </p>
@@ -377,7 +392,8 @@ document.getElementById('para').innerHTML
 // 5 &gt; 3
 
 ```
-outerHTML属性返回一个字符串，表示当前元素节点的所有 HTML 代码，包括该元素本身和所有子元素。   
+
+outerHTML 属性返回一个字符串，表示当前元素节点的所有 HTML 代码，包括该元素本身和所有子元素。
 
 ```
 // HTML 代码如下
@@ -388,31 +404,54 @@ d.outerHTML
 
 ```
 
+## JS 盒子模型(13 个)
+
+1. client
+
+   > top
+   > left
+   > width
+   > height
+
+2. offset
+
+   > top
+   > left
+   > width
+   > height
+   > parent
+
+3. scroll
+   > top
+   > left
+   > width
+   > height
 
 ## 3.4 Element.clientHeight，Element.clientWidth
 
-1. Element.clientHeight属性返回一个整数值，表示元素节点的 CSS 高度（单位像素），**只对块级元素生效**，对于行内元素返回0。            
-如果块级元素没有设置 CSS 高度，则返回实际高度。        
+1. Element.clientHeight 属性返回一个整数值，表示元素节点的 CSS 高度（单位像素），**只对块级元素生效**，对于行内元素返回 0。  
+   如果块级元素没有设置 CSS 高度，则返回实际高度。
 
-2. 除了元素本身的高度，它还**包括padding**部分，但是**不包括border、margin**。                    
-如果有水平滚动条，还要减去水平滚动条的高度。注意，这个值始终是整数，如果是小数会被四舍五入。           
+2. 除了元素本身的高度，它还**包括 padding**部分，但是**不包括 border、margin**。  
+   如果有水平滚动条，还要减去水平滚动条的高度。注意，这个值始终是整数，如果是小数会被四舍五入。
 
-3. Element.clientWidth属性返回元素节点的 CSS 宽度，同样只对块级元素有效，也是只包括元素本身的宽度和padding，            
-如果有垂直滚动条，还要减去垂直滚动条的宽度。               
+3. Element.clientWidth 属性返回元素节点的 CSS 宽度，同样只对块级元素有效，也是只包括元素本身的宽度和 padding，  
+   如果有垂直滚动条，还要减去垂直滚动条的宽度。
 
-注意：不设置height等于300px时
+4. 该值和是否溢出无关，和是否设置了 overflow:hidden 无关，就是设定的内容宽/高（如未显示设置，为内容撑开占据的宽/高）+padding
+
+注意：不设置 height 等于 300px 时
 oDiv.clientHeight //240 （此时内容不溢出），
 oDiv.clientHeight //570 （增加内容，文本框高度自动扩大，此时内容不溢出）
 
-设置height等于300px时            
-oDiv.clientHeight //360  ;360px = 300px(height) + 上下padding(30px),此时内容不溢出
-oDiv.clientHeight //360  ;增加内容,文本内容溢出，clientHeight仍为360
- 
- 
-document.documentElement的clientHeight属性，返回当前视口的高度（即浏览器窗口的高度），                                    
-等同于window.innerHeight属性减去水平滚动条的高度（如果有的话）。  
-document.body的高度则是网页的实际高度。                       
-一般来说，document.body.clientHeight大于document.documentElement.clientHeight。                   
+设置 height 等于 300px 时  
+oDiv.clientHeight //360 ;360px = 300px(height) + 上下 padding(30px),此时内容不溢出
+oDiv.clientHeight //360 ;增加内容,文本内容溢出，clientHeight 仍为 360
+
+document.documentElement 的 clientHeight 属性，返回当前视口的高度（即浏览器窗口的高度），  
+等同于 window.innerHeight 属性减去水平滚动条的高度（如果有的话）。  
+document.body 的高度则是网页的实际高度。  
+一般来说，document.body.clientHeight 大于 document.documentElement.clientHeight。
 
 ```
 document.body.clientHeight;//25597
@@ -421,66 +460,68 @@ document.documentElement.clientHeight;//722
 
 ```
 
+## 3.5 clientLeft、clientTop
 
-## 3.5 clientLeft、clientTop 
-
-Element.clientLeft属性等于元素节点**左边框（left border）的宽度**（单位像素），不包括左侧的padding和margin。 
-如果**没有设置左边框，或者是行内元素（display: inline），该属性返回0**。该属性总是返回整数值，如果是小数，会四舍五入。                                  
-Element.clientTop属性等于网页元素顶部边框的宽度（单位像素），其他特点都与clientLeft相同。         
-
+Element.clientLeft 属性等于元素节点**左边框（left border）的宽度**（单位像素），不包括左侧的 padding 和 margin。
+如果**没有设置左边框，或者是行内元素（display: inline），该属性返回 0**。该属性总是返回整数值，如果是小数，会四舍五入。  
+Element.clientTop 属性等于网页元素顶部边框的宽度（单位像素），其他特点都与 clientLeft 相同。
 
 ## 3.6 scrollWidth /scrollHeight
-  > 内容不溢出时，和clientWidth、cientHeight一致，
-  > 溢出时，其值为真实内容的高度/宽度 + 上填充/左填充
 
-Element.scrollHeight属性返回一个整数值（小数会四舍五入），表示当前元素的总高度（单位像素），包括溢出容器、当前不可见的部分。    
-它包括padding，但是不包括border、margin以及水平滚动条的高度（如果有水平滚动条的话），还包括伪元素（::before或::after）的高度。    
+> 内容不溢出时，和 clientWidth、cientHeight 一致，
+> 溢出时，其值为真实内容的高度/宽度 + 上填充/左填充
+
+Element.scrollHeight 属性返回一个整数值（小数会四舍五入），表示当前元素的总高度（单位像素），包括溢出容器、当前不可见的部分。  
+它包括 padding，但是不包括 border、margin 以及水平滚动条的高度（如果有水平滚动条的话），还包括伪元素（::before 或::after）的高度。
 
 ## 3.7 scrollLeft/ scrollTop
-- 滚动条卷去的宽度/高度
-- 对于那些没有滚动条的网页元素，这两个属性总是等于0。
 
+- 滚动条卷去的宽度/高度 ，scrollTop 最大值为 document.documentElement.scrollHeight - document.documentElement.clientHeight
+- 对于那些没有滚动条的网页元素，这两个属性总是等于 0。因此该值 介于 0~ document.documentElement.scrollHeight - document.documentElement.clientHeight
+- 该值可以读，还可以写
 
+## 3.8 offsetHeight/offsetWidth (和 clientHeight 类似)
 
-## 3.8 offsetHeight/offsetWidth (和clientHeight 类似)
-Element.offsetHeight属性返回一个整数，表示元素的 CSS 垂直高度（单位像素），              
+Element.offsetHeight 属性返回一个整数，表示元素的 CSS 垂直高度（单位像素），  
 包括元素本身的**高度、padding 和 border，以及水平滚动条的高度**（如果存在滚动条）.  
-offsetWidth 类似。  
+offsetWidth 类似。
 
-  (设置height时，和内容是否溢出没有关系)
-   offsetHeight; //380 = clientHeight + 上下border 高度
-   offsetWidth ;// 380 = clientWidth + 上下border 宽度
-   
-  (不设置height时，增加内容，文本框高度自动扩大，此时内容不溢出，offsetHeight = clientHeight + 上下border 高度
+(设置 height 时，和内容是否溢出没有关系)
+offsetHeight; //380 = clientHeight + 上下 border 高度
+offsetWidth ;// 380 = clientWidth + 上下 border 宽度
 
-
-
+(不设置 height 时，增加内容，文本框高度自动扩大，此时内容不溢出，offsetHeight = clientHeight + 上下 border 高度
 
 ## 3.9 offsetLeft / offsetTop 当前元素的外边框距离父级参照物内边框的偏移量
-  (chrome测试时，如果offsetParent 为body，则会包含body的边框值及margin值？)
-   
+
+(chrome 测试时，如果 offsetParent 为 body，则会包含 body 的边框值及 margin 值？)
+
 ## 3.10 offsetParent 当前元素的父级参照物
-Element.offsetParent属性返回最靠近当前元素的、并且 CSS 的position属性不等于static的上层元素。
-- 1. 元素自身有fixed定位，offsetParent 的结果为null（ 元素有fixed定位，固定定位元素相对于视口定位，
-没有定位父级，因此返回null; firefox 返回body）
-- 2. 元素 display: none，则其offsetParent 的结果为null
-- 3. 元素自身无fixed定位，父级元素存在定位的元素， offsetParent 为 离自身最近的经过定位的(position属性不等于static)父级元素
-- 4. 元素自身无fixed定位，父级元素都未定位， offsetParent 为 body
-- 5. body 元素的offsetParent 是 null
+
+Element.offsetParent 属性返回最靠近当前元素的、并且 CSS 的 position 属性不等于 static 的上层元素。
+
+- 1. 元素自身有 fixed 定位，offsetParent 的结果为 null（ 元素有 fixed 定位，固定定位元素相对于视口定位，
+     没有定位父级，因此返回 null; firefox 返回 body）
+- 2. 元素 display: none，则其 offsetParent 的结果为 null
+- 3. 元素自身无 fixed 定位，父级元素存在定位的元素， offsetParent 为 离自身最近的经过定位的(position 属性不等于 static)父级元素
+- 4. 元素自身无 fixed 定位，父级元素都未定位， offsetParent 为 body
+- 5. body 元素的 offsetParent 是 null
 - 6. ie7- bug :
-       (1) 元素本身经过绝对定位或相对定位，且父级元素无定位的元素，ie7-下offsetParent 是html；           
-       (2) 父级元素存在haslayout的元素或者经过定位的元素，则元素的offsetParent为经过定位或触发了haslayout的父级元素     
+     (1) 元素本身经过绝对定位或相对定位，且父级元素无定位的元素，ie7-下 offsetParent 是 html；  
+      (2) 父级元素存在 haslayout 的元素或者经过定位的元素，则元素的 offsetParent 为经过定位或触发了 haslayout 的父级元素
 
+## 3.11 Element.style
 
+## 3.12 Element.children
 
-## 3.11 Element.style 
-## 3.12 Element.children  
-返回一个类似数组的对象（HTMLCollection实例），包括当前元素节点的所有子元素。 
+返回一个类似数组的对象（HTMLCollection 实例），包括当前元素节点的所有子元素。
+
 ## 3.13 Element.firstElementChild，Element.lastElementChild
+
 ## 3.14 Element.nextElementSibling，Element.previousElementSibling
 
 ## 3.15 方法
- 
+
 - getAttribute(attrName)：读取某个属性的值，返回属性值（string)
 - getAttributeNames()：返回当前元素的所有属性名
 - setAttribute(name, value)：写入属性值
@@ -497,7 +538,6 @@ Element.offsetParent属性返回最靠近当前元素的、并且 CSS 的positio
 - Element.remove()
 - Element.focus()，Element.blur()
 - Element.click()
-
 
 ```
 var oDiv = document.getElementById("div1");
@@ -537,17 +577,19 @@ bottom：元素底部相对于视口的纵坐标（等于y + height）
 
 
 ```
- 
-## 3 HTMLCollection和NodeList
+
+## 3 HTMLCollection 和 NodeList
+
 1. 相同点：
-- 都是类数组对象，都有length属性
-- 都有共同的方法：item，可以通过item(index)或者item(id)来访问返回结果中的元素
-- 都是实时变动的（live），document上的更改会反映到相关对象上（例外：document.querySelectorAll返回的NodeList不是实时的）
+
+- 都是类数组对象，都有 length 属性
+- 都有共同的方法：item，可以通过 item(index)或者 item(id)来访问返回结果中的元素
+- 都是实时变动的（live），document 上的更改会反映到相关对象上（例外：document.querySelectorAll 返回的 NodeList 不是实时的）
 
 2. 区别是：
-- NodeList可以包含任何节点类型，HTMLCollection只包含元素节点（elementNode），elementNode就是HTML中的标签
-- HTMLCollection比NodeList多一项方法：namedItem，可以通过传递id或name属性来获取节点信息
 
+- NodeList 可以包含任何节点类型，HTMLCollection 只包含元素节点（elementNode），elementNode 就是 HTML 中的标签
+- HTMLCollection 比 NodeList 多一项方法：namedItem，可以通过传递 id 或 name 属性来获取节点信息
 
 ```
     var oList = document.body.childNodes;
@@ -573,21 +615,21 @@ bottom：元素底部相对于视口的纵坐标（等于y + height）
     document.images.namedItem('pic') === pic // true
 ```
 
- 
 ## 4 Text
-文本节点（Text）代表元素节点（Element）和属性节点（Attribute）的文本内容。  
 
-通常我们使用父节点的firstChild、nextSibling等属性获取文本节点，或者使用Document节点的createTextNode方法创造一个文本节点。
+文本节点（Text）代表元素节点（Element）和属性节点（Attribute）的文本内容。
+
+通常我们使用父节点的 firstChild、nextSibling 等属性获取文本节点，或者使用 Document 节点的 createTextNode 方法创造一个文本节点。
 
 ```
 // 获取文本节点
 var textNode = document.querySelector('p').firstChild;
 ```
 
-
 ### 4.1 Text 节点的属性
-- data data属性等同于nodeValue属性
-- length 
+
+- data data 属性等同于 nodeValue 属性
+- length
 - nextElementSibling，previousElementSibling
 
 ```
@@ -599,30 +641,30 @@ tn.nextElementSibling
 ```
 
 ### 4.2 Text 节点的方法
-以下5个方法都是编辑Text节点文本内容的方法。
 
-- appendData()：在Text节点尾部追加字符串。
-- deleteData()：删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。
-- insertData()：在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。
+以下 5 个方法都是编辑 Text 节点文本内容的方法。
+
+- appendData()：在 Text 节点尾部追加字符串。
+- deleteData()：删除 Text 节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。
+- insertData()：在 Text 节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。
 - replaceData()：用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。
-- subStringData()：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。
+- subStringData()：用于获取子字符串，第一个参数为子字符串在 Text 节点中的开始位置，第二个参数为子字符串长度。
 
+## 5 文档碎片及 dom 回流
 
-
-## 5 文档碎片及dom回流
 1. document.createDocumentFragment();
 
 2. DOM 回流(reflows)与重绘(repaints)
-    > 调整窗口大小（Resizing the window）
-    > 改变字体（Changing the font）
-    > 增加或者移除样式表（Adding or removing a stylesheet）
-    > 内容变化，比如用户在input框中输入文字（Content changes, such as a user typing text in
-    > an input box）
-    > 激活 CSS 伪类，比如 :hover (IE 中为兄弟结点伪类的激活)（Activation of CSS pseudo classes such as :hover (in IE the activation of the pseudo class of a sibling)）
-    > 操作 class 属性（Manipulating the class attribute）
-    > 脚本操作 DOM（A script manipulating the DOM）
-    > 计算 offsetWidth 和 offsetHeight 属性（Calculating offsetWidth and offsetHeight）
-    > 设置 style 属性的值 （Setting a property of the style attribute）
+   > 调整窗口大小（Resizing the window）
+   > 改变字体（Changing the font）
+   > 增加或者移除样式表（Adding or removing a stylesheet）
+   > 内容变化，比如用户在 input 框中输入文字（Content changes, such as a user typing text in
+   > an input box）
+   > 激活 CSS 伪类，比如 :hover (IE 中为兄弟结点伪类的激活)（Activation of CSS pseudo classes such as :hover (in IE the activation of the pseudo class of a sibling)）
+   > 操作 class 属性（Manipulating the class attribute）
+   > 脚本操作 DOM（A script manipulating the DOM）
+   > 计算 offsetWidth 和 offsetHeight 属性（Calculating offsetWidth and offsetHeight）
+   > 设置 style 属性的值 （Setting a property of the style attribute）
 
 ```
 <!DOCTYPE html>
@@ -740,12 +782,12 @@ tn.nextElementSibling
 </html>
 
 
-```	
+```
 
 ## 6 CSS 操作
 
-操作 CSS 样式最简单的方法，就是使用网页元素节点的getAttribute方法、setAttribute方法和removeAttribute方法，         
-直接读写或删除网页元素的style属性。     
+操作 CSS 样式最简单的方法，就是使用网页元素节点的 getAttribute 方法、setAttribute 方法和 removeAttribute 方法，  
+直接读写或删除网页元素的 style 属性。
 
 ```
 div.setAttribute(
@@ -757,14 +799,14 @@ div.setAttribute(
 
 ### 6.1 CSSStyleDeclaration 接口
 
-CSSStyleDeclaration 接口用来操作元素的样式。三个地方部署了这个接口。       
+CSSStyleDeclaration 接口用来操作元素的样式。三个地方部署了这个接口。
 
-- 元素节点的style属性（Element.style）
-- CSSStyle实例的style属性
+- 元素节点的 style 属性（Element.style）
+- CSSStyle 实例的 style 属性
 - window.getComputedStyle()的返回值
 
-注意：Element.style返回的只是**行内样式**，并不是该元素的全部样式。  
-  通过样式表设置的样式，或者从父元素继承的样式，无法通过这个属性得到。元素的**全部样式要通过window.getComputedStyle()**得到。
+注意：Element.style 返回的只是**行内样式**，并不是该元素的全部样式。  
+ 通过样式表设置的样式，或者从父元素继承的样式，无法通过这个属性得到。元素的**全部样式要通过 window.getComputedStyle()**得到。
 
 ```
 var divStyle = document.querySelector('div').style;
@@ -776,19 +818,16 @@ divStyle.width = '100px';
 ```
 
 -
-注意： 
-- **float写成cssFloat**
-- **background-color写成 backgroundColor**
-- 属性值都是字符串，设置时必须**包括单位**，但是不含规则结尾的分号。比如，divStyle.width不能写为100，而要写为100px。
+注意：
 
-
+- **float 写成 cssFloat**
+- **background-color 写成 backgroundColor**
+- 属性值都是字符串，设置时必须**包括单位**，但是不含规则结尾的分号。比如，divStyle.width 不能写为 100，而要写为 100px。
 
 #### 6.1.1 实例属性
 
-- cssText  用来读写当前规则的所有样式声明文本。
-- length  表示当前规则包含多少条样式声明。
-
-
+- cssText 用来读写当前规则的所有样式声明文本。
+- length 表示当前规则包含多少条样式声明。
 
 ```
 var divStyle = document.querySelector('div').style;
@@ -800,24 +839,21 @@ divStyle.cssText = 'background-color: red;'
 
 ```
 
-
 #### 6.1.2 实例方法
 
-- getPropertyPriority()       
-接受 CSS 样式的属性名作为参数，返回一个字符串，表示有没有设置important优先级。如果有就返回important，否则返回空字符串
+- getPropertyPriority()  
+  接受 CSS 样式的属性名作为参数，返回一个字符串，表示有没有设置 important 优先级。如果有就返回 important，否则返回空字符串
 
-- getPropertyValue()          
-接受 CSS 样式属性名作为参数，返回一个字符串，表示该属性的属性值。        
+- getPropertyValue()  
+  接受 CSS 样式属性名作为参数，返回一个字符串，表示该属性的属性值。
 
 - item() 接受 整数值作为参数，返回该位置的 CSS 属性名
 - removeProperty() 接受一个属性名作为参数，在 CSS 规则里面移除这个属性
-- setProperty()  接受三个参数。
+- setProperty() 接受三个参数。
 
-    第一个参数：属性名，该参数是必需的。        
-    第二个参数：属性值，该参数可选。如果省略，则参数值默认为空字符串。                      
-    第三个参数：优先级，该参数可选。如果设置，唯一的合法值是important，表示 CSS 规则里面的!important。                          
-
-
+  第一个参数：属性名，该参数是必需的。  
+   第二个参数：属性值，该参数可选。如果省略，则参数值默认为空字符串。  
+   第三个参数：优先级，该参数可选。如果设置，唯一的合法值是 important，表示 CSS 规则里面的!important。
 
 ```
 // <div id="myDiv" style="margin: 10px!important; color: red;"/>
@@ -831,14 +867,12 @@ style.getPropertyValue("margin") // "10px"
 
 ```
 
-
-
-
-### 6.2  window.getComputedStyle()
+### 6.2 window.getComputedStyle()
 
 参数：
-- 第一个参数：一个节点对象，返回一个 CSSStyleDeclaration 实例，包含了指定节点的最终样式信息           
-- 第二个参数： 表示当前元素的伪元素（比如:before、:after、:first-line、:first-letter等）。  
+
+- 第一个参数：一个节点对象，返回一个 CSSStyleDeclaration 实例，包含了指定节点的最终样式信息
+- 第二个参数： 表示当前元素的伪元素（比如:before、:after、:first-line、:first-letter 等）。
 
 ```
     .box:before{
