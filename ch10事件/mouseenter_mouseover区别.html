@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      #outer {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+        border: solid black 2px;
+        top: 20px;
+        left: 20px;
+      }
+      #inner {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        background: red;
+        top: 25%;
+        left: 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner"></div>
+    </div>
+    <script type="text/javascript">
+      1. onmouseover 属于滑过事件，从父元素到子元素的时候， 属于离开了子元素，触发父元素的onmouseout,然后触发子元素的onmouseover，接着子元素的事件冒泡到父元素，触发父元素的onmouseover
+
+      2. onmouseenter, 从父元素到子元素的时候， 并不算离开父元素，不会触发 onmouseleave,触发子元素的onmouseenter（不冒泡到父元素）
+
+      3. onmouseenter 和 onmouseleave 阻止冒泡；onmouseover 和 onmouseout 会冒泡
+
+        var outer = document.getElementById("outer");
+        var inner = document.getElementById("inner");
+
+        outer.onmouseover = function () {
+          console.log("outer onmouseover");
+        };
+        inner.onmouseover = function () {
+          console.log("inner onmouseover");
+        };
+
+        outer.onmouseout = function () {
+          console.log("outer onmouseout");
+        };
+        inner.onmouseout = function () {
+          console.log("inner onmouseout");
+        };
+
+        ////////////////////////
+        //   outer.onmouseenter = function () {
+        //     console.log("outer onmouseenter");
+        //   };
+        //   inner.onmouseenter = function () {
+        //     console.log("inner onmouseenter");
+        //   };
+
+        //   outer.onmouseleave = function () {
+        //     console.log("outer onmouseleave");
+        //   };
+        //   inner.onmouseout = function () {
+        //     console.log("inner onmouseleave");
+        //   };
+    </script>
+  </body>
+</html>
