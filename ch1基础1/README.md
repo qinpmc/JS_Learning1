@@ -203,6 +203,50 @@ yarn remove xxx
 ![defer_async](./defer_async.png)
 
 
+补充：
+- https://zh.javascript.info/script-async-defer
+
+当浏览器加载 HTML 时遇到 <script>...</script> 标签，浏览器就不能继续构建 DOM。 
+它必须立刻执行此脚本。对于外部脚本 <script src="..."></script> 也是一样的：
+浏览器必须等脚本下载完，并执行结束，之后才能继续处理剩余的页面。
+
+
+这会导致两个重要的问题：
+1. 脚本不能访问到位于它们下面的 DOM 元素，因此，脚本无法给它们添加处理程序等。
+2. 如果页面顶部有一个笨重的脚本，它会“阻塞页面”。在该脚本下载并执行结束前，用户都不能看到页面内容：
+
+- defer 
+defer 特性告诉浏览器不要等待脚本。
+相反，浏览器将继续处理 HTML，构建 DOM。脚本会**在后台**下载，然后等 DOM 构建完成后，脚本才会执行。
+- 具有 defer 特性的脚本不会阻塞页面。
+- 具有 defer 特性的脚本总是要等到 DOM 解析完毕，但在 DOMContentLoaded 事件之前执行
+
+我们有两个具有 defer 特性的脚本：long.js 在前，small.js 在后。
+
+```
+<script defer src="https://javascript.info/article/script-async-defer/long.js"></script>
+<script defer src="https://javascript.info/article/script-async-defer/small.js"></scri
+```
+两个脚本是并行下载的。small.js 可能会先下载完成。    
+但是，defer 特性除了告诉浏览器“不要阻塞页面”之外，还可以确保脚本执行的相对顺序。因此，
+**即使 small.js 先加载完成，它也需要等到 long.js 执行结束才会被执行**
+
+
+async
+
+- 浏览器不会因 async 脚本而阻塞（与 defer 类似）。
+- 其他脚本不会等待 async 脚本加载完成，同样，async 脚本也不会等待其他脚本。
+- DOMContentLoaded 和异步脚本不会彼此等待：
+- DOMContentLoaded 可能会发生在异步脚本之前（如果异步脚本在页面完成后才加载完成）
+- DOMContentLoaded 也可能发生在异步脚本之后（如果异步脚本很短，或者是从 HTTP 缓存中加载的）
+
+
+
+
+
+
+
+
 
 
 
